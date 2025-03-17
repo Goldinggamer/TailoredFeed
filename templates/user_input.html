@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TailoredFeed - Einstellungen</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="background"></div>
+  <div class="stars"></div>
+
+  <div class="nav">
+    <a href="{{ url_for('index') }}">
+      <button class="back-button">←</button>
+    </a>
+  </div>
+
+  <div class="container">
+    <div class="brand">tailoredfeed</div>
+
+    <div class="form-container">
+      <!-- Altersgruppen -->
+      <div>
+        <div class="section-heading">Wähle deine Altersgruppe</div>
+        <div class="option-buttons age-buttons">
+          <button class="option-button" data-value="18-23">18–23</button>
+          <button class="option-button" data-value="24-29">24–29</button>
+          <button class="option-button" data-value="30-35">30–35</button>
+          <button class="option-button" data-value="36-45">36–45</button>
+          <button class="option-button" data-value="46-55">46–55</button>
+          <button class="option-button" data-value="55+">55+</button>
+        </div>
+      </div>
+
+      <!-- Geschlecht -->
+      <div>
+        <div class="section-heading">Wähle dein Geschlecht</div>
+        <div class="option-buttons gender-buttons">
+          <button class="option-button" data-value="männlich">Männlich</button>
+          <button class="option-button" data-value="weiblich">Weiblich</button>
+          <button class="option-button" data-value="divers">Divers</button>
+        </div>
+      </div>
+
+      <!-- Sprache -->
+      <div class="form-field">
+        <label for="lang">Bevorzugte Sprache:</label>
+        <input type="text" id="lang" name="lang" placeholder="z.B. Deutsch">
+      </div>
+
+      <!-- Dialekt -->
+      <div class="form-field">
+        <label for="dialect">Optionaler Dialekt:</label>
+        <input type="text" id="dialect" name="dialect" placeholder="z.B. Bayrisch">
+      </div>
+    </div>
+
+    <button class="continue-button" onclick="submitForm('user-info')">➜</button>
+  </div>
+
+  <div class="location">📍 München - Maxvorstadt</div>
+  <div class="date"></div>
+
+  <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+  <script>
+    document.querySelectorAll('.age-buttons .option-button').forEach(button => {
+      button.addEventListener('click', function() {
+        document.querySelectorAll('.age-buttons .option-button').forEach(btn => btn.classList.remove('selected'));
+        this.classList.add('selected');
+      });
+    });
+    
+    document.querySelectorAll('.gender-buttons .option-button').forEach(button => {
+      button.addEventListener('click', function() {
+        document.querySelectorAll('.gender-buttons .option-button').forEach(btn => btn.classList.remove('selected'));
+        this.classList.add('selected');
+      });
+    });
+  </script>
+</body>
+</html>
