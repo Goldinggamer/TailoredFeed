@@ -2,7 +2,6 @@ import requests
 import json
 from bs4 import BeautifulSoup
 import concurrent.futures
-import time
 
 def clean_html(html):
     """Entfernt HTML-Tags und gibt den reinen Text zurück."""
@@ -181,11 +180,15 @@ def main():
             print(f"Fehler bei München-Daten: {exc}")
             outputs["münchen"] = f"Fehler bei München-Daten: {exc}"
 
-    # Ausgabe der Ergebnisse
+    # Alle News in einer String-Variable zusammenfassen
+    AlleNews = ""
     for key in outputs:
-        print(f"Output für '{key}':\n")
-        print(outputs[key])
-        print("\n" + "#"*80 + "\n")
+        AlleNews += f"Output für '{key}':\n\n"
+        AlleNews += outputs[key]
+        AlleNews += "\n" + "#"*80 + "\n"
+    
+    # Ausgabe aller News direkt aus der AlleNews-Variable
+    print(AlleNews)
 
 if __name__ == "__main__":
     main()
