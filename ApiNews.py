@@ -188,7 +188,7 @@ def main():
         AlleNews += "\n" + "#"*80 + "\n"
 
     # alle_news.txt wird erstellt, der Inhalt gelöscht und der neue Inhalt der AlleNews Variable reingeschrieben.
-    with open("Data/alle_news.txt", "w", encoding="utf-8") as f:
+    with open("data/alle_news.txt", "w", encoding="utf-8") as f:
         f.write(AlleNews)
     
     # Ausgabe aller News direkt aus der AlleNews-Variable
