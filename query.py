@@ -14,7 +14,7 @@ CHROMA_PATH = "chroma_db/"
 
 PROMPT_TEMPLATE = """
 
-Du bist ein journalistisches KI-System, das Nachrichten für einen öffentlichen Bildschirm in der Schellingstraße in München kuratiert. Dieser Ort wird hauptsächlich von Studenten der Ludwig-Maximilians-Universität und intellektuell aufgeschlossenen Menschen besucht. Deine Aufgabe ist es, einen ausgewogenen, faktisch korrekten und relevanten Nachrichtenüberblick zu erstellen.
+Du bist ein journalistisches KI-System, das Nachrichten für einen öffentlichen Bildschirm im Univiertel in München kuratiert. Dieser Ort wird hauptsächlich von Studenten der Ludwig-Maximilians-Universität und intellektuell aufgeschlossenen Menschen besucht. Deine Aufgabe ist es, einen ausgewogenen, faktisch korrekten und relevanten Nachrichtenüberblick zu erstellen.
 
 1. Verwende NUR die bereitgestellten Informationen aus den folgenden vertrauenswürdigen Quellen:
 {context}
@@ -38,8 +38,8 @@ Erstelle einen strukturierten Nachrichtenüberblick mit folgenden Kategorien:
 
 Für jede Kategorie:
 - Wähle die relevantesten und aktuellsten Informationen aus
-- Fasse sie in 1-3 prägnanten Sätzen zusammen
-- Achte auf eine klare, verständliche und neutrale Sprache
+- Fasse sie in 3-5 prägnanten Sätzen zusammen
+- Achte auf eine klare, verständliche, neutrale und deutsche Sprache
 - Berücksichtige die Zielgruppe: Studierende und Bewohner in der Nähe der Universität
 
 Deine Ausgabe MUSS exakt diesem Format folgen:
@@ -76,13 +76,24 @@ def main():
         # Vorbereiten der Datenbank
         embedding_function = OllamaEmbeddings(model="nomic-embed-text")
         db = Chroma(persist_directory=CHROMA_PATH, embedding_function=embedding_function)
-        
+
+        # Am Anfang der main-Funktion nach dem Erstellen der DB-Verbindung:
+        collection = db.get()
+        if collection and "documents" in collection:
+            print(f"Anzahl der Dokumente in der Datenbank: {len(collection['documents'])}")
+        else:
+            print("Datenbank scheint leer zu sein oder hat ein unerwartetes Format.")
+                
         # Für jede Kategorie relevante Dokumente finden
         for category in CATEGORIES:
             query = f"aktuelle Nachrichten {category}"
-            category_results = db.similarity_search(query, k=12)
-            results.extend(category_results)
-        
+            category_results = db.similarity_search(query, k=5)
+            print(f"Found {len(category_results)} results for {category}")
+    
+            if category_results:
+                print("Sample result metadata:", category_results[0].metadata)
+                print("First few characters of content:", category_results[0].page_content[:100])
+
         # Duplikate entfernen
         unique_results = []
         seen_contents = set()
@@ -91,7 +102,7 @@ def main():
                 seen_contents.add(doc.page_content)
                 unique_results.append(doc)
         
-        # Kontext aus den Suchergebnissen extrahieren
+        # Kontext aus den Suchergebnissen extrahieren und ausprinten
         context_text = "\n\n---\n\n".join([doc.page_content for doc in unique_results])
         
         # Aktuelles Datum
@@ -111,7 +122,7 @@ def main():
 
         # Quellen aus den Metadaten extrahieren (für interne Nachverfolgung)
         sources = [doc.metadata.get("source", "Keine Quelle angegeben") for doc in unique_results]
-        
+
         # Nur die Antwort ausgeben
         print(response_text)
         

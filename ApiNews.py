@@ -2,6 +2,7 @@ import requests
 import json
 from bs4 import BeautifulSoup
 import concurrent.futures
+import json
 
 def clean_html(html):
     """Entfernt HTML-Tags und gibt den reinen Text zurück."""
@@ -107,14 +108,21 @@ def process_search_news(data):
         articles.append(extract_article(item))
     return articles
 
-def format_output(articles):
+def format_output(articles): ######## TODO
     """Formatiert die Artikel für die Ausgabe."""
-    out_str = ""
+    # out_str = ""
+    # for art in articles:
+    #     out_str += "Titel: " + art["title"] + "\n"
+    #     out_str += "Artikel:\n" + art["article"] + "\n"
+    #     out_str += "\n" + "="*50 + "\n"
+    # return out_str
+    arr = []
     for art in articles:
-        out_str += "Titel: " + art["title"] + "\n"
-        out_str += "Artikel:\n" + art["article"] + "\n"
-        out_str += "\n" + "="*50 + "\n"
-    return out_str
+        arr.append({
+            'title': art["title"],
+            'text': art["article"]
+        })
+    return arr
 
 def main():
     # URLs für die fünf Kategorien:
@@ -180,19 +188,39 @@ def main():
             print(f"Fehler bei München-Daten: {exc}")
             outputs["münchen"] = f"Fehler bei München-Daten: {exc}"
 
+    news_arr = []
     # Alle News in einer String-Variable zusammenfassen
-    AlleNews = ""
+    # AlleNews = ""
     for key in outputs:
-        AlleNews += f"Output für '{key}':\n\n"
-        AlleNews += outputs[key]
-        AlleNews += "\n" + "#"*80 + "\n"
+        # AlleNews += f"Output für '{key}':\n\n"
+        # AlleNews += outputs[key]
+        # AlleNews += "\n" + "#"*80 + "\n"
+        try: 
+            for n in outputs[key]:
+                print(str(n))
+                news_arr.append({
+                    'kategorie': key, 
+                    'title': n["title"],
+                    'text': n["text"]
+                })
+        except: 
+            print("fehler")
+
+
+    
 
     # alle_news.txt wird erstellt, der Inhalt gelöscht und der neue Inhalt der AlleNews Variable reingeschrieben.
-    with open("data/alle_news.txt", "w", encoding="utf-8") as f:
-        f.write(AlleNews)
+    with open("data/alle_news_json.json", "w", encoding="utf-8") as f:
+        # f.write(AlleNews)
+        data = {
+            'news': news_arr
+        }
+        json.dump(data, f, ensure_ascii=False, indent=4)
+        
     
     # Ausgabe aller News direkt aus der AlleNews-Variable
-    print(AlleNews)
+    print("Alle News wurden erfolgreich gespeichert!")
+
 
 if __name__ == "__main__":
     main()
