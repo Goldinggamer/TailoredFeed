@@ -44,20 +44,29 @@ news_json_arr = json.load(json_file)['news']
 
 def main():
 
-    arr = ["München","Wirtschaft", "Inland", "Ausland", "Sport", "Wissen"]
+    #arr = ["München","Wirtschaft", "Inland", "Ausland", "Sport", "Wissen"]
+    arr = [
+    "Nachrichten aus München",
+    "Nachrichten aus Deutschland (Wirtschaft)",
+    "Nachrichten aus Deutschland (Politik)",
+    "Internationale Nachrichten",
+    "Aktuelle Sportnachrichten",
+    "Wissenschaft und Forschung"
+    ]
 
-    for a in arr:
-        news = query_rag(a)
 
-        for n in news:
-            text = prompt(n["text"])
+    for Kategorie in arr:
+        news = query_rag(Kategorie)
+
+        for chunk in news:
+            text = prompt(chunk["text"])
 
             if "</think" in text:
                 thinking, final_text = text.split("</think>")
             else:
                 final_text = text
             print("\n" * 5)
-            print(n["kategorie"] + ": " + final_text.strip())
+            print(chunk["kategorie"] + Kategorie + ": " + final_text.strip())
 
 # Kontext der DB und prompt template werden von dem LLM bearbeitet
 def prompt(text):
