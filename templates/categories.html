@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TailoredFeed - Kategorien & Newsformat</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="background"></div>
+  <div class="stars"></div>
+
+  <div class="nav">
+    <a href="{{ url_for('user_input') }}">
+      <button class="back-button">←</button>
+    </a>
+  </div>
+
+  <div class="container">
+    <div class="brand">tailoredfeed</div>
+    
+    <div class="section-heading">
+      Wähle nun Kategorien aus, die für dich interessant sind:
+    </div>
+    <div class="option-buttons category-buttons">
+      <button class="option-button" data-value="politik">Politik</button>
+      <button class="option-button" data-value="wissenschaft">Wissenschaft/Forschung</button>
+      <button class="option-button" data-value="unterhaltung">Unterhaltung</button>
+      <button class="option-button" data-value="wirtschaft">Wirtschaft und Finanzen</button>
+      <button class="option-button" data-value="gesundheit">Gesundheit und Medizin</button>
+      <button class="option-button" data-value="gaming">Gaming</button>
+      <button class="option-button" data-value="technologie">Technologie und IT</button>
+      <button class="option-button" data-value="sport">Sport</button>
+      <button class="option-button" data-value="reisen">Reisen und Lifestyle</button>
+    </div>
+
+    <div class="section-heading">
+      Wähle dein Newsformat aus:
+    </div>
+    <div class="option-buttons format-buttons">
+      <button class="option-button" data-value="kurz">Kurzmeldungen</button>
+      <button class="option-button" data-value="ausfuehrlich">Ausführliche Artikel</button>
+    </div>
+
+    <button class="continue-button" onclick="submitForm('categories')">➜</button>
+  </div>
+
+  <div class="location">📍 München - Maxvorstadt</div>
+  <div class="date"></div>
+
+  <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Kategorien-Buttons
+      document.querySelectorAll('.category-buttons .option-button').forEach(button => {
+        button.addEventListener('click', function() {
+          this.classList.toggle('selected');
+        });
+      });
+      
+      // Format-Buttons
+      document.querySelectorAll('.format-buttons .option-button').forEach(button => {
+        button.addEventListener('click', function() {
+          document.querySelectorAll('.format-buttons .option-button').forEach(btn => btn.classList.remove('selected'));
+          this.classList.add('selected');
+        });
+      });
+    });
+
+    // Submit-Funktion für das Kategorien-Formular
+    function submitForm(formType) {
+      if (formType === 'categories') {
+        // Ausgewählte Kategorien sammeln
+        const selectedCategories = [];
+        document.querySelectorAll('.category-buttons .option-button.selected').forEach(button => {
+          selectedCategories.push(button.getAttribute('data-value'));
+        });
+        
+        // Ausgewähltes Format ermitteln
+        const selectedFormat = document.querySelector('.format-buttons .option-button.selected');
+        const formatValue = selectedFormat ? selectedFormat.getAttribute('data-value') : '';
+        
+        // Formular-Daten vorbereiten
+        const formData = new FormData();
+        formData.append('categories', JSON.stringify(selectedCategories));
+        formData.append('format', formatValue);
+        
+        // Daten an den Server senden
+        fetch('/submit-categories', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            window.location.href = '/generating_news';  // Hier ist die Weiterleitung zur generating_news Seite
+          } else {
+            alert(data.message);
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Ein Fehler ist aufgetreten. Bitte versuche es erneut.');
+        });
+      }
+    }
+  </script>
+</body>
+</html>

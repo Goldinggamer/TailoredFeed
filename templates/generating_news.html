@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TailoredFeed - News werden generiert</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .loading-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .loading-circle {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            border-top: 5px solid #4CAF50;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        .status-icon {
+            font-size: 48px;
+            display: none;
+            margin: 20px 0;
+        }
+        .status-text {
+            margin: 20px 0;
+            font-size: 1.2em;
+        }
+        .continue-btn {
+            display: none;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="stars"></div>
+    
+    <div class="container">
+        <div class="brand">tailoredfeed</div>
+        
+        <div class="loading-container">
+            <div id="loadingCircle" class="loading-circle"></div>
+            <div id="successIcon" class="status-icon">✅</div>
+            <div id="statusText" class="status-text">Deine News werden generiert...</div>
+            
+            <a href="{{ url_for('feed') }}" id="continueButton" class="cta-button continue-btn" style="text-decoration: none;">
+                Weiter zum Feed
+            </a>
+        </div>
+    </div>
+    
+    <div class="location">📍 München - Maxvorstadt</div>
+    <div class="date"></div>
+    
+    <script>
+        // Datum aktualisieren
+        const options = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' };
+        const date = new Date().toLocaleDateString('de-DE', options);
+        document.querySelector('.date').textContent = date;
+
+        // News generieren
+        fetch('/generate_news')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Animation beenden und Erfolg anzeigen
+                    document.getElementById('loadingCircle').style.display = 'none';
+                    document.getElementById('successIcon').style.display = 'block';
+                    document.getElementById('statusText').textContent = 'Deine News wurden erfolgreich generiert!';
+                    document.getElementById('continueButton').style.display = 'inline-block';
+                } else {
+                    throw new Error(data.error || 'Ein Fehler ist aufgetreten');
+                }
+            })
+            .catch(error => {
+                document.getElementById('loadingCircle').style.display = 'none';
+                document.getElementById('statusText').textContent = 'Fehler: ' + error.message;
+                document.getElementById('statusText').style.color = '#ff4444';
+            });
+    </script>
+</body>
+</html>

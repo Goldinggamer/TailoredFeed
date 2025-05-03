@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TailoredFeed - News Update</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+    .loading {
+      display: none;
+      width: 50px;
+      height: 50px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #00dbde;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .status-check {
+      display: none;
+      color: #4CAF50;
+      font-size: 24px;
+      margin: 10px 0;
+    }
+
+    .continue-btn {
+      display: none;
+      background: #4CAF50 !important;
+    }
+
+    .process-container {
+      background: rgba(0,0,0,0.5);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="stars"></div>
+  
+  <div class="container">
+    <div class="brand">tailoredfeed</div>
+    
+    <div class="process-container">
+      <button id="updateButton" class="cta-button" onclick="startUpdate()">
+        Hole dir deine News
+      </button>
+      
+      <div id="loading" class="loading"></div>
+      
+      <div id="apiStatus" class="status-check">
+        ✓ News erfolgreich via API geladen
+      </div>
+      
+      <div id="dbStatus" class="status-check">
+        ✓ News in Vektordatenbank gespeichert
+      </div>
+      
+      <a href="{{ url_for('index') }}" id="continueButton" class="cta-button continue-btn" style="text-decoration: none;">
+        Weiter
+      </a>
+    </div>
+  </div>
+  
+  <div class="location">📍 München - Maxvorstadt</div>
+  <div class="date"></div>
+  
+  <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+  <script>
+    async function startUpdate() {
+      const updateBtn = document.getElementById('updateButton');
+      const loading = document.getElementById('loading');
+      const apiStatus = document.getElementById('apiStatus');
+      const dbStatus = document.getElementById('dbStatus');
+      const continueButton = document.getElementById('continueButton');
+      
+      updateBtn.style.display = 'none';
+      loading.style.display = 'block';
+      
+      try {
+        // Start API News update
+        const apiResponse = await fetch('/update_api_news');
+        if (apiResponse.ok) {
+          apiStatus.style.display = 'block';
+          
+          // Start Database update
+          const dbResponse = await fetch('/update_database');
+          if (dbResponse.ok) {
+            dbStatus.style.display = 'block';
+            continueButton.style.display = 'inline-block';
+          }
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+      
+      loading.style.display = 'none';
+    }
+  </script>
+</body>
+</html>

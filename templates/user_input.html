@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TailoredFeed - Einstellungen</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .error-message {
+            color: #ff4444;
+            margin-top: 5px;
+            display: none;
+        }
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .language-flag {
+            width: 20px;
+            height: 15px;
+            object-fit: contain;
+        }
+        select {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            color: white;
+            padding: 12px;  /* Vergrößert */
+            width: 100%;
+            margin-bottom: 15px;
+            font-size: 16px;  /* Größere Schrift */
+            height: 50px;    /* Fixe Höhe */
+        }
+        input {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            color: white;
+            padding: 12px;        /* Vergrößert wie select */
+            width: 96.5%;
+            margin-bottom: 15px;
+            font-size: 16px;      /* Größere Schrift wie select */
+            height: 50px;         /* Fixe Höhe wie select */
+        }
+        .required::after {
+            content: "*";
+            color: #ff4444;
+            margin-left: 4px;
+        }
+        .gender-options {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .gender-option {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .gender-option:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .gender-option.selected {
+            background: rgba(40, 167, 69, 0.4);
+            border-color: rgba(40, 167, 69, 0.8);
+        }
+        .gender-option input[type="radio"] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="stars"></div>
+
+    <div class="container">
+        <div class="brand">tailoredfeed</div>
+        
+        <form id="userInfoForm" class="settings-form">
+            <h2>Persönliche Einstellungen</h2>
+            
+            <label for="age_group" class="required">Alter</label>
+            <select id="age_group" name="age_group" required>
+                <option value="">Bitte wählen</option>
+                <script>
+                    for(let i = 1; i <= 100; i++) {
+                        document.write(`<option value="${i}">${i} </option>`);
+                    }
+                </script>
+            </select>
+            <div id="age-error" class="error-message">Bitte wähle dein Alter aus</div>
+
+            <label for="gender" class="required">Geschlecht</label>
+            <div class="gender-options">
+                <label class="gender-option">
+                    <input type="radio" name="gender" value="männlich" required>
+                    Männlich
+                </label>
+                <label class="gender-option">
+                    <input type="radio" name="gender" value="weiblich">
+                    Weiblich
+                </label>
+                <label class="gender-option">
+                    <input type="radio" name="gender" value="divers">
+                    Divers
+                </label>
+                <label class="gender-option">
+                    <input type="radio" name="gender" value="keine_angabe">
+                    Keine Angabe
+                </label>
+            </div>
+            <div id="gender-error" class="error-message">Bitte wähle dein Geschlecht aus</div>
+
+            <label for="language" class="required">Sprache</label>
+            <select id="language" name="language" required>
+                <option value="">Bitte wählen</option>
+                <option value="Deutsch" class="language-option">
+                    🇩🇪 Deutsch
+                </option>
+                <option value="English" class="language-option">
+                    🇬🇧 English
+                </option>
+                <option value="Français" class="language-option">
+                    🇫🇷 Français
+                </option>
+                <option value="Español" class="language-option">
+                    🇪🇸 Español
+                </option>
+                <option value="Русский" class="language-option">
+                    🇷🇺 Русский
+                </option>
+            </select>
+            <div id="language-error" class="error-message">Bitte wähle eine Sprache aus</div>
+
+            <label for="dialect">Dialekt (optional)</label>
+            <input type="text" id="dialect" name="dialect" placeholder="z.B. Bayrisch">
+
+            <button type="submit" class="cta-button">Weiter</button>
+        </form>
+    </div>
+
+    <div class="location">📍 München - Maxvorstadt</div>
+    <div class="date"></div>
+
+    <script>
+        document.getElementById('userInfoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Reset error messages
+            document.querySelectorAll('.error-message').forEach(msg => msg.style.display = 'none');
+            
+            // Get form values
+            const ageGroup = document.getElementById('age_group').value;
+            const gender = document.querySelector('input[name="gender"]:checked')?.value;
+            const language = document.getElementById('language').value;
+            const dialect = document.getElementById('dialect').value;
+            
+            // Validation
+            let hasError = false;
+            
+            if (!ageGroup) {
+                document.getElementById('age-error').style.display = 'block';
+                hasError = true;
+            }
+            if (!gender) {
+                document.getElementById('gender-error').style.display = 'block';
+                hasError = true;
+            }
+            if (!language) {
+                document.getElementById('language-error').style.display = 'block';
+                hasError = true;
+            }
+            
+            if (hasError) return;
+            
+            // Submit form data
+            fetch('/submit-user-info', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    age_group: ageGroup,
+                    gender: gender,
+                    language: language,
+                    dialect: dialect
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = '/categories';
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Ein Fehler ist aufgetreten. Bitte versuche es erneut.');
+            });
+        });
+
+        // Geschlechtsauswahl Handling
+        document.querySelectorAll('.gender-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Alle Optionen zurücksetzen
+                document.querySelectorAll('.gender-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                // Aktuelle Option auswählen
+                this.classList.add('selected');
+                // Radio Button auswählen
+                this.querySelector('input[type="radio"]').checked = true;
+            });
+        });
+
+        // Update date
+        const options = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' };
+        const date = new Date().toLocaleDateString('de-DE', options);
+        document.querySelector('.date').textContent = date;
+    </script>
+</body>
+</html>
