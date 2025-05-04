@@ -3,8 +3,9 @@ import os
 import json
 from datetime import datetime
 import subprocess
+import shutil
 # Import der modifizierten test.py Funktionen
-from test import query_rag_aggregated, generate_news_summary
+from test import query_rag_aggregated, generate_news_summary, main as generate_feed  # Umbenennung für Klarheit
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)  # Für die Session-Verwaltung
@@ -49,40 +50,20 @@ def categories():
 
 @app.route('/feed')
 def feed():
-    # Überprüfen, ob alle notwendigen Daten vorhanden sind
-    if 'user_info' not in session or 'categories' not in session:
-        return redirect(url_for('index'))
+    if 'news_content' not in session:
+        return redirect(url_for('generating_news'))
     
-    user_info = session['user_info']
-    selected_categories = session['categories']
-    news_format = session['format']
-    
-    # Hier kommt die Logik zur Generierung des personalisierten Feeds
-    try:
-        # Die Nachrichtengenerierung mit den Benutzerinformationen aufrufen
-        full_context = query_rag_aggregated()
-        personalized_news = generate_news_summary(full_context, user_info)
+    if 'user_info' not in session:
+        return redirect(url_for('user_input'))
         
-        # Nachrichteninhalt in der Session speichern
-        session['news_content'] = personalized_news
-        
-        return render_template(
-            'feed.html',  # Eine neue Template-Datei für die Anzeige des Feeds
-            user_info=user_info,
-            categories=selected_categories,
-            format=news_format,
-            news_content=personalized_news
-        )
-    except Exception as e:
-        # Bei Fehler den Platzhalter anzeigen
-        print(f"Fehler bei der Nachrichtengenerierung: {str(e)}")
-        return render_template(
-            'feed_placeholder.html', 
-            user_info=user_info,
-            categories=selected_categories,
-            format=news_format,
-            error=str(e)
-        )
+    return render_template(
+        'feed.html',
+        news_content=session['news_content'],
+        user_info=session['user_info'],
+        categories=session.get('categories', []),
+        format=session.get('format', ''),
+        now=datetime.now()
+    )
 
 @app.route('/submit-user-info', methods=['POST'])
 def submit_user_info():
@@ -141,17 +122,24 @@ def generate_news():
     try:
         if 'user_info' not in session:
             raise ValueError('Keine Benutzerinformationen gefunden')
-            
-        # News generieren
-        full_context = query_rag_aggregated()
-        news_content = generate_news_summary(full_context, session['user_info'])
         
+        # Hier führen wir die main() Funktion aus test.py aus
+        # und übergeben die user_info aus der Session
+        news_content = generate_feed(session['user_info'])
+        
+        if not news_content:
+            raise ValueError('Keine News konnten generiert werden')
+            
         # News in Session speichern
         session['news_content'] = news_content
         
         return jsonify({'success': True})
     except Exception as e:
-        return jsonify({'success': False, 'error': str(e)}), 500
+        print(f"Error generating news: {str(e)}")  # Server-side logging
+        return jsonify({
+            'success': False, 
+            'error': str(e)
+        }), 500
 
 @app.route('/update_news')
 def update_news():
@@ -168,37 +156,51 @@ def update_api_news():
 @app.route('/update_database')
 def update_database():
     try:
-        python_path = "/Library/Frameworks/Python.framework/Versions/3.10/bin/python3"
+        # Get absolute path to the script directory
+        script_dir = os.path.dirname(os.path.abspath(__file__))
         
-        # Install all required packages
-        packages = [
-            "langchain",
-            "langchain-community",
-            "langchain-text-splitters",
-            "langchain-ollama",
-            "langchain-chroma",
-            "chromadb",
-            "jq"
-        ]
+        # Change to script directory before running database.py
+        os.chdir(script_dir)
         
-        for package in packages:
-            subprocess.run(
-                [python_path, "-m", "pip", "install", "-U", package],
-                check=True,
-                capture_output=True
-            )
+        # Clean up existing database completely
+        chroma_path = os.path.join(script_dir, "chroma_db")
+        if os.path.exists(chroma_path):
+            shutil.rmtree(chroma_path)
+            
+        # Wait a moment to ensure cleanup is complete
+        import time
+        time.sleep(1)
         
+        # Create fresh directory
+        os.makedirs(chroma_path, exist_ok=True)
+        
+        python_path = "/opt/homebrew/bin/python3.10"  # Korrekter Python-Pfad für M1 Mac
+        
+        # Run database.py with full path and environment variables
         result = subprocess.run(
-            [python_path, "database.py"],
+            [python_path, os.path.join(script_dir, "database.py")],
             capture_output=True,
-            text=True
+            text=True,
+            cwd=script_dir,  # Set working directory explicitly
+            env={
+                **os.environ,
+                'PYTHONPATH': script_dir,
+                'CHROMA_PATH': chroma_path
+            }
         )
         
         if result.returncode != 0:
             print("Database Error:", result.stderr)
             return jsonify({
                 "success": False,
-                "error": result.stderr
+                "error": f"Database initialization failed: {result.stderr}"
+            }), 500
+            
+        # Verify database was created
+        if not os.path.exists(os.path.join(chroma_path, "chroma.sqlite3")):
+            return jsonify({
+                "success": False,
+                "error": "Database file not created"
             }), 500
             
         return jsonify({"success": True})

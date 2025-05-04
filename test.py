@@ -23,9 +23,11 @@ CATEGORIES = [
     "Wissenschaft und Forschung"
 ]
 
-PROMPT_TEMPLATE = """
-
+# Basis-Template für den Prompt
+BASE_PROMPT_TEMPLATE = """
 Du bist ein journalistisches KI-System, das Nachrichten für einen öffentlichen Bildschirm im Univiertel in München kuratiert. Deine Aufgabe ist es, einen ausgewogenen, faktisch korrekten und relevanten Nachrichtenüberblick zu erstellen.
+
+{personalization}
 
 1. Verwende NUR die bereitgestellten Informationen aus den folgenden vertrauenswürdigen Quellen:
 
@@ -42,7 +44,7 @@ Kontext Ende.
 6. Verzichte auf reißerische oder polarisierende Formulierungen
 7. Stelle die lokale Relevanz für München und Bayern in den Vordergrund
 8. Bei unsicheren Informationen kennzeichne diese entsprechend
-9. Die Sprache in der die Nachrichten erfolgen müssen ist ausschließlich Deutsch
+9. Die Sprache in der die Nachrichten erfolgen müssen ist {user_language}{dialect_instruction}
 10. Du darfst keine Aussagen treffen, die nicht direkt durch den Kontext belegbar sind.
 
 Erstelle einen strukturierten Nachrichtenüberblick mit folgenden Kategorien:
@@ -56,7 +58,7 @@ Erstelle einen strukturierten Nachrichtenüberblick mit folgenden Kategorien:
 Für jede Kategorie:
 - Wähle die relevantesten und aktuellsten Informationen aus
 - Fasse sie in 1-3 prägnanten Sätzen zusammen
-- Achte auf eine klare, verständliche, neutrale und deutsche Sprache
+- Achte auf eine klare, verständliche, neutrale Sprache{age_appropriate_instruction}
 
 Deine Ausgabe MUSS exakt diesem Format folgen:
 
@@ -102,14 +104,100 @@ def query_rag_aggregated():
         
         # Füge Kategoriekontext zum Gesamtkontext hinzu
         aggregated_context += f"{category_context}\n"
-        
-       # print(f"Verarbeite Kategorie: {category}")
-       # print(f"Gefundene Dokumente: {len(results)}")
     
     return aggregated_context
 
-def generate_news_summary(full_context):
-    prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
+def create_personalized_prompt(user_info):
+    """
+    Erstellt einen personalisierten Prompt basierend auf den Benutzerdaten.
+    
+    Args:
+        user_info (dict): Ein Dictionary mit Benutzerinformationen
+            - age_group (str): Altersgruppe des Benutzers
+            - gender (str): Geschlecht des Benutzers
+            - language (str): Bevorzugte Sprache des Benutzers
+            - dialect (str): Bevorzugter Dialekt (optional)
+    
+    Returns:
+        str: Der personalisierte Prompt-Text
+    """
+    age = int(user_info.get('age_group', '30'))
+    gender = user_info.get('gender', 'keine_angabe')
+    language = user_info.get('language', 'Deutsch')
+    dialect = user_info.get('dialect', '')
+    
+    # Sprachanpassung
+    language_map = {
+        'Deutsch': 'Deutsch',
+        'English': 'Englisch',
+        'Français': 'Französisch',
+        'Español': 'Spanisch',
+        'Русский': 'Russisch'
+    }
+    
+    user_language = language_map.get(language, 'Deutsch')
+    
+    # Dialektanweisung (falls angegeben)
+    dialect_instruction = f" mit {dialect}-Dialekt" if dialect else ""
+    
+    # Altersgerechte Anpassungen
+    if age < 12:
+        age_appropriate_instruction = "\n- Verwende einfache, kinderfreundliche Sprache und vermeide komplexe Themen"
+    elif age < 18:
+        age_appropriate_instruction = "\n- Verwende jugendgerechte Sprache und erkläre komplexe Themen verständlich"
+    elif age > 60:
+        age_appropriate_instruction = "\n- Berücksichtige Themen, die für ältere Menschen relevant sein könnten"
+    else:
+        age_appropriate_instruction = ""
+    
+    # Personalisierungstext
+    personalization_text = f"""
+Du sprichst mit einer Person mit folgenden Merkmalen:
+- Alter: {age} Jahre
+- Geschlecht: {gender}
+- Bevorzugte Sprache: {user_language}
+"""
+    if dialect:
+        personalization_text += f"- Bevorzugter Dialekt: {dialect}\n"
+    
+    personalization_text += """
+Berücksichtige diese Informationen bei der Auswahl und Formulierung der Nachrichten, ohne die Objektivität und Ausgewogenheit zu beeinträchtigen.
+"""
+    
+    # Vollständiger personalisierter Prompt
+    return BASE_PROMPT_TEMPLATE.format(
+        personalization=personalization_text,
+        context="{context}",  # Platzhalter für den späteren Kontext
+        user_language=user_language,
+        dialect_instruction=dialect_instruction,
+        age_appropriate_instruction=age_appropriate_instruction
+    )
+
+def generate_news_summary(full_context, user_info=None):
+    """
+    Generiert eine personalisierte Nachrichtenübersicht basierend auf dem Kontext und den Benutzerinformationen.
+    
+    Args:
+        full_context (str): Der vollständige Kontext aus der RAG-Abfrage
+        user_info (dict, optional): Ein Dictionary mit Benutzerinformationen
+    
+    Returns:
+        str: Die generierte Nachrichtenübersicht
+    """
+    if user_info:
+        # Personalisierter Prompt
+        personalized_template = create_personalized_prompt(user_info)
+        prompt_template = ChatPromptTemplate.from_template(personalized_template)
+    else:
+        # Standard-Prompt wenn keine Benutzerinformationen vorliegen
+        prompt_template = ChatPromptTemplate.from_template(BASE_PROMPT_TEMPLATE.format(
+            personalization="",
+            context="{context}",
+            user_language="Deutsch",
+            dialect_instruction="",
+            age_appropriate_instruction=""
+        ))
+    
     prompt = prompt_template.format(context=full_context)
 
     # Print the complete prompt including context
@@ -131,14 +219,16 @@ def generate_news_summary(full_context):
     
     return news_summary.strip()
 
-def main():
+def main(user_info=None):
     full_context = query_rag_aggregated()
-  #  print("Folgender Kontext wurde benutzt: \n")
-  #  print(full_context)
-    news_summary = generate_news_summary(full_context)
+    news_summary = generate_news_summary(full_context, user_info)
 
-    print("Folgendes wurde abhängig vom Kontext von der KI generiert: \n ")
+    print("Folgendes wurde abhängig vom Kontext und Benutzereinstellungen von der KI generiert: \n ")
     print(news_summary)
+    
+    return news_summary
 
+# Direkter Aufruf ohne Benutzerinformationen
 if __name__ == "__main__":
+    # Einfacher Aufruf ohne Benutzerinformationen
     main()
