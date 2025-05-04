@@ -174,7 +174,8 @@ def update_database():
         # Create fresh directory
         os.makedirs(chroma_path, exist_ok=True)
         
-        python_path = "/opt/homebrew/bin/python3.10"  # Korrekter Python-Pfad für M1 Mac
+        # python_path = "/opt/homebrew/bin/python3.10"  # Korrekter Python-Pfad für M1 Mac
+        python_path = "python"  # Windows Python-Pfad (nutzt Python from PATH)
         
         # Run database.py with full path and environment variables
         result = subprocess.run(
@@ -232,7 +233,8 @@ def log_data(data_type, data):
 def format_date(value):
     """Format date for display in templates"""
     now = datetime.now()
-    return now.strftime('%A, %-d.%m.%Y')
+    # Windows-compatible date format (removed the - from %-d)
+    return now.strftime('%A, %d.%m.%Y')
 
 # Zusätzliche Template für den Feed
 @app.route('/create_feed_template')

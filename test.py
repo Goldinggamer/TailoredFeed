@@ -132,7 +132,8 @@ def create_personalized_prompt(user_info):
         'English': 'Englisch',
         'Français': 'Französisch',
         'Español': 'Spanisch',
-        'Русский': 'Russisch'
+        'Русский': 'Russisch',
+        'Română': 'Rumänisch'  
     }
     
     user_language = language_map.get(language, 'Deutsch')
@@ -207,7 +208,7 @@ def generate_news_summary(full_context, user_info=None):
     
     # Update model to use remote server
     model = Ollama(
-        model="deepseek-r1:70b",
+        model="qwen3:32b",
         base_url="http://10.40.15.6:80"  # Your server URL
     )
     news_summary = model.invoke(prompt)
