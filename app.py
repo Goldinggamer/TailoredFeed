@@ -4,8 +4,7 @@ import json
 from datetime import datetime
 import subprocess
 import shutil
-# Import der modifizierten test.py Funktionen
-from test import query_rag_aggregated, generate_news_summary, main as generate_feed  # Umbenennung für Klarheit
+from test_copy import query_rag_aggregated, generate_news_summary, main as generate_feed  
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)  # Für die Session-Verwaltung
@@ -123,15 +122,25 @@ def generate_news():
         if 'user_info' not in session:
             raise ValueError('Keine Benutzerinformationen gefunden')
         
-        # Hier führen wir die main() Funktion aus test.py aus
-        # und übergeben die user_info aus der Session
-        news_content = generate_feed(session['user_info'])
+        # User info erweitern mit den Kategorien und dem Format
+        user_info = session['user_info'].copy()
+        user_info['categories'] = session.get('categories', [])
+        user_info['format'] = session.get('format', '')
+        
+        # Log der tatsächlich verwendeten Daten
+        log_data('request_data', user_info)
+        
+        # Übergebe das erweiterte user_info an die generate_feed Funktion
+        news_content = generate_feed(user_info)
         
         if not news_content:
             raise ValueError('Keine News konnten generiert werden')
             
         # News in Session speichern
         session['news_content'] = news_content
+        
+        # Log der generierten News
+        log_data('generated_news', {'content': news_content})
         
         return jsonify({'success': True})
     except Exception as e:
