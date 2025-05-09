@@ -4,7 +4,7 @@ import json
 from datetime import datetime
 import subprocess
 import shutil
-from test_copy import query_rag_aggregated, generate_news_summary, main as generate_feed  
+from test_copy import main as generate_feed  
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)  # Für die Session-Verwaltung

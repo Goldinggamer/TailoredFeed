@@ -1,0 +1,12 @@
+{
+  "age_group": "20",
+  "dialect": "",
+  "gender": "männlich",
+  "language": "Deutsch",
+  "categories": [
+    "politik",
+    "wirtschaft",
+    "sport"
+  ],
+  "format": "kurz"
+}

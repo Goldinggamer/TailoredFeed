@@ -1,0 +1,12 @@
+{
+  "age_group": "20",
+  "dialect": "Bayrisch",
+  "gender": "männlich",
+  "language": "Deutsch",
+  "categories": [
+    "politik",
+    "wirtschaft",
+    "technologie"
+  ],
+  "format": "ausfuehrlich"
+}

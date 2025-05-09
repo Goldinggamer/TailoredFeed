@@ -1,0 +1,12 @@
+{
+  "age_group": "28",
+  "dialect": "Bayrisch",
+  "gender": "weiblich",
+  "language": "Deutsch",
+  "categories": [
+    "wirtschaft",
+    "gesundheit",
+    "sport"
+  ],
+  "format": "kurz"
+}
