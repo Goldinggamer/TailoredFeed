@@ -1,0 +1,13 @@
+{
+  "age_group": "18",
+  "dialect": "",
+  "gender": "männlich",
+  "language": "English",
+  "categories": [
+    "gesundheit",
+    "gaming",
+    "technologie",
+    "sport"
+  ],
+  "format": "kurz"
+}

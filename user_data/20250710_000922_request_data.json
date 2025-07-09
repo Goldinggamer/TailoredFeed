@@ -1,0 +1,13 @@
+{
+  "age_group": "6",
+  "dialect": "",
+  "gender": "männlich",
+  "language": "English",
+  "categories": [
+    "gesundheit",
+    "technologie",
+    "sport",
+    "reisen"
+  ],
+  "format": "kurz"
+}

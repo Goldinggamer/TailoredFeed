@@ -263,7 +263,7 @@ def query_and_process_category(category, embedding_function, user_info):
     db = Chroma(persist_directory=CHROMA_PATH, embedding_function=embedding_function)
     
     # Suche nach ähnlichen Dokumenten für diese Kategorie
-    results = db.similarity_search(search_term, k=3)  # Erhöht auf 3 für mehr Kontext
+    results = db.similarity_search(search_term, k=3)  
     
     # Context für diese Kategorie sammeln
     category_context = ""
@@ -292,7 +292,6 @@ def query_and_process_category(category, embedding_function, user_info):
     Deine Aufgabe ist es, eine relevante Nachricht zur Kategorie "{display_name}" zu erstellen.
 
     Persönliche Anpassungen:
-    - Die Nachricht soll auf {user_language}{dialect_instruction} verfasst werden
     - Nutzer ist {age} Jahre alt und {gender}
     - {age_instruction}  
 
@@ -305,6 +304,7 @@ def query_and_process_category(category, embedding_function, user_info):
     - Achte auf eine klare, verständliche, neutrale Sprache
     - Präsentiere Fakten ohne manipulative Sprache oder emotionale Färbung
     - Verzichte auf reißerische oder polarisierende Formulierungen
+    - Die Nachrichtenausgabe MUSS in {user_language}{dialect_instruction} verfasst werden!
     
     Deine Ausgabe sollte rein faktisch und ohne Einleitung oder Schlussformulierung sein.
     """
@@ -318,7 +318,7 @@ def query_and_process_category(category, embedding_function, user_info):
     
     # LLM für diese Kategorie aufrufen
     model = Ollama(
-        model="qwen3:32b",
+        model="deepseek-r1:32b",
         base_url="http://localhost:11435"
     )
     
