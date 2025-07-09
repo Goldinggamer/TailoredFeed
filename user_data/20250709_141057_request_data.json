@@ -1,0 +1,13 @@
+{
+  "age_group": "6",
+  "dialect": "",
+  "gender": "männlich",
+  "language": "Deutsch",
+  "categories": [
+    "wirtschaft",
+    "gesundheit",
+    "technologie",
+    "sport"
+  ],
+  "format": "kurz"
+}

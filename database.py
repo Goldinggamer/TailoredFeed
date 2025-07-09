@@ -65,8 +65,8 @@ def save_to_chroma(chunks: list[Document]):
 
         # kreire eine Ollama embedding instanz mit dem Server
         embeddings = OllamaEmbeddings(
-            model="nomic-embed-text",  # Using model we know works
-            base_url="http://10.40.15.6:80"  
+            model="nomic-embed-text",  
+            base_url="http://127.0.0.1:11435"  
         )
         
         # Kreiert eine Chroma DB anhand der chunks die generiert wurden

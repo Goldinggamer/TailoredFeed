@@ -233,8 +233,8 @@ def query_and_process_category(category, embedding_function, user_info):
         'unterhaltung': 'Unterhaltung Freizeit',
         'wirtschaft': 'Wirtschaft Geld Deutschland',
         'gesundheit': 'Gesundheit Medizin',
-        'gaming': 'Gaming Spiele',
-        'technologie': 'Technologie IT Digital',
+        'gaming': 'Gaming',
+        'technologie': 'Technologie',
         'sport': 'Sport Deutschland',
         'reisen': 'Reisen Lifestyle'
     }
@@ -246,7 +246,7 @@ def query_and_process_category(category, embedding_function, user_info):
         'unterhaltung': "Unterhaltung und Kultur",
         'wirtschaft': "Wirtschaft",
         'gesundheit': "Gesundheit und Medizin",
-        'gaming': "Gaming und Digital",
+        'gaming': "Gaming",
         'technologie': "Technologie und Innovation",
         'sport': "Sport Deutschland",
         'reisen': "Reisen und Lifestyle"
@@ -319,7 +319,7 @@ def query_and_process_category(category, embedding_function, user_info):
     # LLM für diese Kategorie aufrufen
     model = Ollama(
         model="qwen3:32b",
-        base_url="http://10.40.15.6:80"
+        base_url="http://localhost:11435"
     )
     
     category_content = model.invoke(category_prompt)
@@ -362,7 +362,7 @@ def main(user_info=None):
     # Embedding-Funktion initialisieren (nur einmal für alle Kategorien)
     embedding_function = OllamaEmbeddings(
         model="nomic-embed-text",
-        base_url="http://10.40.15.6:80"
+        base_url="http://localhost:11435"
     )
     
     # Ergebnisse für jede Kategorie sammeln
