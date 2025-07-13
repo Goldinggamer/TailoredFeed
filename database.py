@@ -1,8 +1,8 @@
 import os
 import shutil
 import sys
-from langchain.text_splitter import RecursiveCharacterTextSplitter  # Updated import
-from langchain.schema import Document  # Updated import
+from langchain.text_splitter import RecursiveCharacterTextSplitter  
+from langchain.schema import Document  
 from langchain_community.document_loaders import JSONLoader
 from langchain_ollama import OllamaEmbeddings
 from langchain_chroma import Chroma
@@ -66,7 +66,7 @@ def save_to_chroma(chunks: list[Document]):
         # kreire eine Ollama embedding instanz mit dem Server
         embeddings = OllamaEmbeddings(
             model="nomic-embed-text",  
-            base_url="http://127.0.0.1:11435"  
+            base_url="http://127.0.0.1:11434"  
         )
         
         # Kreiert eine Chroma DB anhand der chunks die generiert wurden

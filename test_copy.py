@@ -319,7 +319,7 @@ def query_and_process_category(category, embedding_function, user_info):
     # LLM für diese Kategorie aufrufen
     model = Ollama(
         model="deepseek-r1:32b",
-        base_url="http://localhost:11435"
+        base_url="http://127.0.0.1:11434"
     )
     
     category_content = model.invoke(category_prompt)
@@ -362,7 +362,7 @@ def main(user_info=None):
     # Embedding-Funktion initialisieren (nur einmal für alle Kategorien)
     embedding_function = OllamaEmbeddings(
         model="nomic-embed-text",
-        base_url="http://localhost:11435"
+        base_url="http://127.0.0.1:11434"
     )
     
     # Ergebnisse für jede Kategorie sammeln

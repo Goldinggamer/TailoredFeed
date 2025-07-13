@@ -1,0 +1,12 @@
+{
+  "age_group": "5",
+  "dialect": "",
+  "gender": "weiblich",
+  "language": "Français",
+  "categories": [
+    "wissenschaft",
+    "gesundheit",
+    "technologie"
+  ],
+  "format": "kurz"
+}
