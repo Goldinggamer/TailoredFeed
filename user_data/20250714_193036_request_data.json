@@ -1,5 +1,5 @@
 {
-  "age_group": "9",
+  "age_group": "22",
   "dialect": "",
   "gender": "männlich",
   "language": "Deutsch",
@@ -7,7 +7,9 @@
     "politik",
     "wissenschaft",
     "unterhaltung",
-    "sport"
+    "wirtschaft",
+    "gesundheit",
+    "gaming"
   ],
-  "format": "kurz"
+  "format": "ausfuehrlich"
 }

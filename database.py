@@ -14,6 +14,7 @@ CHROMA_PATH = "chroma_db/"
 def metadata_func(record: dict, metadata: dict) -> dict:
     metadata["kategorie"] = record.get("kategorie")
     metadata["title"] = record.get("title")
+    metadata["image"] = record.get("image") 
     return metadata
 
 # Json file reinladen

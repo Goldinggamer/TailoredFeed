@@ -1,0 +1,15 @@
+{
+  "age_group": "11",
+  "dialect": "",
+  "gender": "weiblich",
+  "language": "Deutsch",
+  "categories": [
+    "politik",
+    "wissenschaft",
+    "unterhaltung",
+    "wirtschaft",
+    "gesundheit",
+    "gaming"
+  ],
+  "format": "ausfuehrlich"
+}

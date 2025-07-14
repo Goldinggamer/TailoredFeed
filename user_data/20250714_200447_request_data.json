@@ -2,11 +2,12 @@
   "age_group": "10",
   "dialect": "",
   "gender": "männlich",
-  "language": "English",
+  "language": "Deutsch",
   "categories": [
-    "politik",
     "wissenschaft",
     "unterhaltung",
+    "gesundheit",
+    "gaming",
     "sport"
   ],
   "format": "kurz"
