@@ -11,8 +11,7 @@ def clean_html(html):
 
 def extract_article(news_item):
     """
-    Extrahiert den Titel und den Artikelinhalt aus einem News-Item,
-    das bereits alle Content-Informationen enthält.
+    Extrahiert den Titel, Artikelinhalt und das 1x1-256 Bild aus einem News-Item.
     """
     title = news_item.get("title", "")
     article_parts = []
@@ -20,7 +19,18 @@ def extract_article(news_item):
         if part.get("type") in ["text", "headline"]:
             article_parts.append(clean_html(part.get("value", "")))
     article = "\n".join(article_parts)
-    return {"title": title, "article": article}
+    
+    # Nur das 1x1-256 Bild extrahieren
+    image_url = ""
+    teaser_image = news_item.get("teaserImage", {})
+    if teaser_image and teaser_image.get("imageVariants", {}):
+        image_url = teaser_image["imageVariants"].get("1x1-256", "")
+    
+    return {
+        "title": title, 
+        "article": article,
+        "image": image_url
+    }
 
 def process_news_with_details(item, session):
     """
@@ -108,19 +118,14 @@ def process_search_news(data):
         articles.append(extract_article(item))
     return articles
 
-def format_output(articles): ######## TODO
+def format_output(articles):
     """Formatiert die Artikel für die Ausgabe."""
-    # out_str = ""
-    # for art in articles:
-    #     out_str += "Titel: " + art["title"] + "\n"
-    #     out_str += "Artikel:\n" + art["article"] + "\n"
-    #     out_str += "\n" + "="*50 + "\n"
-    # return out_str
     arr = []
     for art in articles:
         arr.append({
             'title': art["title"],
-            'text': art["article"]
+            'text': art["article"],
+            'image': art.get("image", "")
         })
     return arr
 
@@ -189,19 +194,17 @@ def main():
             outputs["münchen"] = f"Fehler bei München-Daten: {exc}"
 
     news_arr = []
-    # Alle News in einer String-Variable zusammenfassen
-    # AlleNews = ""
+
     for key in outputs:
-        # AlleNews += f"Output für '{key}':\n\n"
-        # AlleNews += outputs[key]
-        # AlleNews += "\n" + "#"*80 + "\n"
+
         try: 
             for n in outputs[key]:
                 print(str(n))
                 news_arr.append({
                     'kategorie': key, 
                     'title': n["title"],
-                    'text': n["text"]
+                    'text': n["text"],
+                    'image': n["image"] 
                 })
         except: 
             print("fehler")

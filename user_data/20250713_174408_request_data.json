@@ -1,0 +1,13 @@
+{
+  "age_group": "9",
+  "dialect": "",
+  "gender": "männlich",
+  "language": "Deutsch",
+  "categories": [
+    "politik",
+    "wissenschaft",
+    "unterhaltung",
+    "sport"
+  ],
+  "format": "kurz"
+}
