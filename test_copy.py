@@ -192,7 +192,7 @@ def query_and_process_category(category, embedding_function, user_info):
         user_info (dict): Benutzerinformationen für Personalisierung
     
     Returns:
-        tuple: (category_display_name, generated_content)
+        tuple: (category_display_name, generated_content, image_urls)
     """
     # Extrahiere Benutzerinformationen
     age = int(user_info.get('age_group', '30'))
@@ -254,7 +254,7 @@ def query_and_process_category(category, embedding_function, user_info):
     
     # Wenn die Kategorie nicht im Mapping ist, überspringen
     if category not in categories_map:
-        return None, None
+        return None, None, None
         
     search_term = categories_map[category]
     display_name = display_map[category]
@@ -263,12 +263,19 @@ def query_and_process_category(category, embedding_function, user_info):
     db = Chroma(persist_directory=CHROMA_PATH, embedding_function=embedding_function)
     
     # Suche nach ähnlichen Dokumenten für diese Kategorie
-    results = db.similarity_search(search_term, k=3)  
+    results = db.similarity_search(search_term, k=1)  
     
-    # Context für diese Kategorie sammeln
+    # Context für diese Kategorie sammeln und Bilder extrahieren
     category_context = ""
+    image_urls = []
+    
     for doc in results:
         title = doc.metadata['title']
+        # Bild-URL aus den Metadaten extrahieren
+        image_url = doc.metadata.get('image', '')
+        if image_url:
+            image_urls.append(image_url)
+        
         # Finde den vollständigen Artikel im JSON
         matching_article = next((x for x in news_json_arr if x["title"] == title), None)
         
@@ -278,7 +285,7 @@ def query_and_process_category(category, embedding_function, user_info):
     
     # Wenn kein Kontext gefunden wurde, überspringen
     if not category_context.strip():
-        return display_name, "Keine aktuellen Nachrichten verfügbar."
+        return display_name, "Keine aktuellen Nachrichten verfügbar.", []
     
     # Mini-Prompt nur für diese Kategorie erstellen
     format_instruction = ""
@@ -333,9 +340,13 @@ def query_and_process_category(category, embedding_function, user_info):
     print(f"ANTWORT FÜR KATEGORIE: {display_name}")
     print("-"*80)
     print(category_content.strip())
+    if image_urls:
+        print("ZUGEHÖRIGE BILDER:")
+        for img_url in image_urls:
+            print(f"  - {img_url}")
     print("-"*80 + "\n")
     
-    return display_name, category_content.strip()
+    return display_name, category_content.strip(), image_urls
 
 def main(user_info=None):
     """
@@ -373,22 +384,25 @@ def main(user_info=None):
     # Jede Kategorie einzeln verarbeiten
     for category in selected_categories:
         print(f"Verarbeite Kategorie: {category}")
-        display_name, content = query_and_process_category(
+        display_name, content, image_urls = query_and_process_category(
             category, 
             embedding_function,
-            user_info  # Übergebe das gesamte user_info-Dictionary
+            user_info
         )
         
         if display_name and content:
-            category_results.append((display_name, content))
+            category_results.append((display_name, content, image_urls))
             print(f"✓ {display_name} verarbeitet")
         else:
             print(f"✗ Kategorie '{category}' konnte nicht verarbeitet werden")
     
     # Gesamtergebnis zusammensetzen
     final_output = ""
-    for display_name, content in category_results:
-        final_output += f"{display_name}: {content}\n\n"
+    for display_name, content, image_urls in category_results:
+        final_output += f"{display_name}: {content}\n"
+        if image_urls:
+            final_output += f"Bilder: {', '.join(image_urls)}\n"
+        final_output += "\n"
     
     print("\nFertig! Gesamtergebnis:")
     print(final_output)

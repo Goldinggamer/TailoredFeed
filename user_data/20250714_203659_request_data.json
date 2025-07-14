@@ -1,0 +1,13 @@
+{
+  "age_group": "21",
+  "dialect": "Bayrisch",
+  "gender": "männlich",
+  "language": "Deutsch",
+  "categories": [
+    "wissenschaft",
+    "wirtschaft",
+    "gesundheit",
+    "reisen"
+  ],
+  "format": "kurz"
+}
