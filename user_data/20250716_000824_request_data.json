@@ -1,0 +1,11 @@
+{
+  "age_group": "12",
+  "gender": "männlich",
+  "language": "Deutsch",
+  "dialect": "",
+  "categories": [
+    "unterhaltung",
+    "reisen"
+  ],
+  "format": "kurz"
+}

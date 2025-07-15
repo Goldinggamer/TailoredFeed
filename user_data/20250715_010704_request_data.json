@@ -1,14 +1,18 @@
 {
-  "age_group": "10",
-  "dialect": "",
+  "age_group": "25",
   "gender": "männlich",
   "language": "Deutsch",
+  "dialect": "",
   "categories": [
+    "politik",
     "wissenschaft",
     "unterhaltung",
+    "wirtschaft",
     "gesundheit",
     "gaming",
-    "sport"
+    "technologie",
+    "sport",
+    "reisen"
   ],
-  "format": "kurz"
+  "format": "ausfuehrlich"
 }

@@ -14,15 +14,6 @@ CHROMA_PATH = "chroma_db/"
 json_file = open("./data/alle_news_json.json", "r", encoding="utf-8")
 news_json_arr = json.load(json_file)['news']
 
-CATEGORIES = [
-    "München",
-    "Wirtschaft Geld Deutschland",
-    "Inlandsnachrichten Deutschland",
-    "Internationale Nachrichten", 
-    "Sport Deutschland",
-    "Wissenschaft und Forschung"
-]
-
 # Basis-Template für den Prompt
 BASE_PROMPT_TEMPLATE = """
 Du bist ein journalistisches KI-System, das Nachrichten für einen öffentlichen Bildschirm im Univiertel in München kuratiert. Deine Aufgabe ist es, einen ausgewogenen, faktisch korrekten und relevanten Nachrichtenüberblick zu erstellen.
@@ -76,14 +67,13 @@ def get_display_categories(selected_categories=None):
     category_display_map = {
         'politik': "Politik Deutschland",
         'wissenschaft': "Wissen und Forschung",
-        'unterhaltung': "Unterhaltung und Kultur",
+        'wissenswertes': "Wissenswertes",  # unterhaltung ersetzt durch wissenswertes
         'wirtschaft': "Wirtschaft",
         'gesundheit': "Gesundheit und Medizin",
-        'gaming': "Gaming und Digital",
+        'muenchen': "München aktuell",
         'technologie': "Technologie und Innovation",
         'sport': "Sport Deutschland",
-        'reisen': "Reisen und Lifestyle",
-        'muenchen': "München aktuell"  # Falls explizit München ausgewählt wurde
+        'reisen': "Reisen und Lifestyle"
     }
     
     # Wenn keine spezifischen Kategorien ausgewählt wurden, verwende Standardkategorien
@@ -130,11 +120,11 @@ def create_personalized_prompt(user_info):
     
     # Altersgerechte Anpassungen
     if age < 12:
-        age_appropriate_instruction = "\n- Verwende einfache, kinderfreundliche Sprache und vermeide komplexe Themen"
-    elif age < 18:
+        age_appropriate_instruction = "\n- Verwende ausschließlich einfache, kinderfreundliche Sprache und verwende keine Fachbegriffe, sodass jedes Kind die Nachrichten verstehen kann"
+    elif age < 25:
         age_appropriate_instruction = "\n- Verwende jugendgerechte Sprache und erkläre komplexe Themen verständlich"
-    elif age > 60:
-        age_appropriate_instruction = "\n- Berücksichtige Themen, die für ältere Menschen relevant sein könnten"
+    elif age >= 25:
+        age_appropriate_instruction = "\n- Verwende angemessen komplexe Sprache mit Fachbegriffen, wo erforderlich. Bleibe sachlich und objektiv ohne verzerrende oder manipulative Formulierungen"
     else:
         age_appropriate_instruction = ""
     
@@ -218,11 +208,11 @@ def query_and_process_category(category, embedding_function, user_info):
     
     # Altersgerechte Anpassungen
     if age < 12:
-        age_instruction = "Verwende einfache, kinderfreundliche Sprache und vermeide komplexe Themen."
-    elif age < 18:
+        age_instruction = "Verwende ausschließlich einfache, kinderfreundliche Sprache und verwende keine Fachbegriffe, sodass jedes Kind die Nachrichten verstehen kann"
+    elif age < 25:
         age_instruction = "Verwende jugendgerechte Sprache und erkläre komplexe Themen verständlich."
-    elif age > 60:
-        age_instruction = "Berücksichtige Themen, die für ältere Menschen relevant sein könnten."
+    elif age >= 25:
+        age_instruction = "Verwende angemessen komplexe Sprache mit Fachbegriffen, wo erforderlich. Bleibe sachlich und objektiv ohne verzerrende oder manipulative Formulierungen."
     else:
         age_instruction = ""
     
@@ -230,23 +220,23 @@ def query_and_process_category(category, embedding_function, user_info):
     categories_map = {
         'politik': 'Politik Deutschland',
         'wissenschaft': 'Wissenschaft und Forschung',
-        'unterhaltung': 'Unterhaltung Freizeit',
+        'wissenswertes': 'witzig',  
         'wirtschaft': 'Wirtschaft Geld Deutschland',
         'gesundheit': 'Gesundheit Medizin',
-        'gaming': 'Gaming',
+        'muenchen': 'München',
         'technologie': 'Technologie',
         'sport': 'Sport Deutschland',
-        'reisen': 'Reisen Lifestyle'
+        'reisen': 'Urlaubsreisen'
     }
 
     # Mapping für die Anzeigeform
     display_map = {
         'politik': "Politik Deutschland",
         'wissenschaft': "Wissen und Forschung",
-        'unterhaltung': "Unterhaltung und Kultur",
+        'wissenswertes': "Wissenswertes",  
         'wirtschaft': "Wirtschaft",
         'gesundheit': "Gesundheit und Medizin",
-        'gaming': "Gaming",
+        'muenchen': "München aktuell",
         'technologie': "Technologie und Innovation",
         'sport': "Sport Deutschland",
         'reisen': "Reisen und Lifestyle"
@@ -298,16 +288,16 @@ def query_and_process_category(category, embedding_function, user_info):
     Du bist ein journalistisches KI-System, das Nachrichten für einen öffentlichen Bildschirm im Univiertel in München kuratiert.
     Deine Aufgabe ist es, eine relevante Nachricht zur Kategorie "{display_name}" zu erstellen.
 
-    Persönliche Anpassungen:
-    - Nutzer ist {age} Jahre alt und {gender}
-    - {age_instruction}  
-
     Verwende NUR die bereitgestellten Informationen aus folgenden Quellen:
     
     {category_context}
-    
-    - Wähle die relevantesten und aktuellsten Informationen aus
+
+
+Persönliche Anpassungen:
+    - Nutzer ist {age} Jahre alt und {gender}
+    - {age_instruction}     
     - {format_instruction}
+    - Wähle die relevantesten und aktuellsten Informationen aus
     - Achte auf eine klare, verständliche, neutrale Sprache
     - Präsentiere Fakten ohne manipulative Sprache oder emotionale Färbung
     - Verzichte auf reißerische oder polarisierende Formulierungen
@@ -346,7 +336,7 @@ def query_and_process_category(category, embedding_function, user_info):
             print(f"  - {img_url}")
     print("-"*80 + "\n")
     
-    return display_name, category_content.strip(), image_urls
+    return display_name, category_content.strip(), image_urls  # Diese Zeile muss vorhanden sein!
 
 def main(user_info=None):
     """
@@ -391,25 +381,17 @@ def main(user_info=None):
         )
         
         if display_name and content:
-            category_results.append((display_name, content, image_urls))
+            category_results.append({
+                'category': display_name,
+                'content': content,
+                'images': image_urls
+            })
             print(f"✓ {display_name} verarbeitet")
         else:
             print(f"✗ Kategorie '{category}' konnte nicht verarbeitet werden")
     
-    # Gesamtergebnis zusammensetzen
-    final_output = ""
-    for display_name, content, image_urls in category_results:
-        final_output += f"{display_name}: {content}\n"
-        if image_urls:
-            final_output += f"Bilder: {', '.join(image_urls)}\n"
-        final_output += "\n"
-    
-    print("\nFertig! Gesamtergebnis:")
-    print(final_output)
-    
-    return final_output
+    # Strukturierte Daten zurückgeben statt Text
+    return category_results
 
-# Direkter Aufruf ohne Benutzerinformationen
 if __name__ == "__main__":
-    # Einfacher Aufruf ohne Benutzerinformationen
-    main()
+    pass

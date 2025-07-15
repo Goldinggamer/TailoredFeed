@@ -1,15 +1,14 @@
 {
-  "age_group": "22",
+  "age_group": "23",
   "dialect": "",
   "gender": "männlich",
   "language": "Deutsch",
   "categories": [
     "politik",
     "wissenschaft",
-    "unterhaltung",
     "wirtschaft",
     "gesundheit",
-    "gaming"
+    "technologie"
   ],
   "format": "ausfuehrlich"
 }

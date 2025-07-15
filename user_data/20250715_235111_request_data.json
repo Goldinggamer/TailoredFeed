@@ -1,15 +1,15 @@
 {
-  "age_group": "15",
-  "dialect": "bayrisch",
+  "age_group": "18",
   "gender": "männlich",
   "language": "Deutsch",
+  "dialect": "",
   "categories": [
     "politik",
     "wissenschaft",
     "unterhaltung",
     "wirtschaft",
     "gesundheit",
-    "gaming",
+    "muenchen",
     "technologie",
     "sport",
     "reisen"

@@ -1,13 +1,13 @@
 {
-  "age_group": "21",
-  "dialect": "Bayrisch",
+  "age_group": "20",
+  "dialect": "",
   "gender": "männlich",
   "language": "Deutsch",
   "categories": [
+    "politik",
     "wissenschaft",
     "wirtschaft",
-    "gesundheit",
-    "reisen"
+    "technologie"
   ],
-  "format": "kurz"
+  "format": "ausfuehrlich"
 }

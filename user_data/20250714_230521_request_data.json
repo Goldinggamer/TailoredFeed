@@ -1,0 +1,14 @@
+{
+  "age_group": "17",
+  "dialect": "",
+  "gender": "männlich",
+  "language": "Deutsch",
+  "categories": [
+    "politik",
+    "wissenschaft",
+    "wirtschaft",
+    "gesundheit",
+    "technologie"
+  ],
+  "format": "ausfuehrlich"
+}

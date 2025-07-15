@@ -1,86 +1,117 @@
-
-    <!DOCTYPE html>
-    <html lang="de">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>TailoredFeed - Dein Feed</title>
-      <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-      <style>
-        .news-content {
-          text-align: left;
-          background: rgba(50,50,50,0.7);
-          padding: 20px;
-          border-radius: 10px;
-          margin: 20px 0;
-          line-height: 1.5;
-          white-space: pre-line;
-        }
-        .news-category {
-          font-weight: bold;
-          color: #4CAF50;
-          margin-top: 15px;
-        }
-        .user-settings {
-          text-align: left;
-          background: rgba(50,50,50,0.7);
-          padding: 20px;
-          border-radius: 10px;
-          margin: 20px 0;
-          font-size: 0.9em;
-        }
-        .user-settings details {
-          margin-bottom: 10px;
-        }
-        .user-settings summary {
-          cursor: pointer;
-          color: #4CAF50;
-        }
-      </style>
-    </head>
-    <body>
-      <div class="background"></div>
-      <div class="stars"></div>
-      
-      <div class="container">
-        <div class="brand">tailoredfeed</div>
-        
-        <div class="section-heading">Dein personalisierter Feed</div>
-        
-        <div class="user-settings">
-          <details>
-            <summary>Deine Einstellungen anzeigen</summary>
-            <p><strong>Altersgruppe:</strong> {{ user_info.age_group }}</p>
-            <p><strong>Geschlecht:</strong> {{ user_info.gender }}</p>
-            <p><strong>Sprache:</strong> {{ user_info.language }}</p>
-            {% if user_info.dialect %}
-            <p><strong>Dialekt:</strong> {{ user_info.dialect }}</p>
-            {% endif %}
-            
-            <h4>Ausgewählte Kategorien:</h4>
-            <ul>
-            {% for category in categories %}
-              <li>{{ category }}</li>
-            {% endfor %}
-            </ul>
-            
-            <p><strong>Newsformat:</strong> {{ format }}</p>
-          </details>
-        </div>
-        
-        <div class="news-content">
-          {{ news_content|safe }}
-        </div>
-        
-        <a href="{{ url_for('index') }}">
-          <button class="cta-button">Zurück zum Start</button>
-        </a>
-      </div>
-      
-      <div class="location">📍 München - Maxvorstadt</div>
-      <div class="date">{{ now|format_date }}</div>
-      
-      <script src="{{ url_for('static', filename='scripts.js') }}"></script>
-    </body>
-    </html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TailoredFeed - Dein Feed</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+    .news-content {
+      text-align: left;
+      background: rgba(50,50,50,0.7);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      line-height: 1.5;
+    }
+    .news-category {
+      font-weight: bold;
+      color: #4CAF50;
+      margin: 20px 0 10px 0;
+      font-size: 1.2em;
+    }
+    .category-content {
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+    .news-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 10px 0;
+    }
+    .news-image {
+      max-width: 150px;
+      max-height: 150px;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .user-settings {
+      text-align: left;
+      background: rgba(50,50,50,0.7);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      font-size: 0.9em;
+    }
+    .user-settings details {
+      margin-bottom: 10px;
+    }
+    .user-settings summary {
+      cursor: pointer;
+      color: #4CAF50;
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="stars"></div>
+  
+  <div class="container">
+    <div class="brand">tailoredfeed</div>
     
+    <div class="section-heading">Dein personalisierter Feed</div>
+    
+    <div class="user-settings">
+      <details>
+        <summary>Deine Einstellungen anzeigen</summary>
+        <p><strong>Altersgruppe:</strong> {{ user_info.age_group }}</p>
+        <p><strong>Geschlecht:</strong> {{ user_info.gender }}</p>
+        <p><strong>Sprache:</strong> {{ user_info.language }}</p>
+        {% if user_info.dialect %}
+        <p><strong>Dialekt:</strong> {{ user_info.dialect }}</p>
+        {% endif %}
+        
+        <h4>Ausgewählte Kategorien:</h4>
+        <ul>
+        {% for category in categories %}
+          <li>{{ category }}</li>
+        {% endfor %}
+        </ul>
+        
+        <p><strong>Newsformat:</strong> {{ format }}</p>
+      </details>
+    </div>
+    
+    <div class="news-content">
+      {% if news_data %}
+        {% for news_item in news_data %}
+          <div class="news-category">{{ news_item.category }}:</div>
+          <div class="category-content">{{ news_item.content }}</div>
+          
+          {% if news_item.images %}
+          <div class="news-images">
+            {% for image_url in news_item.images %}
+              <img src="{{ image_url }}" alt="Nachrichtenbild" class="news-image" loading="lazy">
+            {% endfor %}
+          </div>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        <p>Keine Nachrichten verfügbar.</p>
+        <p>Debug: news_data = {{ news_data }}</p>
+      {% endif %}
+    </div>
+    
+    <a href="{{ url_for('index') }}">
+      <button class="cta-button">Zurück zum Start</button>
+    </a>
+  </div>
+  
+  <div class="location">📍 München - Maxvorstadt</div>
+  <div class="date">{{ now|format_date }}</div>
+  
+  <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

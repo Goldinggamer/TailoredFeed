@@ -293,6 +293,33 @@ body {
   color: white !important;
 }
 
+/* Responsive Bilder */
+@media (max-width: 768px) {
+  .news-image {
+    max-width: 100px;
+    max-height: 100px;
+  }
+  
+  .news-images {
+    justify-content: center;
+  }
+}
+
+/* Hover-Effekt für Bilder */
+.news-image:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+/* Bildladeeffekt */
+.news-image {
+  transition: opacity 0.3s ease;
+}
+
+.news-image:not([src]) {
+  opacity: 0.5;
+}
+
 /* Media Queries für kleinere Displays */
 @media (max-width: 600px) {
   .headline {

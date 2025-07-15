@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify, session
+from flask_session import Session
 import os
+import tempfile
 import json
 from datetime import datetime
 import subprocess
@@ -7,7 +9,16 @@ import shutil
 from test_copy import main as generate_feed  
 
 app = Flask(__name__)
-app.secret_key = os.urandom(24)  # Für die Session-Verwaltung
+app.secret_key = os.urandom(24)
+
+# Configure server-side sessions
+app.config['SESSION_TYPE'] = 'filesystem'
+app.config['SESSION_FILE_DIR'] = tempfile.mkdtemp()
+app.config['SESSION_PERMANENT'] = False
+app.config['SESSION_USE_SIGNER'] = True
+app.config['SESSION_KEY_PREFIX'] = 'tailoredfeed:'
+
+Session(app)
 
 # Speicherort für gesammelte Daten
 DATA_DIR = 'user_data'
@@ -17,10 +28,10 @@ os.makedirs(DATA_DIR, exist_ok=True)
 CATEGORIES = {
     'politik': 'Politik',
     'wissenschaft': 'Wissenschaft/Forschung',
-    'unterhaltung': 'Unterhaltung',
+    'wissenswertes': 'Wissenswertes',  
     'wirtschaft': 'Wirtschaft und Finanzen',
     'gesundheit': 'Gesundheit und Medizin',
-    'gaming': 'Gaming',
+    'muenchen': 'München aktuell',
     'technologie': 'Technologie und IT',
     'sport': 'Sport',
     'reisen': 'Reisen und Lifestyle'
@@ -49,18 +60,32 @@ def categories():
 
 @app.route('/feed')
 def feed():
-    if 'news_content' not in session:
+    if 'news_data' not in session:
+        print("Keine news_data in session gefunden, redirect zu generating_news")
         return redirect(url_for('generating_news'))
     
     if 'user_info' not in session:
+        print("Keine user_info in session gefunden, redirect zu user_input")
         return redirect(url_for('user_input'))
-        
+    
+    print(f"Rendering feed with news_data: {session['news_data']}")
+    
+    # Daten für Template extrahieren
+    news_data = session['news_data']
+    user_info = session['user_info']
+    categories = session.get('categories', [])
+    format_type = session.get('format', '')
+    
+    # Große Daten aus Session entfernen NACH dem Rendern
+    if 'news_data' in session:
+        del session['news_data']
+    
     return render_template(
         'feed.html',
-        news_content=session['news_content'],
-        user_info=session['user_info'],
-        categories=session.get('categories', []),
-        format=session.get('format', ''),
+        news_data=news_data,
+        user_info=user_info,
+        categories=categories,
+        format=format_type,
         now=datetime.now()
     )
 
@@ -127,24 +152,31 @@ def generate_news():
         user_info['categories'] = session.get('categories', [])
         user_info['format'] = session.get('format', '')
         
+        print(f"User info being passed to generate_feed: {user_info}")  # Debug
+        
         # Log der tatsächlich verwendeten Daten
         log_data('request_data', user_info)
         
         # Übergebe das erweiterte user_info an die generate_feed Funktion
-        news_content = generate_feed(user_info)
+        news_data = generate_feed(user_info)
         
-        if not news_content:
+        print(f"Type of news_data: {type(news_data)}")  # Debug
+        print(f"Generated news_data: {news_data}")  # Debug
+        
+        if not news_data:
             raise ValueError('Keine News konnten generiert werden')
             
-        # News in Session speichern
-        session['news_content'] = news_content
+        # Strukturierte News in Session speichern
+        session['news_data'] = news_data
         
         # Log der generierten News
-        log_data('generated_news', {'content': news_content})
+        log_data('generated_news', {'data': news_data})
         
         return jsonify({'success': True})
     except Exception as e:
-        print(f"Error generating news: {str(e)}")  # Server-side logging
+        print(f"Error generating news: {str(e)}")
+        import traceback
+        traceback.print_exc()  # Vollständiger Stacktrace
         return jsonify({
             'success': False, 
             'error': str(e)
@@ -222,6 +254,22 @@ def update_database():
             "error": str(e)
         }), 500
 
+@app.route('/cleanup_session')
+def cleanup_session():
+    """Clean up session data to reduce cookie size"""
+    # Keep only essential data
+    essential_keys = ['user_id', 'language']
+    session_copy = {k: v for k, v in session.items() if k in essential_keys}
+    session.clear()
+    session.update(session_copy)
+    return redirect('/')
+
+@app.route('/reset_session')
+def reset_session():
+    """Completely reset the session"""
+    session.clear()
+    return redirect('/')
+
 def log_data(data_type, data):
     """
     Speichert die gesammelten Daten zur späteren Analyse
@@ -249,94 +297,124 @@ def format_date(value):
 @app.route('/create_feed_template')
 def create_feed_template():
     """Erstellt eine neue Feed-Template-Datei für die Anzeige des personalisierten Nachrichteninhalts"""
-    template = """
-    <!DOCTYPE html>
-    <html lang="de">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>TailoredFeed - Dein Feed</title>
-      <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-      <style>
-        .news-content {
-          text-align: left;
-          background: rgba(50,50,50,0.7);
-          padding: 20px;
-          border-radius: 10px;
-          margin: 20px 0;
-          line-height: 1.5;
-          white-space: pre-line;
-        }
-        .news-category {
-          font-weight: bold;
-          color: #4CAF50;
-          margin-top: 15px;
-        }
-        .user-settings {
-          text-align: left;
-          background: rgba(50,50,50,0.7);
-          padding: 20px;
-          border-radius: 10px;
-          margin: 20px 0;
-          font-size: 0.9em;
-        }
-        .user-settings details {
-          margin-bottom: 10px;
-        }
-        .user-settings summary {
-          cursor: pointer;
-          color: #4CAF50;
-        }
-      </style>
-    </head>
-    <body>
-      <div class="background"></div>
-      <div class="stars"></div>
-      
-      <div class="container">
-        <div class="brand">tailoredfeed</div>
-        
-        <div class="section-heading">Dein personalisierter Feed</div>
-        
-        <div class="user-settings">
-          <details>
-            <summary>Deine Einstellungen anzeigen</summary>
-            <p><strong>Altersgruppe:</strong> {{ user_info.age_group }}</p>
-            <p><strong>Geschlecht:</strong> {{ user_info.gender }}</p>
-            <p><strong>Sprache:</strong> {{ user_info.language }}</p>
-            {% if user_info.dialect %}
-            <p><strong>Dialekt:</strong> {{ user_info.dialect }}</p>
-            {% endif %}
-            
-            <h4>Ausgewählte Kategorien:</h4>
-            <ul>
-            {% for category in categories %}
-              <li>{{ category }}</li>
-            {% endfor %}
-            </ul>
-            
-            <p><strong>Newsformat:</strong> {{ format }}</p>
-          </details>
-        </div>
-        
-        <div class="news-content">
-          {{ news_content|safe }}
-        </div>
-        
-        <a href="{{ url_for('index') }}">
-          <button class="cta-button">Zurück zum Start</button>
-        </a>
-      </div>
-      
-      <div class="location">📍 München - Maxvorstadt</div>
-      <div class="date">{{ now|format_date }}</div>
-      
-      <script src="{{ url_for('static', filename='scripts.js') }}"></script>
-    </body>
-    </html>
-    """
+    template = """<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TailoredFeed - Dein Feed</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+    .news-content {
+      text-align: left;
+      background: rgba(50,50,50,0.7);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      line-height: 1.5;
+    }
+    .news-category {
+      font-weight: bold;
+      color: #4CAF50;
+      margin: 20px 0 10px 0;
+      font-size: 1.2em;
+    }
+    .category-content {
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+    .news-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 10px 0;
+    }
+    .news-image {
+      max-width: 150px;
+      max-height: 150px;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .user-settings {
+      text-align: left;
+      background: rgba(50,50,50,0.7);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      font-size: 0.9em;
+    }
+    .user-settings details {
+      margin-bottom: 10px;
+    }
+    .user-settings summary {
+      cursor: pointer;
+      color: #4CAF50;
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="stars"></div>
+  
+  <div class="container">
+    <div class="brand">tailoredfeed</div>
     
-    # Diese Funktion gibt nur das Template zurück
+    <div class="section-heading">Dein personalisierter Feed</div>
+    
+    <div class="user-settings">
+      <details>
+        <summary>Deine Einstellungen anzeigen</summary>
+        <p><strong>Altersgruppe:</strong> {{ user_info.age_group }}</p>
+        <p><strong>Geschlecht:</strong> {{ user_info.gender }}</p>
+        <p><strong>Sprache:</strong> {{ user_info.language }}</p>
+        {% if user_info.dialect %}
+        <p><strong>Dialekt:</strong> {{ user_info.dialect }}</p>
+        {% endif %}
+        
+        <h4>Ausgewählte Kategorien:</h4>
+        <ul>
+        {% for category in categories %}
+          <li>{{ category }}</li>
+        {% endfor %}
+        </ul>
+        
+        <p><strong>Newsformat:</strong> {{ format }}</p>
+      </details>
+    </div>
+    
+    <div class="news-content">
+      {% if news_data %}
+        {% for news_item in news_data %}
+          <div class="news-category">{{ news_item.category }}:</div>
+          <div class="category-content">{{ news_item.content }}</div>
+          
+          {% if news_item.images %}
+          <div class="news-images">
+            {% for image_url in news_item.images %}
+              <img src="{{ image_url }}" alt="Nachrichtenbild" class="news-image" loading="lazy">
+            {% endfor %}
+          </div>
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        <p>Keine Nachrichten verfügbar.</p>
+        <p>Debug: news_data = {{ news_data }}</p>
+      {% endif %}
+    </div>
+    
+    <a href="{{ url_for('index') }}">
+      <button class="cta-button">Zurück zum Start</button>
+    </a>
+  </div>
+  
+  <div class="location">📍 München - Maxvorstadt</div>
+  <div class="date">{{ now|format_date }}</div>
+  
+  <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>"""
+    
     return template
 
 if __name__ == '__main__':
