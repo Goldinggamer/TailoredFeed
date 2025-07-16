@@ -1,0 +1,39 @@
+{
+  "data": [
+    {
+      "category": "Politik Deutschland",
+      "content": "Violence against police has been a growing concern in Germany, especially during New Year's celebrations. In a recent Berlin case, a young officer was severely beaten, leading to a court decision with minor penalties but highlighting broader issues of support for law enforcement. The ombudsman handling complaints received 190 cases last year, with only 56 deemed baseless and 14 confirmed valid, while others remain unresolved. This reflects ongoing debates about accountability and transparency within the police force.",
+      "images": [
+        "https://images.tagesschau.de/image/2b7d09ad-7193-46f9-bc22-d2cd4f35e08a/AAABlzvUwG8/AAABkZLngyM/1x1-256.jpg"
+      ]
+    },
+    {
+      "category": "Wissen und Forschung",
+      "content": "Federal Constitutional Court overturns Berlin's rule on tenure-track positions for junior researchers after PhD; new regulation aimed to provide permanent roles upon achieving specific qualifications but was deemed unconstitutional due to federal law precedence. Decision halts special Berlin approach without immediate impact as the rule had not been implemented yet.",
+      "images": [
+        "https://images.tagesschau.de/image/0bcdd6e7-a476-4e97-980e-6859331c3acf/AAABl_Q_7Rg/AAABkZLngyM/1x1-256.jpg"
+      ]
+    },
+    {
+      "category": "Wirtschaft",
+      "content": "US President Trump has announced a 30% tariff on imports from the EU starting August 1st, while the EU has delayed its planned retaliatory tariffs until the same date, hoping for a negotiated solution. Key sectors like autos and steel are exempt from the new base tariffs but remain subject to existing rates of 25% (autos) and 50% (steel/aluminum). The EU is concerned about the impact on its export-oriented economy, particularly Germany's automotive industry, which has already faced significant costs due to previous tariffs. Trump justifies the measures as correcting a trade deficit, though EU data shows a surplus in goods trade. Negotiations remain ongoing, with both sides signaling openness to dialogue until August 1st.",
+      "images": [
+        "https://images.tagesschau.de/image/d72ab884-7092-48df-95c8-6298b30fb4bf/AAABlsPGMGc/AAABkZLngyM/1x1-256.jpg"
+      ]
+    },
+    {
+      "category": "Gesundheit und Medizin",
+      "content": "Healthy aging can be achieved by preventing chronic diseases through early interventions like lifestyle changes and medications. Experts suggest monitoring biological age and improving research collaboration to address future healthcare challenges posed by an aging population.",
+      "images": [
+        "https://images.tagesschau.de/image/82bd2519-4701-4282-9ccc-c86998aaa9b4/AAABl4L26gs/AAABkZLngyM/1x1-256.jpg"
+      ]
+    },
+    {
+      "category": "Technologie und Innovation",
+      "content": "Scientists at Georgia Tech have developed a robot named ManuBot to study the perfect splash dive. Their research shows that achieving the largest water displacement involves entering the water at a 45-degree angle and opening the body quickly underwater to create a powerful fountain effect.",
+      "images": [
+        "https://images.tagesschau.de/image/839065c9-356b-497d-8f77-29c668077314/AAABl8qa5OU/AAABkZLngyM/1x1-256.jpg"
+      ]
+    }
+  ]
+}

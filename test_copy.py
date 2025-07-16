@@ -88,12 +88,16 @@ def query_and_process_category(category, embedding_function, user_info):
     for doc in results:
         title = doc.metadata['title']
         image_url = doc.metadata.get('image', '')
-        if image_url:
-            image_urls.append(image_url)
+        if image_url and image_url.strip():  # Prüfe auf leere/whitespace Strings
+            image_urls.append(image_url.strip())
         
         matching_article = next((x for x in news_json_arr if x["title"] == title), None)
         if matching_article:
             category_context += f"Titel: {title}\nInhalt: {matching_article.get('text', '')}\n\n"
+    
+    # Stelle sicher, dass mindestens eine leere Liste zurückgegeben wird
+    if not image_urls:
+        image_urls = []
     
     if not category_context.strip():
         return display_name, "Keine aktuellen Nachrichten verfügbar.", []

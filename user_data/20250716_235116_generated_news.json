@@ -1,0 +1,25 @@
+{
+  "data": [
+    {
+      "category": "Politik Deutschland",
+      "content": "Violence against police officers has increased, especially around New Year's Eve, with many attacks causing long-term effects on those involved. While some attackers face legal consequences, many cases take years to resolve or are dismissed. At the same time, there are concerns about excessive force used by police, which often leads to lengthy court processes and a lack of transparency in handling such cases.",
+      "images": [
+        "https://images.tagesschau.de/image/2b7d09ad-7193-46f9-bc22-d2cd4f35e08a/AAABlzvUwG8/AAABkZLngyM/1x1-256.jpg"
+      ]
+    },
+    {
+      "category": "Wirtschaft",
+      "content": "US President Trump has announced 30% tariffs on EU imports starting August 1st, while the EU delays its planned retaliatory tariffs until the same date. The move affects many industries but excludes cars and steel. Both sides are trying to negotiate a deal before the tariffs take effect.",
+      "images": [
+        "https://images.tagesschau.de/image/d72ab884-7092-48df-95c8-6298b30fb4bf/AAABlsPGMGc/AAABkZLngyM/1x1-256.jpg"
+      ]
+    },
+    {
+      "category": "Technologie und Innovation",
+      "content": "The German government plans to build three new chip factories in Germany to make it the leading chip production site in Europe. This will help support future technologies like artificial intelligence and renewable energy solutions, such as wind and solar power.",
+      "images": [
+        "https://images.tagesschau.de/image/a7f81898-aabe-4cb6-9450-eb34bad37456/AAABmBNdv2A/AAABkZLngyM/1x1-256.jpg"
+      ]
+    }
+  ]
+}

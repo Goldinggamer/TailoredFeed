@@ -1,0 +1,16 @@
+{
+  "age_group": "9",
+  "gender": "männlich",
+  "language": "Deutsch",
+  "dialect": "",
+  "categories": [
+    "wissenschaft",
+    "wissenswertes",
+    "gesundheit",
+    "muenchen",
+    "technologie",
+    "sport",
+    "reisen"
+  ],
+  "format": "kurz"
+}

@@ -293,52 +293,330 @@ body {
   color: white !important;
 }
 
-/* Responsive Bilder */
-@media (max-width: 768px) {
-  .news-image {
-    max-width: 100px;
-    max-height: 100px;
-  }
-  
-  .news-images {
+/* Kategorie-Container */
+.category-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Einzelner Kategorie-Block */
+.category-block {
+    display: flex;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    min-height: 200px;
+}
+
+.category-block:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Bild-Bereich (linke Seite) */
+.category-image {
+    flex: 0 0 300px; /* Feste Breite für Bilder */
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
     justify-content: center;
-  }
 }
 
-/* Hover-Effekt für Bilder */
-.news-image:hover {
-  transform: scale(1.05);
-  transition: transform 0.2s ease;
+.category-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Bildladeeffekt */
-.news-image {
-  transition: opacity 0.3s ease;
+.category-image .no-image {
+    width: 100%;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
 }
 
-.news-image:not([src]) {
-  opacity: 0.5;
+/* Text-Bereich (rechte Seite) */
+.category-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-/* Media Queries für kleinere Displays */
-@media (max-width: 600px) {
-  .headline {
-    font-size: 4.5vh;
-  }
-  .subheadline {
-    font-size: 3vh;
-  }
-  .brand {
-    font-size: 7vh;
-  }
-  .cta-button {
-    font-size: 2.8vh;
-    padding: 2vh 4vh;
-  }
-  .location, .date {
-    font-size: 2vh;
-  }
-  .news-icon {
-    font-size: 2vh;
-  }
+.category-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #64b5f6;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(100, 181, 246, 0.3);
+}
+
+.category-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: justify;
+}
+
+/* === FEED-SEITE SPEZIFISCHE STYLES === */
+/* Diese Regeln gelten nur für die Feed-Seite */
+
+.feed-page .category-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    justify-items: center; /* Zentriert jedes Grid-Item */
+    justify-content: center; /* Zentriert das gesamte Grid */
+}
+
+.feed-page .category-block {
+    display: flex;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    min-height: 160px;
+    width: 100%;
+    max-width: 600px; /* Begrenzt die Breite der Blöcke */
+}
+
+.feed-page .category-block:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feed-page .category-image {
+    flex: 0 0 140px; /* Kompaktere Bildbreite */
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feed-page .category-image img {
+    width: 100%;
+    height: 120px; /* Reduzierte Bildhöhe */
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feed-page .category-image .no-image {
+    width: 100%;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    text-align: center;
+}
+
+.feed-page .category-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.feed-page .category-title {
+    font-size: 18px; /* Kompaktere Schriftgröße */
+    font-weight: bold;
+    color: #64b5f6;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(100, 181, 246, 0.3);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.feed-page .category-text {
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: justify;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 6; /* Begrenzt auf 6 Zeilen */
+    -webkit-box-orient: vertical;
+}
+
+/* Action Buttons für Feed-Seite */
+.feed-page .action-buttons {
+    margin-top: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Basis-Button Styles */
+.feed-page .action-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 180px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.5px;
+}
+
+/* Hover-Effekt */
+.feed-page .action-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* Active-Effekt */
+.feed-page .action-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Kategorien ändern Button - spezifisch */
+.feed-page .action-button.categories-btn {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    box-shadow: 0 4px 15px rgba(240, 147, 251, 0.4);
+}
+
+.feed-page .action-button.categories-btn:hover {
+    background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+    box-shadow: 0 8px 25px rgba(240, 147, 251, 0.6);
+}
+
+/* Neu starten Button - spezifisch */
+.feed-page .action-button.restart-btn {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+}
+
+.feed-page .action-button.restart-btn:hover {
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.6);
+}
+
+/* Icon-Styles für Buttons */
+.feed-page .action-button .icon {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.feed-page .action-button:hover .icon {
+    transform: scale(1.1);
+}
+
+/* Glassmorphism-Variante (optional) */
+.feed-page .action-button.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.feed-page .action-button.glass:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design für Buttons */
+@media (max-width: 768px) {
+    .feed-page .action-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin-top: 30px;
+    }
+    
+    .feed-page .action-button {
+        min-width: 200px;
+        padding: 12px 24px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .feed-page .action-button {
+        min-width: 160px;
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Animation beim Laden */
+.feed-page .action-button {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ripple-Effekt beim Klicken */
+.feed-page .action-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.feed-page .action-button:active::before {
+    width: 300px;
+    height: 300px;
 }

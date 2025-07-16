@@ -1,117 +1,68 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TailoredFeed - Dein Feed</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-  <style>
-    .news-content {
-      text-align: left;
-      background: rgba(50,50,50,0.7);
-      padding: 20px;
-      border-radius: 10px;
-      margin: 20px 0;
-      line-height: 1.5;
-    }
-    .news-category {
-      font-weight: bold;
-      color: #4CAF50;
-      margin: 20px 0 10px 0;
-      font-size: 1.2em;
-    }
-    .category-content {
-      margin-bottom: 15px;
-      line-height: 1.6;
-    }
-    .news-images {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 10px 0;
-    }
-    .news-image {
-      max-width: 150px;
-      max-height: 150px;
-      border-radius: 8px;
-      object-fit: cover;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    }
-    .user-settings {
-      text-align: left;
-      background: rgba(50,50,50,0.7);
-      padding: 20px;
-      border-radius: 10px;
-      margin: 20px 0;
-      font-size: 0.9em;
-    }
-    .user-settings details {
-      margin-bottom: 10px;
-    }
-    .user-settings summary {
-      cursor: pointer;
-      color: #4CAF50;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TailoredFeed - Dein persönlicher Nachrichtenfeed</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Font Awesome für Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
-  <div class="background"></div>
-  <div class="stars"></div>
-  
-  <div class="container">
-    <div class="brand">tailoredfeed</div>
-    
-    <div class="section-heading">Dein personalisierter Feed</div>
-    
-    <div class="user-settings">
-      <details>
-        <summary>Deine Einstellungen anzeigen</summary>
-        <p><strong>Altersgruppe:</strong> {{ user_info.age_group }}</p>
-        <p><strong>Geschlecht:</strong> {{ user_info.gender }}</p>
-        <p><strong>Sprache:</strong> {{ user_info.language }}</p>
-        {% if user_info.dialect %}
-        <p><strong>Dialekt:</strong> {{ user_info.dialect }}</p>
-        {% endif %}
-        
-        <h4>Ausgewählte Kategorien:</h4>
-        <ul>
-        {% for category in categories %}
-          <li>{{ category }}</li>
-        {% endfor %}
-        </ul>
-        
-        <p><strong>Newsformat:</strong> {{ format }}</p>
-      </details>
+<body class="feed-page"> <!-- WICHTIG: feed-page Klasse hinzugefügt -->
+    <div class="background"></div>
+    <div class="stars"></div>
+
+    <div class="nav">
+        <a href="{{ url_for('categories') }}">
+            <button class="back-button">←</button>
+        </a>
     </div>
-    
-    <div class="news-content">
-      {% if news_data %}
-        {% for news_item in news_data %}
-          <div class="news-category">{{ news_item.category }}:</div>
-          <div class="category-content">{{ news_item.content }}</div>
-          
-          {% if news_item.images %}
-          <div class="news-images">
-            {% for image_url in news_item.images %}
-              <img src="{{ image_url }}" alt="Nachrichtenbild" class="news-image" loading="lazy">
+
+    <div class="container">
+        <div class="brand">tailoredfeed</div>
+        
+        <div class="section-heading">
+            Dein personalisierter Nachrichtenfeed
+        </div>
+
+        <div class="category-container">
+            {% for item in news_data %}
+            <div class="category-block">
+                <!-- Bild-Bereich (links) -->
+                <div class="category-image">
+                    {% if item.images and item.images|length > 0 %}
+                        <img src="{{ item.images[0] }}" alt="{{ item.category }}" onerror="this.parentElement.innerHTML='<div class=&quot;no-image&quot;>Kein Bild verfügbar</div>'">
+                    {% else %}
+                        <div class="no-image">Kein Bild verfügbar</div>
+                    {% endif %}
+                </div>
+                
+                <!-- Text-Bereich (rechts) -->
+                <div class="category-content">
+                    <h2 class="category-title">{{ item.category }}</h2>
+                    <div class="category-text">{{ item.content }}</div>
+                </div>
+            </div>
             {% endfor %}
-          </div>
-          {% endif %}
-        {% endfor %}
-      {% else %}
-        <p>Keine Nachrichten verfügbar.</p>
-        <p>Debug: news_data = {{ news_data }}</p>
-      {% endif %}
+        </div>
+
+        <!-- Moderne Action Buttons -->
+        <!-- Glassmorphism Action Buttons -->
+        <div class="action-buttons">
+            <a href="{{ url_for('categories') }}" class="action-button glass">
+                <i class="fas fa-edit icon"></i>
+                Kategorien ändern
+            </a>
+            <a href="{{ url_for('reset_session') }}" class="action-button glass">
+                <i class="fas fa-redo-alt icon"></i>
+                Neu starten
+            </a>
+        </div>
     </div>
-    
-    <a href="{{ url_for('index') }}">
-      <button class="cta-button">Zurück zum Start</button>
-    </a>
-  </div>
-  
-  <div class="location">📍 München - Maxvorstadt</div>
-  <div class="date">{{ now|format_date }}</div>
-  
-  <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+
+    <div class="location">📍 München - Maxvorstadt</div>
+    <div class="date">{{ now.strftime('%d.%m.%Y - %H:%M') }}</div>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
 </body>
 </html>
