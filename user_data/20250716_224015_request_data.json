@@ -1,0 +1,11 @@
+{
+  "age_group": "20",
+  "gender": "männlich",
+  "language": "Deutsch",
+  "dialect": "",
+  "categories": [
+    "politik",
+    "reisen"
+  ],
+  "format": "kurz"
+}
