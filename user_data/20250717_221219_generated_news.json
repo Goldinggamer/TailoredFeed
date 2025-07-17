@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      "category": "Politik Deutschland",
+      "content": "Viele Polizisten in Deutschland werden von Menschen angegriffen. Oft passiert es, dass diese Angriffe nicht streng bestraft werden oder überhaupt nichts geschieht. Manchmal tun Polizisten Unrecht, aber das ist selten und wenn, dauert es oft Jahre bis ein Urteil fällt.",
+      "images": [
+        "https://images.tagesschau.de/image/2b7d09ad-7193-46f9-bc22-d2cd4f35e08a/AAABlzvUwG8/AAABkZLngyM/1x1-256.jpg"
+      ]
+    },
+    {
+      "category": "Wirtschaft",
+      "content": "US-Präsident Trump plant ab dem 1. August neue Zölle auf Produkte aus der EU zu erheben. Die EU hofft weiterhin auf eine friedliche Lösung und hat die Gegenzölle verschoben. Dies könnte den Handel zwischen den beiden Regionen beeinträchtigen.",
+      "images": [
+        "https://images.tagesschau.de/image/d72ab884-7092-48df-95c8-6298b30fb4bf/AAABlsPGMGc/AAABkZLngyM/1x1-256.jpg"
+      ]
+    }
+  ]
+}

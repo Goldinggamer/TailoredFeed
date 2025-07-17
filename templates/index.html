@@ -19,11 +19,26 @@
     
     <div class="brand">tailoredfeed!</div>
     
-    <a href="{{ url_for('user_input') }}">
-      <button class="cta-button">
-        Starten <span class="arrow">→</span>
-      </button>
-    </a>
+    <!-- Bildcontainer für die animierten News-Bilder -->
+    <div class="news-images-container">
+      <div class="news-image-left">
+        <img id="leftImage" src="" alt="News Image" />
+        <div id="leftTitle" class="news-title"></div>
+      </div>
+      
+      <div class="button-container">
+        <a href="{{ url_for('user_input') }}">
+          <button class="cta-button">
+            Starten <span class="arrow">→</span>
+          </button>
+        </a>
+      </div>
+      
+      <div class="news-image-right">
+        <img id="rightImage" src="" alt="News Image" />
+        <div id="rightTitle" class="news-title"></div>
+      </div>
+    </div>
   </div>
   
   <div class="news-ticker">

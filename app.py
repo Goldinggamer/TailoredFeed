@@ -276,6 +276,28 @@ def restart():
     session.clear()
     return redirect(url_for('index'))
 
+@app.route('/api/news-images')
+def get_news_images():
+    """API endpoint to get news images from alle_news_json.json"""
+    try:
+        json_path = os.path.join(os.path.dirname(__file__), 'data', 'alle_news_json.json')
+        with open(json_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        
+        # Extract images from news articles
+        images = []
+        for article in data.get('news', []):
+            if 'image' in article and article['image']:
+                images.append({
+                    'url': article['image'],
+                    'title': article.get('title', ''),
+                    'kategorie': article.get('kategorie', '')
+                })
+        
+        return jsonify({'success': True, 'images': images})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)})
+
 def log_data(data_type, data):
     """
     Speichert die gesammelten Daten zur späteren Analyse
