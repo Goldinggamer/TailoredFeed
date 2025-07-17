@@ -269,7 +269,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4vw;
+  gap: 10vw;
   margin-top: 4vh;
   width: 100%;
 }
