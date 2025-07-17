@@ -1,0 +1,15 @@
+{
+  "age_group": "21",
+  "gender": "männlich",
+  "language": "Deutsch",
+  "dialect": "",
+  "categories": [
+    "politik",
+    "wissenschaft",
+    "wirtschaft",
+    "gesundheit",
+    "technologie",
+    "sport"
+  ],
+  "format": "ausfuehrlich"
+}

@@ -78,28 +78,47 @@ def query_and_process_category(category, embedding_function, user_info):
     search_term = categories_map[category]
     display_name = display_map[category]
     
+    # DEBUG: Überprüfe Suchbegriff
+    print(f"DEBUG: Suche für Kategorie '{category}' mit Term: '{search_term}'", flush=True)
+    
     # Vector Store und Suche
     db = Chroma(persist_directory=CHROMA_PATH, embedding_function=embedding_function)
     results = db.similarity_search(search_term, k=1)
+    
+    # DEBUG: Überprüfe Suchergebnisse
+    print(f"DEBUG: Gefundene Ergebnisse: {len(results)}", flush=True)
+    print(f"DEBUG: Chroma DB hat {db._collection.count()} Dokumente", flush=True)
+    for i, doc in enumerate(results):
+        print(f"DEBUG: Ergebnis {i+1}: Titel='{doc.metadata.get('title', 'N/A')}'", flush=True)
     
     category_context = ""
     image_urls = []
     
     for doc in results:
         title = doc.metadata['title']
+        print(f"DEBUG: Suche Artikel mit Titel: '{title}'", flush=True)
+        
         image_url = doc.metadata.get('image', '')
         if image_url and image_url.strip():  # Prüfe auf leere/whitespace Strings
             image_urls.append(image_url.strip())
         
         matching_article = next((x for x in news_json_arr if x["title"] == title), None)
         if matching_article:
-            category_context += f"Titel: {title}\nInhalt: {matching_article.get('text', '')}\n\n"
+            print(f"DEBUG: Artikel gefunden!", flush=True)
+            article_text = matching_article.get('text', '')
+            print(f"DEBUG: Artikel-Inhalt: {article_text[:500]}{'...' if len(article_text) > 500 else ''}", flush=True)
+            category_context += f"Titel: {title}\nInhalt: {article_text}\n\n"
+        else:
+            print(f"DEBUG: Kein passender Artikel in JSON gefunden", flush=True)
+            # Zeige verfügbare Titel zur Überprüfung
+            print(f"DEBUG: Verfügbare Titel (erste 3): {[x['title'] for x in news_json_arr[:3]]}", flush=True)
     
     # Stelle sicher, dass mindestens eine leere Liste zurückgegeben wird
     if not image_urls:
         image_urls = []
     
     if not category_context.strip():
+        print(f"DEBUG: Kein Content für Kategorie '{category}' gefunden", flush=True)
         return display_name, "Keine aktuellen Nachrichten verfügbar.", []
     
     # Format-Anweisung
@@ -124,14 +143,21 @@ def query_and_process_category(category, embedding_function, user_info):
     Deine Ausgabe sollte rein faktisch und ohne Einleitung oder Schlussformulierung sein.
     """
     
+    print(f"DEBUG: LLM-Prompt:\n{category_prompt}", flush=True)
+    print(f"DEBUG: Rufe LLM auf...", flush=True)
+    
     # LLM aufrufen
     model = Ollama(model="deepseek-r1:32b", base_url="http://127.0.0.1:11434")
     category_content = model.invoke(category_prompt)
     
     if "</think>" in category_content:
         _, category_content = category_content.split("</think>")
+        print(f"DEBUG: LLM-Antwort (nach </think> Split): {category_content}", flush=True)
     
-    return display_name, category_content.strip(), image_urls
+    final_content = category_content.strip()
+    print(f"DEBUG: Finale Nachricht: {final_content}", flush=True)
+    
+    return display_name, final_content, image_urls
 
 def main(user_info=None):
     """Hauptfunktion zur Generierung des personalisierten Nachrichtenfeed"""

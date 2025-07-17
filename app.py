@@ -268,7 +268,13 @@ def cleanup_session():
 def reset_session():
     """Completely reset the session"""
     session.clear()
-    return redirect('/')
+    return redirect(url_for('index'))  # Ändere das redirect zur Startseite
+
+@app.route('/restart')
+def restart():
+    """Restart the application by clearing session and redirecting to start page"""
+    session.clear()
+    return redirect(url_for('index'))
 
 def log_data(data_type, data):
     """
