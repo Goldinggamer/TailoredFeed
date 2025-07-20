@@ -527,13 +527,13 @@ body {
 
 .feed-page .category-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* Mehr Platz für jede Box */
+    gap: 30px; /* Größerer Abstand zwischen den Boxen */
     max-width: 1400px;
     margin: 0 auto;
     padding: 20px;
-    justify-items: center; /* Zentriert jedes Grid-Item */
-    justify-content: center; /* Zentriert das gesamte Grid */
+    justify-items: center;
+    justify-content: center;
 }
 
 .feed-page .category-block {
@@ -545,14 +545,10 @@ body {
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    min-height: 160px;
     width: 100%;
-    max-width: 600px; /* Begrenzt die Breite der Blöcke */
-}
-
-.feed-page .category-block:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    max-width: 550px; /* Etwas kleinere max-width */
+    height: auto;
+    align-items: flex-start;
 }
 
 .feed-page .category-image {
@@ -610,10 +606,11 @@ body {
     line-height: 1.5;
     color: rgba(255, 255, 255, 0.9);
     text-align: justify;
-    overflow: hidden;
+    /* Entferne die Textbegrenzung */
+    /* overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 6; /* Begrenzt auf 6 Zeilen */
-    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical; */
 }
 
 /* Action Buttons für Feed-Seite */

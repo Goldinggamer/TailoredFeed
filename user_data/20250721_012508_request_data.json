@@ -1,0 +1,14 @@
+{
+  "age_group": "8",
+  "gender": "männlich",
+  "language": "Deutsch",
+  "dialect": "",
+  "categories": [
+    "politik",
+    "wirtschaft",
+    "muenchen",
+    "technologie",
+    "reisen"
+  ],
+  "format": "ausfuehrlich"
+}
