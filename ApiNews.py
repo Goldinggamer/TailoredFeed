@@ -20,11 +20,11 @@ def extract_article(news_item):
             article_parts.append(clean_html(part.get("value", "")))
     article = "\n".join(article_parts)
     
-    # Nur das 1x1-256 Bild extrahieren
+    # Nur das 16x9-1920 Bild extrahieren
     image_url = ""
     teaser_image = news_item.get("teaserImage", {})
     if teaser_image and teaser_image.get("imageVariants", {}):
-        image_url = teaser_image["imageVariants"].get("1x1-256", "")
+        image_url = teaser_image["imageVariants"].get("16x9-1920", "")
     
     return {
         "title": title, 

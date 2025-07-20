@@ -1,0 +1,18 @@
+{
+  "age_group": "14",
+  "gender": "männlich",
+  "language": "Deutsch",
+  "dialect": "",
+  "categories": [
+    "politik",
+    "wissenschaft",
+    "wissenswertes",
+    "wirtschaft",
+    "gesundheit",
+    "muenchen",
+    "technologie",
+    "sport",
+    "reisen"
+  ],
+  "format": "kurz"
+}

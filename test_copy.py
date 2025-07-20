@@ -147,7 +147,9 @@ def query_and_process_category(category, embedding_function, user_info):
     - Wähle die relevantesten und aktuellsten Informationen aus
     - Achte auf eine klare, verständliche, neutrale Sprache
     - Präsentiere Fakten ohne manipulative Sprache oder emotionale Färbung
-    - Die Nachrichtenausgabe MUSS in {user_language}{dialect_instruction} verfasst werden!
+    - Die Nachrichtenausgabe MUSS in {user_language}{dialect_instruction} verfasst werden! 
+    - Verwende KEINE chinesischen, japanischen oder anderen asiatischen Schriftzeichen!
+    - Verwende KEINE Sternchen (*) oder andere Formatierungszeichen in deiner Antwort!
     
     Deine Ausgabe sollte rein faktisch und ohne Einleitung oder Schlussformulierung sein.
     """
