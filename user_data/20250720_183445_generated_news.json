@@ -1,0 +1,63 @@
+{
+  "data": [
+    {
+      "category": "Politik Deutschland",
+      "content": "German Interior Minister Alexander Dobrindt is hosting a meeting called the \"Zugspitz Summit on Migration\" with ministers from several European countries to discuss tougher migration policies. The goal is to create a joint statement and increase funding for border security and reducing illegal migration. Some neighboring countries, like Belgium and Switzerland, were not invited, leading to concerns about cooperation and criticism of Germany's approach.",
+      "images": [
+        "https://images.tagesschau.de/image/c43bdc71-acaf-4140-913c-7a8f129e90c7/AAABmBxc2wQ/AAABkZLngyM/1x1-256.jpg"
+      ]
+    },
+    {
+      "category": "Wissen und Forschung",
+      "content": "Eating lots of different plant foods like fruits, vegetables, and nuts helps make our guts strong because they have fiber that feeds good bacteria in our stomachs. These tiny helpers keep us healthy by aiding digestion and supporting our immune system. While aiming to eat 30 kinds of plants a week is ideal, just focusing on eating as many different ones as possible is beneficial too!",
+      "images": [
+        "https://images.tagesschau.de/image/2ef09f84-e319-4b15-91fc-0afac4a735df/AAABl8uYozg/AAABkZLngyM/1x1-256.jpg"
+      ]
+    },
+    {
+      "category": "Wissenswertes",
+      "content": "Glowing night clouds can be seen in the summer sky at night. They form very high up where it's super cold, like -120 degrees! These rare clouds are becoming more common because of changes in our planet's climate.",
+      "images": [
+        "https://images.tagesschau.de/image/25305ded-e968-4c05-a070-2a279d167823/AAABl9CtKZM/AAABkZLngyM/1x1-256.jpg"
+      ]
+    },
+    {
+      "category": "Wirtschaft",
+      "content": "Keine aktuellen Nachrichten verfügbar.",
+      "images": []
+    },
+    {
+      "category": "Gesundheit und Medizin",
+      "content": "Walking, jogging, or even light activities like a daily stroll can reduce the risk of cancer and help people recover better if they already have cancer. Even a little exercise each day can make a big difference in staying healthy. Studies show that moving more can lower the chances of getting sick and help fight diseases like cancer.",
+      "images": [
+        "https://images.tagesschau.de/image/0147b734-88c3-4dfe-834e-279a290a3a72/AAABl-Qt89E/AAABkZLngyM/1x1-256.jpg"
+      ]
+    },
+    {
+      "category": "München aktuell",
+      "content": "Keine aktuellen Nachrichten verfügbar.",
+      "images": []
+    },
+    {
+      "category": "Technologie und Innovation",
+      "content": "Uber plans to start using self-driving cars in a big U.S. city by late next year. These cars will be made by Lucid and use special driving technology from Nuro. Other companies like Waymo, Volkswagen, and Baidu are also working with Uber on this project.",
+      "images": [
+        "https://images.tagesschau.de/image/aabdd6f6-19ee-4220-9c4c-70e3fb1b443f/AAABmBxK_9U/AAABkZLngyM/1x1-256.jpg"
+      ]
+    },
+    {
+      "category": "Sport Deutschland",
+      "content": "Christiane Schenderlein is the new person in charge of sports in Germany. She doesn't have experience with sports before, but she will help make sports more important and improve how athletes are supported. The group that helps decide on sports things now also looks at volunteer work, like helping in clubs or teams. They want to make sure sports are better for everyone, but there are still some challenges to solve.",
+      "images": [
+        "https://images.sportschau.de/image/091ce902-8dfe-4e9f-bd8c-832ec3ad3eae/AAABlvMdj-U/AAABkZLngyM/1x1-256.jpg"
+      ]
+    },
+    {
+      "category": "Reisen und Lifestyle",
+      "content": "The summer holidays in Germany are causing a debate between states. Some states like Bavaria and Baden-Württemberg keep their summer holidays later than others to avoid traffic jams, while other states want a fairer system for everyone. Finding an agreement is tricky because each state has its own preferences and needs.",
+      "images": [
+        "https://images.tagesschau.de/image/7f93b4f4-80b7-4d94-b59f-1b8be643a72b/AAABmA3jy_I/AAABkZLngyM/1x1-256.jpg"
+      ]
+    }
+  ]
+}

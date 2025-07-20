@@ -96,22 +96,31 @@ def query_and_process_category(category, embedding_function, user_info):
     
     for doc in results:
         title = doc.metadata['title']
-        print(f"DEBUG: Suche Artikel mit Titel: '{title}'", flush=True)
+        print(f"DEBUG: Verarbeite Dokument mit Titel: '{title}'", flush=True)
         
         image_url = doc.metadata.get('image', '')
-        if image_url and image_url.strip():  # Prüfe auf leere/whitespace Strings
+        if image_url and image_url.strip():
             image_urls.append(image_url.strip())
         
-        matching_article = next((x for x in news_json_arr if x["title"] == title), None)
-        if matching_article:
-            print(f"DEBUG: Artikel gefunden!", flush=True)
-            article_text = matching_article.get('text', '')
-            print(f"DEBUG: Artikel-Inhalt: {article_text[:500]}{'...' if len(article_text) > 500 else ''}", flush=True)
+        # Verwende direkt den Text aus dem Vector Store
+        article_text = doc.page_content
+        if article_text and article_text.strip():
+            print(f"DEBUG: Verwende Text aus Vector Store (erste 200 Zeichen): {article_text[:200]}...", flush=True)
             category_context += f"Titel: {title}\nInhalt: {article_text}\n\n"
         else:
-            print(f"DEBUG: Kein passender Artikel in JSON gefunden", flush=True)
-            # Zeige verfügbare Titel zur Überprüfung
-            print(f"DEBUG: Verfügbare Titel (erste 3): {[x['title'] for x in news_json_arr[:3]]}", flush=True)
+            print(f"DEBUG: Kein Text im Vector Store, suche in JSON", flush=True)
+            # Fallback zur JSON-Suche mit flexibler Suche
+            matching_article = None
+            for article in news_json_arr:
+                if title.strip().lower() == article['title'].strip().lower():
+                    matching_article = article
+                    break
+            
+            if matching_article:
+                article_text = matching_article.get('text', '')
+                category_context += f"Titel: {title}\nInhalt: {article_text}\n\n"
+            else:
+                print(f"DEBUG: Auch in JSON nicht gefunden", flush=True)
     
     # Stelle sicher, dass mindestens eine leere Liste zurückgegeben wird
     if not image_urls:
