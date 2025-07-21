@@ -34,7 +34,7 @@ CATEGORIES = {
     'muenchen': 'München aktuell',
     'technologie': 'Technologie und IT',
     'sport': 'Sport',
-    'reisen': 'Reisen und Lifestyle'
+    'custom': 'Custom Suche'
 }
 
 @app.route('/')
@@ -117,6 +117,7 @@ def submit_user_info():
 def submit_categories():
     categories_json = request.form.get('categories', '[]')
     format_value = request.form.get('format', '')
+    custom_search_term = request.form.get('custom_search_term', '')
     
     try:
         selected_categories = json.loads(categories_json)
@@ -130,8 +131,16 @@ def submit_categories():
             'message': 'Bitte wähle mindestens eine Kategorie und ein Newsformat aus.'
         })
     
+    # Validierung für Custom-Suche
+    if 'custom' in selected_categories and not custom_search_term.strip():
+        return jsonify({
+            'success': False,
+            'message': 'Bitte gib einen Suchbegriff für die Custom Suche ein.'
+        })
+    
     session['categories'] = selected_categories
     session['format'] = format_value
+    session['custom_search_term'] = custom_search_term.strip()
     
     return jsonify({'success': True})
 
@@ -151,6 +160,7 @@ def generate_news():
         user_info = session['user_info'].copy()
         user_info['categories'] = session.get('categories', [])
         user_info['format'] = session.get('format', '')
+        user_info['custom_search_term'] = session.get('custom_search_term', '')
         
         print(f"User info being passed to generate_feed: {user_info}")  # Debug
         

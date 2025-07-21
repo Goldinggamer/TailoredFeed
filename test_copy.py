@@ -57,7 +57,7 @@ def query_and_process_category(category, embedding_function, user_info):
         'muenchen': 'München',
         'technologie': 'Technologie',
         'sport': 'Sport Deutschland',
-        'reisen': 'Lifestyle'
+        'custom': None  # Wird dynamisch gesetzt
     }
 
     display_map = {
@@ -69,14 +69,22 @@ def query_and_process_category(category, embedding_function, user_info):
         'muenchen': "München aktuell",
         'technologie': "Technologie und Innovation",
         'sport': "Sport Deutschland",
-        'reisen': "Reisen und Lifestyle"
+        'custom': "Custom Suche"
     }
     
     if category not in categories_map:
         return None, None, None
-        
-    search_term = categories_map[category]
-    display_name = display_map[category]
+    
+    # Handle Custom category
+    if category == 'custom':
+        custom_search_term = user_info.get('custom_search_term', '')
+        if not custom_search_term.strip():
+            return display_map[category], "Kein Suchbegriff für Custom Suche angegeben.", []
+        search_term = custom_search_term.strip()
+        display_name = f"Custom Suche: {search_term}"
+    else:
+        search_term = categories_map[category]
+        display_name = display_map[category]
     
     # DEBUG: Überprüfe Suchbegriff
     print(f"DEBUG: Suche für Kategorie '{category}' mit Term: '{search_term}'", flush=True)
@@ -178,7 +186,8 @@ def main(user_info=None):
             'gender': 'keine_angabe', 
             'language': 'Deutsch',
             'categories': ['muenchen', 'politik', 'wirtschaft', 'sport'],
-            'format': 'kurz'
+            'format': 'kurz',
+            'custom_search_term': ''
         }
     
     selected_categories = user_info.get('categories', ['politik', 'wirtschaft', 'sport'])

@@ -31,7 +31,19 @@
       <button class="option-button" data-value="muenchen">München aktuell</button>
       <button class="option-button" data-value="technologie">Technologie und Innovation</button>
       <button class="option-button" data-value="sport">Sport</button>
-      <button class="option-button" data-value="reisen">Reisen und Lifestyle</button>
+      <button class="option-button" data-value="custom">Custom Suche</button>
+    </div>
+
+    <!-- Custom Search Input Field (initially hidden) -->
+    <div id="custom-search-container" style="display: none; margin-top: 20px;">
+      <div class="section-heading">
+        Gib deinen Suchbegriff ein:
+      </div>
+      <input type="text" id="custom-search-input" placeholder="z.B. Fußball WM, Bitcoin, Künstliche Intelligenz..." 
+             style="width: 100%; padding: 15px; font-size: 16px; border: 2px solid rgba(255,255,255,0.3); border-radius: 10px; background: rgba(255,255,255,0.1); color: white; margin-bottom: 15px; box-sizing: border-box; transition: all 0.3s ease;"
+             onfocus="this.style.borderColor='rgba(0,219,222,0.8)'; this.style.background='rgba(255,255,255,0.15)'"
+             onblur="this.style.borderColor='rgba(255,255,255,0.3)'; this.style.background='rgba(255,255,255,0.1)'"
+             oninput="this.style.color='white'">
     </div>
 
     <div class="section-heading">
@@ -55,6 +67,17 @@
       document.querySelectorAll('.category-buttons .option-button').forEach(button => {
         button.addEventListener('click', function() {
           this.classList.toggle('selected');
+          
+          // Zeige/verstecke Custom Search Input
+          const customSearchContainer = document.getElementById('custom-search-container');
+          const isCustomSelected = document.querySelector('.category-buttons .option-button[data-value="custom"]').classList.contains('selected');
+          
+          if (isCustomSelected) {
+            customSearchContainer.style.display = 'block';
+          } else {
+            customSearchContainer.style.display = 'none';
+            document.getElementById('custom-search-input').value = '';
+          }
         });
       });
       
@@ -76,6 +99,17 @@
           selectedCategories.push(button.getAttribute('data-value'));
         });
         
+        // Custom Search Term sammeln
+        let customSearchTerm = '';
+        const isCustomSelected = selectedCategories.includes('custom');
+        if (isCustomSelected) {
+          customSearchTerm = document.getElementById('custom-search-input').value.trim();
+          if (!customSearchTerm) {
+            alert('Bitte gib einen Suchbegriff für die Custom Suche ein.');
+            return;
+          }
+        }
+        
         // Ausgewähltes Format ermitteln
         const selectedFormat = document.querySelector('.format-buttons .option-button.selected');
         const formatValue = selectedFormat ? selectedFormat.getAttribute('data-value') : '';
@@ -84,6 +118,7 @@
         const formData = new FormData();
         formData.append('categories', JSON.stringify(selectedCategories));
         formData.append('format', formatValue);
+        formData.append('custom_search_term', customSearchTerm);
         
         // Daten an den Server senden
         fetch('/submit-categories', {
