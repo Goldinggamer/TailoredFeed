@@ -1,0 +1,85 @@
+{
+  "data": [
+    {
+      "category": "Politik Deutschland",
+      "articles": [
+        {
+          "content": "\"Polen möchte über deutsche Politik sprechen, weil sie unzufrieden ist mit den verstärkten Grenzkontrollen und der Zurückweisung von Asylsuchenden in Deutschland. Daraufhin hat Polen Kontrollen an der Grenze zu Deutschland eingeführt. Die EU plant, mehr Geld für Sicherheit und den Umgang mit illegaler Migration bereitzustellen.\"",
+          "images": [
+            "https://images.tagesschau.de/image/c43bdc71-acaf-4140-913c-7a8f129e90c7/AAABmBxc2wQ/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Kursverschärfung vor idyllischer Alpenkulisse?"
+        },
+        {
+          "content": "Udo Voigt, ein ehemaliger Vorsitzender der Partei \"Die Heimat\", ist gestorben. Er wurde 1952 in Viersen geboren und war im Alter von 73 Jahren tot. Voigt war lange Zeit politisch aktiv und saß einmal im Europäischen Parlament.",
+          "images": [
+            "https://images.tagesschau.de/image/5cbf73c0-660d-4244-9432-6927f2ac0195/AAABmBoKev8/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Rechtsextremer Politiker Voigt gestorben"
+        },
+        {
+          "content": "Rechte Gruppen in Polen nutzen deutsche Grenzkontrollen, um Stimmung gegen die eigene Regierung und die EU zu machen. Sie verbreiten falsche Geschichten über angeblich viele Geflüchtete, die aus Deutschland nach Polen gebracht werden sollen. Der polnische Premierminister hatte vorher warned, dass dies eine politische Kettenreaktion auslösen könnte, und nannte es \"bösartig und unverantwortlich\".",
+          "images": [
+            "https://images.tagesschau.de/image/6dcdc091-1668-4552-a46e-167a2aee119b/AAABmC12juM/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Differenzen am Grenzzaun"
+        }
+      ],
+      "current_index": 0
+    },
+    {
+      "category": "Sport Deutschland",
+      "articles": [
+        {
+          "content": "In Deutschland wird die Sportpolitik neu gestaltet. Die Regierung möchte mehr auf den Breitensport und das Ehrenamt achten. Dazu gehören Aktivitäten wie Feuerwehr oder Musikvereine. Auch Themen wie Olympia und die Unterstützung von Spitzenathleten bleiben wichtig.",
+          "images": [
+            "https://images.sportschau.de/image/091ce902-8dfe-4e9f-bd8c-832ec3ad3eae/AAABlvMdj-U/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Neue Bundes-Sportpolitik: Weiblich, erfahren, fachfremd"
+        },
+        {
+          "content": "Frauen im Sport werden in Deutschland und weltweit immer beliebter. Bei der letzten Fußball-Europameisterschaft sahen viele Zuschauer die Spiele, und die Geldpreise für die Spielerinnen stiegen stark. Experten sagen, dass der Frauensport weiterhin wachsen wird, insbesondere im Basketball.",
+          "images": [
+            "https://images.sportschau.de/image/dff0c3c7-fca8-4115-9b25-9898b2bae517/AAABl7zl_18/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Wächst der Frauensport auch in Deutschland?"
+        },
+        {
+          "content": "Deutsche Frauenspielerinnen haben bei internationalen Turnieren gute Erfolge gezeigt. Fans unterstützten sie bei den Spielen in Hamburg. Viele Top-Spielerinnen spielen im Ausland, weil dort die Bedingungen und Bezahlung besser sind als in Deutschland. Im Fußball ist es anders – viele Spieler bleiben in der Bundesliga.",
+          "images": [
+            "https://images.sportschau.de/image/dff0c3c7-fca8-4115-9b25-9898b2bae517/AAABl7zl_18/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Wächst der Frauensport auch in Deutschland?"
+        }
+      ],
+      "current_index": 0
+    },
+    {
+      "category": "Custom Suche: Fußball",
+      "articles": [
+        {
+          "content": "In einem Fußballspiel der Frauennationalmannschaft sahen 8,22 Millionen Zuschauer zu. Das Preisgeld stieg von 16 auf 41 Millionen Euro. Die Einnahmen im Frauenfußball sollen sich bis 2023 mehr als dreifach verdoppeln.",
+          "images": [
+            "https://images.sportschau.de/image/dff0c3c7-fca8-4115-9b25-9898b2bae517/AAABl7zl_18/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Wächst der Frauensport auch in Deutschland?"
+        },
+        {
+          "content": "Im Frauenfußball in Deutschland verdienen die Spielerinnen im Durchschnitt monatlich 4.500 Euro. In der Basketball-Bundesliga verdienen viele Spielerinnen weniger als den Mindestlohn. Die Liga möchte mehr Profispiel fördern, aber einige Vereine haben Bedenken.",
+          "images": [
+            "https://images.sportschau.de/image/dff0c3c7-fca8-4115-9b25-9898b2bae517/AAABl7zl_18/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Wächst der Frauensport auch in Deutschland?"
+        },
+        {
+          "content": "Die deutsche Frauennationalmannschaft spielt bei der EM in Basel gegen Frankreich. Fansupport wird von den Spielerinnen wie Klara Bühl positivbewertet, da er im letzten Spiel half. Deutsche Fans glauben an ein Halbfinale und machen Vorhersagen wie ein 2:1 für Deutschland.",
+          "images": [
+            "https://images.sportschau.de/image/9aeabe79-61a9-4260-be3c-c1fce02364f6/AAABmC0IU44/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "DFB-Frauen hoffen auf Unterstützung von Wolfgang Petry"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}

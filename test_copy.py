@@ -91,7 +91,7 @@ def query_and_process_category(category, embedding_function, user_info):
     
     # Vector Store und Suche
     db = Chroma(persist_directory=CHROMA_PATH, embedding_function=embedding_function)
-    results = db.similarity_search(search_term, k=1)
+    results = db.similarity_search(search_term, k=3)
     
     # DEBUG: Überprüfe Suchergebnisse
     print(f"DEBUG: Gefundene Ergebnisse: {len(results)}", flush=True)
@@ -99,22 +99,25 @@ def query_and_process_category(category, embedding_function, user_info):
     for i, doc in enumerate(results):
         print(f"DEBUG: Ergebnis {i+1}: Titel='{doc.metadata.get('title', 'N/A')}'", flush=True)
     
-    category_context = ""
-    image_urls = []
+    # Format-Anweisung
+    format_instruction = "Erstelle einen ausführlichen Artikel mit 5-15 Sätzen." if news_format == 'ausfuehrlich' else "Fasse die Information in 1-3 prägnanten Sätzen zusammen."
+    
+    category_articles = []
     
     for doc in results:
         title = doc.metadata['title']
         print(f"DEBUG: Verarbeite Dokument mit Titel: '{title}'", flush=True)
         
         image_url = doc.metadata.get('image', '')
+        article_images = []
         if image_url and image_url.strip():
-            image_urls.append(image_url.strip())
+            article_images.append(image_url.strip())
         
         # Verwende direkt den Text aus dem Vector Store
         article_text = doc.page_content
         if article_text and article_text.strip():
             print(f"DEBUG: Verwende Text aus Vector Store (erste 200 Zeichen): {article_text[:200]}...", flush=True)
-            category_context += f"Titel: {title}\nInhalt: {article_text}\n\n"
+            current_article_content = f"Titel: {title}\nInhalt: {article_text}"
         else:
             print(f"DEBUG: Kein Text im Vector Store, suche in JSON", flush=True)
             # Fallback zur JSON-Suche mit flexibler Suche
@@ -126,57 +129,56 @@ def query_and_process_category(category, embedding_function, user_info):
             
             if matching_article:
                 article_text = matching_article.get('text', '')
-                category_context += f"Titel: {title}\nInhalt: {article_text}\n\n"
+                current_article_content = f"Titel: {title}\nInhalt: {article_text}"
             else:
                 print(f"DEBUG: Auch in JSON nicht gefunden", flush=True)
-    
-    # Stelle sicher, dass mindestens eine leere Liste zurückgegeben wird
-    if not image_urls:
-        image_urls = []
-    
-    if not category_context.strip():
-        print(f"DEBUG: Kein Content für Kategorie '{category}' gefunden", flush=True)
-        return display_name, "Keine aktuellen Nachrichten verfügbar.", []
-    
-    # Format-Anweisung
-    format_instruction = "Erstelle einen ausführlichen Artikel mit 5-15 Sätzen." if news_format == 'ausfuehrlich' else "Fasse die Information in 1-3 prägnanten Sätzen zusammen."
+                continue
         
-    category_prompt = f"""
-    Du bist ein journalistisches KI-System, das Nachrichten für einen öffentlichen Bildschirm im Univiertel in München kuratiert.
-    Deine Aufgabe ist es, eine relevante Nachricht zur Kategorie "{display_name}" zu erstellen.
+        # Generiere Inhalt für diesen einzelnen Artikel
+        article_prompt = f"""
+        Du bist ein journalistisches KI-System, das Nachrichten für einen öffentlichen Bildschirm im Univiertel in München kuratiert.
+        Deine Aufgabe ist es, eine relevante Nachricht zur Kategorie "{display_name}" zu erstellen.
 
-    Verwende NUR die bereitgestellten Informationen aus folgenden Quellen:
-    {category_context}
+        Verwende NUR die bereitgestellten Informationen aus folgender Quelle:
+        {current_article_content}
 
-    Persönliche Anpassungen:
-    - Nutzer ist {age} Jahre alt und {gender}
-    - {age_instruction}     
-    - {format_instruction}
-    - Wähle die relevantesten und aktuellsten Informationen aus
-    - Achte auf eine klare, verständliche, neutrale Sprache
-    - Präsentiere Fakten ohne manipulative Sprache oder emotionale Färbung
-    - Die Nachrichtenausgabe MUSS in {user_language}{dialect_instruction} verfasst werden! 
-    - Verwende KEINE chinesischen, japanischen oder anderen asiatischen Schriftzeichen!
-    - Verwende KEINE Sternchen (*) oder andere Formatierungszeichen in deiner Antwort!
+        Persönliche Anpassungen:
+        - Nutzer ist {age} Jahre alt und {gender}
+        - {age_instruction}     
+        - {format_instruction}
+        - Achte auf eine klare, verständliche, neutrale Sprache
+        - Präsentiere Fakten ohne manipulative Sprache oder emotionale Färbung
+        - Die Nachrichtenausgabe MUSS in {user_language}{dialect_instruction} verfasst werden! 
+        - Verwende KEINE chinesischen, japanischen oder anderen asiatischen Schriftzeichen!
+        - Verwende KEINE Sternchen (*) oder andere Formatierungszeichen in deiner Antwort!
+        
+        Deine Ausgabe sollte rein faktisch und ohne Einleitung oder Schlussformulierung sein.
+        """
+        
+        # LLM aufrufen für einzelnen Artikel
+        model = Ollama(model="deepseek-r1:32b", base_url="http://127.0.0.1:11434")
+        article_content = model.invoke(article_prompt)
+        
+        if "</think>" in article_content:
+            _, article_content = article_content.split("</think>")
+        
+        final_article_content = article_content.strip()
+        
+        category_articles.append({
+            'content': final_article_content,
+            'images': article_images,
+            'title': title
+        })
     
-    Deine Ausgabe sollte rein faktisch und ohne Einleitung oder Schlussformulierung sein.
-    """
+    # Stelle sicher, dass mindestens ein Artikel vorhanden ist
+    if not category_articles:
+        print(f"DEBUG: Kein Content für Kategorie '{category}' gefunden", flush=True)
+        return display_name, [{'content': "Keine aktuellen Nachrichten verfügbar.", 'images': [], 'title': 'Keine Nachrichten'}], []
     
-    print(f"DEBUG: LLM-Prompt:\n{category_prompt}", flush=True)
-    print(f"DEBUG: Rufe LLM auf...", flush=True)
     
-    # LLM aufrufen
-    model = Ollama(model="deepseek-r1:32b", base_url="http://127.0.0.1:11434")
-    category_content = model.invoke(category_prompt)
+    print(f"DEBUG: Generierte {len(category_articles)} Artikel für Kategorie '{category}'", flush=True)
     
-    if "</think>" in category_content:
-        _, category_content = category_content.split("</think>")
-        print(f"DEBUG: LLM-Antwort (nach </think> Split): {category_content}", flush=True)
-    
-    final_content = category_content.strip()
-    print(f"DEBUG: Finale Nachricht: {final_content}", flush=True)
-    
-    return display_name, final_content, image_urls
+    return display_name, category_articles
 
 def main(user_info=None):
     """Hauptfunktion zur Generierung des personalisierten Nachrichtenfeed"""
@@ -200,15 +202,15 @@ def main(user_info=None):
     category_results = []
     
     for category in selected_categories:
-        display_name, content, image_urls = query_and_process_category(
+        display_name, articles = query_and_process_category(
             category, embedding_function, user_info
         )
         
-        if display_name and content:
+        if display_name and articles:
             category_results.append({
                 'category': display_name,
-                'content': content,
-                'images': image_urls
+                'articles': articles,
+                'current_index': 0  # Aktueller Artikel-Index für Carousel
             })
     
     return category_results

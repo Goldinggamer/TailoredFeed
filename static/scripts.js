@@ -22,7 +22,112 @@ document.addEventListener('DOMContentLoaded', function() {
   if (window.location.pathname === '/' || window.location.pathname === '/start') {
     initNewsImagesAnimation();
   }
+  
+  // Initialisiere Artikel-Daten für Feed-Seite
+  if (window.location.pathname === '/feed') {
+    initializeArticleData();
+  }
 });
+
+// Artikel-Daten global speichern
+let categoryArticles = {};
+
+function initializeArticleData() {
+  const categoryBlocks = document.querySelectorAll('.category-block');
+  
+  categoryBlocks.forEach((block, index) => {
+    const articleDataScript = block.querySelector('.article-data');
+    if (articleDataScript) {
+      try {
+        const articles = JSON.parse(articleDataScript.textContent);
+        categoryArticles[index] = {
+          articles: articles,
+          currentIndex: 0
+        };
+      } catch (e) {
+        console.error('Error parsing article data:', e);
+      }
+    }
+  });
+}
+
+function nextArticle(categoryIndex) {
+  const categoryData = categoryArticles[categoryIndex];
+  if (!categoryData || !categoryData.articles || categoryData.articles.length <= 1) {
+    return;
+  }
+  
+  // Nächster Artikel-Index
+  categoryData.currentIndex = (categoryData.currentIndex + 1) % categoryData.articles.length;
+  
+  const currentArticle = categoryData.articles[categoryData.currentIndex];
+  const categoryBlock = document.querySelector(`[data-category-index="${categoryIndex}"]`);
+  
+  if (!categoryBlock || !currentArticle) return;
+  
+  // Text aktualisieren mit Animation
+  const textElement = categoryBlock.querySelector('.category-text');
+  const imageElement = categoryBlock.querySelector('.category-image img');
+  const noImageElement = categoryBlock.querySelector('.no-image');
+  const counterElement = categoryBlock.querySelector('.current-article');
+  
+  if (textElement) {
+    // Fade-out Animation
+    textElement.style.opacity = '0.3';
+    textElement.style.transform = 'translateX(-20px)';
+    
+    setTimeout(() => {
+      textElement.textContent = currentArticle.content;
+      
+      // Fade-in Animation
+      textElement.style.opacity = '1';
+      textElement.style.transform = 'translateX(0)';
+    }, 200);
+  }
+  
+  // Bild aktualisieren
+  if (currentArticle.images && currentArticle.images.length > 0) {
+    if (imageElement) {
+      imageElement.style.opacity = '0.3';
+      setTimeout(() => {
+        imageElement.src = currentArticle.images[0];
+        imageElement.style.opacity = '1';
+      }, 200);
+    } else if (noImageElement) {
+      // Ersetze "Kein Bild verfügbar" mit dem neuen Bild
+      const categoryImage = categoryBlock.querySelector('.category-image');
+      if (categoryImage) {
+        categoryImage.innerHTML = `<img src="${currentArticle.images[0]}" alt="Nachrichtenbild" style="opacity: 0.3;">`;
+        const newImage = categoryImage.querySelector('img');
+        setTimeout(() => {
+          newImage.style.opacity = '1';
+        }, 200);
+      }
+    }
+  } else {
+    // Kein Bild für diesen Artikel
+    if (imageElement) {
+      const categoryImage = categoryBlock.querySelector('.category-image');
+      if (categoryImage) {
+        categoryImage.innerHTML = '<div class="no-image">Kein Bild verfügbar</div>';
+      }
+    }
+  }
+  
+  // Counter aktualisieren
+  if (counterElement) {
+    counterElement.textContent = categoryData.currentIndex + 1;
+  }
+  
+  // Button-Animation
+  const button = categoryBlock.querySelector('.nav-arrow');
+  if (button) {
+    button.style.transform = 'scale(0.8) rotate(180deg)';
+    setTimeout(() => {
+      button.style.transform = 'scale(1) rotate(0deg)';
+    }, 150);
+  }
+}
 
 // News Images Animation
 let newsImages = [];

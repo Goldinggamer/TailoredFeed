@@ -27,11 +27,11 @@
 
         <div class="category-container">
             {% for item in news_data %}
-            <div class="category-block">
+            <div class="category-block" data-category-index="{{ loop.index0 }}">
                 <!-- Bild-Bereich (links) -->
                 <div class="category-image">
-                    {% if item.images and item.images|length > 0 %}
-                        <img src="{{ item.images[0] }}" alt="{{ item.category }}" onerror="this.parentElement.innerHTML='<div class=&quot;no-image&quot;>Kein Bild verfügbar</div>'">
+                    {% if item.articles and item.articles|length > 0 and item.articles[0].images and item.articles[0].images|length > 0 %}
+                        <img src="{{ item.articles[0].images[0] }}" alt="{{ item.category }}" onerror="this.parentElement.innerHTML='<div class=&quot;no-image&quot;>Kein Bild verfügbar</div>'">
                     {% else %}
                         <div class="no-image">Kein Bild verfügbar</div>
                     {% endif %}
@@ -40,8 +40,31 @@
                 <!-- Text-Bereich (rechts) -->
                 <div class="category-content">
                     <h2 class="category-title">{{ item.category }}</h2>
-                    <div class="category-text">{{ item.content }}</div>
+                    <div class="category-text">
+                        {% if item.articles and item.articles|length > 0 %}
+                            {{ item.articles[0].content }}
+                        {% else %}
+                            Keine Nachrichten verfügbar
+                        {% endif %}
+                    </div>
+                    
+                    <!-- Navigation für mehrere Artikel -->
+                    {% if item.articles and item.articles|length > 1 %}
+                    <div class="article-navigation">
+                        <div class="article-counter">
+                            <span class="current-article">1</span>/<span class="total-articles">{{ item.articles|length }}</span>
+                        </div>
+                        <button class="nav-arrow" onclick="nextArticle({{ loop.index0 }})">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    {% endif %}
                 </div>
+                
+                <!-- Versteckte Artikel-Daten für JavaScript -->
+                <script type="application/json" class="article-data">
+                    {{ item.articles|tojson }}
+                </script>
             </div>
             {% endfor %}
         </div>
