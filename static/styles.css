@@ -529,11 +529,14 @@ body {
 /* Diese Regeln gelten nur für die Feed-Seite */
 
 .feed-page .category-container {
-    column-count: 2;
-    column-gap: 30px;
-    max-width: 1400px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 gleichmäßige Spalten */
+    column-gap: 40px; /* Horizontaler Abstand zwischen Box 1 und Box 2 */
+    row-gap: 10px; /* Vertikaler Abstand zwischen Box 1 und Box 3 (verringert) */
+    max-width: 1800px; /* Reduzierte Breite für bessere Zentrierung */
     margin: 0 auto;
-    padding: 20px;
+   /* padding: 20px; */
+    justify-items: center;
 }
 
 .feed-page .category-block {
@@ -546,8 +549,6 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     width: 100%;
-    margin-bottom: 30px;
-    break-inside: avoid;
     height: auto;
     align-items: flex-start;
     gap: 25px; /* Das ist der Schlüssel - fester Abstand zwischen Text und Bild */
@@ -613,7 +614,8 @@ body {
 
 @media (max-width: 1200px) {
     .feed-page .category-container {
-        column-count: 1; /* Einspaltig auf schmalen Bildschirmen */
+        grid-template-columns: 1fr; /* Einspaltig auf schmalen Bildschirmen */
+        grid-gap: 20px;
     }
 }
 
@@ -623,7 +625,7 @@ body {
     text-align: center;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 40px; /* Angepasst an den Grid-Gap für perfekte Ausrichtung */
     flex-wrap: wrap;
 }
 
