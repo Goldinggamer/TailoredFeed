@@ -91,13 +91,97 @@ def query_and_process_category(category, embedding_function, user_info):
     
     # Vector Store und Suche
     db = Chroma(persist_directory=CHROMA_PATH, embedding_function=embedding_function)
-    results = db.similarity_search(search_term, k=3)
+    # Hole mehr Ergebnisse um Duplikate herausfiltern zu können
+    results = db.similarity_search(search_term, k=10)
     
     # DEBUG: Überprüfe Suchergebnisse
     print(f"DEBUG: Gefundene Ergebnisse: {len(results)}", flush=True)
     print(f"DEBUG: Chroma DB hat {db._collection.count()} Dokumente", flush=True)
     for i, doc in enumerate(results):
         print(f"DEBUG: Ergebnis {i+1}: Titel='{doc.metadata.get('title', 'N/A')}'", flush=True)
+    
+    # Entferne Duplikate basierend auf Titel und Content
+    unique_results = []
+    seen_titles = set()
+    seen_content_hashes = set()
+    
+    for doc in results:
+        title = doc.metadata.get('title', '').strip().lower()
+        content = doc.page_content.strip()
+        
+        # Erstelle einen Hash für den Content um ähnliche Inhalte zu erkennen
+        import hashlib
+        content_hash = hashlib.md5(content.encode('utf-8')).hexdigest()
+        
+        # Prüfe auf Duplikate anhand von Titel
+        title_similarity = False
+        for seen_title in seen_titles:
+            # Prüfe auf sehr ähnliche Titel (gleiche Worte, andere Reihenfolge)
+            title_words = set(title.split())
+            seen_words = set(seen_title.split())
+            if len(title_words & seen_words) / max(len(title_words), len(seen_words), 1) > 0.8:
+                title_similarity = True
+                break
+        
+        # Prüfe auf Duplikate
+        if not title_similarity and title not in seen_titles and content_hash not in seen_content_hashes:
+            seen_titles.add(title)
+            seen_content_hashes.add(content_hash)
+            unique_results.append(doc)
+            
+            # Stoppe bei 3 eindeutigen Artikeln
+            if len(unique_results) >= 3:
+                break
+    
+    print(f"DEBUG: Nach Duplikatsentfernung: {len(unique_results)} eindeutige Artikel", flush=True)
+    results = unique_results
+    
+    # Falls weniger als 3 eindeutige Artikel gefunden wurden, versuche andere Suchbegriffe
+    if len(results) < 3:
+        print(f"DEBUG: Nur {len(results)} eindeutige Artikel gefunden, versuche erweiterte Suche", flush=True)
+        
+        # Erweiterte Suchbegriffe für verschiedene Kategorien
+        fallback_terms = {
+            'politik': ['politik deutschland', 'bundestag', 'regierung', 'wahlen'],
+            'wirtschaft': ['wirtschaft', 'unternehmen', 'börse', 'inflation'],
+            'sport': ['sport', 'fußball', 'bundesliga', 'olympia'],
+            'muenchen': ['münchen', 'bayern', 'bavaria'],
+            'wissenschaft': ['wissenschaft', 'forschung', 'studie', 'innovation'],
+            'technologie': ['technologie', 'tech', 'digital', 'ki'],
+            'gesundheit': ['gesundheit', 'medizin', 'krankenhaus', 'therapie'],
+            'wissenswertes': ['interessant', 'fakten', 'wissen', 'entdeckung']
+        }
+        
+        category_key = category.lower()
+        if category_key in fallback_terms:
+            for fallback_term in fallback_terms[category_key]:
+                if len(results) >= 3:
+                    break
+                
+                fallback_results = db.similarity_search(fallback_term, k=5)
+                for doc in fallback_results:
+                    title = doc.metadata.get('title', '').strip().lower()
+                    content = doc.page_content.strip()
+                    content_hash = hashlib.md5(content.encode('utf-8')).hexdigest()
+                    
+                    # Prüfe ob dieser Artikel schon vorhanden ist
+                    title_exists = False
+                    for seen_title in seen_titles:
+                        title_words = set(title.split())
+                        seen_words = set(seen_title.split())
+                        if len(title_words & seen_words) / max(len(title_words), len(seen_words), 1) > 0.8:
+                            title_exists = True
+                            break
+                    
+                    if not title_exists and content_hash not in seen_content_hashes:
+                        seen_titles.add(title)
+                        seen_content_hashes.add(content_hash)
+                        results.append(doc)
+                        
+                        if len(results) >= 3:
+                            break
+        
+        print(f"DEBUG: Nach erweiterter Suche: {len(results)} Artikel gefunden", flush=True)
     
     # Format-Anweisung
     format_instruction = "Erstelle einen ausführlichen Artikel mit 5-15 Sätzen." if news_format == 'ausfuehrlich' else "Fasse die Information in 1-3 prägnanten Sätzen zusammen."
