@@ -470,16 +470,16 @@ body {
 
 /* Bild-Bereich (linke Seite) */
 .category-image {
-    flex: 0 0 300px; /* Feste Breite für Bilder */
-    margin-right: 20px;
+    flex: 0 0 200px; /* Feste Breite für Bilder */
+    margin-left: 15px; /* Abstand vom Text */
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* Vertikale Zentrierung */
+    justify-content: center; /* Horizontale Zentrierung */
 }
 
 .category-image img {
     width: 100%;
-    height: 200px;
+    height: 150px; /* Etwas kompakter für die Feed-Ansicht */
     object-fit: cover;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -487,7 +487,7 @@ body {
 
 .category-image .no-image {
     width: 100%;
-    height: 200px;
+    height: 150px;
     background: rgba(255, 255, 255, 0.05);
     border: 2px dashed rgba(255, 255, 255, 0.2);
     border-radius: 8px;
@@ -495,7 +495,8 @@ body {
     align-items: center;
     justify-content: center;
     color: rgba(255, 255, 255, 0.5);
-    font-size: 14px;
+    font-size: 12px;
+    text-align: center;
 }
 
 /* Text-Bereich (rechte Seite) */
@@ -504,6 +505,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    min-width: 0; /* Verhindert Overflow */
+    padding-right: 15px; /* Abstand zum Bild */
 }
 
 .category-title {
@@ -526,14 +529,11 @@ body {
 /* Diese Regeln gelten nur für die Feed-Seite */
 
 .feed-page .category-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* Mehr Platz für jede Box */
-    gap: 30px; /* Größerer Abstand zwischen den Boxen */
+    column-count: 2;
+    column-gap: 30px;
     max-width: 1400px;
     margin: 0 auto;
     padding: 20px;
-    justify-items: center;
-    justify-content: center;
 }
 
 .feed-page .category-block {
@@ -546,33 +546,45 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     width: 100%;
-    max-width: 550px; /* Etwas kleinere max-width */
+    margin-bottom: 30px;
+    break-inside: avoid;
     height: auto;
     align-items: flex-start;
+    gap: 25px; /* Das ist der Schlüssel - fester Abstand zwischen Text und Bild */
+}
+
+.feed-page .category-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 0; /* Verhindert Overflow */
+    /* padding-right entfernen, da gap jetzt den Abstand regelt */
 }
 
 .feed-page .category-image {
-    flex: 0 0 140px; /* Kompaktere Bildbreite */
-    margin-right: 15px;
+    flex: 0 0 200px; /* Feste Breite für Bilder */
+    /* margin-left entfernen, da gap jetzt den Abstand regelt */
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* Vertikale Zentrierung */
+    justify-content: center; /* Horizontale Zentrierung */
+    align-self: center; /* Zentriert das gesamte Bild-Element vertikal */
 }
 
 .feed-page .category-image img {
     width: 100%;
-    height: 120px; /* Reduzierte Bildhöhe */
+    height: 150px;
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .feed-page .category-image .no-image {
     width: 100%;
-    height: 120px;
+    height: 150px;
     background: rgba(255, 255, 255, 0.05);
     border: 2px dashed rgba(255, 255, 255, 0.2);
-    border-radius: 6px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -581,24 +593,13 @@ body {
     text-align: center;
 }
 
-.feed-page .category-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    overflow: hidden;
-}
-
 .feed-page .category-title {
-    font-size: 18px; /* Kompaktere Schriftgröße */
+    font-size: 20px; /* Etwas kleiner für Feed */
     font-weight: bold;
     color: #64b5f6;
     margin-bottom: 10px;
     padding-bottom: 8px;
     border-bottom: 2px solid rgba(100, 181, 246, 0.3);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .feed-page .category-text {
@@ -606,11 +607,14 @@ body {
     line-height: 1.5;
     color: rgba(255, 255, 255, 0.9);
     text-align: justify;
-    /* Entferne die Textbegrenzung */
-    /* overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 6;
-    -webkit-box-orient: vertical; */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+@media (max-width: 1200px) {
+    .feed-page .category-container {
+        column-count: 1; /* Einspaltig auf schmalen Bildschirmen */
+    }
 }
 
 /* Action Buttons für Feed-Seite */

@@ -1,0 +1,13 @@
+{
+  "age_group": "9",
+  "gender": "männlich",
+  "language": "Deutsch",
+  "dialect": "",
+  "categories": [
+    "politik",
+    "wissenschaft",
+    "wirtschaft",
+    "technologie"
+  ],
+  "format": "ausfuehrlich"
+}
