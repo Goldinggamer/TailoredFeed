@@ -604,8 +604,8 @@ body {
 }
 
 .feed-page .category-text {
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 18px;
+    line-height: 1.6;
     color: rgba(255, 255, 255, 0.9);
     text-align: justify;
     word-wrap: break-word;
