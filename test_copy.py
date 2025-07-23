@@ -226,6 +226,9 @@ def query_and_process_category(category, embedding_function, user_info):
         Verwende NUR die bereitgestellten Informationen aus folgender Quelle:
         {current_article_content}
 
+        WICHTIGE ANWEISUNG: Falls die bereitgestellten Informationen nicht ausreichend oder nicht relevant für die Kategorie "{display_name}" sind, antworte EXAKT mit folgendem Text:
+        "Zu dieser Kategorie gibt es aktuell keine Nachrichten"
+
         Persönliche Anpassungen:
         - Nutzer ist {age} Jahre alt und {gender}
         - {age_instruction}     
@@ -248,16 +251,25 @@ def query_and_process_category(category, embedding_function, user_info):
         
         final_article_content = article_content.strip()
         
-        category_articles.append({
-            'content': final_article_content,
-            'images': article_images,
-            'title': title
-        })
+        # Prüfe ob das LLM die "Keine Nachrichten" Nachricht zurückgegeben hat
+        if "Zu dieser Kategorie gibt es aktuell keine Nachrichten" in final_article_content:
+            print(f"DEBUG: LLM hat 'keine Nachrichten' für Artikel '{title}' zurückgegeben", flush=True)
+            category_articles.append({
+                'content': final_article_content,
+                'images': [],  # Kein Bild bei "keine Nachrichten"
+                'title': title
+            })
+        else:
+            category_articles.append({
+                'content': final_article_content,
+                'images': article_images,
+                'title': title
+            })
     
     # Stelle sicher, dass mindestens ein Artikel vorhanden ist
     if not category_articles:
         print(f"DEBUG: Kein Content für Kategorie '{category}' gefunden", flush=True)
-        return display_name, [{'content': "Keine aktuellen Nachrichten verfügbar.", 'images': [], 'title': 'Keine Nachrichten'}], []
+        return display_name, [{'content': "Zu dieser Kategorie gibt es aktuell keine Nachrichten", 'images': [], 'title': 'Keine Nachrichten'}]
     
     
     print(f"DEBUG: Generierte {len(category_articles)} Artikel für Kategorie '{category}'", flush=True)
