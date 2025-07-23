@@ -257,7 +257,7 @@ def query_and_process_category(category, embedding_function, user_info):
             category_articles.append({
                 'content': final_article_content,
                 'images': [],  # Kein Bild bei "keine Nachrichten"
-                'title': title
+                'title': f"{display_name} - Keine Nachrichten verfügbar"
             })
             # Breche die Schleife ab, da wir nur einen "Keine Nachrichten" Kasten anzeigen möchten
             break
@@ -271,7 +271,7 @@ def query_and_process_category(category, embedding_function, user_info):
     # Stelle sicher, dass mindestens ein Artikel vorhanden ist
     if not category_articles:
         print(f"DEBUG: Kein Content für Kategorie '{category}' gefunden", flush=True)
-        return display_name, [{'content': "Zu dieser Kategorie gibt es aktuell keine Nachrichten", 'images': [], 'title': 'Keine Nachrichten'}]
+        return display_name, [{'content': "Zu dieser Kategorie gibt es aktuell keine Nachrichten", 'images': [], 'title': f"{display_name} - Keine Nachrichten verfügbar"}]
     
     
     print(f"DEBUG: Generierte {len(category_articles)} Artikel für Kategorie '{category}'", flush=True)

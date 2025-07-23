@@ -1,0 +1,58 @@
+{
+  "data": [
+    {
+      "category": "Politik Deutschland",
+      "articles": [
+        {
+          "content": "Die Polizei möchte TASER als Hilfsmittel einsetzen, um bei gefährlichen Situationen zu helfen. Kritiker, wie die Innenministerin von Niedersachsen, glauben, dass TASER nicht immer sinnvoll sind und manchmal komplizierter machen. TASER können bei Menschen mit bestimmten gesundheitlichen Problemen gefährlich sein.",
+          "images": [
+            "https://images.tagesschau.de/image/d4caf3cc-89ba-4f56-aab8-513ebb87099c/AAABmDbZghM/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Warum der Einsatz von Tasern umstritten ist"
+        },
+        {
+          "content": "Polen kritisiert deutsche Politik: Asylbewerber werden abgewiesen, was gegen europäisches Recht verstößt. EU plant mehr Geld für Sicherheit.",
+          "images": [
+            "https://images.tagesschau.de/image/c43bdc71-acaf-4140-913c-7a8f129e90c7/AAABmBxc2wQ/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Kursverschärfung vor idyllischer Alpenkulisse?"
+        },
+        {
+          "content": "Rechte Gruppen in Polen nutzen deutsche Grenzkontrollen, um_fake-Nachrichten über Tausende Geflüchtete zu verbreiten. Die deutsche Politikerin Dobrindt kritisiert dies als bösartig, doch die Kontrollen bleiben bestehen.",
+          "images": [
+            "https://images.tagesschau.de/image/6dcdc091-1668-4552-a46e-167a2aee119b/AAABmC12juM/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Differenzen am Grenzzaun"
+        }
+      ],
+      "current_index": 0
+    },
+    {
+      "category": "Wirtschaft",
+      "articles": [
+        {
+          "content": "Kanzler Merz meldet Fortschritte bei der Wirtschaftswende: Steuerliche Entlastungen für Firmen, gestiegenes Investoreninteresse und positive Prognosen korrigiert. Ziel ist Bürokratieabbau und zukunftsfeste soziale Sicherungssysteme.",
+          "images": [
+            "https://images.tagesschau.de/image/6254cea0-0ef0-4cb6-a583-82a85e524b13/AAABmBzSGss/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Merz bleibt bei Personalie Brosius-Gersdorf vage"
+        },
+        {
+          "content": "Spanien hat im letzten Jahr eine gute Wirtschaftsleistung mit einem Wachstum von 3,2 % gezeigt, was den EU-Durchschnitt von 0,8 % übertrifft. Dies liegt an gestiegenem Konsum und sinkender Arbeitslosigkeit sowie günstigen Investitionsbedingungen wie niedrigen Lohnkosten und erneuerbaren Energiequellen.",
+          "images": [
+            "https://images.tagesschau.de/image/7076be57-d2b1-4d93-b279-989d5727e313/AAABlfD1HoI/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Die Wirtschaft brummt, trotz vieler Probleme"
+        },
+        {
+          "content": "Unternehmen investieren Milliarden in Deutschland, um die Wirtschaft zu stärken. Bei einem Treffen mit dem Bundeskanzler und großen Firmen wie Siemens und Deutscher Bank wurde darüber gesprochen, wie man durch Reformen das Land wettbewerbsfähig macht.",
+          "images": [
+            "https://images.tagesschau.de/image/b318538d-4059-4769-8e13-cc0bc2a8326b/AAABmC2w5K4/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Große Summe für ein großes Ziel"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}

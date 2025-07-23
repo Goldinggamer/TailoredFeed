@@ -1,0 +1,42 @@
+{
+  "data": [
+    {
+      "category": "Wirtschaft",
+      "articles": [
+        {
+          "content": "Deutsche Wirtschaft nimmt wieder Fahrt auf. Der Kanzler sagt, die Regierung hat bereits Maßnahmen eingeleitet, um Unternehmen zu entlasten. Es wird geplant, weitere Schritte zu unternehmen, um die Wirtschaft zu stärken und Investoren zu begeistern.",
+          "images": [
+            "https://images.tagesschau.de/image/6254cea0-0ef0-4cb6-a583-82a85e524b13/AAABmBzSGss/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Merz bleibt bei Personalie Brosius-Gersdorf vage"
+        },
+        {
+          "content": "Spaniens Wirtschaft hat im letzten Jahr um 3,2 Prozent gewachsen – das ist mehr als der europäische Durchschnitt. Das liegt daran, dass die Leute mehr gekauft haben, es gibt mehr Jobs und Investitionen sind gestiegen, insbesondere wegen günstiger Energiekosten und niedriger Lohnkosten. Spanien ist momentan ein wichtiger Wirtschaftsmotor in Europa.",
+          "images": [
+            "https://images.tagesschau.de/image/7076be57-d2b1-4d93-b279-989d5727e313/AAABlfD1HoI/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Die Wirtschaft brummt, trotz vieler Probleme"
+        },
+        {
+          "content": "Große Unternehmen in Deutschland投资数十亿欧元，以促进国内经济发展。联邦总理弗里德里希·默茨对此表示乐观，并提到已出现情绪转变。这些企业与政府合作，旨在推动经济改革，增强德国在关键领域的全球竞争力，如人工智能。",
+          "images": [
+            "https://images.tagesschau.de/image/b318538d-4059-4769-8e13-cc0bc2a8326b/AAABmC2w5K4/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Große Summe für ein großes Ziel"
+        }
+      ],
+      "current_index": 0
+    },
+    {
+      "category": "München aktuell",
+      "articles": [
+        {
+          "content": "Zu dieser Kategorie gibt es aktuell keine Nachrichten",
+          "images": [],
+          "title": "München aktuell - Keine Nachrichten verfügbar"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}
