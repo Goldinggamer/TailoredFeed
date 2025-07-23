@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "category": "Politik Deutschland",
+      "articles": [
+        {
+          "content": "Немецкие власти обсуждают использование тасеров полицией. Гильдия федеральной полиции поддерживает их применение, особенно в опасных ситуациях, таких как инциденты в Хамбурге и Олденбурге. Однако критики担心, что это может усилить сложность действий в стрессовых условиях и негативно сказаться на здоровье людей с сердечными проблемами.",
+          "images": [
+            "https://images.tagesschau.de/image/d4caf3cc-89ba-4f56-aab8-513ebb87099c/AAABmDbZghM/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Warum der Einsatz von Tasern umstritten ist"
+        },
+        {
+          "content": "Польский министр внутренних дел Томаз Сьеромиак выразил недовольство действиями Германии, связанного с усилением边境 controle und Zurückweisung Asylsuchender. Polen hat daraufhin auch an der Grenze zu Deutschland kontrolliert. EU-Kommissar Brunner kündigt mehr Geld für Sicherheit und den Kampf gegen illegale Migration an.",
+          "images": [
+            "https://images.tagesschau.de/image/c43bdc71-acaf-4140-913c-7a8f129e90c7/AAABmBxc2wQ/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Kursverschärfung vor idyllischer Alpenkulisse?"
+        },
+        {
+          "content": "Польские правохозяйственные группы используют немецкие пограничные контрольные меры для того, чтобы создавать общественное мнение против своей правительства, Германии и ЕС. Они распространяют ложные истории о тысячах беженцев, которые якобы целенаправленно направляются из Германии в Польшу. Несмотря на это, польский премьер Добриндт считает такие действия злонамеренными и безответственными, но продолжает поддерживать пограничные проверки.",
+          "images": [
+            "https://images.tagesschau.de/image/6dcdc091-1668-4552-a46e-167a2aee119b/AAABmC12juM/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Differenzen am Grenzzaun"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}

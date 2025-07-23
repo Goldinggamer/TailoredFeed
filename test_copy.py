@@ -37,6 +37,17 @@ def query_and_process_category(category, embedding_function, user_info):
     user_language = language_map.get(language, 'Deutsch')
     dialect_instruction = f" im {dialect}-Dialekt" if dialect else ""
     
+    # Mehrsprachige "Keine Nachrichten" Texte
+    no_news_messages = {
+        'Deutsch': 'Keine Nachrichten verfügbar',
+        'Englisch': 'No news available',
+        'Französisch': 'Aucune actualité disponible',
+        'Spanisch': 'No hay noticias disponibles',
+        'Russisch': 'Новости недоступны',
+        'Rumänisch': 'Nu sunt știri disponibile'
+    }
+    no_news_text = no_news_messages.get(user_language, 'Keine Nachrichten verfügbar')
+    
     # Altersgerechte Anpassungen
     if age < 12:
         age_instruction = "Verwende ausschließlich einfache, kinderfreundliche Sprache und verwende keine Fachbegriffe, sodass jedes Kind die Nachrichten verstehen kann"
@@ -257,7 +268,7 @@ def query_and_process_category(category, embedding_function, user_info):
             category_articles.append({
                 'content': final_article_content,
                 'images': [],  # Kein Bild bei "keine Nachrichten"
-                'title': f"{display_name} - Keine Nachrichten verfügbar"
+                'title': f"{display_name} - {no_news_text}"
             })
             # Breche die Schleife ab, da wir nur einen "Keine Nachrichten" Kasten anzeigen möchten
             break
@@ -271,7 +282,7 @@ def query_and_process_category(category, embedding_function, user_info):
     # Stelle sicher, dass mindestens ein Artikel vorhanden ist
     if not category_articles:
         print(f"DEBUG: Kein Content für Kategorie '{category}' gefunden", flush=True)
-        return display_name, [{'content': "Zu dieser Kategorie gibt es aktuell keine Nachrichten", 'images': [], 'title': f"{display_name} - Keine Nachrichten verfügbar"}]
+        return display_name, [{'content': "Zu dieser Kategorie gibt es aktuell keine Nachrichten", 'images': [], 'title': f"{display_name} - {no_news_text}"}]
     
     
     print(f"DEBUG: Generierte {len(category_articles)} Artikel für Kategorie '{category}'", flush=True)
