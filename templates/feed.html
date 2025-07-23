@@ -25,6 +25,44 @@
             Dein personalisierter Nachrichtenfeed
         </div>
 
+        <!-- User Settings Banner -->
+        <div class="user-settings-banner">
+            <div class="banner-content">
+                <div class="banner-section">
+                    <div class="banner-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <div class="banner-info">
+                        <span class="banner-label">Kategorien:</span>
+                        <div class="categories-inline">
+                            {% for category in categories %}
+                                <span class="category-pill">{{ category }}</span>
+                                {% if not loop.last %}<span class="separator">•</span>{% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="banner-divider"></div>
+                
+                <div class="banner-section">
+                    <div class="banner-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="banner-info">
+                        <span class="banner-label">Profil:</span>
+                        <div class="profile-inline">
+                            <span class="profile-pill">{{ user_info.age_group }} Jahre</span>
+                            <span class="separator">•</span>
+                            <span class="profile-pill">{{ user_info.gender|title }}</span>
+                            <span class="separator">•</span>
+                            <span class="profile-pill">{{ 'Ausführlich' if format == 'ausfuehrlich' else 'Kurzmeldungen' }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="category-container">
             {% for item in news_data %}
                 {% if item.articles and item.articles|length > 0 %}

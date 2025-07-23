@@ -588,6 +588,183 @@ body {
 /* === FEED-SEITE SPEZIFISCHE STYLES === */
 /* Diese Regeln gelten nur für die Feed-Seite */
 
+/* User Settings Banner - Schlanker Streifen */
+.user-settings-banner {
+    width: 100%;
+    background: linear-gradient(135deg, rgba(0, 219, 222, 0.1), rgba(252, 0, 255, 0.1));
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    margin: 20px auto 30px auto;
+    max-width: 1400px;
+    padding: 15px 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.user-settings-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #00dbde, #fc00ff, #00dbde);
+    background-size: 200% auto;
+    animation: shine 3s linear infinite;
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.banner-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+    min-width: 250px;
+}
+
+.banner-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(135deg, rgba(100, 181, 246, 0.3), rgba(0, 219, 222, 0.3));
+    border-radius: 8px;
+    border: 1px solid rgba(100, 181, 246, 0.4);
+    flex-shrink: 0;
+}
+
+.banner-icon i {
+    font-size: 16px;
+    color: #64b5f6;
+    text-shadow: 0 0 8px rgba(100, 181, 246, 0.5);
+}
+
+.banner-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.banner-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    white-space: nowrap;
+}
+
+.categories-inline,
+.profile-inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.category-pill,
+.profile-pill {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    color: #ffffff;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.category-pill:hover,
+.profile-pill:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, rgba(0, 219, 222, 0.2), rgba(252, 0, 255, 0.2));
+    border-color: rgba(0, 219, 222, 0.4);
+    box-shadow: 0 2px 8px rgba(0, 219, 222, 0.2);
+}
+
+.separator {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 12px;
+    margin: 0 4px;
+}
+
+.banner-divider {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.3), transparent);
+    flex-shrink: 0;
+}
+
+/* Responsive Design für Banner */
+@media (max-width: 768px) {
+    .user-settings-banner {
+        padding: 12px 20px;
+        margin: 15px 10px 25px 10px;
+    }
+    
+    .banner-content {
+        flex-direction: column;
+        gap: 20px;
+        align-items: stretch;
+    }
+    
+    .banner-section {
+        min-width: auto;
+        gap: 12px;
+    }
+    
+    .banner-divider {
+        display: none;
+    }
+    
+    .banner-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .categories-inline,
+    .profile-inline {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .user-settings-banner {
+        padding: 10px 15px;
+    }
+    
+    .banner-section {
+        gap: 10px;
+    }
+    
+    .banner-icon {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .banner-icon i {
+        font-size: 14px;
+    }
+    
+    .category-pill,
+    .profile-pill {
+        font-size: 11px;
+        padding: 3px 10px;
+    }
+}
+
 .feed-page .category-container {
     display: grid;
     grid-template-columns: 1fr 1fr; /* 2 gleichmäßige Spalten */
