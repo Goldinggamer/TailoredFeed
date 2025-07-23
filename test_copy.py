@@ -259,6 +259,8 @@ def query_and_process_category(category, embedding_function, user_info):
                 'images': [],  # Kein Bild bei "keine Nachrichten"
                 'title': title
             })
+            # Breche die Schleife ab, da wir nur einen "Keine Nachrichten" Kasten anzeigen möchten
+            break
         else:
             category_articles.append({
                 'content': final_article_content,

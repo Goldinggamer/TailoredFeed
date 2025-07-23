@@ -1,0 +1,26 @@
+{
+  "data": [
+    {
+      "category": "München aktuell",
+      "articles": [
+        {
+          "content": "Zu dieser Kategorie gibt es aktuell keine Nachrichten",
+          "images": [],
+          "title": "Viel Regen - aber keine größeren Unwetter-Schäden"
+        }
+      ],
+      "current_index": 0
+    },
+    {
+      "category": "Custom Suche: München",
+      "articles": [
+        {
+          "content": "Zu dieser Kategorie gibt es aktuell keine Nachrichten",
+          "images": [],
+          "title": "Viel Regen - aber keine größeren Unwetter-Schäden"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}
