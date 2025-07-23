@@ -1,0 +1,12 @@
+{
+  "age_group": "13",
+  "gender": "männlich",
+  "language": "English",
+  "dialect": "",
+  "categories": [
+    "muenchen",
+    "custom"
+  ],
+  "format": "kurz",
+  "custom_search_term": "raumfahrt"
+}
