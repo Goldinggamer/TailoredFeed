@@ -20,7 +20,10 @@
     <div class="brand">tailoredfeed</div>
     
     <div class="section-heading">
-      Wähle nun Kategorien aus, die für dich interessant sind:
+      Wähle nun maximal 2 Kategorien aus, die für dich interessant sind:
+    </div>
+    <div id="category-limit-message" style="display: none; color: #ff6b6b; text-align: center; margin-bottom: 15px; font-size: 14px; background: rgba(255,107,107,0.1); padding: 10px; border-radius: 8px; border: 1px solid rgba(255,107,107,0.3);">
+      Du kannst maximal 2 Kategorien auswählen. Bitte entferne eine Auswahl, um eine neue hinzuzufügen.
     </div>
     <div class="option-buttons category-buttons">
       <button class="option-button" data-value="politik">Politik</button>
@@ -66,7 +69,27 @@
       // Kategorien-Buttons
       document.querySelectorAll('.category-buttons .option-button').forEach(button => {
         button.addEventListener('click', function() {
-          this.classList.toggle('selected');
+          const selectedCategories = document.querySelectorAll('.category-buttons .option-button.selected');
+          const limitMessage = document.getElementById('category-limit-message');
+          
+          // Wenn Button bereits ausgewählt ist, deselektiere ihn
+          if (this.classList.contains('selected')) {
+            this.classList.remove('selected');
+            limitMessage.style.display = 'none';
+          } else {
+            // Wenn noch keine 2 Kategorien ausgewählt sind, kann ausgewählt werden
+            if (selectedCategories.length < 2) {
+              this.classList.add('selected');
+              limitMessage.style.display = 'none';
+            } else {
+              // Zeige Limit-Nachricht
+              limitMessage.style.display = 'block';
+              // Nach 3 Sekunden wieder ausblenden
+              setTimeout(() => {
+                limitMessage.style.display = 'none';
+              }, 3000);
+            }
+          }
           
           // Zeige/verstecke Custom Search Input
           const customSearchContainer = document.getElementById('custom-search-container');
@@ -108,6 +131,17 @@
             alert('Bitte gib einen Suchbegriff für die Custom Suche ein.');
             return;
           }
+        }
+        
+        // Validierung: Mindestens 1, maximal 2 Kategorien
+        if (selectedCategories.length === 0) {
+          alert('Bitte wähle mindestens eine Kategorie aus.');
+          return;
+        }
+        
+        if (selectedCategories.length > 2) {
+          alert('Du kannst maximal 2 Kategorien auswählen.');
+          return;
         }
         
         // Ausgewähltes Format ermitteln

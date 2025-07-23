@@ -131,6 +131,13 @@ def submit_categories():
             'message': 'Bitte wähle mindestens eine Kategorie und ein Newsformat aus.'
         })
     
+    # Validierung: Maximal 2 Kategorien
+    if len(selected_categories) > 2:
+        return jsonify({
+            'success': False,
+            'message': 'Du kannst maximal 2 Kategorien auswählen.'
+        })
+    
     # Validierung für Custom-Suche
     if 'custom' in selected_categories and not custom_search_term.strip():
         return jsonify({
