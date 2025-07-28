@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "category": "Sport Deutschland",
+      "articles": [
+        {
+          "content": "To this category there are currently no news.",
+          "images": [
+            "https://images.sportschau.de/image/091ce902-8dfe-4e9f-bd8c-832ec3ad3eae/AAABlvMdj-U/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": " New Federal Sports Policy: Female, experienced, non-expert"
+        },
+        {
+          "content": "Women's sports in Germany are showing promising growth, with increased viewership and prize money at the Fußball-EM, despite challenges like limited facilities. Global revenue for women's sports is projected to triple this year, driven partly by basketball's rise, though football remains strong in Germany.",
+          "images": [
+            "https://images.sportschau.de/image/dff0c3c7-fca8-4115-9b25-9898b2bae517/AAABl7zl_18/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": " Grows the women's sport also in Germany? (Literal translation)\n\nDoes women's sports also grow in Germany? (Contextual translation)"
+        },
+        {
+          "content": "A new football calendar for Germany is available, featuring Bundesliga matches, DFB-Pokal games, and European competitions. You can easily download this calendar on your smartphone or access specific team schedules through dedicated links.",
+          "images": [
+            "https://images.sportschau.de/image/4a10ef98-faa6-4da7-8150-a61d1f0bc36c/AAABl-6I-zU/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": " Get the Football Calendar of Sportschau now!"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}

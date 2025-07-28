@@ -104,7 +104,7 @@ def submit_user_info():
     session['user_info'] = {
         'age_group': age_group,
         # 'gender': gender, # Auskommentiert
-        'gender': 'keine_angabe',  # Default Wert für Kompatibilität mit anderen Teilen der App
+        # 'gender': 'keine_angabe',  # Auskommentiert - wird nicht mehr benötigt
         'language': language,
         'dialect': dialect
     }
