@@ -21,7 +21,7 @@ def query_and_process_category(category, embedding_function, user_info):
     """
     # Extrahiere Benutzerinformationen
     age = int(user_info.get('age_group', '30'))
-    gender = user_info.get('gender', 'keine_angabe')
+    # gender = user_info.get('gender', 'keine_angabe')  # Auskommentiert - nicht mehr verwendet
     language = user_info.get('language', 'Deutsch')
     dialect = user_info.get('dialect', '')
     news_format = user_info.get('format', 'kurz')
@@ -243,7 +243,7 @@ def query_and_process_category(category, embedding_function, user_info):
         "Zu dieser Kategorie gibt es aktuell keine Nachrichten"
 
         Persönliche Anpassungen:
-        - Nutzer ist {age} Jahre alt und {gender}
+        - Nutzer ist {age} Jahre alt
         - {age_instruction}     
         - {format_instruction}
         - Achte auf eine klare, verständliche, neutrale Sprache
@@ -297,7 +297,7 @@ def main(user_info=None):
     if user_info is None:
         user_info = {
             'age_group': '30',
-            'gender': 'keine_angabe', 
+            # 'gender': 'keine_angabe',  # Auskommentiert - nicht mehr verwendet
             'language': 'Deutsch',
             'categories': ['muenchen', 'politik', 'wirtschaft', 'sport'],
             'format': 'kurz',

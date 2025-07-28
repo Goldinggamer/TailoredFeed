@@ -114,6 +114,8 @@
             </select>
             <div id="age-error" class="error-message">Bitte wähle dein Alter aus</div>
 
+            <!-- Geschlechtsauswahl auskommentiert -->
+            <!--
             <label for="gender" class="required">Geschlecht</label>
             <div class="gender-options">
                 <label class="gender-option">
@@ -134,6 +136,7 @@
                 </label>
             </div>
             <div id="gender-error" class="error-message">Bitte wähle dein Geschlecht aus</div>
+            -->
 
             <label for="language" class="required">Sprache</label>
             <select id="language" name="language" required>
@@ -178,7 +181,7 @@
             
             // Get form values
             const ageGroup = document.getElementById('age_group').value;
-            const gender = document.querySelector('input[name="gender"]:checked')?.value;
+            // const gender = document.querySelector('input[name="gender"]:checked')?.value; // Auskommentiert
             const language = document.getElementById('language').value;
             const dialect = document.getElementById('dialect').value;
             
@@ -189,10 +192,13 @@
                 document.getElementById('age-error').style.display = 'block';
                 hasError = true;
             }
+            // Geschlechts-Validierung auskommentiert
+            /*
             if (!gender) {
                 document.getElementById('gender-error').style.display = 'block';
                 hasError = true;
             }
+            */
             if (!language) {
                 document.getElementById('language-error').style.display = 'block';
                 hasError = true;
@@ -208,7 +214,7 @@
                 },
                 body: new URLSearchParams({
                     age_group: ageGroup,
-                    gender: gender,
+                    // gender: gender, // Auskommentiert
                     language: language,
                     dialect: dialect
                 })
@@ -227,7 +233,8 @@
             });
         });
 
-        // Geschlechtsauswahl Handling
+        // Geschlechtsauswahl Handling - auskommentiert
+        /*
         document.querySelectorAll('.gender-option').forEach(option => {
             option.addEventListener('click', function() {
                 // Alle Optionen zurücksetzen
@@ -240,6 +247,7 @@
                 this.querySelector('input[type="radio"]').checked = true;
             });
         });
+        */
 
         // Update date
         const options = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' };

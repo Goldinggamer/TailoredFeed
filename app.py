@@ -92,18 +92,19 @@ def feed():
 @app.route('/submit-user-info', methods=['POST'])
 def submit_user_info():
     age_group = request.form.get('age_group', '')
-    gender = request.form.get('gender', '')
+    # gender = request.form.get('gender', '') # Auskommentiert - nicht mehr benötigt
     language = request.form.get('language', 'Deutsch')  # Default zu Deutsch
     dialect = request.form.get('dialect', '')
     
-    # Validierung: Mindestens Altersgruppe und Geschlecht müssen angegeben sein
-    if not age_group or not gender:
-        return jsonify({'success': False, 'message': 'Bitte wähle Altersgruppe und Geschlecht aus.'})
+    # Validierung: Mindestens Altersgruppe muss angegeben sein (Geschlecht entfernt)
+    if not age_group:
+        return jsonify({'success': False, 'message': 'Bitte wähle deine Altersgruppe aus.'})
     
-    # Speichern in der Session
+    # Speichern in der Session (ohne Geschlecht)
     session['user_info'] = {
         'age_group': age_group,
-        'gender': gender,
+        # 'gender': gender, # Auskommentiert
+        'gender': 'keine_angabe',  # Default Wert für Kompatibilität mit anderen Teilen der App
         'language': language,
         'dialect': dialect
     }
