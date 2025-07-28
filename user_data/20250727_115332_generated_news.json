@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "category": "Politik Deutschland",
+      "articles": [
+        {
+          "content": "Die Polizeigewerkschaften unterstützen die Einführung von Tasern nach gefährlichen Auseinandersetzungen, während Politiker wie Daniela Behrens Zweifel anmelden, ob das Verwenden solcher Waffen wirklich sinnvoll ist und keine gesundheitlichen Risiken birgt.",
+          "images": [
+            "https://images.tagesschau.de/image/d4caf3cc-89ba-4f56-aab8-513ebb87099c/AAABmDbZghM/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": " \"Warum die Verwendung von Taser umstritten ist\" (The use of Tasers is controversial)"
+        },
+        {
+          "content": "Berlin: Polizei diszipliniert queere Palästina-Demo mit 10.000 Teilnehmenden, davon etwa 800 pro-palästinisch. Veranstalter fordern Solidarität und antikolonialen Freiheitskampf.\n\nBürgermeister Wegner unterstützt harte Polizeiaktionen gegen Antisemitismus und Gewalt; Berliner Polizei wurde zuvor kritisiert, exzessive Gewalt angewendet zu haben.",
+          "images": [
+            "https://images.tagesschau.de/image/b5cdcc79-b6fc-476e-9c70-b83407d358fc/AAABmEtKF2s/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": " Die Polizei löste eine queere Demo der Palestina-Bewegung in Berlin auf. (The police dispersed a queer Palestine demo in Berlin.)"
+        },
+        {
+          "content": "Bundespräsidentin Klöckner hat 2022 die Regenbogenflagge am Bundestag gehisst, was Kritik auslöste. Die BVG in Berlin dekorierte für den CSD die Station \"Bundestag\" mit Regenbogenfarben und der Progressive Pride Flag. Deutschlandfunk berichtete am 25. Juli 2025 über diese Vorfälle.",
+          "images": [
+            "https://images.tagesschau.de/image/687fe37b-f882-43a9-ad65-a43ebd401790/AAABl_UkGAk/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": " Der Bundesrat hisst die Regenbogenflagge bei der CSD. (The Bundesrat hoists the Rainbow Flag at the CSD)"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}

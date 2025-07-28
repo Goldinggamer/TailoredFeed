@@ -5,6 +5,8 @@ from langchain_ollama import OllamaEmbeddings
 from langchain_chroma import Chroma
 from langchain_community.llms import Ollama
 
+from title_translation import translate_with_ollama
+
 # Terminal-Kodierung auf UTF-8 setzen
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
@@ -273,10 +275,11 @@ def query_and_process_category(category, embedding_function, user_info):
             # Breche die Schleife ab, da wir nur einen "Keine Nachrichten" Kasten anzeigen möchten
             break
         else:
+            translated_title = translate_with_ollama(title, target_language=language)
             category_articles.append({
                 'content': final_article_content,
                 'images': article_images,
-                'title': title
+                'title': translated_title
             })
     
     # Stelle sicher, dass mindestens ein Artikel vorhanden ist

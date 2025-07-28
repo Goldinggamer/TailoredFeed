@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "category": "Technologie und Innovation",
+      "articles": [
+        {
+          "content": "A study by researchers at Georgia Tech used a custom-built robot to explore how to create the biggest splash when jumping into water. They found that bending legs and tucking feet (forming a V-shape) while entering with the buttocks creates the largest splash effect, inspired by a cultural practice in New Zealand called Manu Jumping.",
+          "images": [
+            "https://images.tagesschau.de/image/839065c9-356b-497d-8f77-29c668077314/AAABl8qa5OU/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": " The greatest splash is achieved"
+        },
+        {
+          "content": "A surgical robot has performed an operation independently for the first time, marking a step toward more automation in surgery. The robot aims to assist surgeons by handling standardized procedures like gallbladder removal, similar to how cars have parking assistants. However, experts caution that while this advancement is promising, robots lack the human ability to make complex decisions during operations.",
+          "images": [
+            "https://images.tagesschau.de/image/0fc5477c-36ff-4094-8f55-df3cd1d65b43/AAABmA2d1HA/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": " OP-Robot operates for the first time alone"
+        },
+        {
+          "content": "Innovative photon chips using light instead of electricity show promise but aren't perfect yet. Researchers at Leibniz Supercomputing Centre are testing how these can work alongside traditional and quantum computers to find the best uses for each. This could help Germany strengthen its role in cutting-edge tech fields like AI, which still has some ground to cover.",
+          "images": [
+            "https://images.tagesschau.de/image/d4da7a68-2891-4f7e-b263-f578446ff7be/AAABmC2CbSo/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": " Light instead of power - simulation run in data center"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}

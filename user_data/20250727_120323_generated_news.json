@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "category": "Politik Deutschland",
+      "articles": [
+        {
+          "content": "Die Polizei möchte Taser einsetzen, um bei gefährlichen Situationen zu helfen. Doch nicht alle sind einverstanden, weil TASER manchmal gesundheitliche Risiken bergen können. Einige Politiker fragen sich, ob sie wirklich sinnvoll sind.",
+          "images": [
+            "https://images.tagesschau.de/image/d4caf3cc-89ba-4f56-aab8-513ebb87099c/AAABmDbZghM/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Warum der Einsatz von Tasern umstritten ist"
+        },
+        {
+          "content": "In Berlin hat die Polizei eine Demonstration gegen den Gaza-Krieg aufgelöst. Tausende Menschen, darunter viele Unterstützer Palästinas, hatten Flaggen und traditionelle Tücher dabei. Die Polizei erhielt Unterstützung des Bürgermeisters Kai Wegner, der sagte, dass sie bei Gewalt oder Antisemitismus robust vorgehen soll.",
+          "images": [
+            "https://images.tagesschau.de/image/b5cdcc79-b6fc-476e-9c70-b83407d358fc/AAABmEtKF2s/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Polizei löst queere Palästina-Demo in Berlin auf"
+        },
+        {
+          "content": "Der Bundesrat in Berlin hat Regenbogenflaggen aufgehängt, um die CSD zu unterstützen. Dafür kam es zu Kritik. Die BVG hat den U-Bahnhof Bundestag farbenfroh dekoriert.",
+          "images": [
+            "https://images.tagesschau.de/image/687fe37b-f882-43a9-ad65-a43ebd401790/AAABl_UkGAk/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Bundesrat hisst Regenbogenflagge zum CSD"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}
