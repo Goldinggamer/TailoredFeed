@@ -13,7 +13,7 @@
     <div class="stars"></div>
 
     <div class="nav">
-        <a href="{{ url_for('categories') }}">
+        <a href="{{ url_for('user_input') }}">
             <button class="back-button">←</button>
         </a>
     </div>
@@ -105,9 +105,9 @@
         <!-- Moderne Action Buttons -->
         <!-- Glassmorphism Action Buttons -->
         <div class="action-buttons">
-            <a href="{{ url_for('categories') }}" class="action-button glass">
-                <i class="fas fa-edit icon"></i>
-                Kategorien ändern
+            <a href="{{ url_for('user_input') }}" class="action-button glass">
+                <i class="fas fa-cog icon"></i>
+                Einstellungen ändern
             </a>
             <a href="{{ url_for('reset_session') }}" class="action-button glass">
                 <i class="fas fa-redo-alt icon"></i>

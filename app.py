@@ -120,12 +120,6 @@ def submit_complete_user_info():
     
     return jsonify({'success': True})
 
-@app.route('/categories')
-def categories():
-    # Diese Route ist jetzt optional/veraltet, da alles in user_input gemacht wird
-    # Redirect zu user_input falls jemand direkt hierher navigiert
-    return redirect(url_for('user_input'))
-
 @app.route('/feed')
 def feed():
     if 'news_data' not in session:

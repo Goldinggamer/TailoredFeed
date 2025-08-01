@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "category": "Wissen und Forschung",
+      "articles": [
+        {
+          "content": "Wissenschaftler warnen vor dem Druck, wissenschaftlich fundierte Strategien gegen Vogelgrippe aufzugeben. In Europa ist seit 2023 eine Impfung verfügbar, in den USA wird sie wegen politischer und handelsrechtlicher Hürden nicht eingesetzt. Experten betonen die Notwendigkeit einer vorsichtigen Behandlung des Problems, obwohl aktuell Fallzahlen niedrig sind.",
+          "images": [
+            "https://images.tagesschau.de/image/9e676d2a-ad3c-467f-8185-88fc5c2ee7d7/AAABmFW2cCU/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Wissenschaft besorgt über Kennedys Vogelgrippe-Vorschlag"
+        },
+        {
+          "content": "Wissenschaftler haben festgestellt, dass Pflanzenvielfalt unseren Darm stärkt. Jede Art bringt eigenes Mikrobiom mit, das die Gesundheit beeinflusst. 30 verschiedene Arten pro Woche sind ein grober Maßstab.",
+          "images": [
+            "https://images.tagesschau.de/image/2ef09f84-e319-4b15-91fc-0afac4a735df/AAABl8uYozg/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Wie Vielfalt unseren Darm stärkt"
+        },
+        {
+          "content": "Wissenschaftliche Mahnungen betonen, dass selbst geringe Mengen an Alkohol Risiken bergen. Die WHO hat 2024 eine Kampagne gestartet, um die Verbindung zwischen Alkoholkonsum und über 200 Krankheiten, darunter Krebsarten, hervorzuheben.",
+          "images": [
+            "https://images.tagesschau.de/image/bfde4241-fc29-419c-bc8b-d896d4f328fc/AAABleWDa9k/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Kommt jetzt die alkoholpolitische Kehrtwende?"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}
