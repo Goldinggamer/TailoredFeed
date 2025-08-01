@@ -73,6 +73,118 @@
             margin-bottom: 15px;
             padding-left: 5px;
         }
+        
+        /* Multi-select dropdown styling - Fixed to match select styling */
+        .multi-select-container {
+            position: relative;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+        
+        .multi-select-dropdown {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            font-size: 16px;
+            height: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+        
+        .multi-select-dropdown:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .multi-select-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #2a2a2a;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .multi-select-option {
+            padding: 12px;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            user-select: none;
+        }
+        
+        .multi-select-option:last-child {
+            border-bottom: none;
+        }
+        
+        .multi-select-option:hover {
+            background: #3a3a3a;
+        }
+        
+        .multi-select-option.selected {
+            background: #4a4a4a;
+        }
+        
+        .multi-select-option input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            margin: 0;
+            padding: 0;
+            accent-color: #00dbde;
+        }
+        
+        .multi-select-option label {
+            margin: 0;
+            cursor: pointer;
+            flex: 1;
+            color: white;
+        }
+        
+        .selected-categories {
+            font-size: 16px;
+            color: white;
+            flex: 1;
+            text-align: left;
+        }
+        
+        .dropdown-arrow {
+            font-size: 12px;
+            transition: transform 0.3s ease;
+            color: white;
+        }
+        
+        .dropdown-arrow.open {
+            transform: rotate(180deg);
+        }
+        
+        .custom-search-container {
+            display: none;
+            margin-top: 10px;
+        }
+        
+        .limit-message {
+            color: #ff6b6b;
+            font-size: 12px;
+            margin-top: 5px;
+            padding: 8px;
+            background: rgba(255,107,107,0.1);
+            border-radius: 4px;
+            border: 1px solid rgba(255,107,107,0.3);
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -121,6 +233,71 @@
             <label for="dialect">Dialekt (optional)</label>
             <input type="text" id="dialect" name="dialect" placeholder="z.B. Bayrisch">
 
+            <!-- Kategorienauswahl -->
+            <label class="required">Interessenskategorien (max. 2)</label>
+            <div class="multi-select-container">
+                <div class="multi-select-dropdown" id="categoriesDropdown">
+                    <span class="selected-categories" id="selectedCategories">Bitte wählen</span>
+                    <span class="dropdown-arrow" id="dropdownArrow">▼</span>
+                </div>
+                <div class="multi-select-options" id="categoriesOptions">
+                    <div class="multi-select-option" data-value="politik">
+                        <input type="checkbox" id="cat_politik">
+                        <label for="cat_politik">Politik</label>
+                    </div>
+                    <div class="multi-select-option" data-value="wissenschaft">
+                        <input type="checkbox" id="cat_wissenschaft">
+                        <label for="cat_wissenschaft">Wissenschaft und Forschung</label>
+                    </div>
+                    <div class="multi-select-option" data-value="wissenswertes">
+                        <input type="checkbox" id="cat_wissenswertes">
+                        <label for="cat_wissenswertes">Wissenswertes</label>
+                    </div>
+                    <div class="multi-select-option" data-value="wirtschaft">
+                        <input type="checkbox" id="cat_wirtschaft">
+                        <label for="cat_wirtschaft">Wirtschaft und Finanzen</label>
+                    </div>
+                    <div class="multi-select-option" data-value="gesundheit">
+                        <input type="checkbox" id="cat_gesundheit">
+                        <label for="cat_gesundheit">Gesundheit und Medizin</label>
+                    </div>
+                    <div class="multi-select-option" data-value="muenchen">
+                        <input type="checkbox" id="cat_muenchen">
+                        <label for="cat_muenchen">München aktuell</label>
+                    </div>
+                    <div class="multi-select-option" data-value="technologie">
+                        <input type="checkbox" id="cat_technologie">
+                        <label for="cat_technologie">Technologie und Innovation</label>
+                    </div>
+                    <div class="multi-select-option" data-value="sport">
+                        <input type="checkbox" id="cat_sport">
+                        <label for="cat_sport">Sport</label>
+                    </div>
+                    <div class="multi-select-option" data-value="custom">
+                        <input type="checkbox" id="cat_custom">
+                        <label for="cat_custom">Custom Suche</label>
+                    </div>
+                </div>
+            </div>
+            <div id="categories-error" class="error-message">Bitte wähle mindestens eine Kategorie aus</div>
+            <div id="categories-limit" class="limit-message">Du kannst maximal 2 Kategorien auswählen</div>
+
+            <!-- Custom Search Input (initially hidden) -->
+            <div class="custom-search-container" id="customSearchContainer">
+                <input type="text" id="custom-search-input" placeholder="z.B. Fußball WM, Bitcoin, Künstliche Intelligenz..." 
+                       style="width: 96.5%; margin-bottom: 0;">
+                <div id="custom-search-error" class="error-message">Bitte gib einen Suchbegriff für die Custom Suche ein</div>
+            </div>
+
+            <!-- Artikelformat -->
+            <label for="format" class="required">Artikelformat</label>
+            <select id="format" name="format" required>
+                <option value="">Bitte wählen</option>
+                <option value="kurz">Kurze Artikel</option>
+                <option value="ausfuehrlich">Ausführliche Artikel</option>
+            </select>
+            <div id="format-error" class="error-message">Bitte wähle ein Artikelformat aus</div>
+
             <button type="submit" class="cta-button">Weiter</button>
         </form>
     </div>
@@ -129,6 +306,118 @@
     <div class="date"></div>
 
     <script>
+        let selectedCategories = [];
+        
+        // Multi-Select Dropdown functionality
+        const dropdown = document.getElementById('categoriesDropdown');
+        const options = document.getElementById('categoriesOptions');
+        const arrow = document.getElementById('dropdownArrow');
+        const selectedText = document.getElementById('selectedCategories');
+        const customSearchContainer = document.getElementById('customSearchContainer');
+        const limitMessage = document.getElementById('categories-limit');
+        
+        // Toggle dropdown
+        dropdown.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const isOpen = options.style.display === 'block';
+            options.style.display = isOpen ? 'none' : 'block';
+            arrow.classList.toggle('open', !isOpen);
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!dropdown.contains(e.target) && !options.contains(e.target)) {
+                options.style.display = 'none';
+                arrow.classList.remove('open');
+            }
+        });
+        
+        // Handle category selection
+        document.querySelectorAll('.multi-select-option').forEach(option => {
+            const checkbox = option.querySelector('input[type="checkbox"]');
+            const label = option.querySelector('label');
+            
+            // Handle clicks on the entire option div
+            option.addEventListener('click', function(e) {
+                e.stopPropagation();
+                
+                // Don't double-toggle if clicking directly on checkbox
+                if (e.target.type !== 'checkbox') {
+                    checkbox.checked = !checkbox.checked;
+                }
+                
+                handleCategoryChange(option, checkbox);
+            });
+            
+            // Handle direct checkbox clicks
+            checkbox.addEventListener('change', function(e) {
+                e.stopPropagation();
+                handleCategoryChange(option, checkbox);
+            });
+            
+            // Handle label clicks
+            label.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                checkbox.checked = !checkbox.checked;
+                handleCategoryChange(option, checkbox);
+            });
+        });
+        
+        function handleCategoryChange(option, checkbox) {
+            const value = option.dataset.value;
+            
+            if (checkbox.checked) {
+                if (selectedCategories.length >= 2) {
+                    checkbox.checked = false;
+                    limitMessage.style.display = 'block';
+                    setTimeout(() => {
+                        limitMessage.style.display = 'none';
+                    }, 3000);
+                    return;
+                }
+                selectedCategories.push(value);
+                option.classList.add('selected');
+            } else {
+                selectedCategories = selectedCategories.filter(cat => cat !== value);
+                option.classList.remove('selected');
+                limitMessage.style.display = 'none';
+            }
+            
+            updateSelectedDisplay();
+            
+            // Show/hide custom search input
+            if (selectedCategories.includes('custom')) {
+                customSearchContainer.style.display = 'block';
+            } else {
+                customSearchContainer.style.display = 'none';
+                document.getElementById('custom-search-input').value = '';
+            }
+        }
+        
+        function updateSelectedDisplay() {
+            const categoryNames = {
+                'politik': 'Politik',
+                'wissenschaft': 'Wissenschaft',
+                'wissenswertes': 'Wissenswertes',
+                'wirtschaft': 'Wirtschaft',
+                'gesundheit': 'Gesundheit',
+                'muenchen': 'München',
+                'technologie': 'Technologie',
+                'sport': 'Sport',
+                'custom': 'Custom Suche'
+            };
+            
+            if (selectedCategories.length === 0) {
+                selectedText.textContent = 'Bitte wählen';
+            } else {
+                const names = selectedCategories.map(cat => categoryNames[cat]);
+                selectedText.textContent = names.join(', ');
+            }
+        }
+
         document.getElementById('userInfoForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -139,6 +428,8 @@
             const complexityLevel = document.getElementById('complexity_level').value;
             const language = document.getElementById('language').value;
             const dialect = document.getElementById('dialect').value;
+            const format = document.getElementById('format').value;
+            const customSearchTerm = document.getElementById('custom-search-input').value.trim();
             
             // Validation
             let hasError = false;
@@ -151,25 +442,40 @@
                 document.getElementById('language-error').style.display = 'block';
                 hasError = true;
             }
+            if (selectedCategories.length === 0) {
+                document.getElementById('categories-error').style.display = 'block';
+                hasError = true;
+            }
+            if (selectedCategories.includes('custom') && !customSearchTerm) {
+                document.getElementById('custom-search-error').style.display = 'block';
+                hasError = true;
+            }
+            if (!format) {
+                document.getElementById('format-error').style.display = 'block';
+                hasError = true;
+            }
             
             if (hasError) return;
             
             // Submit form data
-            fetch('/submit-user-info', {
+            fetch('/submit-complete-user-info', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Content-Type': 'application/json',
                 },
-                body: new URLSearchParams({
+                body: JSON.stringify({
                     complexity_level: complexityLevel,
                     language: language,
-                    dialect: dialect
+                    dialect: dialect,
+                    categories: selectedCategories,
+                    format: format,
+                    custom_search_term: customSearchTerm
                 })
             })
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    window.location.href = '/categories';
+                    window.location.href = '/generating_news';
                 } else {
                     alert(data.message);
                 }
@@ -181,8 +487,8 @@
         });
 
         // Update date
-        const options = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' };
-        const date = new Date().toLocaleDateString('de-DE', options);
+        const dateOptions = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' };
+        const date = new Date().toLocaleDateString('de-DE', dateOptions);
         document.querySelector('.date').textContent = date;
     </script>
 </body>

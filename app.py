@@ -51,12 +51,84 @@ def index():
 def user_input():
     return render_template('user_input.html')
 
+@app.route('/submit-user-info', methods=['POST'])
+def submit_user_info():
+    complexity_level = request.form.get('complexity_level', '')
+    language = request.form.get('language', 'Deutsch')  # Default zu Deutsch
+    dialect = request.form.get('dialect', '')
+    
+    # Validierung: Mindestens Sprachkomplexität muss angegeben sein
+    if not complexity_level:
+        return jsonify({'success': False, 'message': 'Bitte wähle eine Sprachkomplexität aus.'})
+    
+    # Speichern in der Session
+    session['user_info'] = {
+        'complexity_level': complexity_level,
+        'language': language,
+        'dialect': dialect
+    }
+    
+    # Log der gesammelten Daten
+    log_data('user_info', session['user_info'])
+    
+    return jsonify({'success': True})
+
+@app.route('/submit-complete-user-info', methods=['POST'])
+def submit_complete_user_info():
+    data = request.get_json()
+    
+    complexity_level = data.get('complexity_level', '')
+    language = data.get('language', 'Deutsch')
+    dialect = data.get('dialect', '')
+    categories = data.get('categories', [])
+    format_value = data.get('format', '')
+    custom_search_term = data.get('custom_search_term', '')
+    
+    # Validierung: Alle Pflichtfelder müssen ausgefüllt sein
+    if not complexity_level:
+        return jsonify({'success': False, 'message': 'Bitte wähle eine Sprachkomplexität aus.'})
+    
+    if not language:
+        return jsonify({'success': False, 'message': 'Bitte wähle eine Sprache aus.'})
+    
+    if not categories or len(categories) == 0:
+        return jsonify({'success': False, 'message': 'Bitte wähle mindestens eine Kategorie aus.'})
+    
+    if len(categories) > 2:
+        return jsonify({'success': False, 'message': 'Du kannst maximal 2 Kategorien auswählen.'})
+    
+    if not format_value:
+        return jsonify({'success': False, 'message': 'Bitte wähle ein Artikelformat aus.'})
+    
+    # Validierung für Custom-Suche
+    if 'custom' in categories and not custom_search_term.strip():
+        return jsonify({'success': False, 'message': 'Bitte gib einen Suchbegriff für die Custom Suche ein.'})
+    
+    # Speichern in der Session
+    session['user_info'] = {
+        'complexity_level': complexity_level,
+        'language': language,
+        'dialect': dialect
+    }
+    session['categories'] = categories
+    session['format'] = format_value
+    session['custom_search_term'] = custom_search_term.strip()
+    
+    # Log der gesammelten Daten
+    log_data('complete_user_info', {
+        'user_info': session['user_info'],
+        'categories': categories,
+        'format': format_value,
+        'custom_search_term': custom_search_term
+    })
+    
+    return jsonify({'success': True})
+
 @app.route('/categories')
 def categories():
-    # Überprüfen, ob die Benutzerdaten bereits vorhanden sind
-    if 'user_info' not in session:
-        return redirect(url_for('user_input'))
-    return render_template('categories.html')
+    # Diese Route ist jetzt optional/veraltet, da alles in user_input gemacht wird
+    # Redirect zu user_input falls jemand direkt hierher navigiert
+    return redirect(url_for('user_input'))
 
 @app.route('/feed')
 def feed():
@@ -88,66 +160,6 @@ def feed():
         format=format_type,
         now=datetime.now()
     )
-
-@app.route('/submit-user-info', methods=['POST'])
-def submit_user_info():
-    complexity_level = request.form.get('complexity_level', '')
-    language = request.form.get('language', 'Deutsch')  # Default zu Deutsch
-    dialect = request.form.get('dialect', '')
-    
-    # Validierung: Mindestens Sprachkomplexität muss angegeben sein
-    if not complexity_level:
-        return jsonify({'success': False, 'message': 'Bitte wähle eine Sprachkomplexität aus.'})
-    
-    # Speichern in der Session
-    session['user_info'] = {
-        'complexity_level': complexity_level,
-        'language': language,
-        'dialect': dialect
-    }
-    
-    # Log der gesammelten Daten
-    log_data('user_info', session['user_info'])
-    
-    return jsonify({'success': True})
-
-@app.route('/submit-categories', methods=['POST'])
-def submit_categories():
-    categories_json = request.form.get('categories', '[]')
-    format_value = request.form.get('format', '')
-    custom_search_term = request.form.get('custom_search_term', '')
-    
-    try:
-        selected_categories = json.loads(categories_json)
-    except json.JSONDecodeError:
-        selected_categories = []
-    
-    # Validierung: Mindestens eine Kategorie und ein Format müssen ausgewählt sein
-    if not selected_categories or not format_value:
-        return jsonify({
-            'success': False, 
-            'message': 'Bitte wähle mindestens eine Kategorie und ein Newsformat aus.'
-        })
-    
-    # Validierung: Maximal 2 Kategorien
-    if len(selected_categories) > 2:
-        return jsonify({
-            'success': False,
-            'message': 'Du kannst maximal 2 Kategorien auswählen.'
-        })
-    
-    # Validierung für Custom-Suche
-    if 'custom' in selected_categories and not custom_search_term.strip():
-        return jsonify({
-            'success': False,
-            'message': 'Bitte gib einen Suchbegriff für die Custom Suche ein.'
-        })
-    
-    session['categories'] = selected_categories
-    session['format'] = format_value
-    session['custom_search_term'] = custom_search_term.strip()
-    
-    return jsonify({'success': True})
 
 @app.route('/generating_news')
 def generating_news():
