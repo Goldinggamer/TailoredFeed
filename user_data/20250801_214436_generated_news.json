@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "category": "Wissenswertes",
+      "articles": [
+        {
+          "content": "Die Waffenruhe zwischen Thailand und Kambodscha hält bis auf wenige Verstöße, während der internationale Druck auf beiden Seiten zunimmt, um eine Eskalation des seit Jahrzehnten schwelenden Grenzkonflikts zu verhindern.",
+          "images": [
+            "https://images.tagesschau.de/image/d38aee2d-13b7-4641-aa70-d21c5ca9b6eb/AAABmFh0byk/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Rückkehr mit Angst im Gepäck"
+        },
+        {
+          "content": "Wetzker überraschte mit einem Titelgewinn gegen Ndolo. Brinkmann dominierte daraufhin Dergay und扩大了领先优势到七分 (20:13). Leverkusen hielt das Momentum und sicherte sich den Sieg, als Brinkmann die Führung gegen Samoilov in den zweistelligen Bereich trieb (33:23).",
+          "images": [
+            "https://images.sportschau.de/image/20d19b79-70d8-46d2-b6ec-76db18173262/AAABmGYOpPA/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Wetzker gelingt Titel-Überraschung gegen Ndolo"
+        },
+        {
+          "content": "Sandrine Sprengel hat im Siebenkampf in Dresden mit 6315 Punkten eine gute Leistung erbracht, obwohl sie unter der WM-Norm von 6500 Punkten lag. Mit einer Platzierung in den Top 20 der Weltjahresbestenliste könnte sie trotzdem ein Tokio-Ticket sichern. Weitere deutsche Athletinnen wie Serina Riedel und Vanessa Grimm haben ebenfalls Chancen auf ein WM-Ticket mit Saisonbestleistungen von jeweils 6322 und 6249 Punkten.",
+          "images": [
+            "https://images.sportschau.de/image/889d55ae-f4d8-4acf-9a5f-16c619cffe0a/AAABmGbO5dA/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Zehnkämpfer Nowak furios ins Karriereende"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}

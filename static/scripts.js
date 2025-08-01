@@ -311,6 +311,89 @@ function initializeIndexPage() {
     initializeFormSubmission();
 }
 
+// === GENERATING NEWS PAGE SPECIFIC FUNCTIONALITY ===
+// News-Generierungs-Funktionalität für die generating_news Seite
+
+function initializeGeneratingNewsPage() {
+    // Nur ausführen wenn wir auf der generating_news Seite sind
+    if (window.location.pathname !== '/generating_news') {
+        return;
+    }
+    
+    // News generieren
+    fetch('/generate_news')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Animation beenden und Erfolg anzeigen
+                const loadingCircle = document.getElementById('loadingCircle');
+                const successIcon = document.getElementById('successIcon');
+                const statusText = document.getElementById('statusText');
+                const continueButton = document.getElementById('continueButton');
+                
+                if (loadingCircle) loadingCircle.style.display = 'none';
+                if (successIcon) successIcon.style.display = 'block';
+                if (statusText) statusText.textContent = 'Deine News wurden erfolgreich generiert!';
+                if (continueButton) continueButton.style.display = 'inline-block';
+            } else {
+                throw new Error(data.error || 'Ein Fehler ist aufgetreten');
+            }
+        })
+        .catch(error => {
+            const loadingCircle = document.getElementById('loadingCircle');
+            const statusText = document.getElementById('statusText');
+            
+            if (loadingCircle) loadingCircle.style.display = 'none';
+            if (statusText) {
+                statusText.textContent = 'Fehler: ' + error.message;
+                statusText.style.color = '#ff4444';
+            }
+        });
+}
+
+// === UPDATE NEWS PAGE SPECIFIC FUNCTIONALITY ===
+// News-Update-Funktionalität für die update_news Seite
+
+async function startUpdate() {
+    const updateBtn = document.getElementById('updateButton');
+    const loading = document.getElementById('loading');
+    const apiStatus = document.getElementById('apiStatus');
+    const dbStatus = document.getElementById('dbStatus');
+    const continueButton = document.getElementById('continueButton');
+    
+    updateBtn.style.display = 'none';
+    loading.style.display = 'block';
+    
+    try {
+        // Start API News update
+        const apiResponse = await fetch('/update_api_news');
+        if (apiResponse.ok) {
+            apiStatus.style.display = 'block';
+            
+            // Start Database update
+            const dbResponse = await fetch('/update_database');
+            if (dbResponse.ok) {
+                dbStatus.style.display = 'block';
+                continueButton.style.display = 'inline-block';
+            }
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+    
+    loading.style.display = 'none';
+}
+
+function initializeUpdateNewsPage() {
+    // Nur ausführen wenn wir auf der update_news Seite sind
+    if (window.location.pathname !== '/update_news') {
+        return;
+    }
+    
+    // startUpdate Funktion global verfügbar machen
+    window.startUpdate = startUpdate;
+}
+
 // Bei Seitenladung das Datum aktualisieren und spezifische Features laden
 document.addEventListener('DOMContentLoaded', function() {
   updateDateTime();
@@ -318,6 +401,10 @@ document.addEventListener('DOMContentLoaded', function() {
   // Prüfen welche Seite geladen wird und entsprechende Features initialisieren
   if (window.location.pathname === '/' || window.location.pathname === '/start') {
     initNewsImagesAnimation();
-    initializeIndexPage(); // Neue Funktion für Index-spezifische Features
+    initializeIndexPage(); // Index-spezifische Features
+  } else if (window.location.pathname === '/generating_news') {
+    initializeGeneratingNewsPage(); // Generating News-spezifische Features
+  } else if (window.location.pathname === '/update_news') {
+    initializeUpdateNewsPage(); // Update News-spezifische Features
   }
 });
