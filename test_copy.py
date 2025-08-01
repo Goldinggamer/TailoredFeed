@@ -22,7 +22,6 @@ def query_and_process_category(category, embedding_function, user_info):
     # Extrahiere Benutzerinformationen
     complexity_level = user_info.get('complexity_level', 'standard')
     language = user_info.get('language', 'Deutsch')
-    dialect = user_info.get('dialect', '')
     news_format = user_info.get('format', 'kurz')
     
     # Sprachanpassung
@@ -36,7 +35,6 @@ def query_and_process_category(category, embedding_function, user_info):
     }
     
     user_language = language_map.get(language, 'Deutsch')
-    dialect_instruction = f" im {dialect}-Dialekt" if dialect else ""
     
     # Mehrsprachige "Keine Nachrichten" Texte
     no_news_messages = {
@@ -246,7 +244,7 @@ def query_and_process_category(category, embedding_function, user_info):
         - {format_instruction}
         - Achte auf eine klare, verständliche, neutrale Sprache
         - Präsentiere Fakten ohne manipulative Sprache oder emotionale Färbung
-        - Die Nachrichtenausgabe MUSS in {user_language}{dialect_instruction} verfasst werden! 
+        - Die Nachrichtenausgabe MUSS in {user_language} verfasst werden! 
         - Verwende KEINE chinesischen, japanischen oder anderen asiatischen Schriftzeichen!
         - Verwende KEINE Sternchen (*) oder andere Formatierungszeichen in deiner Antwort!
         

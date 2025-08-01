@@ -55,7 +55,6 @@ def user_input():
 def submit_user_info():
     complexity_level = request.form.get('complexity_level', '')
     language = request.form.get('language', 'Deutsch')  # Default zu Deutsch
-    dialect = request.form.get('dialect', '')
     
     # Validierung: Mindestens Sprachkomplexität muss angegeben sein
     if not complexity_level:
@@ -64,8 +63,7 @@ def submit_user_info():
     # Speichern in der Session
     session['user_info'] = {
         'complexity_level': complexity_level,
-        'language': language,
-        'dialect': dialect
+        'language': language
     }
     
     # Log der gesammelten Daten
@@ -79,7 +77,6 @@ def submit_complete_user_info():
     
     complexity_level = data.get('complexity_level', '')
     language = data.get('language', 'Deutsch')
-    dialect = data.get('dialect', '')
     categories = data.get('categories', [])
     format_value = data.get('format', '')
     custom_search_term = data.get('custom_search_term', '')
@@ -107,8 +104,7 @@ def submit_complete_user_info():
     # Speichern in der Session
     session['user_info'] = {
         'complexity_level': complexity_level,
-        'language': language,
-        'dialect': dialect
+        'language': language
     }
     session['categories'] = categories
     session['format'] = format_value

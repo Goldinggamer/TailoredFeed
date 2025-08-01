@@ -121,13 +121,11 @@ function collectUserData() {
   const ageGroup = document.querySelector('.age-buttons .option-button.selected')?.getAttribute('data-value');
   const gender = document.querySelector('.gender-buttons .option-button.selected')?.getAttribute('data-value');
   const language = document.getElementById('lang')?.value;
-  const dialect = document.getElementById('dialect')?.value;
   
   return {
     ageGroup: ageGroup,
     gender: gender,
-    language: language,
-    dialect: dialect
+    language: language
   };
 }
 
@@ -139,7 +137,6 @@ function submitForm(formType) {
     formData.append('age_group', userData.ageGroup || '');
     formData.append('gender', userData.gender || '');
     formData.append('language', userData.language || '');
-    formData.append('dialect', userData.dialect || '');
     
     fetch('/submit-user-info', {
       method: 'POST',

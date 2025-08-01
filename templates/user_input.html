@@ -272,8 +272,7 @@
             </select>
             <div id="language-error" class="error-message">Bitte wähle eine Sprache aus</div>
 
-            <label for="dialect">Dialekt (optional)</label>
-            <input type="text" id="dialect" name="dialect" placeholder="z.B. Bayrisch">
+            <!-- Dialekt-Eingabe komplett entfernt -->
 
             <!-- Kategorienauswahl -->
             <label class="required">Interessenskategorien (max. 2)</label>
@@ -473,7 +472,6 @@
             // Get form values
             const complexityLevel = document.getElementById('complexity_level').value;
             const language = document.getElementById('language').value;
-            const dialect = document.getElementById('dialect').value;
             const format = document.getElementById('format').value;
             const customSearchTerm = document.getElementById('custom-search-input').value.trim();
             
@@ -512,7 +510,6 @@
                 body: JSON.stringify({
                     complexity_level: complexityLevel,
                     language: language,
-                    dialect: dialect,
                     categories: selectedCategories,
                     format: format,
                     custom_search_term: customSearchTerm

@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "category": "Wissen und Forschung",
+      "articles": [
+        {
+          "content": "Wissenschaftlerinnen und Wissenschaftler kritisieren den Umgang mit der Vogelgrippe-Virus-Krise und fordern eine wissenschaftlich fundierte Strategie, während sich die USA und Europa in ihrer Vorgehensweise unterscheiden. In Europa ist bereits seit 2023 ein Impfstoff gegen den Erreger verfügbar, doch in den USA wird er bislang nicht eingesetzt, was auf politische und wirtschaftliche Hürden zurückzuführen ist. Experten warnen, dass die momentan niedrigen Fallzahlen kein Anlass für Complizenschaft seien, sondern vielmehr ein Grund dafür, die Vorsorge zu verstärken.",
+          "images": [
+            "https://images.tagesschau.de/image/9e676d2a-ad3c-467f-8185-88fc5c2ee7d7/AAABmFW2cCU/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Wissenschaft besorgt über Kennedys Vogelgrippe-Vorschlag"
+        },
+        {
+          "content": "Forscher entdecken, dass eine Vielfalt an pflanzlichen Lebensmitteln unser Darm-Mikrobiom stärkt. Obwohl die genaue Anzahl wie 20 oder 30 Pflanzen pro Woche nicht untersucht wurde, zeigen Studien, dass pflanzliche Ernährung eigenes Mikrobiom mitbringt und somit die Darmgesundheit beeinflusst.",
+          "images": [
+            "https://images.tagesschau.de/image/2ef09f84-e319-4b15-91fc-0afac4a735df/AAABl8uYozg/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Wie Vielfalt unseren Darm stärkt"
+        },
+        {
+          "content": "Wissenschaftliche Mahnungen an Politik: Seit einem Jahr warnen Experten, dass selbst geringe Alkoholkonsummengen nicht risikofrei seien; WHO-Kampagne 2024 betont, dass Alkohol in Europa ein Elftel aller Todesfälle verursacht und mit über 200 Krankheiten, einschließlich sieben Krebsarten, assoziiert wird.",
+          "images": [
+            "https://images.tagesschau.de/image/bfde4241-fc29-419c-bc8b-d896d4f328fc/AAABleWDa9k/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Kommt jetzt die alkoholpolitische Kehrtwende?"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}
