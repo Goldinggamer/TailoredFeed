@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "category": "Politik Deutschland",
+      "articles": [
+        {
+          "content": "In Baden-Württemberg steht die Nutzung von Palantir-Software im Mittelpunkt der Debatte. Die Regierung plant möglicherweise das Polizeigesetz zu ändern, um die Software einzusetzen, obwohl dies in anderen Bundesländern Kritik hervorgerufen hat. Die CDU und die Grünen zeigen dabei unterschiedliche Haltungen: Die CDU ist optimistisch, während die Grünen eine Änderung ohne klare Antworten auf wichtige Fragen ablehnen.",
+          "images": [
+            "https://images.tagesschau.de/image/6a8c1bf4-4d6d-4a3b-a3a4-2185527c9185/AAABmFFMOdI/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Palantir-Nutzung ohne rechtliche Grundlage?"
+        },
+        {
+          "content": "Die Berliner Polizei löste eine von etwa 10.000 Personen organisierte Demonstration zu Gunsten Palästinas auf, bei der sich die Teilnehmer auch für antikoloniale, antirassistische und antikapitalistische Ziele einsetzten. Der Regierende Bürgermeister Kai Wegner hatte angekündigt, dass die Polizei robust gegen Antisemitismus und Gewalt eingreifen werde. Die Berliner Polizei stand in der Vergangenheit oft im Fokus kritischer Stimmen wegen exzessiver Gewalt bei Demonstrationen.",
+          "images": [
+            "https://images.tagesschau.de/image/b5cdcc79-b6fc-476e-9c70-b83407d358fc/AAABmFS3aFk/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Polizei löst queere Palästina-Demo in Berlin auf"
+        },
+        {
+          "content": "Deutschland plant, die Liste sicherer Herkunftsländer für Asylanträge zu erweitern, darunter Algerien, Indien, Marokko und Tunesien. Bundesinnenminister Alexander Dobrindt will dies per Rechtsverordnung durchsetzen, um eine Zustimmung von Bundestag und Bundesrat zu umgehen, nachdem die EU-Hürden für solche Einstufungen erhöht wurden. Bangladesch wird trotz eines entsprechenden Vorschlags der EU nicht als sicherer Herkunftsstaat angesehen, da das Land politisch instabil ist und terroristische Risiken besteht.",
+          "images": [
+            "https://images.tagesschau.de/image/59808dba-fe6a-458c-9b5a-bf92cbe6dba6/AAABmGTeceo/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "EuGH erhöht Hürden für Listen sicherer Herkunftsländer"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}

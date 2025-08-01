@@ -47,26 +47,6 @@ def prepare():
 def index():
     return render_template('index.html')
 
-@app.route('/submit-user-info', methods=['POST'])
-def submit_user_info():
-    complexity_level = request.form.get('complexity_level', '')
-    language = request.form.get('language', 'Deutsch')  # Default zu Deutsch
-    
-    # Validierung: Mindestens Sprachkomplexität muss angegeben sein
-    if not complexity_level:
-        return jsonify({'success': False, 'message': 'Bitte wähle eine Sprachkomplexität aus.'})
-    
-    # Speichern in der Session
-    session['user_info'] = {
-        'complexity_level': complexity_level,
-        'language': language
-    }
-    
-    # Log der gesammelten Daten
-    log_data('user_info', session['user_info'])
-    
-    return jsonify({'success': True})
-
 @app.route('/submit-complete-user-info', methods=['POST'])
 def submit_complete_user_info():
     data = request.get_json()

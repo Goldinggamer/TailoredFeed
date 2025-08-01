@@ -103,68 +103,221 @@ function updateImages() {
   currentRightIndex = (currentRightIndex + 1) % Math.floor(newsImages.length / 2);
 }
 
-// Funktionen für Flask-Integration
-function collectSelectedCategories() {
-  const selectedCategories = [];
-  document.querySelectorAll('.category-buttons .option-button.selected').forEach(button => {
-    selectedCategories.push(button.getAttribute('data-value'));
-  });
-  return selectedCategories;
-}
+// === INDEX PAGE SPECIFIC FUNCTIONALITY ===
+// Multi-Select Dropdown functionality für die Startseite
 
-function collectSelectedFormat() {
-  const formatElement = document.querySelector('.format-buttons .option-button.selected');
-  return formatElement ? formatElement.getAttribute('data-value') : null;
-}
+let selectedCategories = [];
 
-function collectUserData() {
-  const ageGroup = document.querySelector('.age-buttons .option-button.selected')?.getAttribute('data-value');
-  const gender = document.querySelector('.gender-buttons .option-button.selected')?.getAttribute('data-value');
-  const language = document.getElementById('lang')?.value;
-  
-  return {
-    ageGroup: ageGroup,
-    gender: gender,
-    language: language
-  };
-}
-
-function submitForm(formType) {
-  let formData = new FormData();
-  
-  if (formType === 'user-info') {
-    const userData = collectUserData();
-    formData.append('age_group', userData.ageGroup || '');
-    formData.append('gender', userData.gender || '');
-    formData.append('language', userData.language || '');
+// Funktion zur Initialisierung der Multi-Select Dropdown-Funktionalität
+function initializeMultiSelectDropdown() {
+    const dropdown = document.getElementById('categoriesDropdown');
+    const options = document.getElementById('categoriesOptions');
+    const arrow = document.getElementById('dropdownArrow');
+    const selectedText = document.getElementById('selectedCategories');
+    const customSearchContainer = document.getElementById('customSearchContainer');
+    const limitMessage = document.getElementById('categories-limit');
     
-    fetch('/submit-user-info', {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-      if(data.success) {
-        window.location.href = '/categories';
-      }
+    // Nur ausführen wenn die Elemente existieren (Startseite)
+    if (!dropdown || !options || !arrow || !selectedText) {
+        return;
+    }
+    
+    // Toggle dropdown
+    dropdown.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const isOpen = options.style.display === 'block';
+        options.style.display = isOpen ? 'none' : 'block';
+        arrow.classList.toggle('open', !isOpen);
+        dropdown.classList.toggle('active', !isOpen);
     });
-  } 
-  else if (formType === 'categories') {
-    const categories = collectSelectedCategories();
-    const format = collectSelectedFormat();
     
-    formData.append('categories', JSON.stringify(categories));
-    formData.append('format', format || '');
-    
-    fetch('/submit-categories', {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-      if(data.success) {
-        window.location.href = '/feed';
-      }
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!dropdown.contains(e.target) && !options.contains(e.target)) {
+            options.style.display = 'none';
+            arrow.classList.remove('open');
+            dropdown.classList.remove('active');
+        }
     });
+    
+    // Handle category selection
+    document.querySelectorAll('.multi-select-option').forEach(option => {
+        const checkbox = option.querySelector('input[type="checkbox"]');
+        const label = option.querySelector('label');
+        
+        // Handle clicks on the entire option div
+        option.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            // Don't double-toggle if clicking directly on checkbox
+            if (e.target.type !== 'checkbox') {
+                checkbox.checked = !checkbox.checked;
+            }
+            
+            handleCategoryChange(option, checkbox);
+        });
+        
+        // Handle direct checkbox clicks
+        checkbox.addEventListener('change', function(e) {
+            e.stopPropagation();
+            handleCategoryChange(option, checkbox);
+        });
+        
+        // Handle label clicks
+        label.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            checkbox.checked = !checkbox.checked;
+            handleCategoryChange(option, checkbox);
+        });
+    });
+    
+    function handleCategoryChange(option, checkbox) {
+        const value = option.dataset.value;
+        
+        if (checkbox.checked) {
+            if (selectedCategories.length >= 2) {
+                checkbox.checked = false;
+                limitMessage.style.display = 'block';
+                setTimeout(() => {
+                    limitMessage.style.display = 'none';
+                }, 3000);
+                return;
+            }
+            selectedCategories.push(value);
+            option.classList.add('selected');
+        } else {
+            selectedCategories = selectedCategories.filter(cat => cat !== value);
+            option.classList.remove('selected');
+            limitMessage.style.display = 'none';
+        }
+        
+        updateSelectedDisplay();
+        
+        // Show/hide custom search input
+        if (selectedCategories.includes('custom')) {
+            customSearchContainer.style.display = 'block';
+        } else {
+            customSearchContainer.style.display = 'none';
+            document.getElementById('custom-search-input').value = '';
+        }
+    }
+    
+    function updateSelectedDisplay() {
+        const categoryNames = {
+            'politik': 'Politik',
+            'wissenschaft': 'Wissenschaft',
+            'wissenswertes': 'Wissenswertes',
+            'wirtschaft': 'Wirtschaft',
+            'gesundheit': 'Gesundheit',
+            'muenchen': 'München',
+            'technologie': 'Technologie',
+            'sport': 'Sport',
+            'custom': 'Custom Suche'
+        };
+        
+        if (selectedCategories.length === 0) {
+            selectedText.textContent = 'Bitte wählen';
+            selectedText.classList.add('placeholder');
+        } else {
+            const names = selectedCategories.map(cat => categoryNames[cat]);
+            selectedText.textContent = names.join(', ');
+            selectedText.classList.remove('placeholder');
+        }
+    }
+}
+
+// Form-Validierung und Submission für die Startseite
+function initializeFormSubmission() {
+    const form = document.getElementById('userInfoForm');
+    
+    // Nur ausführen wenn das Formular existiert (Startseite)
+    if (!form) {
+        return;
+    }
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Reset error messages
+        document.querySelectorAll('.error-message').forEach(msg => msg.style.display = 'none');
+        
+        // Get form values
+        const complexityLevel = document.getElementById('complexity_level').value;
+        const language = document.getElementById('language').value;
+        const format = document.getElementById('format').value;
+        const customSearchTerm = document.getElementById('custom-search-input').value.trim();
+        
+        // Validation
+        let hasError = false;
+        
+        if (!complexityLevel) {
+            document.getElementById('complexity-error').style.display = 'block';
+            hasError = true;
+        }
+        if (!language) {
+            document.getElementById('language-error').style.display = 'block';
+            hasError = true;
+        }
+        if (selectedCategories.length === 0) {
+            document.getElementById('categories-error').style.display = 'block';
+            hasError = true;
+        }
+        if (selectedCategories.includes('custom') && !customSearchTerm) {
+            document.getElementById('custom-search-error').style.display = 'block';
+            hasError = true;
+        }
+        if (!format) {
+            document.getElementById('format-error').style.display = 'block';
+            hasError = true;
+        }
+        
+        if (hasError) return;
+        
+        // Submit form data and redirect to generating news
+        fetch('/submit-complete-user-info', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                complexity_level: complexityLevel,
+                language: language,
+                categories: selectedCategories,
+                format: format,
+                custom_search_term: customSearchTerm
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                window.location.href = '/generating_news';
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Ein Fehler ist aufgetreten. Bitte versuche es erneut.');
+        });
+    });
+}
+
+// Funktion zur Initialisierung aller Index-spezifischen Features
+function initializeIndexPage() {
+    initializeMultiSelectDropdown();
+    initializeFormSubmission();
+}
+
+// Bei Seitenladung das Datum aktualisieren und spezifische Features laden
+document.addEventListener('DOMContentLoaded', function() {
+  updateDateTime();
+  
+  // Prüfen welche Seite geladen wird und entsprechende Features initialisieren
+  if (window.location.pathname === '/' || window.location.pathname === '/start') {
+    initNewsImagesAnimation();
+    initializeIndexPage(); // Neue Funktion für Index-spezifische Features
   }
-}
+});
