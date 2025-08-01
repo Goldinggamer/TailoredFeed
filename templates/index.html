@@ -111,9 +111,17 @@
     
     .settings-form h2 {
         color: white;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         text-align: center;
         font-size: 24px;
+    }
+    
+    .settings-form .form-description {
+        color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        margin-bottom: 25px;
+        font-size: 14px;
+        font-style: italic;
     }
     
     .settings-form label {
@@ -280,9 +288,9 @@
           <label for="complexity_level" class="required">Sprachkomplexität</label>
           <select id="complexity_level" name="complexity_level" required>
               <option value="">Bitte wählen</option>
-              <option value="einfach">Einfach - Kinderfreundliche Sprache</option>
-              <option value="standard">Standard - Verständliche Jugendsprache</option>
-              <option value="komplex">Komplex - Erwachsenengerechte Fachsprache</option>
+              <option value="einfach">Einfach - Einfache und verständliche Sprache</option>
+              <option value="standard">Standard - Ausgewogene Sprache</option>
+              <option value="komplex">Komplex - Detaillierte Fachsprache</option>
           </select>
           <div id="complexity-error" class="error-message">Bitte wähle eine Sprachkomplexität aus</div>
 
@@ -376,7 +384,7 @@
           <div id="format-error" class="error-message">Bitte wähle ein Artikelformat aus</div>
 
           <button type="submit" class="cta-button">
-              Starten <span class="arrow">→</span>
+              Feed erstellen <span class="arrow">→</span>
           </button>
         </form>
       </div>

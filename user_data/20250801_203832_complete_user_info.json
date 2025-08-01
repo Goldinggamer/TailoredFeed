@@ -1,11 +1,11 @@
 {
   "user_info": {
-    "complexity_level": "einfach",
+    "complexity_level": "komplex",
     "language": "Deutsch"
   },
   "categories": [
-    "custom"
+    "politik"
   ],
-  "format": "kurz",
-  "custom_search_term": "bafög"
+  "format": "ausfuehrlich",
+  "custom_search_term": ""
 }
