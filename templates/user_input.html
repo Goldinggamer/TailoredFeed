@@ -21,7 +21,10 @@
             height: 15px;
             object-fit: contain;
         }
-        select {
+        
+        /* EINHEITLICHES STYLING FÜR ALLE DROPDOWNS */
+        select,
+        .multi-select-dropdown {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 4px;
@@ -31,8 +34,40 @@
             margin-bottom: 15px;
             font-size: 16px;
             height: 50px;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            /* WICHTIG: Appearance für Select und Multi-Select angleichen */
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
         }
         
+        /* Einheitlicher Dropdown-Pfeil für alle */
+        select {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.6)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+            padding-right: 40px;
+        }
+        
+        /* Hover-Effekte für alle Dropdowns */
+        select:hover,
+        .multi-select-dropdown:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Focus-Effekte für alle Dropdowns */
+        select:focus,
+        .multi-select-dropdown:focus,
+        .multi-select-dropdown.active {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            outline: none;
+        }
+        
+        /* Select-spezifische Styles */
         select option {
             background: #2a2a2a;
             color: white;
@@ -50,6 +85,7 @@
             color: white;
         }
         
+        /* Input-Felder */
         input {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -61,20 +97,14 @@
             font-size: 16px;
             height: 50px;
         }
+        
         .required::after {
             content: "*";
             color: #ff4444;
             margin-left: 4px;
         }
-        .complexity-description {
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.7);
-            margin-top: -10px;
-            margin-bottom: 15px;
-            padding-left: 5px;
-        }
         
-        /* Multi-select dropdown styling - Fixed to match select styling */
+        /* Multi-select dropdown - JETZT IDENTISCH MIT SELECT */
         .multi-select-container {
             position: relative;
             margin-bottom: 15px;
@@ -82,23 +112,48 @@
         }
         
         .multi-select-dropdown {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
-            color: white;
-            padding: 12px;
-            width: 100%;
-            font-size: 16px;
-            height: 50px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-sizing: border-box;
+            /* Padding-right wie bei select für Pfeil-Platz */
+            padding-right: 40px;
+            position: relative;
         }
         
-        .multi-select-dropdown:hover {
-            background: rgba(255, 255, 255, 0.15);
+        .selected-categories {
+            font-size: 16px;
+            color: white;
+            flex: 1;
+            text-align: left;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            /* Kein zusätzlicher Abstand rechts, da Pfeil absolut positioniert wird */
+        }
+        
+        .selected-categories.placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .dropdown-arrow {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+            transition: transform 0.3s ease;
+            color: rgba(255, 255, 255, 0.6);
+            pointer-events: none;
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .dropdown-arrow.open {
+            transform: translateY(-50%) rotate(180deg);
         }
         
         .multi-select-options {
@@ -114,16 +169,19 @@
             z-index: 1000;
             display: none;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin-top: 1px;
         }
         
         .multi-select-option {
-            padding: 12px;
+            padding: 10px 12px;
             cursor: pointer;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             gap: 8px;
             user-select: none;
+            color: white;
+            font-size: 16px;
         }
         
         .multi-select-option:last-child {
@@ -151,23 +209,7 @@
             cursor: pointer;
             flex: 1;
             color: white;
-        }
-        
-        .selected-categories {
             font-size: 16px;
-            color: white;
-            flex: 1;
-            text-align: left;
-        }
-        
-        .dropdown-arrow {
-            font-size: 12px;
-            transition: transform 0.3s ease;
-            color: white;
-        }
-        
-        .dropdown-arrow.open {
-            transform: rotate(180deg);
         }
         
         .custom-search-container {
@@ -324,6 +366,7 @@
             const isOpen = options.style.display === 'block';
             options.style.display = isOpen ? 'none' : 'block';
             arrow.classList.toggle('open', !isOpen);
+            dropdown.classList.toggle('active', !isOpen);
         });
         
         // Close dropdown when clicking outside
@@ -331,6 +374,7 @@
             if (!dropdown.contains(e.target) && !options.contains(e.target)) {
                 options.style.display = 'none';
                 arrow.classList.remove('open');
+                dropdown.classList.remove('active');
             }
         });
         
@@ -412,9 +456,11 @@
             
             if (selectedCategories.length === 0) {
                 selectedText.textContent = 'Bitte wählen';
+                selectedText.classList.add('placeholder');
             } else {
                 const names = selectedCategories.map(cat => categoryNames[cat]);
                 selectedText.textContent = names.join(', ');
+                selectedText.classList.remove('placeholder');
             }
         }
 
