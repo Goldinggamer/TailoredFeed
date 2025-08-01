@@ -20,8 +20,7 @@ def query_and_process_category(category, embedding_function, user_info):
     Verarbeitet eine einzelne Kategorie: Sucht relevante Artikel und generiert eine Zusammenfassung
     """
     # Extrahiere Benutzerinformationen
-    age = int(user_info.get('age_group', '30'))
-    # gender = user_info.get('gender', 'keine_angabe')  # Auskommentiert - nicht mehr verwendet
+    complexity_level = user_info.get('complexity_level', 'standard')
     language = user_info.get('language', 'Deutsch')
     dialect = user_info.get('dialect', '')
     news_format = user_info.get('format', 'kurz')
@@ -50,15 +49,14 @@ def query_and_process_category(category, embedding_function, user_info):
     }
     no_news_text = no_news_messages.get(user_language, 'Keine Nachrichten verfügbar')
     
-    # Altersgerechte Anpassungen
-    if age < 12:
-        age_instruction = "Verwende ausschließlich einfache, kinderfreundliche Sprache und verwende keine Fachbegriffe, sodass jedes Kind die Nachrichten verstehen kann"
-    elif age < 25:
-        age_instruction = "Verwende jugendgerechte Sprache und erkläre komplexe Themen verständlich."
-    elif age >= 25:
-        age_instruction = "Verwende angemessen komplexe Sprache mit Fachbegriffen, wo erforderlich. Bleibe sachlich und objektiv ohne verzerrende oder manipulative Formulierungen."
-    else:
-        age_instruction = ""
+    # Komplexitätsanweisungen basierend auf der Auswahl
+    complexity_instructions = {
+        'einfach': "Verwende ausschließlich einfache, kinderfreundliche Sprache und verwende keine Fachbegriffe, sodass jedes Kind die Nachrichten verstehen kann",
+        'standard': "Verwende jugendgerechte Sprache und erkläre komplexe Themen verständlich.",
+        'komplex': "Verwende angemessen komplexe Sprache mit Fachbegriffen, wo erforderlich. Bleibe sachlich und objektiv ohne verzerrende oder manipulative Formulierungen."
+    }
+    
+    complexity_instruction = complexity_instructions.get(complexity_level, complexity_instructions['standard'])
     
     # Kategorie-Mappings
     categories_map = {
@@ -243,8 +241,8 @@ def query_and_process_category(category, embedding_function, user_info):
         "Zu dieser Kategorie gibt es aktuell keine Nachrichten"
 
         Persönliche Anpassungen:
-        - Nutzer ist {age} Jahre alt
-        - {age_instruction}     
+        - Sprachkomplexität: {complexity_level} 
+        - {complexity_instruction}     
         - {format_instruction}
         - Achte auf eine klare, verständliche, neutrale Sprache
         - Präsentiere Fakten ohne manipulative Sprache oder emotionale Färbung
@@ -296,8 +294,7 @@ def main(user_info=None):
     """Hauptfunktion zur Generierung des personalisierten Nachrichtenfeed"""
     if user_info is None:
         user_info = {
-            'age_group': '30',
-            # 'gender': 'keine_angabe',  # Auskommentiert - nicht mehr verwendet
+            'complexity_level': 'standard',
             'language': 'Deutsch',
             'categories': ['muenchen', 'politik', 'wirtschaft', 'sport'],
             'format': 'kurz',

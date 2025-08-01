@@ -91,20 +91,17 @@ def feed():
 
 @app.route('/submit-user-info', methods=['POST'])
 def submit_user_info():
-    age_group = request.form.get('age_group', '')
-    # gender = request.form.get('gender', '') # Auskommentiert - nicht mehr benötigt
+    complexity_level = request.form.get('complexity_level', '')
     language = request.form.get('language', 'Deutsch')  # Default zu Deutsch
     dialect = request.form.get('dialect', '')
     
-    # Validierung: Mindestens Altersgruppe muss angegeben sein (Geschlecht entfernt)
-    if not age_group:
-        return jsonify({'success': False, 'message': 'Bitte wähle deine Altersgruppe aus.'})
+    # Validierung: Mindestens Sprachkomplexität muss angegeben sein
+    if not complexity_level:
+        return jsonify({'success': False, 'message': 'Bitte wähle eine Sprachkomplexität aus.'})
     
-    # Speichern in der Session (ohne Geschlecht)
+    # Speichern in der Session
     session['user_info'] = {
-        'age_group': age_group,
-        # 'gender': gender, # Auskommentiert
-        # 'gender': 'keine_angabe',  # Auskommentiert - wird nicht mehr benötigt
+        'complexity_level': complexity_level,
         'language': language,
         'dialect': dialect
     }
@@ -233,8 +230,8 @@ def update_database():
         # Create fresh directory
         os.makedirs(chroma_path, exist_ok=True)
         
-        # python_path = "/opt/homebrew/bin/python3.10"  # Korrekter Python-Pfad für M1 Mac
-        python_path = "python"  # Windows Python-Pfad (nutzt Python from PATH)
+        python_path = "/opt/homebrew/bin/python3.10"  # Korrekter Python-Pfad für M1 Mac
+        # python_path = "python"  # Windows Python-Pfad (nutzt Python from PATH)
         
         # Run database.py with full path and environment variables
         result = subprocess.run(

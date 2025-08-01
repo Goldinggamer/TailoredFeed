@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "category": "Gesundheit und Medizin",
+      "articles": [
+        {
+          "content": "Zwei Studien zeigen, dass regelmäßig Sport die Krebswahrscheinlichkeit verringern und bei Patienten die Nebenwirkungen der Chemotherapie mildern kann. Die WHO empfiehlt Erwachsenen mindestens zweieinhalb Stunden moderate oder 75 Minuten intensive运动 pro Woche. Der Experte Schmidt recommends Spaziergänge drei- bis viermal pro Woche.",
+          "images": [
+            "https://images.tagesschau.de/image/0147b734-88c3-4dfe-834e-279a290a3a72/AAABl-Qt89E/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Jeder Schritt zählt"
+        },
+        {
+          "content": "Musiktherapie verbessert psychisches Wohlbefinden und kognitive Gesundheit bei Demenzpatienten, wie eine WHO-Auswertung von über 3.000 Studien zeigt. In Deutschland fehlt jedoch die flächendeckende Anerkennung im Gesundheitswesen, obwohl der Bedarf durch das altersgesunde Bevölkerungswachstum zunimmt.",
+          "images": [
+            "https://images.tagesschau.de/image/161ee72f-a1eb-4285-be11-e67f8ddec0fa/AAABmEHLP6M/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Musiktherapie fördert Lebensqualität bei Demenz"
+        },
+        {
+          "content": "Die Zahl der Fuchsbandwurm-Infektionen hat zugenommen, wird jedoch von Experten als stabil betrachtet. Die Behandlung erfolgt entweder chirurgisch oder medikamentös, abhängig vom Alter des Patienten. Händewaschen ist der wichtigste Schutz gegen die Erkrankung.",
+          "images": [
+            "https://images.tagesschau.de/image/618b20dd-bfa9-4300-8d1e-f991c58c84e8/AAABmGAqppQ/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Immer mehr Fuchsbandwurm-Infektionen"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}

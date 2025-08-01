@@ -1,0 +1,58 @@
+{
+  "data": [
+    {
+      "category": "Politik Deutschland",
+      "articles": [
+        {
+          "content": "Baden-Württemberg plant, den Vertrag mit Palantir weiterzuverfolgen. Politiker diskutieren, ob das Polizeigesetz angepasst werden soll, um die Software nutzen zu können. Innenstaatssekretär Blenke ist optimistisch, Hildenbrand von den Grünen skeptisch.",
+          "images": [
+            "https://images.tagesschau.de/image/6a8c1bf4-4d6d-4a3b-a3a4-2185527c9185/AAABmFFMOdI/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Palantir-Nutzung ohne rechtliche Grundlage?"
+        },
+        {
+          "content": "Polizei in Berlin löst Demonstration auf: Tausende Protestanten, unter ihnen rund 800 mit pro-palästinischem Bezug, forderten Solidarität für Palästina und ein Ende kolonialen Systems. Bürgermeister Kai Wegner sagte, Polizei hat hart eingeschritten, wo es zu Antisemitismus oder Gewalt kam.",
+          "images": [
+            "https://images.tagesschau.de/image/b5cdcc79-b6fc-476e-9c70-b83407d358fc/AAABmFS3aFk/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Polizei löst queere Palästina-Demo in Berlin auf"
+        },
+        {
+          "content": "Deutschland plant, die Liste sicherer Herkunftsländer zu erweitern und möchte Länder wie Algerien, Indien und Marokko einbeziehen. Die Bundesregierung will dies ohne Zustimmung von Bundestag und Bundesrat regeln. Bangladesch ist momentan nicht auf der deutschen Liste, obwohl die EU es gerne hinzufügen würde.",
+          "images": [
+            "https://images.tagesschau.de/image/59808dba-fe6a-458c-9b5a-bf92cbe6dba6/AAABmGTeceo/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "EuGH erhöht Hürden für Listen sicherer Herkunftsländer"
+        }
+      ],
+      "current_index": 0
+    },
+    {
+      "category": "Wissen und Forschung",
+      "articles": [
+        {
+          "content": "Wissenschaftler warnen davor, wissenschaftliche Strategien gegen das Vogelgrippe-Virus durch politischen Druck ignorieren zu lassen. In Europa wird seit 2023 eine Impfung eingesetzt, in den USA nicht, weil Handelsabkommen und Politik dies behindern. Experten mahnen, dass niedrige Fallzahlen kein Grund sind, lockender zu werden.",
+          "images": [
+            "https://images.tagesschau.de/image/9e676d2a-ad3c-467f-8185-88fc5c2ee7d7/AAABmFW2cCU/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Wissenschaft besorgt über Kennedys Vogelgrippe-Vorschlag"
+        },
+        {
+          "content": "Essen Sie viele verschiedene Pflanzen. Pflanzen bringen gesunde Mikroben in unseren Darm. Eine neue Studie zeigt, dass diese Mikroben gut für unsere Gesundheit sind.",
+          "images": [
+            "https://images.tagesschau.de/image/2ef09f84-e319-4b15-91fc-0afac4a735df/AAABl8uYozg/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Wie Vielfalt unseren Darm stärkt"
+        },
+        {
+          "content": "Wissenschaftler warnen davor, Alkohol als harmlos in kleinen Mengen zu betrachten. Die WHO hat gezeigt, dass Alkohol in Europa für viele Todesfälle und Krankheiten verantwortlich ist, darunter Krebsarten.",
+          "images": [
+            "https://images.tagesschau.de/image/bfde4241-fc29-419c-bc8b-d896d4f328fc/AAABleWDa9k/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Kommt jetzt die alkoholpolitische Kehrtwende?"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}

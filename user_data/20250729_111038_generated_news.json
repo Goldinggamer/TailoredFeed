@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "category": "Politik Deutschland",
+      "articles": [
+        {
+          "content": "Debatte um Taser-Einsatz: Die Polizeigewerkschaft unterstützt die Verwendung von Tasern in gefährlichen Situationen, wie z. B. an Bahnhöfen oder nach Gewalttaten, während Politiker wie Niedersachsens Innenministerin Daniela Behrens Zweifel anmelden und eine Überprüfung der Sinnvollheit fordern.",
+          "images": [
+            "https://images.tagesschau.de/image/d4caf3cc-89ba-4f56-aab8-513ebb87099c/AAABmDbZghM/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Warum der Einsatz von Tasern umstritten ist"
+        },
+        {
+          "content": "Baden-Württemberg steht vor einer Entscheidung über den Vertrag mit Palantir, der 25 Millionen Euro kostet, während andere Bundesländer Verfassungsbeschwerden anmelden. Innenstaatssekretär Blenke ist optimistisch, dass die Koalition einvernehmlich eine Lösung findet, doch Grüne-Politiker Hildenbrand findet es unwahrscheinlich, das Gesetz zu ändern, bevor wichtige Fragen beantwortet werden.",
+          "images": [
+            "https://images.tagesschau.de/image/6a8c1bf4-4d6d-4a3b-a3a4-2185527c9185/AAABmFFMOdI/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Palantir-Nutzung ohne rechtliche Grundlage?"
+        },
+        {
+          "content": "In Berlin kam es zu einer Demonstration mit约10.000 Teilnehmenden, die Solidarität für Palästina und einen \"antikolonialen, antirassistischen, antikapitalistischen Freiheitskampf\" forderten. Die Polizei legte den Zugriff auf eine Person mit pro-palästinischem Bezug durch und kritisierte Regierender Bürgermeister Kai Wegner VioLENZ gegen Polizeikräfte und Antisemitismus nicht dulden. Die Berliner Polizei wurde in der Vergangenheit oft dafür kritisiert, exzessive Gewalt bei Demonstrationen eingesetzt zu haben.",
+          "images": [
+            "https://images.tagesschau.de/image/b5cdcc79-b6fc-476e-9c70-b83407d358fc/AAABmFS3aFk/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Polizei löst queere Palästina-Demo in Berlin auf"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "category": "Politik Deutschland",
+      "articles": [
+        {
+          "content": "Die Polizei-Gewerkschaft GdP unterstützt die Verwendung von Tasern bei gestiegenen Risiken, wie z.B. an Bahnhöfen. Kritiker warnen jedoch vor Gesundheitsrisiken und höherer Komplexität im Einsatz.",
+          "images": [
+            "https://images.tagesschau.de/image/d4caf3cc-89ba-4f56-aab8-513ebb87099c/AAABmDbZghM/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Warum der Einsatz von Tasern umstritten ist"
+        },
+        {
+          "content": "\"In Baden-Württemberg ist die Palantir-Nutzung wegen rechtlicher Probleme noch nicht entschieden. Die CDU hofft auf Änderungen des Polizeigesetzes, während die Grüne Fraktion gegenwärtig ablehnt.\"",
+          "images": [
+            "https://images.tagesschau.de/image/6a8c1bf4-4d6d-4a3b-a3a4-2185527c9185/AAABmFFMOdI/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Palantir-Nutzung ohne rechtliche Grundlage?"
+        },
+        {
+          "content": "Is Berlin hat a Polizei e 'queare Palästina-Demo' aufgelöst, wobei Tausende Protests getroffen haben. Viele Demonstranten hattn pro-palästinsche Symbole bei sich. Der Regierende Bürgermeister Kai Wegner hot angekündigt, dass a Polizei bei Gewalt oder Antisemitismus rigorant vorgehn wird.",
+          "images": [
+            "https://images.tagesschau.de/image/b5cdcc79-b6fc-476e-9c70-b83407d358fc/AAABmFJSDe0/AAABkZLiamM/16x9-1920.jpg"
+          ],
+          "title": "Polizei löst queere Palästina-Demo in Berlin auf"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}

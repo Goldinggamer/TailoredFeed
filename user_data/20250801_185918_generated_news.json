@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "category": "Politik Deutschland",
+      "articles": [
+        {
+          "content": "In Baden-Württemberg wird diskutiert, ob der Polizeigesetz angepasst wird, um die Nutzung der Software Palantir zu ermöglichen, trotz rechtlicher Bedenken in anderen Bundesländern. Innenstaatssekretär Blenke (CDU) ist optimistisch über konstruktive Gespräche innerhalb der Koalition, während Hildenbrand von den Grünen die Änderung unter den aktuellen Umständen für ausgeschlossen hält.",
+          "images": [
+            "https://images.tagesschau.de/image/6a8c1bf4-4d6d-4a3b-a3a4-2185527c9185/AAABmFFMOdI/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Palantir-Nutzung ohne rechtliche Grundlage?"
+        },
+        {
+          "content": "Die Berliner Polizei hat eine Demonstration mit约10.000 Teilnehmenden aufgelöst, bei der Solidarität für Palästina und ein \"antikolonialer, antirassistischer, antikapitalistischer Freiheitskampf\" gefordert wurde. Der Regierende Bürgermeister Kai Wegner hatte angekündigt, dass die Polizei robust vorgehen wird, wenn es zu Antisemitismus oder Gewalt gegen Beamte kommt. Die Polizei ist in der Vergangenheit oft kritisiert worden, insbesondere wegen exzessiver Gewalt bei Demonstrationen.",
+          "images": [
+            "https://images.tagesschau.de/image/b5cdcc79-b6fc-476e-9c70-b83407d358fc/AAABmFS3aFk/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Polizei löst queere Palästina-Demo in Berlin auf"
+        },
+        {
+          "content": "Die Europäische Gerichtshof (EuGH) hat die Hürden für die Zuerkennung sicherer Herkunftsländer erhöht. Deutschland plant, seine Liste dieser Länder zu erweitern und beabsichtigt, Länder wie Algerien, Indien, Marokko und Tunesien hinzuzufügen. Bundesinnenminister Alexander Dobrindt hat angekündigt, künftige Einstufungen per Rechtsverordnung durchzusetzen, um die Zustimmung von Bundestag und Bundesrat zu umgehen, während Bangladesch weiterhin in Deutschland nicht als sicherer Herkunftsstaat gilt. Die EU-Kommission hat vorgeschlagen, ihre Liste um sieben Länder zu erweitern, einschließlich Bangladesch, die jedoch nicht die nationalen Listen der Mitgliedsstaaten ersetzen wird. Mit dem neuen EU-Migrations- und Asylpaket von 2024 sollen den Mitgliedsstaaten die Zuerkennung sicherer Herkunftsländer erleichtert werden.",
+          "images": [
+            "https://images.tagesschau.de/image/59808dba-fe6a-458c-9b5a-bf92cbe6dba6/AAABmGTeceo/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "EuGH erhöht Hürden für Listen sicherer Herkunftsländer"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}

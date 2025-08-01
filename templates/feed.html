@@ -52,10 +52,10 @@
                     <div class="banner-info">
                         <span class="banner-label">Profil:</span>
                         <div class="profile-inline">
-                            <span class="profile-pill">{{ user_info.age_group }} Jahre</span>
+                            <span class="profile-pill">{{ user_info.complexity_level|title }}</span>
                             <span class="separator">•</span>
                             <!-- Geschlecht entfernt -->
-                            <span class="profile-pill">{{ 'Ausführlich' if format == 'ausfuehrlich' else 'Kurzmeldungen' }}</span>
+                            <span class="profile-pill">{{ 'Ausführliche Artikel' if format == 'ausfuehrlich' else 'Kurze Artikel' }}</span>
                         </div>
                     </div>
                 </div>
