@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "category": "Custom Suche: bafög",
+      "articles": [
+        {
+          "content": "Im Jahr 2024 bekamen weniger Menschen BAföG. Die Zahl der Empfänger sank auf das Niveau von 2000. Studierende und Schüler unter 25 Jahren waren am meisten betroffen.",
+          "images": [
+            "https://images.tagesschau.de/image/29025723-bed0-46f6-b44a-4efabd09022e/AAABmGSFHzo/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Zahl der BAföG-Empfänger 2024 gesunken"
+        },
+        {
+          "content": "Zu dieser Kategorie gibt es aktuell keine Nachrichten",
+          "images": [],
+          "title": "Custom Suche: bafög - Keine Nachrichten verfügbar"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}

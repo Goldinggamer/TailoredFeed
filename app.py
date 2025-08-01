@@ -47,10 +47,6 @@ def prepare():
 def index():
     return render_template('index.html')
 
-@app.route('/user_input')
-def user_input():
-    return render_template('user_input.html')
-
 @app.route('/submit-user-info', methods=['POST'])
 def submit_user_info():
     complexity_level = request.form.get('complexity_level', '')
@@ -127,8 +123,8 @@ def feed():
         return redirect(url_for('generating_news'))
     
     if 'user_info' not in session:
-        print("Keine user_info in session gefunden, redirect zu user_input")
-        return redirect(url_for('user_input'))
+        print("Keine user_info in session gefunden, redirect zu index")
+        return redirect(url_for('index'))
     
     print(f"Rendering feed with news_data: {session['news_data']}")
     

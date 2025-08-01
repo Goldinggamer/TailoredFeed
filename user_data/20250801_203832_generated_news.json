@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "category": "Custom Suche: bafög",
+      "articles": [
+        {
+          "content": "Die Zahl der BAföG-Empfänger ist im Jahr 2024 auf rund 610.000 gesunken, das sind die wenigsten seit 2000. Im Schnitt bekamen die Empfänger sechs Euro weniger pro Monat und die Bundesausgaben für BAföG sanken um neun Prozent. Die meisten Unterstützung erhielten Studierende und Schüler unter 25 Jahren, davon waren fast 60 Prozent Frauen.",
+          "images": [
+            "https://images.tagesschau.de/image/29025723-bed0-46f6-b44a-4efabd09022e/AAABmGSFHzo/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Zahl der BAföG-Empfänger 2024 gesunken"
+        },
+        {
+          "content": "Zu dieser Kategorie gibt es aktuell keine Nachrichten",
+          "images": [],
+          "title": "Custom Suche: bafög - Keine Nachrichten verfügbar"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}
