@@ -1,0 +1,29 @@
+{
+  "data": [
+    {
+      "category": "Politik Deutschland",
+      "articles": [
+        {
+          "content": "Baden-Württemberg plant, das Polizeigesetz zu ändern, um die Software Palantir nutzen zu können, obwohl es Rechtsprobleme gibt. Die CDU ist optimistisch, die Grünen sind skeptisch.",
+          "images": [
+            "https://images.tagesschau.de/image/6a8c1bf4-4d6d-4a3b-a3a4-2185527c9185/AAABmFFMOdI/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Palantir-Nutzung ohne rechtliche Grundlage?"
+        },
+        {
+          "content": "Justizministerin Stefanie Hubig hat Bedenken gegen den Einsatz der Sicherheitssoftware von Palantir in Deutschland. Sie betont die Notwendigkeit, rechtsstaatliche Grundsätze einzuhalten und Datenschutz zu gewährleisten. Mehrere Bundesländer nutzen die Software bereits, und weitere wie Baden-Württemberg überlegen, sie unter特定条件 einzusetzen.",
+          "images": [
+            "https://images.tagesschau.de/image/6fb1bb40-d5ab-4244-9557-47d673ecf52f/AAABmGhQ4kg/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Justizministerin sieht Einsatz von Palantir skeptisch"
+        },
+        {
+          "content": "Zu dieser Kategorie gibt es aktuell keine Nachrichten",
+          "images": [],
+          "title": "Politik Deutschland - Keine Nachrichten verfügbar"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}
