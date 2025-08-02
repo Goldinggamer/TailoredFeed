@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "category": "Politik Deutschland",
+      "articles": [
+        {
+          "content": "Baden-Württemberg denkt darüber nach, das Polizeigesetz zu ändern, damit es die Software Palantir nutzen kann. Die CDU ist optimistisch, aber die Grünen haben Bedenken.",
+          "images": [
+            "https://images.tagesschau.de/image/6a8c1bf4-4d6d-4a3b-a3a4-2185527c9185/AAABmFFMOdI/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Palantir-Nutzung ohne rechtliche Grundlage?"
+        },
+        {
+          "content": "Justizministerin Hubig hat Bedenken, dass die Sicherheitssoftware Palantir deutschen Behörden eingesetzt wird und betont, rechtsstaatliche Grundsätze einzuhalten. Innenminister Dobrindt prüft, ob die Software bundesweit genutzt werden soll, während bereits mehrere Bundesländer sie verwenden. Datenschützer kritisieren Palantir aufgrund von Sorgen um Privatsphäre und Rechtskonformität.",
+          "images": [
+            "https://images.tagesschau.de/image/6fb1bb40-d5ab-4244-9557-47d673ecf52f/AAABmGhQ4kg/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Justizministerin sieht Einsatz von Palantir skeptisch"
+        },
+        {
+          "content": "Präsident Trump droht anderen Ländern wie Russland und Brasilien mit hohen Zöllen, um politische Forderungen durchzusetzen. Die EU sucht nach Möglichkeiten, solche Maßnahmen zu verhindern oder abzuwenden, ohne die Beziehungen zu den USA zu gefährden.",
+          "images": [
+            "https://images.tagesschau.de/image/13feafaf-1010-4900-a373-6f534c70fe35/AAABmGrMyU8/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "\"Es könnte eine weitere Runde von Zöllen geben\""
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}

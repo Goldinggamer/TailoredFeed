@@ -329,12 +329,16 @@ function initializeGeneratingNewsPage() {
                 const loadingCircle = document.getElementById('loadingCircle');
                 const successIcon = document.getElementById('successIcon');
                 const statusText = document.getElementById('statusText');
-                const continueButton = document.getElementById('continueButton');
                 
                 if (loadingCircle) loadingCircle.style.display = 'none';
                 if (successIcon) successIcon.style.display = 'block';
                 if (statusText) statusText.textContent = 'Deine News wurden erfolgreich generiert!';
-                if (continueButton) continueButton.style.display = 'inline-block';
+                
+                // Automatischer Redirect nach 0.5 Sekunden
+                setTimeout(() => {
+                    window.location.href = '/feed';
+                }, 500);
+                
             } else {
                 throw new Error(data.error || 'Ein Fehler ist aufgetreten');
             }
