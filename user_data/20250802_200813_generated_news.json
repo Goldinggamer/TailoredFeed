@@ -1,0 +1,29 @@
+{
+  "data": [
+    {
+      "category": "Politik Deutschland",
+      "articles": [
+        {
+          "content": "In Baden-Württemberg wird diskutiert, ob der Polizeigesetz angepasst werden soll, um die Nutzung des Palantir-Systems zu ermöglichen, das im Wert von 25 Millionen Euro vertragt wurde. Innenstaatssekretär Blenke (CDU) ist optimistisch über konstruktive Gespräche innerhalb der Koalition, während Grünen-Politiker Hildenbrand die Änderung unter den aktuellen Umständen für ausgeschlossen hält. Die Debatte steht im Kontext von Verfassungsbeschwerden in anderen Bundesländern.",
+          "images": [
+            "https://images.tagesschau.de/image/6a8c1bf4-4d6d-4a3b-a3a4-2185527c9185/AAABmFFMOdI/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Palantir-Nutzung ohne rechtliche Grundlage?"
+        },
+        {
+          "content": "Justizministerin Stefanie Hubig äußert Vorbehalte gegen den Einsatz der Sicherheitssoftware des US-Konzerns Palantir in deutschen Behörden und mahnt zur Einhaltung rechtsstaatlicher Grundsätze. Innenminister Alexander Dobrindt prüft, ob die Software bundesweit eingesetzt werden soll, während bereits mehrere Bundesländer sie nutzen. Hubig betont, dass nur Mittel genutzt werden dürfen, die mit dem Rechtsstaatsprinzip vereinbar sind, während Datenschützer und Kritiker des Unternehmens weiterhin Bedenken anmelden.",
+          "images": [
+            "https://images.tagesschau.de/image/6fb1bb40-d5ab-4244-9557-47d673ecf52f/AAABmGhQ4kg/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Justizministerin sieht Einsatz von Palantir skeptisch"
+        },
+        {
+          "content": "Zu dieser Kategorie gibt es aktuell keine Nachrichten",
+          "images": [],
+          "title": "Politik Deutschland - Keine Nachrichten verfügbar"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}
