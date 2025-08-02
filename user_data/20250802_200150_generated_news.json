@@ -1,0 +1,29 @@
+{
+  "data": [
+    {
+      "category": "Politik Deutschland",
+      "articles": [
+        {
+          "content": "Baden-Württemberg überlegt, ob es den Palantir-Vertrag im Wert von 25 Millionen Euro weiterverfolgt. Innenstaatssekretär Blenke ist optimistisch, dass die Koalition gute Gespräche führt, um das Polizeigesetz anzupassen. Allerdings hält Grünen-Innenpolitiker Hildenbrand es für ausgeschlossen, das Gesetz jetzt zu ändern, solange wichtige Fragen unbeantwortet bleiben.",
+          "images": [
+            "https://images.tagesschau.de/image/6a8c1bf4-4d6d-4a3b-a3a4-2185527c9185/AAABmFFMOdI/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Palantir-Nutzung ohne rechtliche Grundlage?"
+        },
+        {
+          "content": "Justizministerin Stefanie Hubig ist skeptisch gegenüber dem Einsatz der Palantir-Sicherheitssoftware und mahnt zur Einhaltung rechtsstaatlicher Grundsätze. Innenminister Dobrindt prüft, ob die Software bundesweit eingesetzt werden soll, während sie bereits in einigen Bundesländern genutzt wird.",
+          "images": [
+            "https://images.tagesschau.de/image/6fb1bb40-d5ab-4244-9557-47d673ecf52f/AAABmGhQ4kg/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Justizministerin sieht Einsatz von Palantir skeptisch"
+        },
+        {
+          "content": "Zu dieser Kategorie gibt es aktuell keine Nachrichten",
+          "images": [],
+          "title": "Politik Deutschland - Keine Nachrichten verfügbar"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}

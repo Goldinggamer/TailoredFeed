@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "category": "Politik Deutschland",
+      "articles": [
+        {
+          "content": "Baden-Württemberg plant, mit dem Palantir-Vertrag weiterzumachen, was eine Änderung des Polizeigesetzes voraussetzt. Der Innenstaatssekretär Blenke ist optimistisch über die Gespräche in der Koalition, während Grünen-Politiker Hildenbrand Zweifel anmeldet.",
+          "images": [
+            "https://images.tagesschau.de/image/6a8c1bf4-4d6d-4a3b-a3a4-2185527c9185/AAABmFFMOdI/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Palantir-Nutzung ohne rechtliche Grundlage?"
+        },
+        {
+          "content": "Die Bundesjustizministerin Stefanie Hubig kritisiert den Einsatz der US-amerikanischen Sicherheitssoftware Palantir in deutschen Behörden und mahnt zur Einhaltung rechtsstaatlicher Grundsätze. Mehrere Bundesländer nutzen die Software bereits, und der Innenminister Alexander Dobrindt prüft, ob sie bundesweit eingesetzt werden soll. Datenschützer und Kritiker wie Tech-Milliardär Peter Thiel, ein Mitbegründer von Palantir, sehen die Anwendung der Software mit Sorge.",
+          "images": [
+            "https://images.tagesschau.de/image/6fb1bb40-d5ab-4244-9557-47d673ecf52f/AAABmGhQ4kg/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Justizministerin sieht Einsatz von Palantir skeptisch"
+        },
+        {
+          "content": "Deutschland plant, seine Liste sicherer Herkunftsländer zu erweitern, nachdem der EuGH die Hürden für eine Einclusion gestiegen hat. Länder wie Algerien und Indien sollen hinzugefügt werden, während Bangladesch in Deutschland weiterhin nicht als sicher gilt. Der Bundesinnenminister will Rechtsverordnungen nutzen, um Parlamenten auszuschließen, was rechtliche Herausforderungen birgt. Das neue EU-Migrationspaket 2024 soll die Zulassung erleichtern.",
+          "images": [
+            "https://images.tagesschau.de/image/59808dba-fe6a-458c-9b5a-bf92cbe6dba6/AAABmGTeceo/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "EuGH erhöht Hürden für Listen sicherer Herkunftsländer"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}

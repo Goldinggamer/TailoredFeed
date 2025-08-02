@@ -51,7 +51,7 @@ def query_and_process_category(category, embedding_function, user_info):
     complexity_instructions = {
         'einfach': "Verwende ausschließlich einfache, kinderfreundliche Sprache und verwende keine Fachbegriffe, sodass jedes Kind die Nachrichten verstehen kann",
         'standard': "Verwende jugendgerechte Sprache und erkläre komplexe Themen verständlich.",
-        'komplex': "Verwende angemessen komplexe Sprache mit Fachbegriffen, wo erforderlich. Bleibe sachlich und objektiv ohne verzerrende oder manipulative Formulierungen."
+        'detailliert': "Verwende angemessen komplexe Sprache mit Fachbegriffen, wo erforderlich. Bleibe sachlich und objektiv ohne verzerrende oder manipulative Formulierungen."
     }
     
     complexity_instruction = complexity_instructions.get(complexity_level, complexity_instructions['standard'])

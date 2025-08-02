@@ -14,21 +14,23 @@
     <div class="brand">tailoredfeed</div>
     
     <div class="process-container">
-      <button id="updateButton" class="cta-button" onclick="startUpdate()">
-        Hole dir deine News
-      </button>
+      <div class="update-status">Aktualisiere News...</div>
       
-      <div id="loading" class="loading"></div>
+      <div id="loading" class="loading" style="display: block;"></div>
       
-      <div id="apiStatus" class="status-check">
+      <div id="apiStatus" class="status-check" style="display: none;">
         ✓ News erfolgreich via API geladen
       </div>
       
-      <div id="dbStatus" class="status-check">
+      <div id="dbStatus" class="status-check" style="display: none;">
         ✓ News in Vektordatenbank gespeichert
       </div>
       
-      <a href="{{ url_for('index') }}" id="continueButton" class="cta-button continue-btn" style="text-decoration: none;">
+      <div id="errorStatus" class="status-check" style="display: none; color: red;">
+        ❌ Fehler beim Update
+      </div>
+      
+      <a href="{{ url_for('index') }}" id="continueButton" class="cta-button continue-btn" style="text-decoration: none; display: none;">
         Weiter
       </a>
     </div>
@@ -37,6 +39,91 @@
   <div class="location">📍 München - Maxvorstadt</div>
   <div class="date"></div>
   
-  <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+  <script>
+    // Set date function
+    function setDate() {
+      const now = new Date();
+      const options = { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: '2-digit', 
+        day: '2-digit' 
+      };
+      const dateString = now.toLocaleDateString('de-DE', options);
+      const dateElement = document.querySelector('.date');
+      if (dateElement) {
+        dateElement.textContent = dateString;
+      }
+    }
+    
+    // Update function - specific for this page only
+    function performNewsUpdate() {
+      console.log('Starting news update process...');
+      
+      const loadingEl = document.getElementById('loading');
+      const apiStatusEl = document.getElementById('apiStatus');
+      const dbStatusEl = document.getElementById('dbStatus');
+      const errorStatusEl = document.getElementById('errorStatus');
+      const continueButtonEl = document.getElementById('continueButton');
+      
+      // Ensure loading is visible
+      if (loadingEl) loadingEl.style.display = 'block';
+      
+      // Step 1: Update API News
+      console.log('Fetching /update_api_news...');
+      fetch('/update_api_news')
+        .then(response => {
+          console.log('API News response status:', response.status);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log('API News data:', data);
+          if (data.success) {
+            if (apiStatusEl) apiStatusEl.style.display = 'block';
+            
+            // Step 2: Update Database
+            console.log('Fetching /update_database...');
+            return fetch('/update_database');
+          } else {
+            throw new Error('API Update failed: ' + (data.error || 'Unknown error'));
+          }
+        })
+        .then(response => {
+          console.log('Database response status:', response.status);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log('Database data:', data);
+          if (data.success) {
+            if (dbStatusEl) dbStatusEl.style.display = 'block';
+            if (loadingEl) loadingEl.style.display = 'none';
+            if (continueButtonEl) continueButtonEl.style.display = 'block';
+          } else {
+            throw new Error('Database Update failed: ' + (data.error || 'Unknown error'));
+          }
+        })
+        .catch(error => {
+          console.error('Update Error:', error);
+          if (loadingEl) loadingEl.style.display = 'none';
+          if (errorStatusEl) {
+            errorStatusEl.style.display = 'block';
+            errorStatusEl.textContent = '❌ Fehler: ' + error.message;
+          }
+        });
+    }
+    
+    // Start everything when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Page loaded successfully');
+      setDate();
+      performNewsUpdate();
+    });
+  </script>
 </body>
 </html>

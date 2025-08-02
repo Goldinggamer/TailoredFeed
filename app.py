@@ -38,10 +38,8 @@ CATEGORIES = {
 }
 
 @app.route('/')
-def prepare():
-    # Reset der Session beim Start
-    session.clear()
-    return render_template('prepare.html')
+def root():
+    return render_template('update_news.html')
 
 @app.route('/start')
 def index():
@@ -174,10 +172,6 @@ def generate_news():
             'success': False, 
             'error': str(e)
         }), 500
-
-@app.route('/update_news')
-def update_news():
-    return render_template('update_news.html')
 
 @app.route('/update_api_news')
 def update_api_news():
