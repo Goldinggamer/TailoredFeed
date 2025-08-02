@@ -1,10 +1,10 @@
 {
   "user_info": {
-    "complexity_level": "komplex",
+    "complexity_level": "einfach",
     "language": "Deutsch"
   },
   "categories": [
-    "wissenschaft"
+    "wissenswertes"
   ],
   "format": "kurz",
   "custom_search_term": ""
