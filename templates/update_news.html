@@ -29,10 +29,6 @@
       <div id="errorStatus" class="status-check" style="display: none; color: red;">
         ❌ Fehler beim Update
       </div>
-      
-      <a href="{{ url_for('index') }}" id="continueButton" class="cta-button continue-btn" style="text-decoration: none; display: none;">
-        Weiter
-      </a>
     </div>
   </div>
   
@@ -64,7 +60,6 @@
       const apiStatusEl = document.getElementById('apiStatus');
       const dbStatusEl = document.getElementById('dbStatus');
       const errorStatusEl = document.getElementById('errorStatus');
-      const continueButtonEl = document.getElementById('continueButton');
       
       // Ensure loading is visible
       if (loadingEl) loadingEl.style.display = 'block';
@@ -103,7 +98,12 @@
           if (data.success) {
             if (dbStatusEl) dbStatusEl.style.display = 'block';
             if (loadingEl) loadingEl.style.display = 'none';
-            if (continueButtonEl) continueButtonEl.style.display = 'block';
+            
+            // Automatic redirect to index page after successful database update
+            setTimeout(() => {
+              window.location.href = '/start';
+            }, 500); // Wait 1 second to show the success message
+            
           } else {
             throw new Error('Database Update failed: ' + (data.error || 'Unknown error'));
           }
