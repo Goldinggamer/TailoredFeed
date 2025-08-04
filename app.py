@@ -255,13 +255,13 @@ def cleanup_session():
 def reset_session():
     """Completely reset the session"""
     session.clear()
-    return redirect(url_for('index'))  # Ändere das redirect zur Startseite
+    return redirect(url_for('root'))  # Ändere das redirect zur Startseite
 
 @app.route('/restart')
 def restart():
     """Restart the application by clearing session and redirecting to start page"""
     session.clear()
-    return redirect(url_for('index'))
+    return redirect(url_for('/generating_news'))  # Ändere von 'index' zu 'root'
 
 @app.route('/api/news-images')
 def get_news_images():

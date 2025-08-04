@@ -398,6 +398,56 @@ function initializeUpdateNewsPage() {
     window.startUpdate = startUpdate;
 }
 
+// === FEED PAGE SPECIFIC FUNCTIONALITY ===
+// Auto-redirect functionality für die Feed-Seite
+
+function initializeFeedPage() {
+    // Nur ausführen wenn wir auf der feed Seite sind
+    if (window.location.pathname !== '/feed') {
+        return;
+    }
+    
+    // Auto-redirect nach 5 Minuten (300 Sekunden)
+    const redirectDelay = 300000; // 5 Minuten in Millisekunden (300 * 1000)
+    let redirectTimer;
+    
+    // Timer starten
+    function startRedirectTimer() {
+        redirectTimer = setTimeout(() => {
+            // Redirect zur Root-Seite (update_news.html)
+            window.location.href = '/';
+        }, redirectDelay);
+    }
+    
+    // Timer zurücksetzen bei Benutzerinteraktion
+    function resetTimer() {
+        clearTimeout(redirectTimer);
+        startRedirectTimer();
+    }
+    
+    // Initialer Timer-Start
+    startRedirectTimer();
+    
+    // Event-Listener für Benutzerinteraktionen
+    document.addEventListener('click', resetTimer);
+    document.addEventListener('scroll', resetTimer);
+    document.addEventListener('keypress', resetTimer);
+    document.addEventListener('mousemove', resetTimer);
+    document.addEventListener('touchstart', resetTimer); // Für Mobile
+    document.addEventListener('touchmove', resetTimer);  // Für Mobile
+    
+    // Spezielle Behandlung für den "Neu starten" Button
+    const restartButton = document.querySelector('a[href*="reset_session"]');
+    if (restartButton) {
+        restartButton.addEventListener('click', function() {
+            // Timer löschen wenn der Nutzer explizit auf Neu starten klickt
+            clearTimeout(redirectTimer);
+        });
+    }
+    
+    console.log('Feed-Seite Auto-Redirect initialisiert (5 Minuten Timer)');
+}
+
 // Bei Seitenladung das Datum aktualisieren und spezifische Features laden
 document.addEventListener('DOMContentLoaded', function() {
   updateDateTime();
@@ -410,5 +460,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeGeneratingNewsPage(); // Generating News-spezifische Features
   } else if (window.location.pathname === '/update_news') {
     initializeUpdateNewsPage(); // Update News-spezifische Features
+  } else if (window.location.pathname === '/feed') {
+    initializeFeedPage(); // Feed-spezifische Features mit Auto-Redirect
   }
 });
