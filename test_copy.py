@@ -86,14 +86,25 @@ def query_and_process_category(category, embedding_function, user_info):
     
     # Mehrsprachige "Keine Nachrichten" Texte
     no_news_messages = {
-        'Deutsch': 'Keine Nachrichten verfügbar',
-        'Englisch': 'No news available',
-        'Französisch': 'Aucune actualité disponible',
-        'Spanisch': 'No hay noticias disponibles',
-        'Russisch': 'Новости недоступны',
-        'Rumänisch': 'Nu sunt știri disponibile'
+        'Deutsch': 'Keine (weiteren) Nachrichten verfügbar',
+        'Englisch': 'No (further) news available',
+        'Französisch': 'Aucune (autre) actualité disponible',
+        'Spanisch': 'No hay (más) noticias disponibles',
+        'Russisch': 'Нет (дополнительных) новостей',
+        'Rumänisch': 'Nu sunt (alte) știri disponibile'
     }
-    no_news_text = no_news_messages.get(user_language, 'Keine Nachrichten verfügbar')
+    no_news_text = no_news_messages.get(user_language, 'Keine (weiteren) Nachrichten verfügbar')
+    
+    # Mehrsprachige "Zu dieser Kategorie gibt es keine Nachrichten" Texte für LLM
+    category_no_news_messages = {
+        'Deutsch': 'Zu dieser Kategorie gibt es aktuell keine Nachrichten',
+        'Englisch': 'There are currently no news available for this category',
+        'Französisch': 'Il n\'y a actuellement aucune actualité disponible pour cette catégorie',
+        'Spanisch': 'Actualmente no hay noticias disponibles para esta categoría',
+        'Russisch': 'В настоящее время для этой категории нет доступных новостей',
+        'Rumänisch': 'În prezent nu sunt disponibile știri pentru această categorie'
+    }
+    category_no_news_text = category_no_news_messages.get(user_language, 'Zu dieser Kategorie gibt es aktuell keine Nachrichten')
     
     # Komplexitätsanweisungen basierend auf der Auswahl
     complexity_instructions = {
@@ -285,8 +296,8 @@ def query_and_process_category(category, embedding_function, user_info):
         Verwende NUR die bereitgestellten Informationen aus folgender Quelle:
         {current_article_content}
 
-        WICHTIGE ANWEISUNG: Falls die bereitgestellten Informationen nicht ausreichend oder nicht relevant für die Kategorie "{display_name}" sind, antworte EXAKT mit folgendem Text:
-        "Zu dieser Kategorie gibt es aktuell keine Nachrichten"
+        WICHTIGE ANWEISUNG: Falls die bereitgestellten Informationen nicht ausreichend oder nicht relevant für die Kategorie "{display_name}" sind, antworte in EXAKT mit folgendem Text:
+        "{category_no_news_text}"
 
         Persönliche Anpassungen:
         - Sprachkomplexität: {complexity_level} 
@@ -311,7 +322,7 @@ def query_and_process_category(category, embedding_function, user_info):
         final_article_content = article_content.strip()
         
         # Prüfe ob das LLM die "Keine Nachrichten" Nachricht zurückgegeben hat
-        if "Zu dieser Kategorie gibt es aktuell keine Nachrichten" in final_article_content:
+        if category_no_news_text in final_article_content:
             print(f"DEBUG: LLM hat 'keine Nachrichten' für Artikel '{title}' zurückgegeben", flush=True)
             category_articles.append({
                 'content': final_article_content,
@@ -331,7 +342,7 @@ def query_and_process_category(category, embedding_function, user_info):
     # Stelle sicher, dass mindestens ein Artikel vorhanden ist
     if not category_articles:
         print(f"DEBUG: Kein Content für Kategorie '{category}' gefunden", flush=True)
-        return display_name, [{'content': "Zu dieser Kategorie gibt es aktuell keine Nachrichten", 'images': [], 'title': f"{display_name} - {no_news_text}"}]
+        return display_name, [{'content': category_no_news_text, 'images': [], 'title': f"{display_name} - {no_news_text}"}]
     
     
     print(f"DEBUG: Generierte {len(category_articles)} Artikel für Kategorie '{category}'", flush=True)
