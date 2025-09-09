@@ -67,6 +67,42 @@
             </div>
         </div>
 
+        <!-- QR Code Block für Studie - Volle Breite -->
+        <div class="qr-code-section-full">
+            <div class="qr-code-block-full">
+                <!-- QR Code Bereich (links, größer) -->
+                <div class="qr-code-image-area">
+                    <canvas id="qr-code-canvas"></canvas>
+                </div>
+                
+                <!-- Text-Bereich (rechts) -->
+                <div class="qr-code-content-area">
+                    <h2 class="qr-code-title">
+                        <i class="fas fa-graduation-cap" style="margin-right: 10px; color: #00dbde;"></i>
+                        Helfen Sie unserer Forschung!
+                    </h2>
+                    <div class="qr-code-text">
+                        <p>Ihre Meinung ist wichtig! Diese App ist Teil einer wissenschaftlichen Studie einer Bachelorarbeit über das Vertrauen in personalisierte Nachrichtendisplays.</p>
+                        <p><strong>Scannen Sie den QR-Code</strong> mit Ihrem Smartphone, um an unserer kurzen Umfrage teilzunehmen. Ihre Teilnahme hilft uns dabei, die Technologie zu verbessern.</p>
+                        <div class="qr-code-benefits">
+                            <div class="benefit-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Nur 5-10 Minuten</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Vollständig anonym</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-heart"></i>
+                                <span>Unterstützt die Forschung</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="category-container">
             {% for item in news_data %}
                 {% if item.articles and item.articles|length > 0 %}
@@ -105,42 +141,6 @@
                     </div>
                 {% endif %}
             {% endfor %}
-        </div>
-
-        <!-- QR Code Block für Studie - Volle Breite -->
-        <div class="qr-code-section-full">
-            <div class="qr-code-block-full">
-                <!-- QR Code Bereich (links, größer) -->
-                <div class="qr-code-image-area">
-                    <canvas id="qr-code-canvas"></canvas>
-                </div>
-                
-                <!-- Text-Bereich (rechts) -->
-                <div class="qr-code-content-area">
-                    <h2 class="qr-code-title">
-                        <i class="fas fa-graduation-cap" style="margin-right: 10px; color: #00dbde;"></i>
-                        Helfen Sie unserer Forschung!
-                    </h2>
-                    <div class="qr-code-text">
-                        <p>Ihre Meinung ist wichtig! Diese App ist Teil einer wissenschaftlichen Studie einer Bachelorarbeit über das Vertrauen in personalisierte Nachrichtendisplays.</p>
-                        <p><strong>Scannen Sie den QR-Code</strong> mit Ihrem Smartphone, um an unserer kurzen Umfrage teilzunehmen. Ihre Teilnahme hilft uns dabei, die Technologie zu verbessern.</p>
-                        <div class="qr-code-benefits">
-                            <div class="benefit-item">
-                                <i class="fas fa-clock"></i>
-                                <span>Nur 5-10 Minuten</span>
-                            </div>
-                            <div class="benefit-item">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>Vollständig anonym</span>
-                            </div>
-                            <div class="benefit-item">
-                                <i class="fas fa-heart"></i>
-                                <span>Unterstützt die Forschung</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- Action Button - Neu starten -->

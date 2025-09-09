@@ -4,25 +4,25 @@
       "category": "Politik",
       "articles": [
         {
-          "content": "In Frankreich verursacht das Wahlrecht, bei dem der Gewinner alles bekommt, Enttäuschung bei den Bürgern. Einanderes System wie in Deutschland könnte mehr Zusammenarbeit zwischen Parteien fördern und Vertrauen im politischen System stärken.",
+          "content": "In Frankreich wird diskutiert, ob ein neues Wahlrecht helfen könnte, Vertrauen in die Politik zurückzugewinnen. Das aktuelle System führt zu Enttäuschung bei den Bürgern, und Experten meinen, dass ein anderes Wahlrecht eine bessere Zusammenarbeit zwischen Parteien ermöglichen könnte.",
           "images": [
             "https://images.tagesschau.de/image/75d6a128-defa-4ecf-8987-d701c72be4fc/AAABmR5bYOA/AAABmKJiLwU/16x9-1920.jpg"
           ],
           "title": "Bayrou stellt Vertrauensfrage - und dann?"
         },
         {
-          "content": "In Serbien protestieren seit zehn Monaten fast täglich Menschen gegen die Regierung von Präsident Vucic. Letztlich kam es in Novi Sad zu Auseinandersetzungen zwischen Polizisten und Demonstranten, bei denen Tränengas und Schlagstöcke eingesetzt wurden. 42 Personen wurden festgenommen.",
-          "images": [
-            "https://images.tagesschau.de/image/37f38bfb-2622-4e6d-97c2-a45457561c3a/AAABmRxr264/AAABmKJiLwU/16x9-1920.jpg"
-          ],
-          "title": "Serbische Polizei geht gegen Demonstranten vor"
-        },
-        {
-          "content": "Mehrheit der Deutschen bewerten CDU/CSU als gute Steuerpolitiker. Für Altersversorgung bevorzugen sie SPD mehr. Bundestagsaussichten: Union führt, AfD ist dicht hinterher, Grüne und Linke folgen.",
+          "content": "Mehrheit der Deutschen glaubt, dass die Union die beste Steuer- und Finanzpolitik betreibt. Bei der aktuellen Bundestagswahl würden die Union und AfD jeweils fast 27 % und 25 % Stimmen erhalten.",
           "images": [
             "https://images.tagesschau.de/image/cc3708c1-f48c-43a9-ad65-499b2ce07d74/AAABlsULkIc/AAABmKJiLwU/16x9-1920.jpg"
           ],
           "title": "Mehrheit für höhere Steuern - auch bei Anhängern der Union"
+        },
+        {
+          "content": "Bundestag wird im September über den Haushalt für 2025 abstimmen. Die Abgeordneten haben ihre Arbeit im Ausschuss beendet und feiern nun mit einem Bier.",
+          "images": [
+            "https://images.tagesschau.de/image/a86eff51-d1e8-4fdc-b704-b6a06581a183/AAABmRjh7EU/AAABmKJiLwU/16x9-1920.jpg"
+          ],
+          "title": "Der Haushalt für 2025 steht"
         }
       ],
       "current_index": 0
