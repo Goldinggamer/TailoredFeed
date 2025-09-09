@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "category": "Politik Deutschland",
+      "articles": [
+        {
+          "content": "Die meisten Deutschen finden, dass die Union gute Steuerpolitik macht. Bei Altersversorgung und sozialer Gerechtigkeit vertrauen mehr Leute der SPD. Die Wählerquote der AfD steigt, während die der Grünen sinkt.",
+          "images": [
+            "https://images.tagesschau.de/image/cc3708c1-f48c-43a9-ad65-499b2ce07d74/AAABlsULkIc/AAABmKJiLwU/16x9-1920.jpg"
+          ],
+          "title": "Mehrheit für höhere Steuern - auch bei Anhängern der Union"
+        },
+        {
+          "content": "Zu dieser Kategorie gibt es aktuell keine Nachrichten",
+          "images": [],
+          "title": "Politik Deutschland - Keine (weiteren) Nachrichten verfügbar"
+        }
+      ],
+      "current_index": 0
+    },
+    {
+      "category": "Politik Deutschland",
+      "articles": [
+        {
+          "content": "Mehrheit der Deutschen unterstützen höhere Steuern, auch bei Anhängern der Union. Bei der Sozialen Gerechtigkeit vertrauen die meisten eher der SPD als der CDU/CSU. In einer Umfrage für eine anstehende Bundestagswahl hat die Union 27 Prozent und die AfD 25 Prozent, was ein weiterer Anstieg der AfD bedeutet.",
+          "images": [
+            "https://images.tagesschau.de/image/cc3708c1-f48c-43a9-ad65-499b2ce07d74/AAABlsULkIc/AAABmKJiLwU/16x9-1920.jpg"
+          ],
+          "title": "Mehrheit für höhere Steuern - auch bei Anhängern der Union"
+        },
+        {
+          "content": "Zu dieser Kategorie gibt es aktuell keine Nachrichten",
+          "images": [],
+          "title": "Politik Deutschland - Keine (weiteren) Nachrichten verfügbar"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "category": "Politik",
+      "articles": [
+        {
+          "content": "Bayrou legt eine Vertrauensfrage an und kritisiert das französische Mehrheitswahlrecht als Ursache für Politikverdrossenheit bei den Bürgerinnen und Bürgern. Im Gegensatz dazu würde ein verhältniswahlrechtsbasierter Ansatz, wie in Deutschland, die Zusammenarbeit zwischen Parteien fördern, meint der Politologe Francois. Macron wird ebenfalls dafür kritisiert, dass er an einem rechten Drift beitragen soll.",
+          "images": [
+            "https://images.tagesschau.de/image/75d6a128-defa-4ecf-8987-d701c72be4fc/AAABmR5bYOA/AAABmKJiLwU/16x9-1920.jpg"
+          ],
+          "title": "Bayrou stellt Vertrauensfrage - und dann?"
+        },
+        {
+          "content": "In Serbien kommt es seit zehn Monaten fast täglich zu Protesten gegen die Regierung von Präsident Vucic. Letztens in Novi Sad trafen Polizisten mit Tränengas und Schlagstöcken auf Tausende Demonstranten ein, nachdem Unbekannte Gegenstände auf sie geworfen hatten. 42 Menschen wurden festgenommen.",
+          "images": [
+            "https://images.tagesschau.de/image/37f38bfb-2622-4e6d-97c2-a45457561c3a/AAABmRxr264/AAABmKJiLwU/16x9-1920.jpg"
+          ],
+          "title": "Serbische Polizei geht gegen Demonstranten vor"
+        },
+        {
+          "content": "**Österreich hat Politiker-Pensionen abgeschafft**  \nDie Politiker in Österreich wurden 1997 in die gesetzliche Rentenversicherung integriert, um eine steuerliche und pensionsrechtliche Gleichstellung mit Bürgern zu erreichen. Seitdem erhalten Politiker keine besonderen Pensionsansprüche mehr, sondern müssen wie alle anderen Beiträge leisten.",
+          "images": [
+            "https://images.tagesschau.de/image/ae0f446c-155d-4c20-a5df-ac66aceb2d14/AAABmH-PtwA/AAABmKJiLwU/16x9-1920.jpg"
+          ],
+          "title": "Beamte zahlen Rentenbeiträge - wie es klappen kann"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}

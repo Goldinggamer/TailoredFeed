@@ -24,19 +24,6 @@ Session(app)
 DATA_DIR = 'user_data'
 os.makedirs(DATA_DIR, exist_ok=True)
 
-# Verfügbare Kategorien
-CATEGORIES = {
-    'politik': 'Politik',
-    'wissenschaft': 'Wissenschaft/Forschung',
-    'wissenswertes': 'Wissenswertes',  
-    'wirtschaft': 'Wirtschaft und Finanzen',
-    'gesundheit': 'Gesundheit und Medizin',
-    'muenchen': 'München aktuell',
-    'technologie': 'Technologie und IT',
-    'sport': 'Sport',
-    'custom': 'Custom Suche'
-}
-
 @app.route('/')
 def root():
     return render_template('update_news.html')

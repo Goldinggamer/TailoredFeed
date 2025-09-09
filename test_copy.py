@@ -117,7 +117,7 @@ def query_and_process_category(category, embedding_function, user_info):
     
     # Kategorie-Mappings
     categories_map = {
-        'politik': 'Politik Deutschland',
+        'politik': 'Politik',
         'wissenschaft': 'Wissenschaft und Forschung',
         'wissenswertes': 'wissenswertes interessant',
         'wirtschaft': 'Wirtschaft Geld Deutschland',
@@ -129,7 +129,7 @@ def query_and_process_category(category, embedding_function, user_info):
     }
 
     display_map = {
-        'politik': "Politik Deutschland",
+        'politik': "Politik",
         'wissenschaft': "Wissen und Forschung",
         'wissenswertes': "Wissenswertes",
         'wirtschaft': "Wirtschaft",

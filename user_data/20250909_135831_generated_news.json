@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "category": "Wissen und Forschung",
+      "articles": [
+        {
+          "content": "Studien zeigen, dass Optimistinnen und Optimisten eine Reihe von Vorteilen genießen, die sich positiv auf das Leben auswirken. Einen besonderen Fokus legt eine Studie der Medizinischen Hochschule in Boston auf die Lebenserwartung der Betroffenen. Laut den Forschern leben Menschen mit einer optimistischen Grundhaltung etwa zehn Prozent länger als Pessimisten und haben eine höhere Wahrscheinlichkeit, 85 Jahre oder älter zu werden. Darüber hinaus bieten sich positive Persönlichkeitsmerkmale auch in der Gesundheitsförderung an. Optimisten neigen zu besseren Entzündungswerten, niedrigerem Blutdruck und einem stärkeren Immunsystem, was sie weniger anfällig für Krankheiten wie Schlaganfälle macht. Sollte ein Optimist dennoch erkranken, ist die Genesungszeit oft kürzer. Interessant ist auch das Ergebnis einer Studie mit stressbelasteten Studierenden: Zuversichtliche Personen zeigten seltenere Erkältungssymptome. Gleichzeitig bleiben die genauen Mechanismen, wie Optimismus diese positiven Effekte bewirkt, bislang unklar und erfordern weiterführende Forschungsarbeit.",
+          "images": [
+            "https://images.tagesschau.de/image/43276c78-0448-4004-9c86-7e0b6f226cf4/AAABmMvjKNM/AAABmKJiLwU/16x9-1920.jpg"
+          ],
+          "title": "Optimismus - die unterschätzte Superkraft?"
+        },
+        {
+          "content": "Eine jüngst in der Fachzeitschrift *Nature Human Behaviour* veröffentlichte Studie untersucht die Rolle von Emotionen im Zusammenhang mit prosozialem Verhalten. Prosoziales Verhalten wird dabei als Handlung definiert, die dazu beiträgt, die Situation einer anderen Person zu verbessern, ohne dass dies ausdrücklich verlangt wird. Die Studie, die von Wissenschaftlern um den Verhaltensökonom Ivan Soraperra vom Max-Planck-Institut für Bildungsforschung in Berlin geleitet wurde, umfasste insgesamt 8.000 TeilnehmerInnen aus zwanzig Ländern.\n\nUm ihre Hypothesen zu testen, setzten die Forscher das sogenannte \"Diktatorspiel\" ein. In diesem Spiel mussten die Versuchspersonen zwischen zwei Optionen wählen: Einerseits konnten sie sich sechs Euro selbst zuteilen und eine weitere Person einen Euro geben. Andererseits konnte jeder der beiden Personen fünf Euro erhalten, was einen gerechteren Aufteil darstellte. Den Teilnehmenden wurde erklärt, dass ihre Entscheidung auf einer Webseite veröffentlicht werden würde.\n\nDie Forscher wollten untersuchen, ob das Gefühl von Schuld oder Scham einflussreich ist, wenn es darum geht, prosozial zu handeln. Besonderes Augenmerk lag dabei auf der Frage, wie die Antizipation dieser Emotionen die Entscheidungsfindung beeinflusst. Die Ergebnisse zeigten, dass die Furcht vor Schuld eine stärkere Neigung zur gerechten Verteilung hatte, während Scham als Motivator eine geringere Bedeutung spielte.\n\nDiese Befunde deuten darauf hin, dass das Vorwegnehmen von Schuldgefühlen ein wichtiger Faktor im Kontext prosozialen Handelns ist. Die Studie liefert somit erhellende Einblicke in die emotionalen Mechanismen, die bei der Entwicklung von solidarischen und kooperativen Verhaltensweisen eine Rolle spielen können.",
+          "images": [
+            "https://images.tagesschau.de/image/26bc134f-6aa4-48c8-8d7d-cc483323e2c6/AAABmPCu_l0/AAABmKJiLwU/16x9-1920.jpg"
+          ],
+          "title": "Welche Emotionen prosoziales Handeln fördern"
+        },
+        {
+          "content": "Künstliche Intelligenz spielt eine zunehmend wichtige Rolle im Leben von Jugendlichen und Erwachsenen. Laut einer aktuellen Studie nutzen 82 Prozent der Jugendlichen KI für schulische oder berufliche Zwecke, während dies bei Erwachsenen nur 50 Prozent der Fälle ist. Die Co-Autorin der Studie, Katharina Wedel, betont, dass Jugendliche klare Grenzen für ablenkende Technologien wünschen, gleichzeitig aber eine gezielte Förderung zukunftsrelevanter digitaler Kompetenzen anregen. Ein weiterer Befund zeigt, dass 66 Prozent der Jugendlichen und 46 Prozent der Erwachsenen die Integration von KI-Themen in den Schulunterricht支持。Die Mehrheit der Befragten ist überzeugt, dass Digitalisierung eine gewinnbringende Entwicklung für Gesellschaft und persönliches Leben darstellt. Den Forschern des ifo-Bildungsbarometers zufolge hat sich die Einstellung der Bevölkerung zu diesem Thema in den letzten Jahren positiv entwickelt. Gleichzeitig betonen sie, dass die Mitnahme aller sozialen Gruppen bei der Digitalisierung weiterhin eine wichtige Herausforderung darstellt, die durch sinnvolle Regelungen und Aufklärungsarbeit bewältigt werden muss.",
+          "images": [
+            "https://images.tagesschau.de/image/1ee7041a-b307-45a6-971a-f4d3abb9a174/AAABmS4wwUI/AAABmKJiLwU/16x9-1920.jpg"
+          ],
+          "title": "Mehrheit für klare Regeln bei Social Media"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}
