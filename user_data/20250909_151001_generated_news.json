@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "category": "Politik",
+      "articles": [
+        {
+          "content": "Ein französischer Politologe fordert ein neues Wahlrecht, um mehr Zusammenarbeit zwischen Parteien zu ermöglichen. Das jetzige System führt oft zu Politikverdrossenheit bei den Bürgern. Frankreich kämpft damit, dass Kompromisse und Kooperation oft als schwach betrachtet werden.",
+          "images": [
+            "https://images.tagesschau.de/image/75d6a128-defa-4ecf-8987-d701c72be4fc/AAABmR5bYOA/AAABmKJiLwU/16x9-1920.jpg"
+          ],
+          "title": "Bayrou stellt Vertrauensfrage - und dann?"
+        },
+        {
+          "content": "In Serbien protestieren Menschen fast täglich gegen die Regierung von Präsident Vucic. In der Stadt Novi Sad kam es zu Auseinandersetzungen zwischen Polizisten und Demonstranten, bei denen Tränengas und Blendgranaten eingesetzt wurden. 42 Menschen wurden festgenommen.",
+          "images": [
+            "https://images.tagesschau.de/image/37f38bfb-2622-4e6d-97c2-a45457561c3a/AAABmRxr264/AAABmKJiLwU/16x9-1920.jpg"
+          ],
+          "title": "Serbische Polizei geht gegen Demonstranten vor"
+        },
+        {
+          "content": "Aktuelle Umfrageergebnisse zeigen, dass die Union mit 27 % und die AfD mit 25 % die meistgenannten Parteien sind. Die SPD folgt mit 14 %, während die Grünen bei 11 % und die Linke bei 10 % liegen. Für Steuer- und Finanzpolitik sieht man die Union als stärker, für Altersversorgung und soziale Gerechtigkeit eher die SPD.",
+          "images": [
+            "https://images.tagesschau.de/image/cc3708c1-f48c-43a9-ad65-499b2ce07d74/AAABlsULkIc/AAABmKJiLwU/16x9-1920.jpg"
+          ],
+          "title": "Mehrheit für höhere Steuern - auch bei Anhängern der Union"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}
