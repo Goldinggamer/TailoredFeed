@@ -190,20 +190,10 @@ def update_database():
         # Change to script directory before running database.py
         os.chdir(script_dir)
         
-        # Clean up existing database completely
-        chroma_path = os.path.join(script_dir, "chroma_db")
-        if os.path.exists(chroma_path):
-            shutil.rmtree(chroma_path)
-            
-        # Wait a moment to ensure cleanup is complete
-        import time
-        time.sleep(1)
+        # Keine Festplatten-DB mehr - cleanup nicht mehr nötig
+        # In-Memory ChromaDB löst Windows-Dateisperrung
         
-        # Create fresh directory
-        os.makedirs(chroma_path, exist_ok=True)
-        
-        python_path = "/opt/homebrew/bin/python3.10"  # Korrekter Python-Pfad für M1 Mac
-        # python_path = "python"  # Windows Python-Pfad (nutzt Python from PATH)
+        python_path = "python"  # Windows Python-Pfad (nutzt Python from PATH)
         
         # Run database.py with full path and environment variables
         result = subprocess.run(
@@ -213,8 +203,7 @@ def update_database():
             cwd=script_dir,  # Set working directory explicitly
             env={
                 **os.environ,
-                'PYTHONPATH': script_dir,
-                'CHROMA_PATH': chroma_path
+                'PYTHONPATH': script_dir
             }
         )
         
@@ -225,14 +214,16 @@ def update_database():
                 "error": f"Database initialization failed: {result.stderr}"
             }), 500
             
-        # Verify database was created
-        if not os.path.exists(os.path.join(chroma_path, "chroma.sqlite3")):
-            return jsonify({
-                "success": False,
-                "error": "Database file not created"
-            }), 500
-            
+        # In-Memory DB - keine Datei-Validierung mehr nötig
+        print("In-Memory ChromaDB successfully initialized")
         return jsonify({"success": True})
+        
+    except Exception as e:
+        print("Exception:", str(e))
+        return jsonify({
+            "success": False,
+            "error": str(e)
+        }), 500
         
     except Exception as e:
         print("Exception:", str(e))

@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "category": "Politik Deutschland",
+      "articles": [
+        {
+          "content": "In Deutschland sind die Grauen Wölfe nicht verboten, während sie in anderen Ländern wie Frankreich oder Österreich untersagt sind. Politiker fordern seit Jahren härtere Maßnahmen, aber bislang wurde nichts konkret getan.",
+          "images": [
+            "https://images.tagesschau.de/image/07ec61d5-20c8-43d1-9ff2-8eacf009075d/AAABmHWIOlc/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Indoktrination auch bei Kindern und Jugendlichen"
+        },
+        {
+          "content": "Politiker aus der CDU und SPD möchten das Bürgergeld für Schutzsuchende kürzen. Der sächsische Ministerpräsident Michael Kretschmer meint, dass die Ausgaben dafür zu hoch seien und die Regeln geändert werden müssen. Der Bundesfinanzminister Lars Klingbeil sagte, dass zukünftig keine Bürgergelder mehr für Ukrainer verteilt werden sollen.",
+          "images": [
+            "https://images.tagesschau.de/image/7ce1efca-0c7b-487f-9480-eeb7d22a0d53/AAABknHFmP0/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Wie Schwarz-Rot das Bürgergeld kürzen will"
+        },
+        {
+          "content": "Das Bundesinnenministerium plant eine bundesweite Einführung der Software von Palantir, obwohl diese in der Vergangenheit abgelehnt wurde. Politiker unterstützen die Verwendung der Technologie zur Schutz von Staat und Demokratie, doch Justizministerin Stefanie Hubig mahnt zur Vorsicht wegen verfassungsrechtlicher Risiken bei der Behandlung sensitiver Daten. Es wird dringend eine europäische Alternative angestrebt, die jedoch nicht sofort verfügbar ist.",
+          "images": [
+            "https://images.tagesschau.de/image/352814c2-5fdc-4ff1-b503-5f86239fa614/AAABlqUCLiE/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Sorge vor Missbrauch bei Palantir-Software"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}

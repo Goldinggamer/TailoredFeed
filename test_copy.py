@@ -4,6 +4,9 @@ import io
 from langchain_ollama import OllamaEmbeddings
 from langchain_chroma import Chroma
 from langchain_community.llms import Ollama
+from langchain.text_splitter import RecursiveCharacterTextSplitter  
+from langchain.schema import Document  
+from langchain_community.document_loaders import JSONLoader
 
 from title_translation import translate_with_ollama
 
@@ -11,9 +14,54 @@ from title_translation import translate_with_ollama
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
 
-CHROMA_PATH = "chroma_db/"
+# Keine persistente DB mehr - In-Memory nur
+CHROMA_PATH = None
 json_file = open("./data/alle_news_json.json", "r", encoding="utf-8")
 news_json_arr = json.load(json_file)['news']
+
+def create_in_memory_chroma_db(embedding_function):
+    """
+    Erstellt eine In-Memory ChromaDB aus den News-Daten
+    """
+    try:
+        # Metadaten der json file extrahieren - gleiche Funktion wie in database.py
+        def metadata_func(record: dict, metadata: dict) -> dict:
+            metadata["kategorie"] = record.get("kategorie")
+            metadata["title"] = record.get("title")
+            metadata["image"] = record.get("image") 
+            return metadata
+
+        # Json file laden - gleich wie database.py
+        doc_loader = JSONLoader(
+            file_path="./data/alle_news_json.json",
+            jq_schema='.news[]',  
+            content_key="text",   # text ist das was später dann gechunkt werden soll
+            metadata_func=metadata_func  # metadaten laden
+        )
+        documents = doc_loader.load()
+        
+        # Text chunking - gleich wie database.py
+        text_splitter = RecursiveCharacterTextSplitter(
+            chunk_size=1500,
+            chunk_overlap=250,
+            length_function=len,
+            add_start_index=True,
+        )
+        chunks = text_splitter.split_documents(documents)
+        
+        # In-Memory ChromaDB erstellen (ohne persist_directory)
+        db = Chroma.from_documents(
+            documents=chunks,
+            embedding=embedding_function,
+            # Kein persist_directory = In-Memory
+        )
+        
+        print(f"Created in-memory ChromaDB with {len(chunks)} chunks.")
+        return db
+        
+    except Exception as e:
+        print(f"Error creating in-memory ChromaDB: {str(e)}")
+        return None
 
 def query_and_process_category(category, embedding_function, user_info):
     """
@@ -98,8 +146,10 @@ def query_and_process_category(category, embedding_function, user_info):
     # DEBUG: Überprüfe Suchbegriff
     print(f"DEBUG: Suche für Kategorie '{category}' mit Term: '{search_term}'", flush=True)
     
-    # Vector Store und Suche
-    db = Chroma(persist_directory=CHROMA_PATH, embedding_function=embedding_function)
+    # Vector Store und Suche - erstelle In-Memory DB
+    db = create_in_memory_chroma_db(embedding_function)
+    if db is None:
+        return display_name, "Fehler beim Erstellen der Datenbank.", []
     # Hole mehr Ergebnisse um Duplikate herausfiltern zu können
     results = db.similarity_search(search_term, k=10)
     

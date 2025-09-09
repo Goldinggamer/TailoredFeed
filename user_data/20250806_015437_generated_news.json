@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "category": "Politik Deutschland",
+      "articles": [
+        {
+          "content": "In Deutschland sind die Grauen Wölfe und ihre Symbole nicht verboten, während sie in Ländern wie Frankreich und Österreich illegal sind. Politiker fordern seit Jahren härtere Maßnahmen, doch bislang wurden keine konkreten Schritte ergriffen. Mehr dazu im ARD-Beitrag am Dienstag um 22:50 Uhr im Ersten.",
+          "images": [
+            "https://images.tagesschau.de/image/07ec61d5-20c8-43d1-9ff2-8eacf009075d/AAABmHWIOlc/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Indoktrination auch bei Kindern und Jugendlichen"
+        },
+        {
+          "content": "Politiker der Union und SPD möchten das Bürgergeld kürzen, weil die Ausgaben zu hoch seien. Der sächsische Ministerpräsident Michael Kretschmer sagte, dass die Zahl dieser Ausgaben reduziert werden muss, insbesondere bei Schutzsuchenden wie Ukrainerinnen und Ukrainern. Bundesfinanzminister Lars Klingbeil hat angekündigt, dass zukünftig keine Bürgergelder mehr an Ukrainer verteilt werden sollen.",
+          "images": [
+            "https://images.tagesschau.de/image/7ce1efca-0c7b-487f-9480-eeb7d22a0d53/AAABknHFmP0/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Wie Schwarz-Rot das Bürgergeld kürzen will"
+        },
+        {
+          "content": "Bundesinnenministerium prüft Einführung von Palantir-Software bundesweit, obwohl Risiken wie Datensicherheit und Missbrauchskritik diskutiert werden. Politiker支持技术保护国家，但要求欧洲替代方案。",
+          "images": [
+            "https://images.tagesschau.de/image/352814c2-5fdc-4ff1-b503-5f86239fa614/AAABlqUCLiE/AAABmFUVE4c/16x9-1920.jpg"
+          ],
+          "title": "Sorge vor Missbrauch bei Palantir-Software"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}

@@ -8,7 +8,8 @@ from langchain_ollama import OllamaEmbeddings
 from langchain_chroma import Chroma
 
 DATA_PATH = "./data/alle_news_json.json"
-CHROMA_PATH = "chroma_db/"
+# In-Memory ChromaDB - kein persistenter Pfad
+CHROMA_PATH = None
 
 # Metadaten der json file extrahieren
 def metadata_func(record: dict, metadata: dict) -> dict:
@@ -59,31 +60,40 @@ def split_text(documents: list[Document]):
 
 def save_to_chroma(chunks: list[Document]):
     try:
-        # Lösche die alte DB, falls sie existiert
-        if os.path.exists(CHROMA_PATH):
-            shutil.rmtree(CHROMA_PATH)
-    
-
-        # kreire eine Ollama embedding instanz mit dem Server
+        # Keine Festplatten-DB mehr - verwende In-Memory
+        # Alte DB-Cleanup nicht mehr nötig
+        
+        # Kreiere eine Ollama embedding instanz mit dem Server
         embeddings = OllamaEmbeddings(
             model="nomic-embed-text",  
             base_url="http://127.0.0.1:11434"  
         )
         
-        # Kreiert eine Chroma DB anhand der chunks die generiert wurden
+        # Kreiert eine Chroma DB im Arbeitsspeicher (ohne persist_directory)
         db = Chroma.from_documents(
             documents=chunks,
             embedding=embeddings,
-            persist_directory=CHROMA_PATH
+            # persist_directory entfernt - läuft jetzt im RAM
         )
         
-        print(f"Saved {len(chunks)} chunks to {CHROMA_PATH}.")
+        print(f"Saved {len(chunks)} chunks to in-memory ChromaDB.")
+        
+        # Wichtig: DB-Referenz für anderen Code verfügbar machen
+        # Speichere die DB-Instanz global oder gib sie zurück
+        global chroma_db_instance
+        chroma_db_instance = db
+        
+        return db
+        
     except Exception as e:
         print(f"Error saving to Chroma: {str(e)}")
         sys.exit(1)
 
 
+# Globale Variable für die In-Memory DB
+chroma_db_instance = None
+
 if __name__ == "__main__":
     documents = load_documents()
     chunks = split_text(documents)
-    save_to_chroma(chunks)
+    db = save_to_chroma(chunks)
