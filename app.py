@@ -194,6 +194,7 @@ def update_database():
         # In-Memory ChromaDB löst Windows-Dateisperrung
         
         python_path = "python"  # Windows Python-Pfad (nutzt Python from PATH)
+        #python_path = "opt/homebrew/bin/python3.10"  # macOS m1 Homebrew Python-Pfad
         
         # Run database.py with full path and environment variables
         result = subprocess.run(
