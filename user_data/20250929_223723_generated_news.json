@@ -1,0 +1,29 @@
+{
+  "data": [
+    {
+      "category": "Custom Suche: raumfahrt",
+      "articles": [
+        {
+          "content": "Bundesregierung investiert 35 Milliarden Euro in die Raumfahrt. Sicherheit und Verteidigung im All nehmen eine größere Bedeutung ein, da Satelliten bei vielen modernen Technologien wie Handy黮bermittlung, Flugzeugen und Bank黮berweisungen entscheidend sind.",
+          "images": [
+            "https://images.tagesschau.de/image/17640de0-d635-41e7-a9bc-68d7745fe510/AAABmYTN5bg/AAABmKJiLwU/16x9-1920.jpg"
+          ],
+          "title": "Die übersehene Branche"
+        },
+        {
+          "content": "Eine neue Rakete namens ReFEx startet wie eine normale Rakete, aber landet wie ein Flugzeug. Sie hat fließbare Flügel und Landebeine, um sanft aufzusetzen.Diese Technologie könnte zukünftig günstiger und ökologisch freundlicher die Welt des Weltraums bereisen helfen.",
+          "images": [
+            "https://images.tagesschau.de/image/5fc33ef8-cc2d-4ee6-b1f6-d2218959aed0/AAABmXv9U0A/AAABmKJiLwU/16x9-1920.jpg"
+          ],
+          "title": "Ins All und wieder zurück"
+        },
+        {
+          "content": "Zu dieser Kategorie gibt es aktuell keine Nachrichten",
+          "images": [],
+          "title": "Custom Suche: raumfahrt - Keine (weiteren) Nachrichten verfügbar"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}
