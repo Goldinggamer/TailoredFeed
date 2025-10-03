@@ -1,17 +1,24 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="{{ 'de' if texts else 'de' }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TailoredFeed - News Update</title>
+  <title>TailoredFeed - {{ texts.updating_news if texts else 'News Update' }}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
   <div class="background"></div>
   <div class="stars"></div>
   
+  <!-- Navigation with language switcher -->
+  <div class="nav">
+    <a href="{{ url_for('switch_language') }}" class="language-button">
+      {{ texts.language_switch if texts else 'English' }}
+    </a>
+  </div>
+  
   <div class="container">
-    <div class="brand">tailoredfeed</div>
+    <div class="brand">{{ texts.brand if texts else 'tailoredfeed' }}</div>
     
     <div class="process-container" style="background: transparent; border: none; box-shadow: none;">
       <!-- <div class="update-status">Aktualisiere News...</div> -->
@@ -19,20 +26,20 @@
       <div id="loading" class="loading" style="display: block;"></div>
       
       <div id="apiStatus" class="status-check" style="display: none;">
-        ✓ News erfolgreich via API geladen
+        {{ texts.api_success if texts else '✓ News erfolgreich via API geladen' }}
       </div>
       
       <div id="dbStatus" class="status-check" style="display: none;">
-        ✓ News in Vektordatenbank gespeichert
+        {{ texts.db_success if texts else '✓ News in Vektordatenbank gespeichert' }}
       </div>
       
       <div id="errorStatus" class="status-check" style="display: none; color: red;">
-        ❌ Fehler beim Update
+        {{ texts.error_update if texts else '❌ Fehler beim Update' }}
       </div>
     </div>
   </div>
   
-  <div class="location">📍 München</div>
+  <div class="location">{{ texts.location if texts else '📍 München' }}</div>
   <div class="date"></div>
   
   <script>
@@ -113,7 +120,7 @@
           if (loadingEl) loadingEl.style.display = 'none';
           if (errorStatusEl) {
             errorStatusEl.style.display = 'block';
-            errorStatusEl.textContent = '❌ Fehler: ' + error.message;
+            errorStatusEl.textContent = '{{ texts.error_update if texts else "❌ Fehler" }}' + ': ' + error.message;
           }
         });
     }

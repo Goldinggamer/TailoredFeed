@@ -1,23 +1,30 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="{{ 'de' if texts else 'de' }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TailoredFeed - Dein persönlicher Newsfeed</title>
+  <title>TailoredFeed - {{ texts.headline if texts else 'Dein persönlicher Newsfeed' }}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
   <div class="background"></div>
   <div class="stars"></div>
   
+  <!-- Navigation with language switcher -->
+  <div class="nav">
+    <a href="{{ url_for('switch_language') }}" class="language-button">
+      {{ texts.language_switch if texts else 'English' }}
+    </a>
+  </div>
+  
   <div class="container">
-    <h1 class="headline">Genervt von irrelevanten Nachrichten?</h1>
+    <h1 class="headline">{{ texts.headline if texts else 'Genervt von irrelevanten Nachrichten?' }}</h1>
     
     <h2 class="subheadline">
-      Dann teste jetzt deinen maßgeschneiderten Newsfeed mit
+      {{ texts.subheadline if texts else 'Dann teste jetzt deinen maßgeschneiderten Newsfeed mit' }}
     </h2>
     
-    <div class="brand">tailoredfeed!</div>
+    <div class="brand">{{ texts.brand if texts else 'tailoredfeed!' }}</div>
     
     <!-- Bildcontainer für die animierten News-Bilder -->
     <div class="news-images-container">
@@ -29,20 +36,20 @@
       <!-- Settings Form Integration -->
       <div class="button-container">
         <form id="userInfoForm" class="settings-form">
-          <h2>Persönliche Einstellungen</h2>
+          <h2>{{ texts.personal_settings if texts else 'Persönliche Einstellungen' }}</h2>
           
-          <label for="complexity_level" class="required">Sprachkomplexität</label>
+          <label for="complexity_level" class="required">{{ texts.complexity_level if texts else 'Sprachkomplexität' }}</label>
           <select id="complexity_level" name="complexity_level" required>
-              <option value="">Bitte wählen</option>
-              <option value="einfach">Einfach - Einfache und verständliche Sprache</option>
-              <option value="standard">Standard - Ausgewogene Sprache</option>
-              <option value="detailliert">Detailliert - Detaillierte Fachsprache</option>
+              <option value="">{{ texts.please_select if texts else 'Bitte wählen' }}</option>
+              <option value="einfach">{{ texts.complexity_simple if texts else 'Einfach - Einfache und verständliche Sprache' }}</option>
+              <option value="standard">{{ texts.complexity_standard if texts else 'Standard - Ausgewogene Sprache' }}</option>
+              <option value="detailliert">{{ texts.complexity_detailed if texts else 'Detailliert - Detaillierte Fachsprache' }}</option>
           </select>
-          <div id="complexity-error" class="error-message">Bitte wähle eine Sprachkomplexität aus</div>
+          <div id="complexity-error" class="error-message">{{ texts.error_complexity if texts else 'Bitte wähle eine Sprachkomplexität aus' }}</div>
 
-          <label for="language" class="required">Sprache</label>
+          <label for="language" class="required">{{ texts.language if texts else 'Sprache' }}</label>
           <select id="language" name="language" required>
-              <option value="">Bitte wählen</option>
+              <option value="">{{ texts.please_select if texts else 'Bitte wählen' }}</option>
               <option value="Deutsch" class="language-option">
                   🇩🇪 Deutsch
               </option>
@@ -62,75 +69,75 @@
                   🇷🇴 Română
               </option>
           </select>
-          <div id="language-error" class="error-message">Bitte wähle eine Sprache aus</div>
+          <div id="language-error" class="error-message">{{ texts.error_language if texts else 'Bitte wähle eine Sprache aus' }}</div>
 
           <!-- Kategorienauswahl -->
-          <label class="required">Interessenskategorien (max. 2)</label>
+          <label class="required">{{ texts.categories if texts else 'Interessenskategorien (max. 2)' }}</label>
           <div class="multi-select-container">
               <div class="multi-select-dropdown" id="categoriesDropdown">
-                  <span class="selected-categories" id="selectedCategories">Bitte wählen</span>
+                  <span class="selected-categories" id="selectedCategories">{{ texts.please_select if texts else 'Bitte wählen' }}</span>
                   <span class="dropdown-arrow" id="dropdownArrow">▼</span>
               </div>
               <div class="multi-select-options" id="categoriesOptions">
                   <div class="multi-select-option" data-value="politik">
                       <input type="checkbox" id="cat_politik">
-                      <label for="cat_politik">Politik</label>
+                      <label for="cat_politik">{{ texts.cat_politics if texts else 'Politik' }}</label>
                   </div>
                   <div class="multi-select-option" data-value="wissenschaft">
                       <input type="checkbox" id="cat_wissenschaft">
-                      <label for="cat_wissenschaft">Wissenschaft und Forschung</label>
+                      <label for="cat_wissenschaft">{{ texts.cat_science if texts else 'Wissenschaft und Forschung' }}</label>
                   </div>
                   <div class="multi-select-option" data-value="wissenswertes">
                       <input type="checkbox" id="cat_wissenswertes">
-                      <label for="cat_wissenswertes">Wissenswertes</label>
+                      <label for="cat_wissenswertes">{{ texts.cat_knowledge if texts else 'Wissenswertes' }}</label>
                   </div>
                   <div class="multi-select-option" data-value="wirtschaft">
                       <input type="checkbox" id="cat_wirtschaft">
-                      <label for="cat_wirtschaft">Wirtschaft und Finanzen</label>
+                      <label for="cat_wirtschaft">{{ texts.cat_economy if texts else 'Wirtschaft und Finanzen' }}</label>
                   </div>
                   <div class="multi-select-option" data-value="gesundheit">
                       <input type="checkbox" id="cat_gesundheit">
-                      <label for="cat_gesundheit">Gesundheit und Medizin</label>
+                      <label for="cat_gesundheit">{{ texts.cat_health if texts else 'Gesundheit und Medizin' }}</label>
                   </div>
                   <div class="multi-select-option" data-value="muenchen">
                       <input type="checkbox" id="cat_muenchen">
-                      <label for="cat_muenchen">München aktuell</label>
+                      <label for="cat_muenchen">{{ texts.cat_munich if texts else 'München aktuell' }}</label>
                   </div>
                   <div class="multi-select-option" data-value="technologie">
                       <input type="checkbox" id="cat_technologie">
-                      <label for="cat_technologie">Technologie und Innovation</label>
+                      <label for="cat_technologie">{{ texts.cat_technology if texts else 'Technologie und Innovation' }}</label>
                   </div>
                   <div class="multi-select-option" data-value="sport">
                       <input type="checkbox" id="cat_sport">
-                      <label for="cat_sport">Sport</label>
+                      <label for="cat_sport">{{ texts.cat_sports if texts else 'Sport' }}</label>
                   </div>
                   <div class="multi-select-option" data-value="custom">
                       <input type="checkbox" id="cat_custom">
-                      <label for="cat_custom">Custom Suche</label>
+                      <label for="cat_custom">{{ texts.cat_custom if texts else 'Custom Suche' }}</label>
                   </div>
               </div>
           </div>
-          <div id="categories-error" class="error-message">Bitte wähle mindestens eine Kategorie aus</div>
-          <div id="categories-limit" class="limit-message">Du kannst maximal 2 Kategorien auswählen</div>
+          <div id="categories-error" class="error-message">{{ texts.error_categories if texts else 'Bitte wähle mindestens eine Kategorie aus' }}</div>
+          <div id="categories-limit" class="limit-message">{{ texts.error_categories_max if texts else 'Du kannst maximal 2 Kategorien auswählen' }}</div>
 
           <!-- Custom Search Input (initially hidden) -->
           <div class="custom-search-container" id="customSearchContainer">
-              <input type="text" id="custom-search-input" placeholder="z.B. Fußball WM, Bitcoin, Künstliche Intelligenz..." 
+              <input type="text" id="custom-search-input" placeholder="{{ texts.custom_search_placeholder if texts else 'z.B. Fußball WM, Bitcoin, Künstliche Intelligenz...' }}" 
                      style="width: 96.5%; margin-bottom: 0;">
-              <div id="custom-search-error" class="error-message">Bitte gib einen Suchbegriff für die Custom Suche ein</div>
+              <div id="custom-search-error" class="error-message">{{ texts.error_custom_search if texts else 'Bitte gib einen Suchbegriff für die Custom Suche ein' }}</div>
           </div>
 
           <!-- Artikelformat -->
-          <label for="format" class="required">Artikelformat</label>
+          <label for="format" class="required">{{ texts.format if texts else 'Artikelformat' }}</label>
           <select id="format" name="format" required>
-              <option value="">Bitte wählen</option>
-              <option value="kurz">Kurze Artikel</option>
-              <option value="ausfuehrlich">Ausführliche Artikel</option>
+              <option value="">{{ texts.please_select if texts else 'Bitte wählen' }}</option>
+              <option value="kurz">{{ texts.format_short if texts else 'Kurze Artikel' }}</option>
+              <option value="ausfuehrlich">{{ texts.format_detailed if texts else 'Ausführliche Artikel' }}</option>
           </select>
-          <div id="format-error" class="error-message">Bitte wähle ein Artikelformat aus</div>
+          <div id="format-error" class="error-message">{{ texts.error_format if texts else 'Bitte wähle ein Artikelformat aus' }}</div>
 
           <button type="submit" class="cta-button">
-              Feed erstellen <span class="arrow">→</span>
+              {{ texts.create_feed if texts else 'Feed erstellen' }} <span class="arrow">→</span>
           </button>
         </form>
       </div>
@@ -144,17 +151,45 @@
   
   <div class="news-ticker">
     <div class="news-items">
-      <div class="news-item"><span class="news-icon">🎭</span> Heute in der Maxvorstadt: 3 neue Ausstellungen eröffnet</div>
-      <div class="news-item"><span class="news-icon">🍽️</span> Die 5 besten neuen Restaurants in München</div>
-      <div class="news-item"><span class="news-icon">🚇</span> MVV: U3/U6 Sperrung am Wochenende</div>
-      <div class="news-item"><span class="news-icon">⚽</span> FC Bayern: Neuzugang im Anflug</div>
-      <div class="news-item"><span class="news-icon">🌦️</span> Wetterwarnung für morgen: Starkregen</div>
+      {% if texts and texts.news_ticker %}
+        {% for item in texts.news_ticker %}
+          <div class="news-item">{{ item }}</div>
+        {% endfor %}
+      {% else %}
+        <div class="news-item"><span class="news-icon">🎭</span> Heute in der Maxvorstadt: 3 neue Ausstellungen eröffnet</div>
+        <div class="news-item"><span class="news-icon">🍽️</span> Die 5 besten neuen Restaurants in München</div>
+        <div class="news-item"><span class="news-icon">🚇</span> MVV: U3/U6 Sperrung am Wochenende</div>
+        <div class="news-item"><span class="news-icon">⚽</span> FC Bayern: Neuzugang im Anflug</div>
+        <div class="news-item"><span class="news-icon">🌦️</span> Wetterwarnung für morgen: Starkregen</div>
+      {% endif %}
     </div>
   </div>
   
-  <div class="location">📍 München</div>
+  <div class="location">{{ texts.location if texts else '📍 München' }}</div>
   <div class="date"></div>
   
   <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+  
+  <!-- Translation data for JavaScript -->
+  <script>
+    window.translations = {
+      please_select: "{{ texts.please_select if texts else 'Bitte wählen' }}",
+      error_complexity: "{{ texts.error_complexity if texts else 'Bitte wähle eine Sprachkomplexität aus' }}",
+      error_language: "{{ texts.error_language if texts else 'Bitte wähle eine Sprache aus' }}",
+      error_categories: "{{ texts.error_categories if texts else 'Bitte wähle mindestens eine Kategorie aus' }}",
+      error_categories_max: "{{ texts.error_categories_max if texts else 'Du kannst maximal 2 Kategorien auswählen' }}",
+      error_custom_search: "{{ texts.error_custom_search if texts else 'Bitte gib einen Suchbegriff für die Custom Suche ein' }}",
+      error_format: "{{ texts.error_format if texts else 'Bitte wähle ein Artikelformat aus' }}",
+      cat_politics: "{{ texts.cat_politics if texts else 'Politik' }}",
+      cat_science: "{{ texts.cat_science if texts else 'Wissenschaft' }}",
+      cat_knowledge: "{{ texts.cat_knowledge if texts else 'Wissenswertes' }}",
+      cat_economy: "{{ texts.cat_economy if texts else 'Wirtschaft' }}",
+      cat_health: "{{ texts.cat_health if texts else 'Gesundheit' }}",
+      cat_munich: "{{ texts.cat_munich if texts else 'München' }}",
+      cat_technology: "{{ texts.cat_technology if texts else 'Technologie' }}",
+      cat_sports: "{{ texts.cat_sports if texts else 'Sport' }}",
+      cat_custom: "{{ texts.cat_custom if texts else 'Custom Suche' }}"
+    };
+  </script>
 </body>
 </html>

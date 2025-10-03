@@ -207,19 +207,19 @@ function initializeMultiSelectDropdown() {
     
     function updateSelectedDisplay() {
         const categoryNames = {
-            'politik': 'Politik',
-            'wissenschaft': 'Wissenschaft',
-            'wissenswertes': 'Wissenswertes',
-            'wirtschaft': 'Wirtschaft',
-            'gesundheit': 'Gesundheit',
-            'muenchen': 'München',
-            'technologie': 'Technologie',
-            'sport': 'Sport',
-            'custom': 'Custom Suche'
+            'politik': window.translations?.cat_politics || 'Politik',
+            'wissenschaft': window.translations?.cat_science || 'Wissenschaft',
+            'wissenswertes': window.translations?.cat_knowledge || 'Wissenswertes',
+            'wirtschaft': window.translations?.cat_economy || 'Wirtschaft',
+            'gesundheit': window.translations?.cat_health || 'Gesundheit',
+            'muenchen': window.translations?.cat_munich || 'München',
+            'technologie': window.translations?.cat_technology || 'Technologie',
+            'sport': window.translations?.cat_sports || 'Sport',
+            'custom': window.translations?.cat_custom || 'Custom Suche'
         };
         
         if (selectedCategories.length === 0) {
-            selectedText.textContent = 'Bitte wählen';
+            selectedText.textContent = window.translations?.please_select || 'Bitte wählen';
             selectedText.classList.add('placeholder');
         } else {
             const names = selectedCategories.map(cat => categoryNames[cat]);

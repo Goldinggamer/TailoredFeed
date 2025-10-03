@@ -1,0 +1,58 @@
+{
+  "data": [
+    {
+      "category": "Politik",
+      "articles": [
+        {
+          "content": "Am 01. Oktober 2025 wurde das Oktoberfest nach einer Bombendrohung geschlossen. Zwei Personen wurden verletzt und befinden sich in der Krankenhausanamnese. Die Polizei ermittelt in alle Richtungen, darunter auch einen möglichen Zusammenhang mit Antifa, die sich im Text \"Antifa heißt Angriff\" auf indymedia.org als Täter reklamiert hat.",
+          "images": [
+            "https://images.tagesschau.de/image/fd16088f-47e6-4b1d-ba4b-4e89d64e8e5b/AAABmZ7ia84/AAABmKJiLwU/16x9-1920.jpg"
+          ],
+          "title": "Oktoberfest nach Bombendrohung geschlossen"
+        },
+        {
+          "content": "Präsident Trump hat angekündigt, dass die Sozial Plattform TikTok keine politische Linie folgen wird. Er erwähnte seine MAGA-Bewegung, meinte jedoch, dies sei nicht praktisch. Der chinesische Staatschef Xi Jinping habe dem Wechsel der App-TikTok in US-Besitz zugestimmt.",
+          "images": [
+            "https://images.tagesschau.de/image/a86789e2-653a-4112-a5c1-b99652318985/AAABmYMzOFU/AAABmKJiLwU/16x9-1920.jpg"
+          ],
+          "title": "Trump macht Weg für US-TikTok frei"
+        },
+        {
+          "content": "Präsident Trump hat die Militärspitze in den USA auf eine mögliche Eskalation vorbereitet. Demokraten kritisieren dies als autoritäres Vorgehen. Der Verteidigungsminister Pete Hegseth plant eine ideologische Wende im Militär, unter anderem durch das Beenden von Gleichstellungsprogrammen.",
+          "images": [
+            "https://images.tagesschau.de/image/e2091f54-7fe4-40dd-9bfb-a6921ee89300/AAABmZvgS5A/AAABmKJiLwU/16x9-1920.jpg"
+          ],
+          "title": "Trump stimmt Militärspitze auf \"Krieg\" in den USA ein"
+        }
+      ],
+      "current_index": 0
+    },
+    {
+      "category": "Wirtschaft",
+      "articles": [
+        {
+          "content": "Präsident Trump plant 100-Prozent-Zölle auf Arzneimittel. Er möchte die US-Wirtschaft stärken, indem er Imports teurer macht, um更多 Amerikanische Produkte zu fördern. Dies wurde am 26. September 2025 von BR24 berichtet.\n\nStichwort: Wirtschaft",
+          "images": [
+            "https://images.tagesschau.de/image/26a5c577-63d8-49e6-b9f0-2e6bfc6fdeb0/AAABlmHvs9I/AAABmKJiLwU/16x9-1920.jpg"
+          ],
+          "title": "Trump kündigt 100-Prozent-Zoll auf Arzneimittel an"
+        },
+        {
+          "content": "Tschechien profitiert von einem robusten Wirtschaftswachstum von 2 %, was doppelt so hoch ist wie der EU-Durchschnitt, und verzeichnet Vollbeschäftigung. Gleichzeitig kämpft das Land mit sinkenden Investitionen und einer starken Abhängigkeit von deutschen Märkten, da ein Drittel aller_EXPORTe nach Deutschland gehen. Um diese Risiken zu minimieren, sucht Tschechien zunehmend nach neuen Geschäftsmöglichkeiten in Asien, wie beispielsweise mit Skoda in Vietnam und Indien.",
+          "images": [
+            "https://images.tagesschau.de/image/e92ccef9-8e15-48f5-824d-b65df8116333/AAABmaRlPY4/AAABmKJiLwU/16x9-1920.jpg"
+          ],
+          "title": "Industrie-Wunderland im Herzen Europas"
+        },
+        {
+          "content": "Geldvermögen weltweit erreichen Rekordniveau. Analysen anhand von Daten aus 57 Staaten zeigen, dass diese Länder 91 % der globalen Wirtschaftsleistung und 72 % der Weltbevölkerung repräsentieren. Die Informationen stammen von Alina Leimbach, ARD-Finanzredaktion, und wurden am 25. September 2025 von Deutschlandfunk berichtet.",
+          "images": [
+            "https://images.tagesschau.de/image/e0acf8e2-a248-46f2-9e95-0bb7d9641551/AAABmYDQm7E/AAABmKJiLwU/16x9-1920.jpg"
+          ],
+          "title": "Geldvermögen auf Rekordniveau"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}

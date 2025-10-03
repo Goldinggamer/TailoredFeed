@@ -1,26 +1,33 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="{{ 'de' if texts else 'de' }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TailoredFeed - News werden generiert</title>
+    <title>TailoredFeed - {{ texts.generating_news if texts else 'News werden generiert' }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="background"></div>
     <div class="stars"></div>
     
+    <!-- Navigation with language switcher -->
+    <div class="nav">
+        <a href="{{ url_for('switch_language') }}" class="language-button">
+            {{ texts.language_switch if texts else 'English' }}
+        </a>
+    </div>
+    
     <div class="container">
-        <div class="brand">tailoredfeed</div>
+        <div class="brand">{{ texts.brand if texts else 'tailoredfeed' }}</div>
         
         <div class="loading-container">
             <div id="loadingCircle" class="loading-circle"></div>
             <div id="successIcon" class="status-icon">✅</div>
-            <div id="statusText" class="status-text">Deine News werden generiert...</div>
+            <div id="statusText" class="status-text">{{ texts.generating_news if texts else 'Deine News werden generiert...' }}</div>
         </div>
     </div>
     
-    <div class="location">📍 München</div>
+    <div class="location">{{ texts.location if texts else '📍 München' }}</div>
     <div class="date"></div>
     
     <script src="{{ url_for('static', filename='scripts.js') }}"></script>

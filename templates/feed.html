@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="{{ 'de' if texts else 'de' }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TailoredFeed - Dein persönlicher Nachrichtenfeed</title>
+    <title>TailoredFeed - {{ texts.personalized_feed if texts else 'Dein persönlicher Nachrichtenfeed' }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <!-- Font Awesome für Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -18,15 +18,18 @@
 
     <div class="nav">
         <a href="{{ url_for('index') }}">
-            <button class="back-button">←</button>
+            <button class="back-button">{{ texts.back if texts else '←' }}</button>
+        </a>
+        <a href="{{ url_for('switch_language') }}" class="language-button">
+            {{ texts.language_switch if texts else 'English' }}
         </a>
     </div>
 
     <div class="container">
-        <div class="brand">tailoredfeed</div>
+        <div class="brand">{{ texts.brand if texts else 'tailoredfeed' }}</div>
         
         <div class="section-heading">
-            Dein personalisierter Nachrichtenfeed
+            {{ texts.personalized_feed if texts else 'Dein personalisierter Nachrichtenfeed' }}
         </div>
 
         <!-- User Settings Banner -->
@@ -37,7 +40,7 @@
                         <i class="fas fa-tags"></i>
                     </div>
                     <div class="banner-info">
-                        <span class="banner-label">Kategorien:</span>
+                        <span class="banner-label">{{ texts.categories_label if texts else 'Kategorien:' }}</span>
                         <div class="categories-inline">
                             {% for category in categories %}
                                 <span class="category-pill">{{ category }}</span>
@@ -54,13 +57,19 @@
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="banner-info">
-                        <span class="banner-label">Profil:</span>
+                        <span class="banner-label">{{ texts.profile_label if texts else 'Profil:' }}</span>
                         <div class="profile-inline">
                             <span class="profile-pill">{{ user_info.complexity_level|title }}</span>
                             <span class="separator">•</span>
                             <span class="profile-pill">{{ user_info.language }}</span>
                             <span class="separator">•</span>
-                            <span class="profile-pill">{{ 'Ausführliche Artikel' if format == 'ausfuehrlich' else 'Kurze Artikel' }}</span>
+                            <span class="profile-pill">
+                                {% if format == 'ausfuehrlich' %}
+                                    {{ texts.format_detailed if texts else 'Ausführliche Artikel' }}
+                                {% else %}
+                                    {{ texts.format_short if texts else 'Kurze Artikel' }}
+                                {% endif %}
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -79,24 +88,32 @@
                 <div class="qr-code-content-area">
                     <h2 class="qr-code-title">
                         <i class="fas fa-graduation-cap" style="margin-right: 10px; color: #00dbde;"></i>
-                        Helfen Sie bitte unserer Forschung!
+                        {{ texts.help_research_title if texts else 'Helfen Sie bitte unserer Forschung!' }}
                     </h2>
                     <div class="qr-code-text">
-                        <p>Ihre Meinung ist wichtig! Diese App ist Teil einer wissenschaftlichen Studie im Rahmen einer Bachelorarbeit über das Vertrauen in LLM-personalisierte Nachrichten.</p>
-                        <p><strong>Scannen Sie den QR-Code</strong> mit Ihrem Smartphone, um an unserer kurzen Umfrage teilzunehmen. Ihre Teilnahme hilft uns dabei, die Technologie zu verbessern.</p>
+                        <p>{{ texts.help_research_text1 if texts else 'Ihre Meinung ist wichtig! Diese App ist Teil einer wissenschaftlichen Studie im Rahmen einer Bachelorarbeit über das Vertrauen in LLM-personalisierte Nachrichten.' }}</p>
+                        <p><strong>{{ texts.help_research_text2 if texts else 'Scannen Sie den QR-Code mit Ihrem Smartphone, um an unserer kurzen Umfrage teilzunehmen. Ihre Teilnahme hilft uns dabei, die Technologie zu verbessern.' }}</strong></p>
                         <div class="qr-code-benefits">
-                            <div class="benefit-item">
-                                <i class="fas fa-clock"></i>
-                                <span>Nur 5-10 Minuten</span>
-                            </div>
-                            <div class="benefit-item">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>Vollständig anonym</span>
-                            </div>
-                            <div class="benefit-item">
-                                <i class="fas fa-heart"></i>
-                                <span>Unterstützt die Forschung</span>
-                            </div>
+                            {% if texts and texts.survey_benefits %}
+                                {% for benefit in texts.survey_benefits %}
+                                <div class="benefit-item">
+                                    <span>{{ benefit }}</span>
+                                </div>
+                                {% endfor %}
+                            {% else %}
+                                <div class="benefit-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Nur 5-10 Minuten</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Vollständig anonym</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-heart"></i>
+                                    <span>Unterstützt die Forschung</span>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -147,12 +164,12 @@
         <div class="action-buttons">
             <a href="{{ url_for('reset_session') }}" class="action-button glass">
                 <i class="fas fa-redo-alt icon"></i>
-                Neu starten
+                {{ texts.new_start if texts else 'Neu starten' }}
             </a>
         </div>
     </div>
 
-    <div class="location">📍 München</div>
+    <div class="location">{{ texts.location if texts else '📍 München' }}</div>
     <div class="date">{{ now.strftime('%d.%m.%Y - %H:%M') }}</div>
 
     <script src="{{ url_for('static', filename='scripts.js') }}"></script>

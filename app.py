@@ -6,7 +6,8 @@ import json
 from datetime import datetime
 import subprocess
 import shutil
-from test_copy import main as generate_feed  
+from test_copy import main as generate_feed
+from translations import get_text, get_all_texts  
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
@@ -26,11 +27,17 @@ os.makedirs(DATA_DIR, exist_ok=True)
 
 @app.route('/')
 def root():
-    return render_template('update_news.html')
+    # Set default language if not set
+    if 'ui_language' not in session:
+        session['ui_language'] = 'de'
+    return render_template('update_news.html', texts=get_all_texts(session.get('ui_language', 'de')))
 
 @app.route('/start')
 def index():
-    return render_template('index.html')
+    # Set default language if not set
+    if 'ui_language' not in session:
+        session['ui_language'] = 'de'
+    return render_template('index.html', texts=get_all_texts(session.get('ui_language', 'de')))
 
 @app.route('/submit-complete-user-info', methods=['POST'])
 def submit_complete_user_info():
@@ -81,6 +88,20 @@ def submit_complete_user_info():
     
     return jsonify({'success': True})
 
+@app.route('/switch_language')
+def switch_language():
+    """Switch between German and English UI language"""
+    current_lang = session.get('ui_language', 'de')
+    new_lang = 'en' if current_lang == 'de' else 'de'
+    session['ui_language'] = new_lang
+    
+    # Redirect back to the referring page or index
+    referrer = request.referrer
+    if referrer and any(route in referrer for route in ['/start', '/feed', '/generating_news']):
+        return redirect(referrer)
+    else:
+        return redirect(url_for('index'))
+
 @app.route('/feed')
 def feed():
     if 'news_data' not in session:
@@ -109,14 +130,15 @@ def feed():
         user_info=user_info,
         categories=categories,
         format=format_type,
-        now=datetime.now()
+        now=datetime.now(),
+        texts=get_all_texts(session.get('ui_language', 'de'))
     )
 
 @app.route('/generating_news')
 def generating_news():
     if 'user_info' not in session or 'categories' not in session:
         return redirect(url_for('index'))
-    return render_template('generating_news.html')
+    return render_template('generating_news.html', texts=get_all_texts(session.get('ui_language', 'de')))
 
 @app.route('/generate_news')
 def generate_news():
