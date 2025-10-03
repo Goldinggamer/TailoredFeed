@@ -10,13 +10,6 @@
   <div class="background"></div>
   <div class="stars"></div>
   
-  <!-- Navigation with language switcher -->
-  <div class="nav">
-    <a href="{{ url_for('switch_language') }}" class="language-button">
-      {{ texts.language_switch if texts else 'English' }}
-    </a>
-  </div>
-  
   <div class="container">
     <div class="brand">{{ texts.brand if texts else 'tailoredfeed' }}</div>
     

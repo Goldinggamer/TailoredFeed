@@ -313,7 +313,7 @@ def query_and_process_category(category, embedding_function, user_info):
         """
         
         # LLM aufrufen für einzelnen Artikel
-        model = Ollama(model="deepseek-r1:32b", base_url="http://127.0.0.1:11434")
+        model = Ollama(model="deepseek-r1:70b", base_url="http://127.0.0.1:11434")
         article_content = model.invoke(article_prompt)
         
         if "</think>" in article_content:
