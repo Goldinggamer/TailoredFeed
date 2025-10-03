@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "category": "Wissen und Forschung",
+      "articles": [
+        {
+          "content": "**Wissen und Forschung:**  \nKoffein hilft nur, wenn man müde ist. Wissenschaftler haben festgestellt, dass der Aufputscheffekt von Kaffee bei Personen, die genug geschlafen haben, oft nicht vorhanden ist. Empfindliche Menschen sollten abends besser keinen Kaffee trinken, um nicht am Schlaf zu leiden.",
+          "images": [
+            "https://images.tagesschau.de/image/76249428-5e9f-4912-af63-7d96e2053675/AAABleadTms/AAABmKJiLwU/16x9-1920.jpg"
+          ],
+          "title": "Welche Kaffee-Mythen stimmen?"
+        },
+        {
+          "content": "Forscher haben festgestellt, dass Oktopusse einen Lieblingsarm haben. Dies könnte die Softrobotik revolutionieren. Oktopusse sind biegsam wie Gummi und können sich tarnen wie Chamäleons. Trotzdem sind sie intelligent, obwohl sie mit Muscheln verwandt sind.",
+          "images": [
+            "https://images.tagesschau.de/image/28b16d6a-1942-4c39-a0f7-8e4bfaf3f145/AAABmTkuS5s/AAABmKJiLwU/16x9-1920.jpg"
+          ],
+          "title": "Oktopusse haben Lieblingsarme"
+        },
+        {
+          "content": "Die meisten Jugendlichen möchten, dass der Umgang mit künstlicher Intelligenz (KI) in der Schule gelehrt wird, da sie KI oft für ihre Schul- oder Berufszwecke nutzen. Im Gegensatz dazu tun dies nur 50 Prozent der Erwachsenen.",
+          "images": [
+            "https://images.tagesschau.de/image/1ee7041a-b307-45a6-971a-f4d3abb9a174/AAABmS4wwUI/AAABmKJiLwU/16x9-1920.jpg"
+          ],
+          "title": "Mehrheit für klare Regeln bei Social Media"
+        }
+      ],
+      "current_index": 0
+    }
+  ]
+}

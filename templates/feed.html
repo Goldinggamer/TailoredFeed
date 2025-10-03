@@ -170,7 +170,8 @@
     </div>
 
     <div class="location">{{ texts.location if texts else '📍 München' }}</div>
-    <div class="date">{{ now.strftime('%d.%m.%Y - %H:%M') }}</div>
+    <div class="date"></div>
+    <div class="time"></div>
 
     <script src="{{ url_for('static', filename='scripts.js') }}"></script>
     

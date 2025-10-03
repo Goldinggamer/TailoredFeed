@@ -7,16 +7,29 @@ function getCurrentDate() {
   return new Date().toLocaleDateString('de-DE', options);
 }
 
+function getCurrentTime() {
+  const options = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+  return new Date().toLocaleTimeString('de-DE', options);
+}
+
 function updateDateTime() {
   const dateElements = document.querySelectorAll('.date');
   dateElements.forEach(el => {
     el.textContent = getCurrentDate();
+  });
+  
+  const timeElements = document.querySelectorAll('.time');
+  timeElements.forEach(el => {
+    el.textContent = '🕐 ' + getCurrentTime();
   });
 }
 
 // Bei Seitenladung das Datum aktualisieren
 document.addEventListener('DOMContentLoaded', function() {
   updateDateTime();
+  
+  // Zeit jede Sekunde aktualisieren
+  setInterval(updateDateTime, 1000);
   
   // Starte die News-Bilder Animation nur auf der Startseite
   if (window.location.pathname === '/' || window.location.pathname === '/start') {

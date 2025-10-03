@@ -1,11 +1,10 @@
 {
   "user_info": {
-    "complexity_level": "standard",
+    "complexity_level": "einfach",
     "language": "Deutsch"
   },
   "categories": [
-    "politik",
-    "wirtschaft"
+    "wissenschaft"
   ],
   "format": "kurz",
   "custom_search_term": ""

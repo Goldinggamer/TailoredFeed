@@ -41,21 +41,31 @@
   
   <div class="location">{{ texts.location if texts else '📍 München' }}</div>
   <div class="date"></div>
+  <div class="time"></div>
   
   <script>
     // Set date function
     function setDate() {
       const now = new Date();
-      const options = { 
+      const dateOptions = { 
         weekday: 'long', 
         year: 'numeric', 
         month: '2-digit', 
         day: '2-digit' 
       };
-      const dateString = now.toLocaleDateString('de-DE', options);
+      const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+      
+      const dateString = now.toLocaleDateString('de-DE', dateOptions);
+      const timeString = now.toLocaleTimeString('de-DE', timeOptions);
+      
       const dateElement = document.querySelector('.date');
+      const timeElement = document.querySelector('.time');
+      
       if (dateElement) {
         dateElement.textContent = dateString;
+      }
+      if (timeElement) {
+        timeElement.textContent = '🕐 ' + timeString;
       }
     }
     
@@ -129,6 +139,10 @@
     document.addEventListener('DOMContentLoaded', function() {
       console.log('Page loaded successfully');
       setDate();
+      
+      // Update time every second
+      setInterval(setDate, 1000);
+      
       performNewsUpdate();
     });
   </script>
