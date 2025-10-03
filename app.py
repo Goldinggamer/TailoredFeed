@@ -79,12 +79,15 @@ def submit_complete_user_info():
     session['custom_search_term'] = custom_search_term.strip()
     
     # Log der gesammelten Daten
-    log_data('complete_user_info', {
+    current_time = datetime.now()
+    session['user_data'] = {
+        'timestamp': current_time.strftime('%Y%m%d_%H%M%S'),
+        'date': current_time.strftime('%Y-%m-%d %H:%M:%S'),
         'user_info': session['user_info'],
         'categories': categories,
         'format': format_value,
         'custom_search_term': custom_search_term
-    })
+    }
     
     return jsonify({'success': True})
 
@@ -154,9 +157,6 @@ def generate_news():
         
         print(f"User info being passed to generate_feed: {user_info}")  # Debug
         
-        # Log der tatsächlich verwendeten Daten
-        log_data('request_data', user_info)
-        
         # Übergebe das erweiterte user_info an die generate_feed Funktion
         news_data = generate_feed(user_info)
         
@@ -169,8 +169,12 @@ def generate_news():
         # Strukturierte News in Session speichern
         session['news_data'] = news_data
         
-        # Log der generierten News
-        log_data('generated_news', {'data': news_data})
+        # Kombinierte Daten für komplette Session-Info
+        complete_session_data = session.get('user_data', {})
+        complete_session_data['generated_news'] = {'data': news_data}
+        
+        # Log der kombinierten Daten
+        log_data('complete_session', complete_session_data)
         
         return jsonify({'success': True})
     except Exception as e:
