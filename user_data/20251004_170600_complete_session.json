@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251004_170513",
+  "date": "2025-10-04 17:05:13",
+  "user_info": {
+    "complexity_level": "standard",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "wissenschaft"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Wissen und Forschung",
+        "articles": [
+          {
+            "content": "Koffein hat nur bei Menschen mit Schlafdefizit eine wach machende Wirkung, wie der Arzt und Neurowissenschaftler David Elmenhorst vom Forschungszentrum Jülich erklärt. Empfindliche Menschen sollten nicht zu spät Kaffee trinken, da dies ihre Schlafqualität beeinflussen könnte.",
+            "images": [
+              "https://images.tagesschau.de/image/76249428-5e9f-4912-af63-7d96e2053675/AAABleadTms/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Welche Kaffee-Mythen stimmen?"
+          },
+          {
+            "content": "Forschende haben entdeckt, dass Oktopusse einen Lieblingstentakel haben, den sie für bestimmte Aufgaben bevorzugen. Dies könnte die Softrobotik entscheidend voranbringen. Oktopusse besitzen ein hoch entwickeltes Nervensystem und eine Intelligenz, die sich von der von Wirbeltieren unterscheidet.",
+            "images": [
+              "https://images.tagesschau.de/image/28b16d6a-1942-4c39-a0f7-8e4bfaf3f145/AAABmTkuS5s/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Oktopusse haben Lieblingsarme"
+          },
+          {
+            "content": "Forschende an der TU Braunschweig arbeiten an alternativen Methoden für medizinische Tests, um auf Tierversuche zu verzichten. Eine Methode namens Phagen-Display ermöglicht es, Antikörper für die Diagnostik im Labor herzustellen, ohne auf lebende Tiere zurückzugreifen. Diese Technologie basiert auf einer Sammlung von etwa zehn Milliarden verschiedenen Antikörperfragmenten in einem kleinen Gefäß.",
+            "images": [
+              "https://images.tagesschau.de/image/3cd18bef-8e6d-4548-88e8-b0df9211aa24/AAABll5XruM/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Medizinische Tests ohne Tierleid"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}
