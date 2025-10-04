@@ -191,7 +191,7 @@ function initializeMultiSelectDropdown() {
         const value = option.dataset.value;
         
         if (checkbox.checked) {
-            if (selectedCategories.length >= 2) {
+            if (selectedCategories.length >= 1) {
                 checkbox.checked = false;
                 limitMessage.style.display = 'block';
                 setTimeout(() => {

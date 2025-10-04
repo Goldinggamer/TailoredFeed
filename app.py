@@ -59,8 +59,8 @@ def submit_complete_user_info():
     if not categories or len(categories) == 0:
         return jsonify({'success': False, 'message': 'Bitte wähle mindestens eine Kategorie aus.'})
     
-    if len(categories) > 2:
-        return jsonify({'success': False, 'message': 'Du kannst maximal 2 Kategorien auswählen.'})
+    if len(categories) > 1:
+        return jsonify({'success': False, 'message': 'Du kannst maximal 1 Kategorie auswählen.'})
     
     if not format_value:
         return jsonify({'success': False, 'message': 'Bitte wähle ein Artikelformat aus.'})

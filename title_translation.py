@@ -4,7 +4,7 @@ import ollama
 ollama_host = 'http://127.0.0.1:11434' 
 ollama_client = ollama.Client(host=ollama_host)
 
-def translate_with_ollama(text, target_language='German', model='mistral'):
+def translate_with_ollama(text, target_language='German', model='phi4'): 
     if target_language == "Deutsch":
         return text
 

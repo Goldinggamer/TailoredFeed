@@ -20,7 +20,7 @@ translations = {
         'complexity_standard': 'Standard - Ausgewogene Sprache',
         'complexity_detailed': 'Detailliert - Detaillierte Fachsprache',
         'language': 'Sprache',
-        'categories': 'Interessenskategorien (max. 2)',
+        'categories': 'Interessenskategorien (max. 1)',
         'format': 'Artikelformat',
         'format_short': 'Kurze Artikel',
         'format_detailed': 'Ausführliche Artikel',
@@ -43,7 +43,7 @@ translations = {
         'error_complexity': 'Bitte wähle eine Sprachkomplexität aus',
         'error_language': 'Bitte wähle eine Sprache aus',
         'error_categories': 'Bitte wähle mindestens eine Kategorie aus',
-        'error_categories_max': 'Du kannst maximal 2 Kategorien auswählen',
+        'error_categories_max': 'Du kannst maximal 1 Kategorie auswählen',
         'error_custom_search': 'Bitte gib einen Suchbegriff für die Custom Suche ein',
         'error_format': 'Bitte wähle ein Artikelformat aus',
         

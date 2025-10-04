@@ -72,7 +72,7 @@
           <div id="language-error" class="error-message">{{ texts.error_language if texts else 'Bitte wähle eine Sprache aus' }}</div>
 
           <!-- Kategorienauswahl -->
-          <label class="required">{{ texts.categories if texts else 'Interessenskategorien (max. 2)' }}</label>
+          <label class="required">{{ texts.categories if texts else 'Interessenskategorien (max. 1)' }}</label>
           <div class="multi-select-container">
               <div class="multi-select-dropdown" id="categoriesDropdown">
                   <span class="selected-categories" id="selectedCategories">{{ texts.please_select if texts else 'Bitte wählen' }}</span>
@@ -118,7 +118,7 @@
               </div>
           </div>
           <div id="categories-error" class="error-message">{{ texts.error_categories if texts else 'Bitte wähle mindestens eine Kategorie aus' }}</div>
-          <div id="categories-limit" class="limit-message">{{ texts.error_categories_max if texts else 'Du kannst maximal 2 Kategorien auswählen' }}</div>
+          <div id="categories-limit" class="limit-message">{{ texts.error_categories_max if texts else 'Du kannst maximal 1 Kategorie auswählen' }}</div>
 
           <!-- Custom Search Input (initially hidden) -->
           <div class="custom-search-container" id="customSearchContainer">
@@ -178,7 +178,7 @@
       error_complexity: "{{ texts.error_complexity if texts else 'Bitte wähle eine Sprachkomplexität aus' }}",
       error_language: "{{ texts.error_language if texts else 'Bitte wähle eine Sprache aus' }}",
       error_categories: "{{ texts.error_categories if texts else 'Bitte wähle mindestens eine Kategorie aus' }}",
-      error_categories_max: "{{ texts.error_categories_max if texts else 'Du kannst maximal 2 Kategorien auswählen' }}",
+      error_categories_max: "{{ texts.error_categories_max if texts else 'Du kannst maximal 1 Kategorie auswählen' }}",
       error_custom_search: "{{ texts.error_custom_search if texts else 'Bitte gib einen Suchbegriff für die Custom Suche ein' }}",
       error_format: "{{ texts.error_format if texts else 'Bitte wähle ein Artikelformat aus' }}",
       cat_politics: "{{ texts.cat_politics if texts else 'Politik' }}",
