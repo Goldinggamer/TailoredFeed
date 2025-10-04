@@ -49,6 +49,7 @@ translations = {
         
         # Generating news page
         'generating_news': 'Deine News werden generiert...',
+        'estimated_wait_time': 'Geschätzte Wartezeit: 50 Sekunden',
         
         # Update news page
         'updating_news': 'Aktualisiere News...',
@@ -130,6 +131,7 @@ translations = {
         
         # Generating news page
         'generating_news': 'Your news is being generated...',
+        'estimated_wait_time': 'Estimated wait time: 50 seconds',
         
         # Update news page
         'updating_news': 'Updating news...',
