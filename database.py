@@ -52,9 +52,9 @@ def split_text(documents: list[Document]):
     # text ob korrekt gechunkt wird
     if chunks:
         sample = chunks[0]
-        print("\nSample chunk:")
-        print(f"Content: {sample.page_content[:100]}...")
-        print(f"Metadata: {sample.metadata}")
+        # print("\nSample chunk:")
+        # print(f"Content: {sample.page_content[:100]}...")
+        # print(f"Metadata: {sample.metadata}")
 
     return chunks
 

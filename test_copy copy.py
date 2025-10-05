@@ -1,7 +1,6 @@
 import json
 import sys
 import io
-import asyncio
 from langchain_ollama import OllamaEmbeddings
 from langchain_chroma import Chroma
 from langchain_community.llms import Ollama
@@ -52,7 +51,7 @@ def create_in_memory_chroma_db(embedding_function):
         )
         chunks = text_splitter.split_documents(documents)
         
-      # In-Memory ChromaDB erstellen (ohne persist_directory)
+        # In-Memory ChromaDB erstellen (ohne persist_directory)
         db = Chroma.from_documents(
             documents=chunks,
             embedding=embedding_function,
@@ -68,23 +67,26 @@ def create_in_memory_chroma_db(embedding_function):
 
 def query_and_process_category(category, embedding_function, user_info):
     """
-    … (Dokustring ggf. gekürzt) …
+    Verarbeitet eine einzelne Kategorie: Sucht relevante Artikel und generiert eine Zusammenfassung
     """
-    # Nutzerpräferenzen
+    # Extrahiere Benutzerinformationen
     complexity_level = user_info.get('complexity_level', 'standard')
-    user_language = user_info.get('language', 'Deutsch')
-    format_pref = user_info.get('format', 'kurz')
-    language = 'Deutsch' if user_language == 'Deutsch' else user_language
-
-    # Format-Anweisungen
-    format_instructions = {
-        'kurz': "Erstelle 2–3 Sätze.",
-        'mittel': "Erstelle 4–6 Sätze.",
-        'lang': "Erstelle 7–10 Sätze."
+    language = user_info.get('language', 'Deutsch')
+    news_format = user_info.get('format', 'kurz')
+    
+    # Sprachanpassung
+    language_map = {
+        'Deutsch': 'Deutsch',
+        'English': 'Englisch',
+        'Français': 'Französisch',
+        'Español': 'Spanisch',
+        'Русский': 'Russisch',
+        'Română': 'Rumänisch'
     }
-    format_instruction = format_instructions.get(format_pref, format_instructions['kurz'])
-
-    # Mehrsprachige "Keine (weiteren) Nachrichten verfügbar"
+    
+    user_language = language_map.get(language, 'Deutsch')
+    
+    # Mehrsprachige "Keine Nachrichten" Texte
     no_news_messages = {
         'Deutsch': 'Keine (weiteren) Nachrichten verfügbar',
         'Englisch': 'No (further) news available',
@@ -108,24 +110,24 @@ def query_and_process_category(category, embedding_function, user_info):
     
     # Komplexitätsanweisungen basierend auf der Auswahl
     complexity_instructions = {
-        'einfach': "Verwende ausschließlich einfache, kinderfreundliche Wörter ohne Fachbegriffe, sodass jedes Kind die Nachrichten verstehen kann",
+        'einfach': "Verwende ausschließlich einfache, kinderfreundliche Sprache und verwende keine Fachbegriffe, sodass jedes Kind die Nachrichten verstehen kann",
         'standard': "Verwende jugendgerechte Sprache und erkläre komplexe Themen verständlich.",
-        'detailliert': "Verwende angemessen komplexe Sprache mit notwendigen Fachbegriffen, bleibe präzise und objektiv ohne verzerrende oder manipulative Formulierungen."
+        'detailliert': "Verwende angemessen komplexe Sprache mit Fachbegriffen, wo erforderlich. Bleibe sachlich und objektiv ohne verzerrende oder manipulative Formulierungen."
     }
     
     complexity_instruction = complexity_instructions.get(complexity_level, complexity_instructions['standard'])
     
-    # Kategorien → Suchterme
+    # Kategorie-Mappings
     categories_map = {
-        'politik': "politik deutschland bundesregierung bundestag",
-        'wissenschaft': "wissenschaft forschung studie innovation",
-        'wissenswertes': "interessant fakten wissen entdeckung",
-        'wirtschaft': "wirtschaft konjunktur unternehmen märkte",
-        'gesundheit': "gesundheit medizin krankenhaus therapie",
-        'muenchen': "münchen bayern bavaria stadt",
-        'technologie': "technologie digital ki innovation",
-        'sport': "sport deutschland liga turnier",
-        'custom': ""
+        'politik': 'Politik',
+        'wissenschaft': 'Wissenschaft und Forschung',
+        'wissenswertes': 'wissenswertes interessant',
+        'wirtschaft': 'Wirtschaft Geld Deutschland',
+        'gesundheit': 'Gesundheit Medizin',
+        'muenchen': 'München',
+        'technologie': 'Technologie',
+        'sport': 'Sport Deutschland',
+        'custom': None  # Wird dynamisch gesetzt
     }
 
     display_map = {
@@ -157,39 +159,122 @@ def query_and_process_category(category, embedding_function, user_info):
     # DEBUG: Überprüfe Suchbegriff
     print(f"DEBUG: Suche für Kategorie '{category}' mit Term: '{search_term}'", flush=True)
     
-    # Vektor-DB aufbauen (in-memory) & abfragen
+    # Vector Store und Suche - erstelle In-Memory DB
     db = create_in_memory_chroma_db(embedding_function)
     if db is None:
-        return display_name, [{'content': no_news_text, 'images': [], 'title': f"{display_name} - {no_news_text}"}]
-    
-    # Ähnliche Dokumente holen
+        return display_name, "Fehler beim Erstellen der Datenbank.", []
+    # Hole mehr Ergebnisse um Duplikate herausfiltern zu können
     results = db.similarity_search(search_term, k=10)
-    print(f"DEBUG: {len(results)} Roh-Treffer für '{search_term}'", flush=True)
-
-    # Ergebnisse loggen (Titel)
-    for i, doc in enumerate(results[:5]):
-        print(f"DEBUG: Treffer {i+1}: Titel='{doc.metadata.get('title', 'N/A')}'", flush=True)
+    
+    # DEBUG: Überprüfe Suchergebnisse
+    print(f"DEBUG: Gefundene Ergebnisse: {len(results)}", flush=True)
+    print(f"DEBUG: Chroma DB hat {db._collection.count()} Dokumente", flush=True)
+    for i, doc in enumerate(results):
+        print(f"DEBUG: Ergebnis {i+1}: Titel='{doc.metadata.get('title', 'N/A')}'", flush=True)
     
     # Entferne Duplikate basierend auf Titel und Content
     unique_results = []
     seen_titles = set()
     seen_content_hashes = set()
-    # --- Parallel statt sequenziell: Ollama-Requests concurrently ausführen ---
-    category_articles = []  # wird unten aus den Ergebnissen gefüllt
-
-    async def _process_doc_async(doc):
+    
+    for doc in results:
+        title = doc.metadata.get('title', '').strip().lower()
+        content = doc.page_content.strip()
+        
+        # Erstelle einen Hash für den Content um ähnliche Inhalte zu erkennen
+        import hashlib
+        content_hash = hashlib.md5(content.encode('utf-8')).hexdigest()
+        
+        # Prüfe auf Duplikate anhand von Titel
+        title_similarity = False
+        for seen_title in seen_titles:
+            # Prüfe auf sehr ähnliche Titel (gleiche Worte, andere Reihenfolge)
+            title_words = set(title.split())
+            seen_words = set(seen_title.split())
+            if len(title_words & seen_words) / max(len(title_words), len(seen_words), 1) > 0.8:
+                title_similarity = True
+                break
+        
+        # Prüfe auf Duplikate
+        if not title_similarity and title not in seen_titles and content_hash not in seen_content_hashes:
+            seen_titles.add(title)
+            seen_content_hashes.add(content_hash)
+            unique_results.append(doc)
+            
+            # Stoppe bei 3 eindeutigen Artikeln
+            if len(unique_results) >= 3:
+                break
+    
+    print(f"DEBUG: Nach Duplikatsentfernung: {len(unique_results)} eindeutige Artikel", flush=True)
+    results = unique_results
+    
+    # Falls weniger als 3 eindeutige Artikel gefunden wurden, versuche andere Suchbegriffe
+    if len(results) < 3:
+        print(f"DEBUG: Nur {len(results)} eindeutige Artikel gefunden, versuche erweiterte Suche", flush=True)
+        
+        # Erweiterte Suchbegriffe für verschiedene Kategorien
+        fallback_terms = {
+            'politik': ['politik deutschland', 'bundestag', 'regierung', 'wahlen'],
+            'wirtschaft': ['wirtschaft', 'unternehmen', 'börse', 'inflation'],
+            'sport': ['sport', 'fußball', 'bundesliga', 'olympia'],
+            'muenchen': ['münchen', 'bayern', 'bavaria'],
+            'wissenschaft': ['wissenschaft', 'forschung', 'studie', 'innovation'],
+            'technologie': ['technologie', 'tech', 'digital', 'ki'],
+            'gesundheit': ['gesundheit', 'medizin', 'krankenhaus', 'therapie'],
+            'wissenswertes': ['interessant', 'fakten', 'wissen', 'entdeckung']
+        }
+        
+        category_key = category.lower()
+        if category_key in fallback_terms:
+            for fallback_term in fallback_terms[category_key]:
+                if len(results) >= 3:
+                    break
+                
+                fallback_results = db.similarity_search(fallback_term, k=5)
+                for doc in fallback_results:
+                    title = doc.metadata.get('title', '').strip().lower()
+                    content = doc.page_content.strip()
+                    content_hash = hashlib.md5(content.encode('utf-8')).hexdigest()
+                    
+                    # Prüfe ob dieser Artikel schon vorhanden ist
+                    title_exists = False
+                    for seen_title in seen_titles:
+                        title_words = set(title.split())
+                        seen_words = set(seen_title.split())
+                        if len(title_words & seen_words) / max(len(title_words), len(seen_words), 1) > 0.8:
+                            title_exists = True
+                            break
+                    
+                    if not title_exists and content_hash not in seen_content_hashes:
+                        seen_titles.add(title)
+                        seen_content_hashes.add(content_hash)
+                        results.append(doc)
+                        
+                        if len(results) >= 3:
+                            break
+        
+        print(f"DEBUG: Nach erweiterter Suche: {len(results)} Artikel gefunden", flush=True)
+    
+    # Format-Anweisung
+    format_instruction = "Erstelle einen ausführlichen Artikel mit 5-15 Sätzen." if news_format == 'ausfuehrlich' else "Fasse die Information in 1-3 prägnanten Sätzen zusammen."
+    
+    category_articles = []
+    
+    results = results[0:3]
+    
+    for doc in results:
         title = doc.metadata['title']
         print(f"DEBUG: Verarbeite Dokument mit Titel: '{title}'", flush=True)
-
+        
         image_url = doc.metadata.get('image', '')
         article_images = []
         if image_url and image_url.strip():
             article_images.append(image_url.strip())
-
+        
         # Verwende direkt den Text aus dem Vector Store
         article_text = doc.page_content
         if article_text and article_text.strip():
-            print(f"DEBUG: Verwende Text aus Vector Store (erste 50 Zeichen): {article_text[:50]}...", flush=True)
+            print(f"DEBUG: Verwende Text aus Vector Store (erste 200 Zeichen): {article_text[:200]}...", flush=True)
             current_article_content = f"Titel: {title}\nInhalt: {article_text}"
         else:
             print(f"DEBUG: Kein Text im Vector Store, suche in JSON", flush=True)
@@ -199,15 +284,15 @@ def query_and_process_category(category, embedding_function, user_info):
                 if title.strip().lower() == article['title'].strip().lower():
                     matching_article = article
                     break
-
+            
             if matching_article:
                 article_text = matching_article.get('text', '')
                 current_article_content = f"Titel: {title}\nInhalt: {article_text}"
             else:
                 print(f"DEBUG: Auch in JSON nicht gefunden", flush=True)
-                return None
-
-        # Prompt für diesen Artikel
+                continue
+        
+        # Generiere Inhalt für diesen einzelnen Artikel
         article_prompt = f"""
         Du bist ein journalistisches KI-System, das Nachrichten für einen öffentlichen Bildschirm im Univiertel in München kuratiert.
         Deine Aufgabe ist es, eine relevante Nachricht zur Kategorie "{display_name}" zu erstellen.
@@ -230,84 +315,35 @@ def query_and_process_category(category, embedding_function, user_info):
         
         Deine Ausgabe sollte rein faktisch und ohne Einleitung oder Schlussformulierung sein.
         """
-
-        try:
-            # Verwende ainvoke, wenn vorhanden; sonst Thread-Executor
-            if hasattr(model, "ainvoke"):
-                article_content = await model.ainvoke(article_prompt)
-            else:
-                loop = asyncio.get_running_loop()
-                article_content = await loop.run_in_executor(None, model.invoke, article_prompt)
-        except Exception as e:
-            print(f"DEBUG: Fehler beim LLM-Aufruf für '{title}': {e}", flush=True)
-            return None
-
+        
+        # LLM aufrufen für einzelnen Artikel
+        
+        article_content = model.invoke(article_prompt)
+        
         if "</think>" in article_content:
-            _, article_content = article_content.split("</think>", 1)
-
+            _, article_content = article_content.split("</think>")
+        
         final_article_content = article_content.strip()
-
-        # "Keine Nachrichten" -> signalisiere Sofort-Abbruch
+        
+        # Prüfe ob das LLM die "Keine Nachrichten" Nachricht zurückgegeben hat
         if category_no_news_text in final_article_content:
-            return {
-                "type": "no_news",
-                "entry": {
-                    'content': final_article_content,
-                    'images': [],
-                    'title': f"{display_name} - {no_news_text}"
-                },
-                "title": title
-            }
-
-        # Titel-Übersetzung (synchrone Funktion asynchron ausführen)
-        loop = asyncio.get_running_loop()
-        def _translate_call():
-            return translate_with_ollama(title, target_language=language)
-        translated_title = await loop.run_in_executor(None, _translate_call)
-
-        return {
-            "type": "article",
-            "entry": {
+            print(f"DEBUG: LLM hat 'keine Nachrichten' für Artikel '{title}' zurückgegeben", flush=True)
+            category_articles.append({
+                'content': final_article_content,
+                'images': [],  # Kein Bild bei "keine Nachrichten"
+                'title': f"{display_name} - {no_news_text}"
+            })
+            # Breche die Schleife ab, da wir nur einen "Keine Nachrichten" Kasten anzeigen möchten
+            break
+        else:
+            translated_title = translate_with_ollama(title, target_language=language)
+            category_articles.append({
                 'content': final_article_content,
                 'images': article_images,
                 'title': translated_title
-            },
-            "title": title
-        }
-
-    async def _collect_articles_parallel(docs):
-        # so viele parallele Tasks wie docs, aber maximal 10 (mindestens 1)
-        max_conc = max(1, min(len(docs), 10))
-        sem = asyncio.Semaphore(max_conc)
-
-        async def _guarded(doc):
-            async with sem:
-                return await _process_doc_async(doc)
-
-        tasks = [asyncio.create_task(_guarded(doc)) for doc in docs]
-        results_accum = []
-        try:
-            for fut in asyncio.as_completed(tasks):
-                res = await fut
-                if not res:
-                    continue
-                if res["type"] == "no_news":
-                    print(f"DEBUG: LLM hat 'keine Nachrichten' für Artikel '{res['title']}' zurückgegeben", flush=True)
-                    # alle übrigen Tasks abbrechen
-                    for t in tasks:
-                        if not t.done():
-                            t.cancel()
-                    return [res["entry"]]
-                else:
-                    results_accum.append(res["entry"])
-            return results_accum
-        finally:
-            for t in tasks:
-                if not t.done():
-                    t.cancel()
-
-    category_articles = asyncio.run(_collect_articles_parallel(results))
-
+            })
+    
+    # Stelle sicher, dass mindestens ein Artikel vorhanden ist
     if not category_articles:
         print(f"DEBUG: Kein Content für Kategorie '{category}' gefunden", flush=True)
         return display_name, [{'content': category_no_news_text, 'images': [], 'title': f"{display_name} - {no_news_text}"}]

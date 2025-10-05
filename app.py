@@ -7,7 +7,7 @@ from datetime import datetime
 import subprocess
 import shutil
 from test_copy import main as generate_feed
-from translations import get_text, get_all_texts  
+from translations import get_text, get_all_texts
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
