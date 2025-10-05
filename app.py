@@ -9,6 +9,10 @@ import shutil
 from test_copy import main as generate_feed
 from translations import get_text, get_all_texts
 
+from ApiNews import main as fetchNews
+from database import update_db
+from apscheduler.schedulers.background import BackgroundScheduler
+
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
@@ -115,7 +119,7 @@ def feed():
         print("Keine user_info in session gefunden, redirect zu index")
         return redirect(url_for('index'))
     
-    print(f"Rendering feed with news_data: {session['news_data']}")
+    # print(f"Rendering feed with news_data: {session['news_data']}")
     
     # Daten für Template extrahieren
     news_data = session['news_data']
@@ -160,8 +164,8 @@ def generate_news():
         # Übergebe das erweiterte user_info an die generate_feed Funktion
         news_data = generate_feed(user_info)
         
-        print(f"Type of news_data: {type(news_data)}")  # Debug
-        print(f"Generated news_data: {news_data}")  # Debug
+        # print(f"Type of news_data: {type(news_data)}")  # Debug
+        # print(f"Generated news_data: {news_data}")  # Debug
         
         if not news_data:
             raise ValueError('Keine News konnten generiert werden')
@@ -188,63 +192,11 @@ def generate_news():
 
 @app.route('/update_api_news')
 def update_api_news():
-    try:
-        subprocess.run(['python', 'ApiNews.py'], check=True)
-        return jsonify({"success": True})
-    except subprocess.CalledProcessError as e:
-        return jsonify({"success": False, "error": str(e)}), 500
+    return jsonify({"success": True})
 
 @app.route('/update_database')
 def update_database():
-    try:
-        # Get absolute path to the script directory
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        
-        # Change to script directory before running database.py
-        os.chdir(script_dir)
-        
-        # Keine Festplatten-DB mehr - cleanup nicht mehr nötig
-        # In-Memory ChromaDB löst Windows-Dateisperrung
-        
-        python_path = "python"  # Windows Python-Pfad (nutzt Python from PATH)
-        #python_path = "opt/homebrew/bin/python3.10"  # macOS m1 Homebrew Python-Pfad
-        
-        # Run database.py with full path and environment variables
-        result = subprocess.run(
-            [python_path, os.path.join(script_dir, "database.py")],
-            capture_output=True,
-            text=True,
-            cwd=script_dir,  # Set working directory explicitly
-            env={
-                **os.environ,
-                'PYTHONPATH': script_dir
-            }
-        )
-        
-        if result.returncode != 0:
-            print("Database Error:", result.stderr)
-            return jsonify({
-                "success": False,
-                "error": f"Database initialization failed: {result.stderr}"
-            }), 500
-            
-        # In-Memory DB - keine Datei-Validierung mehr nötig
-        print("In-Memory ChromaDB successfully initialized")
-        return jsonify({"success": True})
-        
-    except Exception as e:
-        print("Exception:", str(e))
-        return jsonify({
-            "success": False,
-            "error": str(e)
-        }), 500
-        
-    except Exception as e:
-        print("Exception:", str(e))
-        return jsonify({
-            "success": False,
-            "error": str(e)
-        }), 500
+    return jsonify({"success": True})
 
 @app.route('/cleanup_session')
 def cleanup_session():
@@ -314,6 +266,17 @@ def format_date(value):
     return now.strftime('%A, %d.%m.%Y')
 
 
+def background_task():
+    print("BACKGROUND TASK")
+    update_db()
+
+
+
 if __name__ == '__main__':
+
+
+    scheduler = BackgroundScheduler()
+    scheduler.add_job(background_task, 'interval', seconds=60)
+    scheduler.start()
     
     app.run(debug=True)

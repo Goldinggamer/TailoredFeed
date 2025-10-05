@@ -199,7 +199,7 @@ def main():
 
         try: 
             for n in outputs[key]:
-                print(str(n))
+                # print(str(n))
                 news_arr.append({
                     'kategorie': key, 
                     'title': n["title"],

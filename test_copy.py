@@ -10,6 +10,7 @@ from langchain.schema import Document
 from langchain_community.document_loaders import JSONLoader
 
 from title_translation import translate_with_ollama
+from database import db
 
 model = Ollama(model="llama3.3", base_url="http://127.0.0.1:11434") 
 
@@ -22,51 +23,8 @@ CHROMA_PATH = None
 json_file = open("./data/alle_news_json.json", "r", encoding="utf-8")
 news_json_arr = json.load(json_file)['news']
 
-def create_in_memory_chroma_db(embedding_function):
-    """
-    Erstellt eine In-Memory ChromaDB aus den News-Daten
-    """
-    try:
-        # Metadaten der json file extrahieren - gleiche Funktion wie in database.py
-        def metadata_func(record: dict, metadata: dict) -> dict:
-            metadata["kategorie"] = record.get("kategorie")
-            metadata["title"] = record.get("title")
-            metadata["image"] = record.get("image") 
-            return metadata
 
-        # Json file laden - gleich wie database.py
-        doc_loader = JSONLoader(
-            file_path="./data/alle_news_json.json",
-            jq_schema='.news[]',  
-            content_key="text",   # text ist das was später dann gechunkt werden soll
-            metadata_func=metadata_func  # metadaten laden
-        )
-        documents = doc_loader.load()
-        
-        # Text chunking - gleich wie database.py
-        text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=1500,
-            chunk_overlap=250,
-            length_function=len,
-            add_start_index=True,
-        )
-        chunks = text_splitter.split_documents(documents)
-        
-      # In-Memory ChromaDB erstellen (ohne persist_directory)
-        db = Chroma.from_documents(
-            documents=chunks,
-            embedding=embedding_function,
-            # Kein persist_directory = In-Memory
-        )
-        
-        print(f"Created in-memory ChromaDB with {len(chunks)} chunks.")
-        return db
-        
-    except Exception as e:
-        print(f"Error creating in-memory ChromaDB: {str(e)}")
-        return None
-
-def query_and_process_category(category, embedding_function, user_info):
+def query_and_process_category(category, user_info):
     """
     … (Dokustring ggf. gekürzt) …
     """
@@ -78,9 +36,8 @@ def query_and_process_category(category, embedding_function, user_info):
 
     # Format-Anweisungen
     format_instructions = {
-        'kurz': "Erstelle 2–3 Sätze.",
-        'mittel': "Erstelle 4–6 Sätze.",
-        'lang': "Erstelle 7–10 Sätze."
+        'kurz': "Fasse die Information in 1-3 prägnanten Sätzen zusammen.",
+        'ausfuehrlich': "Erstelle einen ausführlichen Artikel mit 5-8 Sätzen."
     }
     format_instruction = format_instructions.get(format_pref, format_instructions['kurz'])
 
@@ -158,7 +115,7 @@ def query_and_process_category(category, embedding_function, user_info):
     print(f"DEBUG: Suche für Kategorie '{category}' mit Term: '{search_term}'", flush=True)
     
     # Vektor-DB aufbauen (in-memory) & abfragen
-    db = create_in_memory_chroma_db(embedding_function)
+    # db = create_in_memory_chroma_db(embedding_function)
     if db is None:
         return display_name, [{'content': no_news_text, 'images': [], 'title': f"{display_name} - {no_news_text}"}]
     
@@ -166,14 +123,122 @@ def query_and_process_category(category, embedding_function, user_info):
     results = db.similarity_search(search_term, k=10)
     print(f"DEBUG: {len(results)} Roh-Treffer für '{search_term}'", flush=True)
 
-    # Ergebnisse loggen (Titel)
-    for i, doc in enumerate(results[:5]):
-        print(f"DEBUG: Treffer {i+1}: Titel='{doc.metadata.get('title', 'N/A')}'", flush=True)
+     # DEBUG: Überprüfe Suchergebnisse
+    print(f"DEBUG: Gefundene Ergebnisse: {len(results)}", flush=True)
+    print(f"DEBUG: Chroma DB hat {db._collection.count()} Dokumente", flush=True)
+
+    distinct_results = {}
+
+    for i, doc in enumerate(results):
+        _title = doc.metadata.get("title")
+        if _title not in distinct_results:
+            distinct_results[_title] = doc
+
+
+    print(f"Distinct ergebnisse: {len(distinct_results.values())}")
+
+    distinct_documents = list(distinct_results.values())
+
+    # for i, doc in enumerate(results):
+    #     print(f"DEBUG: Ergebnis {i+1}: Titel='{doc.metadata.get('title', 'N/A')}'", flush=True)
     
-    # Entferne Duplikate basierend auf Titel und Content
-    unique_results = []
-    seen_titles = set()
-    seen_content_hashes = set()
+    # Entferne Duplikate basierend auf Titel und Content - OPTIMIERT
+    # unique_results = []
+    # seen_titles = set()
+    # seen_content_hashes = set()
+    
+    # import hashlib  # Import einmal am Anfang
+    
+    # for doc in results:
+        # title = doc.metadata.get('title', '').strip().lower()
+        # content = doc.page_content.strip()
+        
+        # # Schneller Content-Hash
+        # content_hash = hashlib.md5(content.encode('utf-8')).hexdigest()
+        
+        # # Schnelle Duplikatsprüfung - erst einfache Checks
+        # if title in seen_titles or content_hash in seen_content_hashes:
+        #     continue
+            
+        # # Nur bei neuen Titeln: Prüfe auf Titel-Ähnlichkeit (teurer Check)
+        # title_similarity = False
+        # title_words = set(title.split())
+        # for seen_title in seen_titles:
+        #     seen_words = set(seen_title.split())
+        #     if len(title_words & seen_words) / max(len(title_words), len(seen_words), 1) > 0.8:
+        #         title_similarity = True
+        #         break
+        
+        # # Artikel hinzufügen, wenn nicht ähnlich
+        # if not title_similarity:
+        #     seen_titles.add(title)
+        #     seen_content_hashes.add(content_hash)
+        #     unique_results.append(doc)
+            
+        #     # Früh stoppen bei 3 eindeutigen Artikeln - spart Zeit!
+        #     if len(unique_results) >= 3:
+        #         break
+    
+    print(f"DEBUG: Nach Duplikatsentfernung: {len(distinct_documents)} eindeutige Artikel", flush=True)
+    results = distinct_documents
+    
+    # Falls weniger als 3 eindeutige Artikel gefunden wurden, versuche andere Suchbegriffe
+    # if len(results) < 3:
+    #     print(f"DEBUG: Nur {len(results)} eindeutige Artikel gefunden, versuche erweiterte Suche", flush=True)
+        
+    #     # Erweiterte Suchbegriffe für verschiedene Kategorien
+    #     fallback_terms = {
+    #         'politik': ['politik deutschland', 'bundestag', 'regierung', 'wahlen'],
+    #         'wirtschaft': ['wirtschaft', 'unternehmen', 'börse', 'inflation'],
+    #         'sport': ['sport', 'fußball', 'bundesliga', 'olympia'],
+    #         'muenchen': ['münchen', 'bayern', 'bavaria'],
+    #         'wissenschaft': ['wissenschaft', 'forschung', 'studie', 'innovation'],
+    #         'technologie': ['technologie', 'tech', 'digital', 'ki'],
+    #         'gesundheit': ['gesundheit', 'medizin', 'krankenhaus', 'therapie'],
+    #         'wissenswertes': ['interessant', 'fakten', 'wissen', 'entdeckung']
+    #     }
+        
+    #     category_key = category.lower()
+    #     if category_key in fallback_terms:
+    #         for fallback_term in fallback_terms[category_key]:
+    #             if len(results) >= 3:
+    #                 break
+                
+    #             fallback_results = db.similarity_search(fallback_term, k=5)
+    #             for doc in fallback_results:
+    #                 title = doc.metadata.get('title', '').strip().lower()
+    #                 content = doc.page_content.strip()
+    #                 content_hash = hashlib.md5(content.encode('utf-8')).hexdigest()
+                    
+    #                 # Prüfe ob dieser Artikel schon vorhanden ist
+    #                 title_exists = False
+    #                 for seen_title in seen_titles:
+    #                     title_words = set(title.split())
+    #                     seen_words = set(seen_title.split())
+    #                     if len(title_words & seen_words) / max(len(title_words), len(seen_words), 1) > 0.8:
+    #                         title_exists = True
+    #                         break
+                    
+    #                 if not title_exists and content_hash not in seen_content_hashes:
+    #                     seen_titles.add(title)
+    #                     seen_content_hashes.add(content_hash)
+    #                     results.append(doc)
+                        
+    #                     if len(results) >= 3:
+    #                         break
+        
+    #     print(f"DEBUG: Nach erweiterter Suche: {len(results)} Artikel gefunden", flush=True)
+    
+    # Begrenzen auf maximal 3 Artikel für die parallele Verarbeitung
+    results = results[:3]
+        
+    # Falls immer noch keine Artikel vorhanden, früh zurückkehren
+    if not results:
+        print(f"DEBUG: Kein Content für Kategorie '{category}' gefunden", flush=True)
+        return display_name, [{'content': category_no_news_text, 'images': [], 'title': f"{display_name} - {no_news_text}"}]
+    
+    print(f"DEBUG: Verarbeite {len(results)} eindeutige Artikel parallel", flush=True)
+
     # --- Parallel statt sequenziell: Ollama-Requests concurrently ausführen ---
     category_articles = []  # wird unten aus den Ergebnissen gefüllt
 
@@ -276,15 +341,16 @@ def query_and_process_category(category, embedding_function, user_info):
         }
 
     async def _collect_articles_parallel(docs):
-        # so viele parallele Tasks wie docs, aber maximal 10 (mindestens 1)
-        max_conc = max(1, min(len(docs), 10))
+        # Nur so viele parallele Tasks wie tatsächlich benötigte Artikel (maximal 3)
+        max_conc = min(len(docs), 3)  # Begrenzt auf 3, da wir nur 3 Artikel brauchen
         sem = asyncio.Semaphore(max_conc)
 
         async def _guarded(doc):
             async with sem:
                 return await _process_doc_async(doc)
 
-        tasks = [asyncio.create_task(_guarded(doc)) for doc in docs]
+        # Nur Tasks für die tatsächlich benötigten Artikel erstellen
+        tasks = [asyncio.create_task(_guarded(doc)) for doc in docs[:3]]
         results_accum = []
         try:
             for fut in asyncio.as_completed(tasks):
@@ -330,16 +396,13 @@ def main(user_info=None):
     
     selected_categories = user_info.get('categories', ['politik', 'wirtschaft', 'sport'])
     
-    embedding_function = OllamaEmbeddings(
-        model="nomic-embed-text",
-        base_url="http://127.0.0.1:11434"
-    )
+    
     
     category_results = []
     
     for category in selected_categories:
         display_name, articles = query_and_process_category(
-            category, embedding_function, user_info
+            category, user_info
         )
         
         if display_name and articles:
