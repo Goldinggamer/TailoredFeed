@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251006_141304",
+  "date": "2025-10-06 14:13:04",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "wissenswertes"
+  ],
+  "format": "ausfuehrlich",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Wissenswertes",
+        "articles": [
+          {
+            "content": "Immunabwehr durch Impfungen kann das Herz schützen. Wenn man eine Erkältung oder Grippe bekommt, kann das Immunsystem die Blutgefäße entzünden und dort Blutgerinnsel bilden, was zu Herzinfarkt oder Schlaganfall führen kann. Deshalb empfehlen Ärzte die Grippeimpfung besonders für Menschen mit Herzproblemen. Studien zeigen, dass geimpfte Menschen etwa ein Viertel seltener schwere Herz‑ und Kreislaufprobleme haben. Die Ständige Impfkommission rät, dass alle über 60 Jahre und Menschen mit Vorerkrankungen sowie Schwangere die Grippeimpfung bekommen sollten. Trotz dieser Empfehlungen sind in Deutschland nur wenige Menschen geimpft.",
+            "images": [
+              "https://images.tagesschau.de/image/41fd5938-226e-475a-9605-fdc0abef0e0e/AAABmYY6Q_s/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Impfungen schützen auch das Herz"
+          },
+          {
+            "content": "Am frühen Morgen wurden die Flüge am Flughafen wieder aufgenommen. Der Flughafen sagt, dass der Flugbetrieb jetzt normal läuft und die geplanten Flüge stattfinden. Der Chef vom Flughafenverband erklärt, dass illegale Drohnen den Flugverkehr gefährden. Er meint, dass klare Regeln und ein gutes System zur Erkennung und Abwehr von Drohnen nötig sind. Die Polizei entscheidet, ob eine Drohne eine Gefahr ist und wie sie gestoppt wird. Experten sagen, dass das Abschießen von Drohnen über bewohnten Flächen riskant ist, weil Trümmer herunterfallen oder die Drohne Sprengstoff tragen kann.",
+            "images": [
+              "https://images.tagesschau.de/image/011234a9-d1e1-4f71-b36e-81f18cb4081d/AAABmamQb9A/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Söder fordert schnellen Abschuss von Drohnen"
+          },
+          {
+            "content": "Eine neue Studie aus Wales hat untersucht, ob die Impfung gegen Gürtelrose das Risiko für Demenz senken kann. Senioren unter 80 Jahren erhielten die Impfung kostenlos. In den nächsten sieben Jahren hatten die Geimpften seltener Gürtelrose als die nicht Geimpften. Gleichzeitig war das Risiko, an Demenz zu erkranken, bei den Geimpften um etwa 20 % niedriger. Experten vermuten, dass Viren das Gehirn schädigen oder das Immunsystem überreagieren können. Deshalb könnte jede Impfung, die vor Virusinfektionen schützt, auch vor Demenz schützen.",
+            "images": [
+              "https://images.tagesschau.de/image/b4899dac-9388-4ab4-8990-d6e9862160ba/AAABmVuxmR8/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Was sich in der Alzheimer-Forschung tut"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

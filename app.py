@@ -276,7 +276,7 @@ if __name__ == '__main__':
 
 
     scheduler = BackgroundScheduler()
-    scheduler.add_job(background_task, 'interval', seconds=60)
+    scheduler.add_job(background_task, 'interval', minutes=3)
     scheduler.start()
     
     app.run(debug=True)
