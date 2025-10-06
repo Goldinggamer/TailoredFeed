@@ -12,7 +12,7 @@ from langchain_community.document_loaders import JSONLoader
 from title_translation import translate_with_ollama
 from database import db
 
-model = Ollama(model="llama3.3", base_url="http://127.0.0.1:11434") 
+model = Ollama(model="gpt-oss:120b", base_url="http://127.0.0.1:11434") 
 
 # Terminal-Kodierung auf UTF-8 setzen
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')

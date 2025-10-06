@@ -23,7 +23,7 @@ translations = {
         'categories': 'Interessenskategorien (max. 1)',
         'format': 'Artikelformat',
         'format_short': 'Kurze Artikel',
-        'format_detailed': 'Ausführliche Artikel (dauert 2x so lange wie kurze Artikel!)',
+        'format_detailed': 'Ausführliche Artikel',
         'custom_search_placeholder': 'z.B. Fußball WM, Bitcoin, Künstliche Intelligenz...',
         'create_feed': 'Feed erstellen',
         'please_select': 'Bitte wählen',
@@ -49,7 +49,7 @@ translations = {
         
         # Generating news page
         'generating_news': 'Deine News werden generiert...',
-        'estimated_wait_time': 'Geschätzte Wartezeit: Max. 30 Sekunden bei kurzen Artikeln / 60 Sekunden bei ausführlichen Artikeln',
+        'estimated_wait_time': 'Geschätzte Wartezeit: Max. 15 Sekunden bei kurzen Artikeln / 30 Sekunden bei ausführlichen Artikeln',
         
         # Update news page
         'updating_news': 'Aktualisiere News...',
@@ -105,7 +105,7 @@ translations = {
         'categories': 'Interest Categories (max. 2)',
         'format': 'Article Format',
         'format_short': 'Short Articles',
-        'format_detailed': 'Detailed Articles (takes 2x as long as short articles!)',
+        'format_detailed': 'Detailed Articles',
         'custom_search_placeholder': 'e.g. World Cup, Bitcoin, Artificial Intelligence...',
         'create_feed': 'Create Feed',
         'please_select': 'Please select',
@@ -131,7 +131,7 @@ translations = {
         
         # Generating news page
         'generating_news': 'Your news is being generated...',
-        'estimated_wait_time': 'Estimated wait time: max. 30 seconds for short articles / 60 seconds for detailed articles',
+        'estimated_wait_time': 'Estimated wait time: max. 15 seconds for short articles / 30 seconds for detailed articles',
         
         # Update news page
         'updating_news': 'Updating news...',
