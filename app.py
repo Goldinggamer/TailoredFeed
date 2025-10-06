@@ -212,7 +212,7 @@ def cleanup_session():
 def reset_session():
     """Completely reset the session"""
     session.clear()
-    return redirect(url_for('root'))  # Ändere das redirect zur Startseite
+    return redirect(url_for('index'))  # Redirect zur index.html Seite
 
 @app.route('/restart')
 def restart():

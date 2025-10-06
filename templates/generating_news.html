@@ -11,13 +11,16 @@
     <div class="stars"></div>
     
     <div class="container">
+        <a href="{{ url_for('index') }}" class="back-button" title="Zurück zum Start">
+            ← Zurück zum Start
+        </a>
         <div class="brand">{{ texts.brand if texts else 'tailoredfeed' }}</div>
         
         <div class="loading-container">
             <div id="loadingCircle" class="loading-circle"></div>
             <div id="successIcon" class="status-icon">✅</div>
             <div id="statusText" class="status-text">{{ texts.generating_news if texts else 'Deine News werden generiert...' }}</div>
-            <div class="wait-time">{{ texts.estimated_wait_time if texts else 'Geschätzte Wartezeit: 50 Sekunden' }}</div>
+            <div class="wait-time">{{ texts.estimated_wait_time if texts else 'Geschätzte Wartezeit: Max. 30 Sekunden bei kurzen Artikeln / 60 Sekunden bei ausführlichen Artikeln' }}</div>
         </div>
     </div>
     

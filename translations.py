@@ -49,7 +49,7 @@ translations = {
         
         # Generating news page
         'generating_news': 'Deine News werden generiert...',
-        'estimated_wait_time': 'Geschätzte Wartezeit: 50 Sekunden',
+        'estimated_wait_time': 'Geschätzte Wartezeit: Max. 30 Sekunden bei kurzen Artikeln / 60 Sekunden bei ausführlichen Artikeln',
         
         # Update news page
         'updating_news': 'Aktualisiere News...',
@@ -61,9 +61,9 @@ translations = {
         'personalized_feed': 'Dein personalisierter Nachrichtenfeed',
         'categories_label': 'Kategorien:',
         'profile_label': 'Profil:',
-        'help_research_title': 'Helfen Sie bitte unserer Forschung!',
+        'help_research_title': 'Helfen Sie bitte meiner Forschung!',
         'help_research_text1': 'Ihre Meinung ist wichtig! Diese App ist Teil einer wissenschaftlichen Studie im Rahmen einer Bachelorarbeit über das Vertrauen in LLM-personalisierte Nachrichten.',
-        'help_research_text2': 'Scannen Sie den QR-Code mit Ihrem Smartphone, um an unserer kurzen Umfrage teilzunehmen. Ihre Teilnahme hilft uns dabei, die Technologie zu verbessern.',
+        'help_research_text2': 'Scannen Sie den QR-Code mit Ihrem Smartphone, um an meiner kurzen Umfrage teilzunehmen. Ihre Teilnahme hilft mir dabei, die Technologie zu verbessern.',
         'survey_benefits': [
             '📋 Nur 3-5 Minuten',
             '🔒 Vollständig anonym',
@@ -131,7 +131,7 @@ translations = {
         
         # Generating news page
         'generating_news': 'Your news is being generated...',
-        'estimated_wait_time': 'Estimated wait time: 50 seconds',
+        'estimated_wait_time': 'Estimated wait time: max. 30 seconds for short articles / 60 seconds for detailed articles',
         
         # Update news page
         'updating_news': 'Updating news...',
@@ -143,9 +143,9 @@ translations = {
         'personalized_feed': 'Your personalized news feed',
         'categories_label': 'Categories:',
         'profile_label': 'Profile:',
-        'help_research_title': 'Please help our research!',
+        'help_research_title': 'Please help my research!',
         'help_research_text1': 'Your opinion matters! This app is part of a scientific study for a bachelor thesis about trust in LLM-personalized news.',
-        'help_research_text2': 'Scan the QR code with your smartphone to participate in our short survey. Your participation helps us improve the technology.',
+        'help_research_text2': 'Scan the QR code with your smartphone to participate in my short survey. Your participation helps me improve the technology.',
         'survey_benefits': [
             '📋 Only 3-5 minutes',
             '🔒 Completely anonymous',
