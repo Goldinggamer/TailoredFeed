@@ -4,14 +4,23 @@ from langchain_community.document_loaders import JSONLoader
 from langchain_ollama import OllamaEmbeddings
 from langchain_chroma import Chroma
 from ApiNews import main as fetchNews
-
+import uuid
+collection_name = f"news_collection_{uuid.uuid4().hex[:8]}"
 
 embedding_function = OllamaEmbeddings(
     model="nomic-embed-text",
     base_url="http://127.0.0.1:11434"
 )
 
-db = None
+# db = Chroma.from_documents(
+#     documents=list([]),
+#     embedding=embedding_function,
+#     collection_name=collection_name
+
+# )
+
+db = Chroma(embedding_function=embedding_function)
+complete_documents = list()
 
 
 def metadata_func(record: dict, metadata: dict) -> dict:
@@ -22,8 +31,12 @@ def metadata_func(record: dict, metadata: dict) -> dict:
 
 
 def create_in_memory_chroma_db():
+    global complete_documents
     global db
-    fetchNews()
+    try:
+        fetchNews()
+    except:
+        print("Fehler bei fetchApiNews. Nutze alte Nachrichten")
     print("CHROMA_CREATE - init")
 
     """
@@ -32,10 +45,6 @@ def create_in_memory_chroma_db():
     try:
         print("CHROMA_CREATE - try")
 
-        # Explizit die alte DB auf None setzen
-        if db is not None:
-            print("DEBUG: Setze alte DB auf None")
-            db = None
 
         # Json file laden
         doc_loader = JSONLoader(
@@ -46,12 +55,13 @@ def create_in_memory_chroma_db():
         )
         print("JSON LOADER")
         documents = doc_loader.load()
+        complete_documents = documents
         print("CHROMA_CREATE - documents loaded")
         
         # Text chunking
         text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=1500,
-            chunk_overlap=250,
+            chunk_size=500,
+            chunk_overlap=100,
             length_function=len,
             add_start_index=True,
         )
@@ -59,16 +69,17 @@ def create_in_memory_chroma_db():
         print("CHROMA_CREATE - chunks splitted")
         
         # Komplett neue ChromaDB-Instanz erstellen mit eindeutiger Collection
-        import uuid
-        collection_name = f"news_collection_{uuid.uuid4().hex[:8]}"
+        db.reset_collection()
+        # db.delete_collection()
+        db.add_documents(chunks)
         
-        db = Chroma.from_documents(
-            documents=chunks,
-            embedding=embedding_function,
-            collection_name=collection_name,  # Eindeutige Collection-ID
-            # Kein persist_directory = In-Memory
-        )
-        
+        # db = Chroma.from_documents(
+        #     documents=chunks,
+        #     embedding=embedding_function,
+        #     collection_name=collection_name,  # Eindeutige Collection-ID
+        #     # Kein persist_directory = In-Memory
+        # )
+
         print(f"Created in-memory ChromaDB with {len(chunks)} chunks.")
         
     except Exception as e:
@@ -80,5 +91,3 @@ def update_db():
     create_in_memory_chroma_db()
 
 
-if db is None:
-    create_in_memory_chroma_db()

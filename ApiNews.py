@@ -208,6 +208,8 @@ def main():
                 })
         except: 
             print("fehler")
+            print(outputs)
+            raise Exception()
 
 
     

@@ -9,9 +9,10 @@ import shutil
 from test_copy import main as generate_feed
 from translations import get_text, get_all_texts
 
-from ApiNews import main as fetchNews
 from database import update_db
 from apscheduler.schedulers.background import BackgroundScheduler
+from apscheduler.triggers.cron import CronTrigger
+
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
@@ -274,9 +275,19 @@ def background_task():
 
 if __name__ == '__main__':
 
+    update_db()
 
     scheduler = BackgroundScheduler()
-    scheduler.add_job(background_task, 'interval', hours=6)
-    scheduler.start()
+
+    trigger = CronTrigger(
+        year="*", month="*", day="*", hour="7", minute="0", second="0" # * * * 07:00:00
+    )
+    scheduler.add_job(
+        background_task,
+        trigger=trigger,
+    )
+    # scheduler.add_job(background_task, 'interval', seconds=60)
     
+
+    scheduler.start()
     app.run(debug=True)

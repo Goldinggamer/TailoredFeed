@@ -6,11 +6,13 @@ from langchain_ollama import OllamaEmbeddings
 from langchain_chroma import Chroma
 from langchain_community.llms import Ollama
 from langchain.text_splitter import RecursiveCharacterTextSplitter  
-from langchain.schema import Document  
+# from langchain.schema import Document  
 from langchain_community.document_loaders import JSONLoader
+from langchain_core.documents import Document
+
 
 from title_translation import translate_with_ollama
-from database import db
+from database import db, metadata_func#, complete_documents
 
 model = Ollama(model="gpt-oss:120b", base_url="http://127.0.0.1:11434") 
 
@@ -79,7 +81,7 @@ def query_and_process_category(category, user_info):
         'wissenswertes': "interessant fakten wissen entdeckung",
         'wirtschaft': "wirtschaft konjunktur unternehmen märkte",
         'gesundheit': "gesundheit medizin krankenhaus therapie",
-        'muenchen': "münchen bayern bavaria stadt",
+        'muenchen': "münchen bayern bavaria",
         'technologie': "technologie digital ki innovation",
         'sport': "sport deutschland liga turnier",
         'custom': ""
@@ -120,7 +122,7 @@ def query_and_process_category(category, user_info):
         return display_name, [{'content': no_news_text, 'images': [], 'title': f"{display_name} - {no_news_text}"}]
     
     # Ähnliche Dokumente holen
-    results = db.similarity_search(search_term, k=10)
+    results = db.similarity_search(search_term, k=15)
     print(f"DEBUG: {len(results)} Roh-Treffer für '{search_term}'", flush=True)
 
      # DEBUG: Überprüfe Suchergebnisse
@@ -129,106 +131,35 @@ def query_and_process_category(category, user_info):
 
     distinct_results = {}
 
-    for i, doc in enumerate(results):
-        _title = doc.metadata.get("title")
+    doc_loader = JSONLoader(
+            file_path="./data/alle_news_json.json",
+            jq_schema='.news[]',  
+            content_key="text",
+            metadata_func=metadata_func
+        )
+    print("JSON LOADER")
+    complete_documents = doc_loader.load()
+
+    for i, chunk in enumerate(results):
+        _title = chunk.metadata.get("title")
         if _title not in distinct_results:
-            distinct_results[_title] = doc
+            # distinct_results[_title] = doc
+
+            _doc = next((x for x in complete_documents if x.metadata.get("title") == chunk.metadata.get("title")), chunk)
+            print(f"Chunk länge {len(chunk.page_content)} - beitrag länge {len(_doc.page_content)}")
+
+            distinct_results[_title] = _doc
 
 
     print(f"Distinct ergebnisse: {len(distinct_results.values())}")
 
     distinct_documents = list(distinct_results.values())
 
-    # for i, doc in enumerate(results):
-    #     print(f"DEBUG: Ergebnis {i+1}: Titel='{doc.metadata.get('title', 'N/A')}'", flush=True)
-    
-    # Entferne Duplikate basierend auf Titel und Content - OPTIMIERT
-    # unique_results = []
-    # seen_titles = set()
-    # seen_content_hashes = set()
-    
-    # import hashlib  # Import einmal am Anfang
-    
-    # for doc in results:
-        # title = doc.metadata.get('title', '').strip().lower()
-        # content = doc.page_content.strip()
-        
-        # # Schneller Content-Hash
-        # content_hash = hashlib.md5(content.encode('utf-8')).hexdigest()
-        
-        # # Schnelle Duplikatsprüfung - erst einfache Checks
-        # if title in seen_titles or content_hash in seen_content_hashes:
-        #     continue
-            
-        # # Nur bei neuen Titeln: Prüfe auf Titel-Ähnlichkeit (teurer Check)
-        # title_similarity = False
-        # title_words = set(title.split())
-        # for seen_title in seen_titles:
-        #     seen_words = set(seen_title.split())
-        #     if len(title_words & seen_words) / max(len(title_words), len(seen_words), 1) > 0.8:
-        #         title_similarity = True
-        #         break
-        
-        # # Artikel hinzufügen, wenn nicht ähnlich
-        # if not title_similarity:
-        #     seen_titles.add(title)
-        #     seen_content_hashes.add(content_hash)
-        #     unique_results.append(doc)
-            
-        #     # Früh stoppen bei 3 eindeutigen Artikeln - spart Zeit!
-        #     if len(unique_results) >= 3:
-        #         break
-    
+
     print(f"DEBUG: Nach Duplikatsentfernung: {len(distinct_documents)} eindeutige Artikel", flush=True)
     results = distinct_documents
     
-    # Falls weniger als 3 eindeutige Artikel gefunden wurden, versuche andere Suchbegriffe
-    # if len(results) < 3:
-    #     print(f"DEBUG: Nur {len(results)} eindeutige Artikel gefunden, versuche erweiterte Suche", flush=True)
-        
-    #     # Erweiterte Suchbegriffe für verschiedene Kategorien
-    #     fallback_terms = {
-    #         'politik': ['politik deutschland', 'bundestag', 'regierung', 'wahlen'],
-    #         'wirtschaft': ['wirtschaft', 'unternehmen', 'börse', 'inflation'],
-    #         'sport': ['sport', 'fußball', 'bundesliga', 'olympia'],
-    #         'muenchen': ['münchen', 'bayern', 'bavaria'],
-    #         'wissenschaft': ['wissenschaft', 'forschung', 'studie', 'innovation'],
-    #         'technologie': ['technologie', 'tech', 'digital', 'ki'],
-    #         'gesundheit': ['gesundheit', 'medizin', 'krankenhaus', 'therapie'],
-    #         'wissenswertes': ['interessant', 'fakten', 'wissen', 'entdeckung']
-    #     }
-        
-    #     category_key = category.lower()
-    #     if category_key in fallback_terms:
-    #         for fallback_term in fallback_terms[category_key]:
-    #             if len(results) >= 3:
-    #                 break
-                
-    #             fallback_results = db.similarity_search(fallback_term, k=5)
-    #             for doc in fallback_results:
-    #                 title = doc.metadata.get('title', '').strip().lower()
-    #                 content = doc.page_content.strip()
-    #                 content_hash = hashlib.md5(content.encode('utf-8')).hexdigest()
-                    
-    #                 # Prüfe ob dieser Artikel schon vorhanden ist
-    #                 title_exists = False
-    #                 for seen_title in seen_titles:
-    #                     title_words = set(title.split())
-    #                     seen_words = set(seen_title.split())
-    #                     if len(title_words & seen_words) / max(len(title_words), len(seen_words), 1) > 0.8:
-    #                         title_exists = True
-    #                         break
-                    
-    #                 if not title_exists and content_hash not in seen_content_hashes:
-    #                     seen_titles.add(title)
-    #                     seen_content_hashes.add(content_hash)
-    #                     results.append(doc)
-                        
-    #                     if len(results) >= 3:
-    #                         break
-        
-    #     print(f"DEBUG: Nach erweiterter Suche: {len(results)} Artikel gefunden", flush=True)
-    
+
     # Begrenzen auf maximal 3 Artikel für die parallele Verarbeitung
     results = results[:3]
         
