@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251008_114835",
+  "date": "2025-10-08 11:48:35",
+  "user_info": {
+    "complexity_level": "standard",
+    "language": "English"
+  },
+  "categories": [
+    "wissenschaft"
+  ],
+  "format": "ausfuehrlich",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Wissen und Forschung",
+        "articles": [
+          {
+            "content": "A company that produces medical tests says it regularly inspects its suppliers, sometimes without notice, and collaborates with regulatory authorities. However, the company’s spokesperson notes that despite advances in alternative methods, animals and animal‑derived materials remain essential for patient health. One promising alternative is the laboratory‑based phage‑display technique, which earned the 2018 Chemistry Nobel Prize for Gregory Winter and George Smith. The method does not rely on the immune system of living rabbits but uses a lab‑generated library of antibody fragments. According to Professor Michael Hust of TU Braunschweig, the library can contain about ten billion different antibodies in a vessel the size of a fingernail. By adding the target virus or hormone to this tiny vessel, researchers can “fish out” the suitable antibody and then produce it biotechnologically in any quantity.",
+            "images": [
+              "https://images.tagesschau.de/image/3cd18bef-8e6d-4548-88e8-b0df9211aa24/AAABll5XruM/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Medical tests without animal suffering."
+          },
+          {
+            "content": "The German Future Prize, worth 250,000 euros, will be awarded on 19 November in Berlin by President Frank‑Walter Steinmeier. Today three teams presented their nominated projects at the Deutsches Museum in Munich, covering an eye‑laser method, a hydrogen‑powered heavy‑truck drive and a biodegradable plastic substitute. The biodegradable plastic project comes from a Hamburg team called Traceless Materials. According to spokesperson Anne Lamp, conventional plastics consist of long polymer chains that nature cannot break down, creating environmental waste. Traceless Materials has developed a new material that can decompose biologically, aiming to replace traditional plastics. The team’s goal is to provide a sustainable alternative that reduces long‑term pollution while maintaining the functional properties of conventional plastics.",
+            "images": [
+              "https://images.tagesschau.de/image/4a303a3f-d435-4704-82ff-22fa8d25aa8b/AAABmVcdFgI/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Replacement plastic, laser eye surgery, or hydrogen propulsion?"
+          },
+          {
+            "content": "The 2023 Nobel Prize in Physiology or Medicine was awarded to Mary Brunkow, Fred Ramsdell and Shimon Sakaguchi for their work on peripheral immune tolerance. Sakaguchi identified a previously unknown group of immune cells, regulatory T cells, in the mid‑1990s and showed they keep the immune system from attacking the body’s own tissues. Later, Brunkow and Ramsdell discovered that a mutation in the Foxp3 gene makes mice prone to autoimmune diseases, linking the gene to the function of regulatory T cells. Their findings provide the basic knowledge for a new field of research aimed at controlling immune responses. According to Marie Wahren‑Herlenius of the Karolinska Institute, this work has already driven the development of several experimental therapies for cancer and autoimmune disorders. The Nobel Committee highlighted the potential of these discoveries to lead to future treatment methods that modulate the immune system.",
+            "images": [
+              "https://images.tagesschau.de/image/21486af0-39c2-4768-a921-22f3336ef545/AAABmbjuO9M/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "The Nobel Prize in Medicine goes to three immunologists."
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

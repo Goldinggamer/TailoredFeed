@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251008_120228",
+  "date": "2025-10-08 12:02:28",
+  "user_info": {
+    "complexity_level": "standard",
+    "language": "English"
+  },
+  "categories": [
+    "wissenschaft"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Wissen und Forschung",
+        "articles": [
+          {
+            "content": "According to a study by the IW Köln, university housing can only accommodate about 10 % of students, while rents for student apartments rose 2.3 % last year, with Leipzig, Freiburg and Konstanz seeing over 6 % annual increases. In Munich a 30‑m² student flat costs around €840 warm rent, compared with €270 for a WG‑room in Chemnitz, showing stark regional price differences. Researchers warn that despite high demand, new construction is declining because of rising costs, lengthy approval processes and stricter building standards.",
+            "images": [
+              "https://images.tagesschau.de/image/a4700ccb-52a1-4089-8a28-e7d075bd2bb1/AAABlX_ZU2Y/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "The battle for the shared apartment room."
+          },
+          {
+            "content": "Researchers use phage‑display technology, which earned the 2018 Chemistry Nobel, to generate antibodies for diagnostic tests without relying on live animals. The method employs a lab‑created library of about ten billion antibody fragments in a one‑millilitre vessel, allowing scientists to select the right antibody and produce it biotechnologically, though the company notes that animal‑derived materials remain essential for patient health.",
+            "images": [
+              "https://images.tagesschau.de/image/3cd18bef-8e6d-4548-88e8-b0df9211aa24/AAABll5XruM/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Medical tests without animal suffering."
+          },
+          {
+            "content": "Three teams have been nominated for the German Future Prize, which awards €250,000 for innovative technical developments, and presented their projects at the Deutsches Museum in Munich. One of the projects, from the Hamburg‑based company Traceless Materials, is a biodegradable plastic substitute that breaks down naturally, addressing the environmental problem of long‑chain polymers that do not decompose.",
+            "images": [
+              "https://images.tagesschau.de/image/4a303a3f-d435-4704-82ff-22fa8d25aa8b/AAABmVcdFgI/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Replacement for dentures, laser eye surgery, or hydrogen propulsion?"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

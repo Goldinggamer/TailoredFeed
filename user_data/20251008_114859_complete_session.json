@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251008_114830",
+  "date": "2025-10-08 11:48:30",
+  "user_info": {
+    "complexity_level": "detailliert",
+    "language": "English"
+  },
+  "categories": [
+    "wissenschaft"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Wissen und Forschung",
+        "articles": [
+          {
+            "content": "The biotech firm reports that, while it conducts regular, sometimes unannounced inspections of its suppliers and collaborates with regulatory authorities, animal‑derived materials remain indispensable for patient health, even as alternative methods advance. A leading alternative, phage‑display technology—awarded the 2018 Chemistry Nobel to Gregory Winter and George Smith—enables the selection of specific antibodies from a laboratory‑generated library of roughly ten billion variants contained in a one‑millilitre vessel, allowing subsequent biotechnological production without using live animals.",
+            "images": [
+              "https://images.tagesschau.de/image/3cd18bef-8e6d-4548-88e8-b0df9211aa24/AAABll5XruM/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Medical tests without animal suffering."
+          },
+          {
+            "content": "The German Future Prize, worth €250,000, will be awarded on 19 November in Berlin to three teams that presented their projects at the Deutsches Museum in Munich, including a Hamburg‑based team, Traceless Materials, which has developed a biodegradable substitute for conventional plastics. According to spokesperson Anne Lamp, the new material aims to provide an environmentally compatible alternative to traditional polymers that are not naturally degradable.",
+            "images": [
+              "https://images.tagesschau.de/image/4a303a3f-d435-4704-82ff-22fa8d25aa8b/AAABmVcdFgI/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Artificial skin, laser eye surgery, or hydrogen propulsion?"
+          },
+          {
+            "content": "The 2023 Nobel Prize in Physiology or Medicine was awarded to Mary Brunkow, Fred Ramsdell and Shimon Sakaguchi for their discoveries on peripheral immune tolerance, including the identification of regulatory T‑cells and the finding that Foxp3 mutations predispose mice to autoimmune disease, which provide a foundation for new treatments against cancer and autoimmune disorders.",
+            "images": [
+              "https://images.tagesschau.de/image/21486af0-39c2-4768-a921-22f3336ef545/AAABmbjuO9M/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "The Nobel Prize in Physiology or Medicine goes to three immunologists."
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}
