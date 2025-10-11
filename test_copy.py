@@ -283,21 +283,27 @@ def query_and_process_category(category, user_info):
         # Nur Tasks für die tatsächlich benötigten Artikel erstellen
         tasks = [asyncio.create_task(_guarded(doc)) for doc in docs[:3]]
         results_accum = []
+        no_news_entries = []
         try:
             for fut in asyncio.as_completed(tasks):
                 res = await fut
                 if not res:
                     continue
                 if res["type"] == "no_news":
-                    print(f"DEBUG: LLM hat 'keine Nachrichten' für Artikel '{res['title']}' zurückgegeben", flush=True)
-                    # alle übrigen Tasks abbrechen
-                    for t in tasks:
-                        if not t.done():
-                            t.cancel()
-                    return [res["entry"]]
+                    print(f"DEBUG: LLM hat 'keine Nachrichten' für Artikel '{res['title']}' zurückgegeben - überspringe diesen", flush=True)
+                    # Sammle "keine Nachrichten" Einträge, aber brich nicht ab
+                    no_news_entries.append(res["entry"])
                 else:
                     results_accum.append(res["entry"])
-            return results_accum
+            
+            # Wenn wir normale Artikel haben, gib diese zurück
+            if results_accum:
+                return results_accum
+            # Andernfalls, wenn nur "keine Nachrichten" Ergebnisse vorhanden sind, gib diese zurück
+            elif no_news_entries:
+                return no_news_entries[:1]  # Nur einen "keine Nachrichten" Eintrag
+            # Falls gar nichts da ist, leere Liste
+            return []
         finally:
             for t in tasks:
                 if not t.done():
