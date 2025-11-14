@@ -1,0 +1,37 @@
+{
+  "timestamp": "20251023_160403",
+  "date": "2025-10-23 16:04:03",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "Français"
+  },
+  "categories": [
+    "muenchen"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "München aktuell",
+        "articles": [
+          {
+            "content": "Le Bayern Munich a gagné 4 0 contre le club belge du Bruges en Ligue des champions. Le jeune joueur Lennart Karl a marqué le premier but, devenant le plus jeune Allemand à marquer dans cette compétition.",
+            "images": [
+              "https://images.sportschau.de/image/5950cd4f-8706-4730-a727-28de8963b276/AAABmg2l4Cc/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Le but historique de Karl - Le Bayern file vers la prochaine victoire."
+          },
+          {
+            "content": "À Munich, le loyer moyen d’un appartement est le plus élevé d’Allemagne, environ 23 euros le mètre carré. Dans tout le pays, les augmentations de loyer ralentissent, mais la demande reste très forte.",
+            "images": [
+              "https://images.tagesschau.de/image/77227c1d-518a-4267-acf7-e601ebca41c4/AAABmMzJh8w/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Les loyers des logements en Allemagne augmentent plus lentement dans les villes."
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

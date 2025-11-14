@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251013_105256",
+  "date": "2025-10-13 10:52:56",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "politik"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Politik",
+        "articles": [
+          {
+            "content": "Nach den Drohnensichtungen will die Regierung der Bundespolizei neue Rechte geben, damit sie Drohnen abwehren kann, zum Beispiel indem sie eigene Drohnen nutzt oder Drohnen abschießt. Noch in diesem Jahr soll eine spezielle Drohnen‑Abwehr‑Einheit und ein gemeinsames Drohnen‑Abwehr‑Zentrum von Polizei, Zoll, BKA und den Ländern entstehen, und die Bundespolizei bekommt mehr Geräte, 341 neue Mitarbeitende sowie weitere Befugnisse wie das Finden von Handys und das Verbot, an bestimmten Orten wie Flughäfen zu bleiben.",
+            "images": [
+              "https://images.tagesschau.de/image/aaec9406-755d-4c85-9c1d-004e09b7c0a7/AAABmcREh9I/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "So will Deutschland Drohnen bekämpfen"
+          },
+          {
+            "content": "Die Bundesregierung plant, der Bundespolizei zu erlauben, gefährliche Drohnen mit Störsignalen oder durch Abschuss zu stoppen. Gleichzeitig hat das Kabinett die umstrittene Krankenhausreform geändert, damit es mehr Ausnahmen und längere Übergangsfristen gibt.",
+            "images": [
+              "https://images.tagesschau.de/image/e5565b62-7327-4380-b851-c50c003470e6/AAABmcNt1HE/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Änderungen bei Polizeigesetz und Krankenhausreform"
+          },
+          {
+            "content": "Die Politiker in Deutschland diskutieren, wie das Land vor gefährlichen Drohnen geschützt werden kann. Sie wollen neue Regeln für die Bundespolizei und mehr Abwehrdrohnen kaufen, damit Flughäfen und andere wichtige Orte sicher bleiben.",
+            "images": [
+              "https://images.tagesschau.de/image/23e0d744-e429-4f60-916e-9b365c0bc3fb/AAABmcNSSsQ/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Drohnen-Technik - wie weit sind deutsche Hersteller?"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

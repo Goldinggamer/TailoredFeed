@@ -1,0 +1,37 @@
+{
+  "timestamp": "20251024_143744",
+  "date": "2025-10-24 14:37:44",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "English"
+  },
+  "categories": [
+    "muenchen"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "München aktuell",
+        "articles": [
+          {
+            "content": "In Munich, the average rent for an unfurnished flat is about 23 euros per square metre, the highest of all German cities. While rent increases in Germany are slowing, demand stays strong and apartments remain hard to find.",
+            "images": [
+              "https://images.tagesschau.de/image/77227c1d-518a-4267-acf7-e601ebca41c4/AAABmMzJh8w/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Rental prices in German cities are rising more slowly."
+          },
+          {
+            "content": "Professors from the University of Munich say that new AI chat tools in search engines may change how people get news and could make it harder for small news sites to earn money. They want the European Digital Services Act to make the AI answers clearer and fair.",
+            "images": [
+              "https://images.tagesschau.de/image/83baa1e5-38ac-49a0-9fe7-df7e8eed028a/AAABlddIn2s/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "How AI is changing internet search"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

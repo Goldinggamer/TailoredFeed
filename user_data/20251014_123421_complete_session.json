@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251014_123349",
+  "date": "2025-10-14 12:33:49",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "English"
+  },
+  "categories": [
+    "wissenschaft"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Wissen und Forschung",
+        "articles": [
+          {
+            "content": "The Nobel prize winners in economics said that new ideas and inventions are needed for long‑term growth, and that societies must be open to change. Their research shows that replacing old businesses with newer ones, a process called creative destruction, helps economies become richer.",
+            "images": [
+              "https://images.tagesschau.de/image/9feeec36-035c-454c-b2b4-c2e6dc57b838/AAABmd2dYFU/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "How innovations contribute to sustainable growth."
+          },
+          {
+            "content": "Scientists say that getting shots against flu, COVID and other breathing bugs can also help protect the heart. Studies show people who get the flu shot have about a quarter less chance of a serious heart problem. Doctors now call vaccines a fourth way to keep the heart safe, together with lowering blood pressure, cholesterol and sugar.",
+            "images": [
+              "https://images.tagesschau.de/image/41fd5938-226e-475a-9605-fdc0abef0e0e/AAABmYY6Q_s/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Vaccinations also protect the heart."
+          },
+          {
+            "content": "A study shows that the average rent for a student room in Germany is now about 505 euros per month, after rising roughly 21 % since 2020. In big university cities like Munich, about 8,800 students are waiting for a dorm room, but dorms can only hold about 10 % of all students.",
+            "images": [
+              "https://images.tagesschau.de/image/a4700ccb-52a1-4089-8a28-e7d075bd2bb1/AAABlX_ZU2Y/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "The battle over the shared apartment room."
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

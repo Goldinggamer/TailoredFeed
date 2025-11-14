@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251021_150144",
+  "date": "2025-10-21 15:01:44",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "Français"
+  },
+  "categories": [
+    "wissenschaft"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Wissen und Forschung",
+        "articles": [
+          {
+            "content": "Des chercheurs de l'ETH Zurich ont montré que prendre un grand soupir modifie le liquide qui recouvre les petits sacs d’air des poumons. Après ce souffle profond, la tension du liquide diminue, rendant les poumons plus souples et la respiration plus facile.",
+            "images": [
+              "https://images.tagesschau.de/image/c6e6359c-9429-45c9-ba4c-032a7b6704ef/AAABmfd_1yo/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Pourquoi les soupirs profonds sont bons."
+          },
+          {
+            "content": "En Allemagne, un brevet sur sept est déposé par une personne dont la famille vient d’un autre pays, soit 14 % en 2022. En 2000, c’était seulement un brevet sur vingt, environ 5 %. Chez ces inventeurs, les femmes représentent près de 9 %, presque le double de la proportion chez les Allemands.",
+            "images": [
+              "https://images.tagesschau.de/image/4e9454fe-7fcd-48b3-b4f3-05de8b344806/AAABmd16aAQ/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Une demande de brevet sur sept provient d'immigrants."
+          },
+          {
+            "content": "Les lauréats du prix Nobel d’économie ont étudié comment les inventions aident la croissance durable. Le chercheur Joel Mokyr a montré que comprendre pourquoi une invention fonctionne, comme la vapeur, est essentiel, et que la société doit accepter les nouvelles idées. Les économistes Philippe Aghion et Peter Howitt expliquent que remplacer les vieilles technologies par de nouvelles, ce qu’on appelle la «destruction créatrice», stimule la richesse.",
+            "images": [
+              "https://images.tagesschau.de/image/9feeec36-035c-454c-b2b4-c2e6dc57b838/AAABmeGm0r0/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Comment les innovations contribuent à une croissance durable."
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

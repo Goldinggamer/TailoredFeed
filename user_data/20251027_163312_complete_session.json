@@ -1,0 +1,30 @@
+{
+  "timestamp": "20251027_163244",
+  "date": "2025-10-27 16:32:44",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "muenchen"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "München aktuell",
+        "articles": [
+          {
+            "content": "In München hat bei der Bürgerabstimmung 66,4 % der Wähler die Olympiabewerbung unterstützt, bei einer Rekordbeteiligung von 42 %. Das gibt München einen Vorsprung gegenüber Berlin, Hamburg und Nordrhein‑Westfalen, die noch abstimmen müssen. Der Bürgermeister und Ministerpräsident wollen das Ergebnis dem Deutschen Olympischen Sportbund zeigen.",
+            "images": [
+              "https://images.sportschau.de/image/e3ca9242-b657-44b2-9cea-a8a7e2a2b97a/AAABmiUZvzk/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Nach Bürgervotum - Tückischer Rückenwind aus München"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

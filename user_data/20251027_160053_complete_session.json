@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251027_160011",
+  "date": "2025-10-27 16:00:11",
+  "user_info": {
+    "complexity_level": "detailliert",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "wissenswertes"
+  ],
+  "format": "ausfuehrlich",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Wissenswertes",
+        "articles": [
+          {
+            "content": "Aldi Süd wird ab Mitte Januar 2026 für seine Eigenmarke kein Fleisch mehr aus der untersten Haltungsform 1 anbieten, wobei Rind, Schwein, Hähnchen und Pute betroffen sind; Markenartikel und internationale Spezialitäten bleiben ausgenommen. Gleichzeitig streben Rewe und die Discount-Tochter Penny an, bis zu diesem Zeitpunkt mindestens die Haltungsform 2 zu verwenden, während Lidl sein Ziel für Ende Februar 2026 bereits im Wesentlichen erreicht hat. Das freiwillige Kennzeichnungssystem „Haltungsform“ unterscheidet fünf Stufen, wobei Stufe 1 den gesetzlichen Mindestanforderungen entspricht und Stufe 5 dem Bio‑Standard mit erweitertem Platz, Auslauf und ökologischer Futtermittelproduktion entspricht. Bis 2030 planen die großen Handelsketten, ihr gesamtes Frischfleischangebot der Eigenmarken auf die höheren Haltungsformen 3 und 4 umzustellen, sofern ausreichende Lieferungen verfügbar sind. Nach Angaben von Aldi Süd entfallen bereits die Hälfte des Frischfleischs sowie mehr als ein Drittel der gekühlten Fleisch‑ und Wurstwaren auf die Stufen 3, 4 und 5, wobei das Sortiment zu 90 % aus Eigenmarken besteht. Aktuelle Daten der Initiative Tierwohl zeigen, dass 2023 lediglich 1,5 % des Schweinefleischs im SB‑Regal aus Stufe 1 stammten, während bei Puten und Hähnchen kein Fleisch mehr aus der untersten Stufe angeboten wird, jedoch über drei Viertel des Rindfleischs noch in Stufe 1 zu finden waren.",
+            "images": [
+              "https://images.tagesschau.de/image/3ebb2eed-3ea2-4169-ab69-f4d59b54a933/AAABmgJYqmI/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Auch Aldi Süd streicht Fleisch aus Haltungsform 1"
+          },
+          {
+            "content": "Die klassische Schweinepest ist in Deutschland seit 2012 offiziell ausgerottet, bleibt jedoch durch mögliche Einschleppungen ein latentes Risiko. Forschende der Universität Edinburgh und der Universität Lübeck haben mit der Genschere CRISPR‑Cas ein für das Virus essentielles Protein der Schweinezelle minimal verändert, um die Virusvermehrung zu verhindern. In einem ersten In‑Vivo‑Versuch wurden die genetisch editieren Schweine künstlich mit dem Erreger infiziert; im Gegensatz zu nicht modifizierten Kontrolltieren zeigten die editieren Tiere weder Fieber noch immunologische Anzeichen einer Infektion. Die Ergebnisse wurden in der Fachzeitschrift „Trends in Biotechnology“ veröffentlicht und gelten als vielversprechend für die Entwicklung resistenter Nutztierpopulationen. Wissenschaftliche Fachleute betonen jedoch, dass mögliche Virusanpassungen und langfristige gesundheitliche Auswirkungen der Genmodifikation noch untersucht werden müssen. In der Europäischen Union gelten die Tiere trotz fehlender Fremd‑DNA dennoch als gentechnisch verändert, sodass ihre Zucht und der Verkauf von Fleisch rechtlich untersagt sind.",
+            "images": [
+              "https://images.tagesschau.de/image/4868e01f-3105-4994-8026-2bb8cba7decb/AAABmgxqn1A/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Mit der \"Genschere\" gegen die Schweinepest?"
+          },
+          {
+            "content": "Der jüngste Börsengang der Thyssenkrupp‑Marinetochter TKMS markiert einen Trend, bei dem Industriekonzerne ihre Geschäftssparten abspalten und eigenständig an die Börse bringen. Die Abspaltung erfolgte, indem Aktionäre von Thyssenkrupp für je 20 Stammaktien einen Anteilsschein an TKMS erhielten, der sofort handelbar ist. Bei Handelsbeginn wurden die TKMS‑Aktien zu 60 Euro notiert und stiegen innerhalb weniger Minuten weiter an, wodurch das Unternehmen mit rund 5,3 Milliarden Euro bewertet wird – deutlich über den Analystenerwartungen. Vor allem im Bereich Elektronik und Software wird künftig Wachstum erwartet, weil viele Marinen weltweit Nachholbedarf bei Beschaffungen haben. Der Vorgang folgt ähnlichen Schritten von Siemens, Bayer und dem Autozulieferer Continental, die ebenfalls Tochterunternehmen ausgegliedert haben, um deren Sichtbarkeit und Finanzierungsoptionen zu erhöhen. Laut Vermögensverwalter Chris Oliver Schickentanz von der Capitell AG stelle dies einen Wandel von der früheren Annahme dar, dass ein Industriekonglomerat mehr wert sei als die Summe seiner Teile. Investoren könnten nun gezielt in die einzelnen Sparten investieren, ohne das Mutterunternehmen, beispielsweise das Stahlgeschäft von Thyssenkrupp, zu involvieren.",
+            "images": [
+              "https://images.tagesschau.de/image/89b4db6e-d3b9-45f7-9cc8-8ee0d12470c4/AAABmgGwXaU/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Sind Abspaltungen die neuen Börsengänge? "
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251028_144114",
+  "date": "2025-10-28 14:41:14",
+  "user_info": {
+    "complexity_level": "detailliert",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "politik"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Politik",
+        "articles": [
+          {
+            "content": "Eine von der Universität Hohenheim durchgeführte repräsentative Befragung (Forsa, August/September 2023, 4 057 Personen) ergab, dass 17 % der Deutschen ein populistisches Weltbild vertreten, wobei der Anteil im Osten mit 28 % deutlich über dem im Westen liegt und bei AfD‑Wählern 84 % beträgt, während er bei Grünen‑Wählern unter 1 % liegt. Gleichzeitig sehen 23 % der Befragten Politiker als Marionetten hinter vermeintlichen „geheimen Mächten“ und 14 % die aktuelle Demokratie eher als Diktatur, wobei das Vertrauen in die Demokratie auf Bundesebene seit 2021 um 21 Prozentpunkte gesunken ist.",
+            "images": [
+              "https://images.tagesschau.de/image/ea8361f7-e32c-459d-ab06-a10ecec9ebaa/AAABl42jtdo/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "17 Prozent vertreten populistisches Weltbild"
+          },
+          {
+            "content": "Unions‑Fraktionschef Jens Spahn verteidigte die umstrittenen „Stadtbild“-Äußerungen von Bundeskanzler Friedrich Merz und erklärte, der Kanzler spräche das an, was die Mehrheit der Deutschen denke, während er die Kritik der SPD und der Linken als „Empörungszirkus“ abtue. Die Bemerkungen lösten bundesweit Proteste gegen Rassismus aus und führten erneut Streit innerhalb der schwarz‑roten Koalition, wobei Spahn nun mehr Sicherheitsmaßnahmen wie Videoüberwachung an Bahnhöfen und konsequentere Abschiebungen forderte.",
+            "images": [
+              "https://images.tagesschau.de/image/e8fe1da3-ff4a-46bf-9461-17b9d81e622e/AAABmiSU4gc/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "\"Der Bundeskanzler spricht aus, was die Mehrheit denkt\""
+          },
+          {
+            "content": "Die Innenministerkonferenz arbeitet an einer übergeordneten Stadionverbotskommission beim DFB, die bei Einleitung eines Ermittlungsverfahrens künftig ein automatisches dreimonatiges Stadionverbot vorsieht, während gleichzeitig die Einführung personalisierter Eintrittskarten als behördliche Erwartung diskutiert wird; ein genauer Beschluss steht noch aus, jedoch soll bis zur Innenministerkonferenz in Bremen (3.–5. Dezember 2025) ein neuer Sachstand präsentiert werden.",
+            "images": [
+              "https://images.sportschau.de/image/38f7a698-635c-4993-b692-778eebe6468a/AAABmhE4dHg/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Streit um Stadionverbote und personalisierte Tickets"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251020_102506",
+  "date": "2025-10-20 10:25:06",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "politik"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Politik",
+        "articles": [
+          {
+            "content": "Die Politiker von Union und SPD haben sich noch nicht auf einen neuen Wehrdienst einigen können. In der SPD gab es Widerstand gegen ein Losverfahren, das bei zu wenigen Freiwilligen eingesetzt werden sollte, und deshalb wurde die geplante Pressekonferenz abgesagt. Jetzt ist unklar, ob das Gesetz wie geplant am Donnerstag im Bundestag eingebracht wird.",
+            "images": [
+              "https://images.tagesschau.de/image/5696e229-9473-4398-bcf5-45244efe034b/AAABmajeFus/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Einigung zu Wehrdienst offenbar vorerst geplatzt"
+          },
+          {
+            "content": "Die Bundesregierung will mehr junge Menschen für die Bundeswehr gewinnen und prüft, ob bei zu wenigen Freiwilligen ein Los darüber entscheiden soll, wer eingezogen wird. Juristen diskutieren, ob ein solches Losverfahren verfassungsgemäß ist, weil die Wehrpflicht ein starkes Grundrecht berührt.",
+            "images": [
+              "https://images.tagesschau.de/image/5e757af0-e953-4d91-a31f-cb128e76be8a/AAABmeda5Aw/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Ist ein Losverfahren rechtlich zulässig?"
+          },
+          {
+            "content": "In der Union diskutieren Politiker, ob man die Regel, die Zusammenarbeit mit der AfD verbietet, lockern soll; mehrere ostdeutsche CDU‑Politiker fordern eine Lockerung der sogenannten Brandmauer. Die Spitzen der Union, darunter Bundeskanzler und CDU‑Chef Friedrich Merz, Ministerpräsident Daniel Günther und CSU‑Generalsekretär Martin Huber, lehnen jede Zusammenarbeit mit der AfD nach wie vor ab.",
+            "images": [
+              "https://images.tagesschau.de/image/7ccf71fe-3950-4357-b41a-e1559602725d/AAABlpZ2n_4/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Brandmauer-Debatte in der Union brodelt weiter"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

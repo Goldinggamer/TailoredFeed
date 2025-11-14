@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251015_150405",
+  "date": "2025-10-15 15:04:05",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "politik"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Politik",
+        "articles": [
+          {
+            "content": "Die Bundesregierung will das Polizeigesetz ändern, damit die Bundespolizei Drohnen abwehren und abschießen darf, neue Drohnen‑Einheiten und ein gemeinsames Drohnenabwehrzentrum bekommen und mehr Geräte sowie 341 neue Mitarbeitende erhalten. Außerdem soll die Polizei Handys finden und Menschen verbieten, sich an Orten wie Flughäfen aufzuhalten.",
+            "images": [
+              "https://images.tagesschau.de/image/aaec9406-755d-4c85-9c1d-004e09b7c0a7/AAABmcREh9I/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "So will Deutschland Drohnen bekämpfen"
+          },
+          {
+            "content": "Die Bundesregierung will, dass die Bundespolizei Drohnen, die Gefahr erzeugen, mit Störsignalen oder sogar abschießen darf. Gleichzeitig hat die Regierung die umstrittene Krankenhausreform flexibler gestaltet, damit Krankenhäuser besser zusammenarbeiten können.",
+            "images": [
+              "https://images.tagesschau.de/image/e5565b62-7327-4380-b851-c50c003470e6/AAABmcNt1HE/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Änderungen bei Polizeigesetz und Krankenhausreform"
+          },
+          {
+            "content": "Die Politiker in Deutschland diskutieren, wie das Land vor Drohnenangriffen geschützt werden kann. Der bayerische Ministerpräsident Markus Söder will Drohnen abschießen, der hessische Ministerpräsident Boris Rhein setzt auf harte, moderne Technik, und die Bundespolizei soll neue Befugnisse zur Drohnenabwehr erhalten.",
+            "images": [
+              "https://images.tagesschau.de/image/23e0d744-e429-4f60-916e-9b365c0bc3fb/AAABmcNSSsQ/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Drohnen-Technik - wie weit sind deutsche Hersteller?"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

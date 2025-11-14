@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251025_133548",
+  "date": "2025-10-25 13:35:48",
+  "user_info": {
+    "complexity_level": "detailliert",
+    "language": "English"
+  },
+  "categories": [
+    "politik"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Politik",
+        "articles": [
+          {
+            "content": "German interior and sport ministries are pressing the DFB and DFL to adopt a mandatory three‑month stadium ban for anyone against whom a criminal investigation is opened and to introduce personalized match tickets, proposals emerging from a Hamburg‑led working group that has met several times in 2025. A final decision is expected at the interior ministers’ conference in Bremen from 3 to 5 December 2025, despite criticism from fan organisations that the measures would create a “gavel‑to‑the‑gavel” ban system and undermine local disciplinary commissions.",
+            "images": [
+              "https://images.sportschau.de/image/38f7a698-635c-4993-b692-778eebe6468a/AAABmhE4dHg/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Dispute over stadium bans and personalized tickets."
+          },
+          {
+            "content": "The CDU/CSU’s internal debate over the “firewall” policy towards the AfD has intensified, with several east‑German CDU politicians such as Tom Unger and Christian Hartmann calling for a relaxation of the long‑standing non‑cooperation rule, while former party secretary Peter Tauber has reiterated his criticism of the ten‑year strategy. Party leaders including Chancellor and CDU chairman Friedrich Merz, Schleswig‑Holstein Minister‑President Daniel Günther and CSU secretary Martin Huber have reaffirmed the 2018 Unvereinbarkeitsbeschluss, rejecting any coalition or cooperation with the AfD.",
+            "images": [
+              "https://images.tagesschau.de/image/7ccf71fe-3950-4357-b41a-e1559602725d/AAABlpZ2n_4/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "The debate over the firewall within the Union continues to simmer."
+          },
+          {
+            "content": "A new Democracy‑Monitor study by the University of Hohenheim, based on a Forsa survey of 4,057 adults in August‑September, finds that 17 % of respondents endorse a populist worldview, with the share rising to 28 % in former East Germany and falling to 15 % in the West. The analysis also reveals stark partisan differences—84 % of AfD supporters versus less than 1 % of Green voters—alongside significant distrust of media and political institutions, with 14 % perceiving the country as moving toward a dictatorship.",
+            "images": [
+              "https://images.tagesschau.de/image/ea8361f7-e32c-459d-ab06-a10ecec9ebaa/AAABl42jtdo/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Seventeen percent represent a populist worldview."
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

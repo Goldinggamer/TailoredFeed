@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251017_151245",
+  "date": "2025-10-17 15:12:45",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "politik"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Politik",
+        "articles": [
+          {
+            "content": "In der Union wird darüber diskutiert, ob die feste Absage an eine Zusammenarbeit mit der AfD, die sogenannte Brandmauer, gelockert werden soll. Mehrere ostdeutsche CDU‑Politiker und der ehemalige Generalsekretär Peter Tauber fordern eine Lockerung, während die Parteiführung um Bundeskanzler Friedrich Merz die klare Ablehnung von Kooperationen mit der AfD bekräftigt.",
+            "images": [
+              "https://images.tagesschau.de/image/7ccf71fe-3950-4357-b41a-e1559602725d/AAABlpZ2n_4/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Brandmauer-Debatte in der Union brodelt weiter"
+          },
+          {
+            "content": "Die Bundesregierung will mehr Soldaten und überlegt, ein Losverfahren zu benutzen, wenn nicht genug Freiwillige zum Wehrdienst kommen. Juristen streiten, ob ein solches Losverfahren mit dem Grundgesetz, das Gleichheit verlangt, vereinbar ist. Das höchste Gericht in Deutschland muss darüber entscheiden.",
+            "images": [
+              "https://images.tagesschau.de/image/5e757af0-e953-4d91-a31f-cb128e76be8a/AAABmeda5Aw/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Ist ein Losverfahren rechtlich zulässig?"
+          },
+          {
+            "content": "Eine Einigung zwischen Union und SPD zum neuen Wehrdienst ist vorerst gescheitert, weil in der SPD-Fraktion das vorgeschlagene Losverfahren stark kritisiert wurde. Deshalb wurde die geplante gemeinsame Pressekonferenz abgesagt und es ist unklar, ob das Gesetz am Donnerstag noch im Bundestag eingebracht wird.",
+            "images": [
+              "https://images.tagesschau.de/image/5696e229-9473-4398-bcf5-45244efe034b/AAABmajeFus/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Einigung zu Wehrdienst offenbar vorerst geplatzt"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

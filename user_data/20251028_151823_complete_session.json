@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251028_151745",
+  "date": "2025-10-28 15:17:45",
+  "user_info": {
+    "complexity_level": "detailliert",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "wissenswertes"
+  ],
+  "format": "ausfuehrlich",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Wissenswertes",
+        "articles": [
+          {
+            "content": "Der Kriminologe Thomas Bliesener erklärt, dass Kriminalität nicht gleichmäßig verteilt sei und insbesondere junge Männer, häufig mit Migrationshintergrund, überproportional häufig in Straftaten involviert sind. Er weist darauf hin, dass insgesamt die registrierte Kriminalität in Deutschland seit Jahren rückläufig sei, während die Angst der Bevölkerung vor Kriminalität in Umfragen kontinuierlich abnehme. Gleichzeitig beobachtet er einen Anstieg der gemeldeten Gewaltkriminalität, was er vor allem auf eine gesteigerte Sensibilisierung der Bevölkerung für Gewalttaten zurückführe, die früher möglicherweise nicht angezeigt wurden. In den betroffenen Gruppen würden zudem gewaltlegitimierende Männlichkeitsnormen und ein geringes Vertrauen in staatliche Institutionen zur Nutzung informeller Netzwerke bei Konflikten beitragen. Weiterhin betont Bliesener, dass problematische Wohngebiete mit höherer Unordnung, leichterer Verfügbarkeit von Waffen und Drogen das Risiko kriminellen Verhaltens erhöhen könne. Er fordert eine differenzierte, datenbasierte Diskussion, um pauschale Zuschreibungen zu vermeiden.",
+            "images": [
+              "https://images.tagesschau.de/image/a9f1df09-3bbe-4bf8-9313-d112de75ecc9/AAABmg0en_w/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "\"Kriminalität ist nicht gleichförmig verteilt\""
+          },
+          {
+            "content": "Die klassische Schweinepest ist in Deutschland seit 2012 offiziell ausgerottet, bleibt jedoch durch mögliche Einschleppungen ein dauerhaftes Risiko. Forschende der Universitäten Edinburgh und Lübeck haben mithilfe der Genschere CRISPR‑Cas ein für das Pestivirus essentielles Protein in Schweinezellen minimal verändert, um die Virusvermehrung zu verhindern. In einem ersten In‑vivo‑Versuch wurden die gentechnisch veränderten Schweine künstlich mit dem Erreger infiziert; im Gegensatz zu Kontrollschweinen zeigten sie weder Fieber noch immunologische Reaktionen. Die Ergebnisse, die in der Fachzeitschrift „Trends in Biotechnology“ veröffentlicht wurden, belegen eine vollständige Resistenz der editieren Tiere gegenüber der klassischen Schweinepest. Wissenschaftlerinnen und Wissenschaftler betonen jedoch, dass weitere Studien an größeren Tierzahlen notwendig sind, um mögliche Virusanpassungen oder langfristige gesundheitliche Folgen für die Schweine zu prüfen. Zusätzlich stellt die Einstufung als gentechnisch veränderte Organismen in der EU einen regulatorischen Hinderungsgrund dar, weil Zucht und Vermarktung solcher Tiere dort verboten sind. Die Forschung eröffnet dennoch Perspektiven für den Einsatz ähnlicher Gen‑Editierungsstrategien bei anderen tierischen Seuchen.",
+            "images": [
+              "https://images.tagesschau.de/image/4868e01f-3105-4994-8026-2bb8cba7decb/AAABmgxqn1A/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Mit der \"Genschere\" gegen die Schweinepest?"
+          },
+          {
+            "content": "Eine aktuelle Studie der Europäischen Rundfunkunion (EBU) hat die Zuverlässigkeit der populärsten KI‑Chatbots systematisch geprüft und dabei festgestellt, dass bis zu 40 % der Antworten erfundene Informationen enthalten. Die Untersuchung ergab, dass ChatGPT, Claude, Microsoft Copilot und Google Gemini häufig „Halluzinationen“ erzeugen, indem sie statistisch plausible, aber faktisch falsche Wortketten generieren und dabei sogar nicht existierende Quellen angeben. Die Fehlerrate variiert je nach Themenbereich zwischen 15 % und 40 % und betrifft sowohl historische Fakten als auch aktuelle Ereignisse. Die Studie weist darauf hin, dass viele Nutzer nicht wissen, dass die KI nicht automatisch nach aktuellen Daten recherchiert, sondern nur bei expliziter Prompt‑Anweisung im Netz sucht. Experten empfehlen, kritische Informationen stets gegen etablierte Medien zu prüfen und insbesondere bei politischen, gesundheitlichen oder finanziellen Themen Vorsicht walten zu lassen. Die EBU fordert zudem verstärkte Medienkompetenz in Schulen und Aufklärungskampagnen, um die Verbreitung von KI‑basierten Falschinformationen einzudämmen.",
+            "images": [
+              "https://images.tagesschau.de/image/ad31e432-ca0d-41a6-bd0e-668546607dc7/AAABmb2DjEk/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "KI erfindet jede dritte Antwort"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

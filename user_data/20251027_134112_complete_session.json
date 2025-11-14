@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251027_134039",
+  "date": "2025-10-27 13:40:39",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "technologie"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Technologie und Innovation",
+        "articles": [
+          {
+            "content": "Die Wissenschaftler John Clarke, Michel Devoret und John Martinis haben den Nobelpreis für Physik erhalten, weil sie gezeigt haben, dass die Regeln der kleinsten Teilchen auch in großen Geräten funktionieren. Das ermöglicht die Entwicklung neuer Technik wie besonders sichere Nachrichten, neue Computer und sehr genaue Sensoren.",
+            "images": [
+              "https://images.tagesschau.de/image/db7090a6-8946-44db-976a-7986122e1462/AAABmb4foWo/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Physik-Nobelpreis geht an drei Quantenforscher"
+          },
+          {
+            "content": "In Schweden wird fast alles mit Handy oder Karte bezahlt, echtes Geld in Scheinen ist fast verschwunden. Die schwedische Bank testet deshalb die E‑Krone, ein digitales Geld, das auch ohne Internet funktionieren soll. Das soll helfen, wenn das digitale Zahlungssystem ausfällt.",
+            "images": [
+              "https://images.tagesschau.de/image/2af8e763-9b78-4b4d-98d0-4adf968a7245/AAABmhWmX2w/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Nur noch digital bezahlen - bis das Netz ausfällt"
+          },
+          {
+            "content": "Google hat ein neues Computer‑Programm, das wie ein Gesprächspartner funktioniert und Fragen mit eigenen Texten beantwortet, zum Beispiel einen kompletten Trainingsplan erstellt. Wissenschaftler beobachten, dass dadurch bis zu 50 % weniger Menschen Nachrichten‑Webseiten besuchen, weil sie die Zusammenfassung des Programms lesen, und warnen, dass das die Vielfalt der Informationen gefährden kann.",
+            "images": [
+              "https://images.tagesschau.de/image/83baa1e5-38ac-49a0-9fe7-df7e8eed028a/AAABlddIn2s/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Wie KI die Internetsuche verändert "
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

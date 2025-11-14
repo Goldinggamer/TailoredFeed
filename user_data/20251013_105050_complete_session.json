@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251013_105032",
+  "date": "2025-10-13 10:50:32",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "politik"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Politik",
+        "articles": [
+          {
+            "content": "Die Bundesregierung will die Drohnenabwehr stärken: Die Bundespolizei darf jetzt eigene Drohnen benutzen und bei Gefahr auch fremde Drohnen abschießen, und noch dieses Jahr soll ein gemeinsames Drohnenabwehrzentrum von Bund und Ländern eröffnet werden. Dafür sollen 341 neue Mitarbeitende eingestellt und Geräte für 90 Millionen Euro gekauft werden. Gleichzeitig soll die Polizei Handys orten und Aufenthaltsverbote an Orten wie Flughäfen aussprechen dürfen.",
+            "images": [
+              "https://images.tagesschau.de/image/aaec9406-755d-4c85-9c1d-004e09b7c0a7/AAABmcREh9I/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "So will Deutschland Drohnen bekämpfen"
+          },
+          {
+            "content": "Die Politiker in Deutschland diskutieren, wie das Land vor gefährlichen Drohnen geschützt werden kann. Der bayerische Ministerpräsident will Drohnen abschießen, und die Bundeswehr kauft neue Abwehrdrohnen, um wichtige Gebäude zu schützen.",
+            "images": [
+              "https://images.tagesschau.de/image/23e0d744-e429-4f60-916e-9b365c0bc3fb/AAABmcNSSsQ/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Drohnen-Technik - wie weit sind deutsche Hersteller?"
+          },
+          {
+            "content": "Die Bundesregierung will, dass die Bundespolizei Drohnen, die gefährlich sind, abschießen darf. Dafür soll die Polizei Drohnen mit Störsignalen, GPS‑Blockierung oder durch Abschuss stoppen können.",
+            "images": [
+              "https://images.tagesschau.de/image/e5565b62-7327-4380-b851-c50c003470e6/AAABmcNt1HE/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Änderungen bei Polizeigesetz und Krankenhausreform"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

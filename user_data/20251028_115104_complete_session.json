@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251028_115025",
+  "date": "2025-10-28 11:50:25",
+  "user_info": {
+    "complexity_level": "standard",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "politik"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Politik",
+        "articles": [
+          {
+            "content": "Eine aktuelle Studie der Universität Hohenheim zeigt, dass 17 % der Deutschen ein populistisches Weltbild vertreten, wobei der Anteil im Osten (28 %) höher ist als im Westen (15 %) und stark von Bildung, Alter und Parteizugehörigkeit abhängt (84 % der AfD‑Wähler, < 1 % der Grünen‑Wähler). Gleichzeitig äußern 14 % der Befragten, ihr Land ginge eher Richtung Diktatur, und 22 % glauben, Medien und Politik würden die Meinung der Bevölkerung manipulieren, wobei Populisten sich eher über soziale Medien informieren.",
+            "images": [
+              "https://images.tagesschau.de/image/ea8361f7-e32c-459d-ab06-a10ecec9ebaa/AAABl42jtdo/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "17 Prozent vertreten populistisches Weltbild"
+          },
+          {
+            "content": "Unions‑Fraktionschef Jens Spahn verteidigte Bundeskanzler Friedrich Merz' umstrittene „Stadtbild“-Äußerungen und sagte, der Kanzler spräche das aus, was die Mehrheit der Deutschen denke. Er betonte, es gehe dabei nicht um Hautfarbe, sondern um erlernte, kulturell‑religiöse Gewaltaffinitäten in bestimmten Stadtteilen und kritisierte die SPD‑Fraktion als oppositionell. Die Aussagen lösten bundesweit Proteste gegen Rassismus aus und führten zu Forderungen nach mehr Sicherheit und konsequenteren Abschiebungen.",
+            "images": [
+              "https://images.tagesschau.de/image/e8fe1da3-ff4a-46bf-9461-17b9d81e622e/AAABmiSU4gc/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "\"Der Bundeskanzler spricht aus, was die Mehrheit denkt\""
+          },
+          {
+            "content": "Die Innenminister‑ und Sportministerkonferenz übt Druck auf DFB und DFL aus und fordert ein automatisches dreimonatiges Stadionverbot bei Einleitung eines Ermittlungsverfahrens sowie die Einrichtung einer übergeordneten Stadionverbotskommission, die bei unzureichender lokalen Umsetzung eingreifen kann. Gleichzeitig wird über die Einführung personalisierter Eintrittskarten als weitere Sicherheitsmaßnahme diskutiert; ein konkreter Beschluss soll voraussichtlich bei der Innenministerkonferenz in Bremen vom 3. bis 5. Dezember 2025 fallen.",
+            "images": [
+              "https://images.sportschau.de/image/38f7a698-635c-4993-b692-778eebe6468a/AAABmhE4dHg/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Streit um Stadionverbote und personalisierte Tickets"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

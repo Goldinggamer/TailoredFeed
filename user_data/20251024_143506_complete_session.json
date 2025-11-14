@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251024_143439",
+  "date": "2025-10-24 14:34:39",
+  "user_info": {
+    "complexity_level": "standard",
+    "language": "Español"
+  },
+  "categories": [
+    "wissenswertes"
+  ],
+  "format": "ausfuehrlich",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Wissenswertes",
+        "articles": [
+          {
+            "content": "El criminólogo Thomas Bliesener señaló que, según las encuestas, el miedo a la delincuencia ha disminuido de forma constante en los últimos años, mientras que los datos policiales indican un aumento en las denuncias de violencia. Explicó que esta discrepancia se debe a una mayor sensibilización: conductas que antes se ignoraban ahora se consideran agresiones y se reportan. Bliesener también destacó que la criminalidad no está distribuida de manera uniforme y que ciertos grupos, principalmente jóvenes hombres con antecedentes migratorios, aparecen con mayor frecuencia en los registros. Estos grupos suelen vivir en áreas con más desorden, acceso a armas y drogas, lo que favorece conductas delictivas. Además, mencionó que normas de masculinidad que legitiman la violencia y una menor confianza en las instituciones pueden impulsar la resolución de conflictos fuera del sistema legal. Por último, subrayó la necesidad de que la política hable con claridad y evite generalizaciones, basándose en los datos disponibles.",
+            "images": [
+              "https://images.tagesschau.de/image/a9f1df09-3bbe-4bf8-9313-d112de75ecc9/AAABmg0en_w/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "La criminalidad no está distribuida de manera uniforme."
+          },
+          {
+            "content": "Investigadores de la Universidad de Edimburgo y la Universidad de Lübeck han utilizado la herramienta genética CRISPR‑Cas para modificar ligeramente una proteína de las células de cerdo y bloquear la replicación del virus de la peste porcina clásica. En el experimento, los cerdos modificados fueron inoculados deliberadamente con el patógeno, mientras que un grupo de control no alterado mostró fiebre y signos de infección. Los animales editados no presentaron fiebre, síntomas clínicos ni respuesta inmunológica detectable en sangre, lo que indica una resistencia completa al virus. Los resultados se publicaron en la revista “Trends in Biotechnology” y los autores sugieren que la técnica podría aplicarse a otras enfermedades animales causadas por virus relacionados. Sin embargo, los expertos advierten que aún se desconoce si el virus podría adaptarse a la nueva condición celular o si la alteración genética podría producir efectos adversos a largo plazo. Además, la normativa de la UE prohíbe la cría y comercialización de animales considerados genéticamente modificados, lo que limita la aplicación práctica de esta solución en Europa.",
+            "images": [
+              "https://images.tagesschau.de/image/4868e01f-3105-4994-8026-2bb8cba7decb/AAABmgxqn1A/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Con la \"tijera genética\" contra la peste porcina?\n\n"
+          },
+          {
+            "content": "Aldi Süd anunció que a partir de mediados de enero de 2026 dejará de ofrecer carne de su marca propia proveniente de la forma de cría 1, que solo cumple con los requisitos legales mínimos de bienestar animal. La medida afecta a carne de vacuno, cerdo, pollo y pavo, pero no a marcas externas ni a productos internacionales especiales. Otros supermercados como Rewe, la filial discount Penny y Lidl ya tienen planes o han alcanzado la transición a la forma de cría 2 para la misma fecha. El sistema de “Haltungsform” es voluntario y cuenta con cinco niveles, donde el nivel 1 corresponde al corral tradicional y el nivel 5 equivale a la certificación orgánica. A nivel nacional, los grandes distribuidores se han comprometido a que para 2030 todo el carne fresca de sus marcas propias esté en los niveles 3 o 4, siempre que exista suficiente oferta. Según la iniciativa Tierwohl, en 2023 solo el 1,5 % del cerdo en los estantes de autoservicio provenía del nivel 1, mientras que más del 75 % del vacuno seguía en ese nivel, lo que muestra una demanda creciente de productos con mejores condiciones de cría.",
+            "images": [
+              "https://images.tagesschau.de/image/3ebb2eed-3ea2-4169-ab69-f4d59b54a933/AAABmgJYqmI/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "También Aldi Süd elimina la carne de categoría de cría 1."
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

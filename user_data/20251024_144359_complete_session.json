@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251024_144340",
+  "date": "2025-10-24 14:43:40",
+  "user_info": {
+    "complexity_level": "detailliert",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "gesundheit"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Gesundheit und Medizin",
+        "articles": [
+          {
+            "content": "Die geplante Krankenhausreform sieht für die spezialisierte Schmerzmedizin keine eigene Leistungsgruppe vor, sodass Schmerzzentren wie das Mainz‑Zentrum künftig ihre Therapie‑fälle nicht mehr abrechnen können und die vorgeschriebenen Mindestanforderungen anderer Fachbereiche nicht erfüllen würden. Experten warnen, dass dadurch bis zu 370 Schmerzzentren schließen könnten, was die Versorgung von über 20 Millionen chronisch Schmerzkranken in Deutschland erheblich verschärft und zu längeren Wartezeiten sowie volkswirtschaftlichen Kosten von bis zu 50 Milliarden Euro jährlich führen könnte.",
+            "images": [
+              "https://images.tagesschau.de/image/fd1b1acd-9a43-44af-b60c-825bdc21bcd3/AAABmguTOIE/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Versorgungsengpässe für Schmerzkranke drohen"
+          },
+          {
+            "content": "Eine Studie der Stanford‑Universität mit 46 Frühgeborenen zeigte, dass nächtliche Wiedergabe der Mutterstimme – ein Auszug aus dem Kinderbuch „Paddington Bär“ – die Entwicklung des sprachverarbeitenden Areals in der linken Gehirnhälfte im Vergleich zu einer Kontrollgruppe signifikant fördert. Ergänzend belegt Forschung des Universitätsklinikums Essen, dass Musiktherapie die Bildung weißer Substanz im Gehirn von Frühchen verbessert, physiologische Stressindikatoren senkt und gleichzeitig das Stresslevel der Eltern reduziert.",
+            "images": [
+              "https://images.tagesschau.de/image/a8e9fa8f-8989-4a37-99ba-02e770791a53/AAABmgIiJO0/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Stimme der Mutter fördert Sprachentwicklung   "
+          },
+          {
+            "content": "Kinderdemenz umfasst über 250 seltene neurodegenerative Erkrankungen, bei denen schrittweise Nervenzellen im Gehirn oder Rückenmark zerstört werden; frühe Symptome wie Verlust motorischer Fähigkeiten können durch CT‑Scans erkannt und bei therapierbaren Formen wie der x‑chromosomalen Adrenoleukodystrophie mittels Knochenmarktransplantation oder der zerebralen Folatdefizienz durch direkte Folsäure‑Zufuhr gestoppt werden. Parallel dazu eröffnet die Gentherapie (z. B. CRISPR‑Cas) sowie das Repurposing etablierter Medikamente wie Sildenafil neue Behandlungsansätze, obwohl die Forschung für diese seltenen Krankheiten nach wie vor unterfinanziert bleibt.",
+            "images": [
+              "https://images.tagesschau.de/image/dcb96e86-51ab-4174-9af4-7b6aa551bd8b/AAABleM1BOg/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Wenn Kinder körperlich und geistig abbauen"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

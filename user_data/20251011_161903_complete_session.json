@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251011_161844",
+  "date": "2025-10-11 16:18:44",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "politik"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Politik",
+        "articles": [
+          {
+            "content": "Die Bundesregierung will das Polizeigesetz ändern, damit die Bundespolizei Drohnen abschießen und eigene Drohnen einsetzen darf. Noch in diesem Jahr soll eine neue Einheit zur Drohnenabwehr und ein gemeinsames Drohnenabwehrzentrum von Polizei, Zoll, BKA und den Ländern eingerichtet werden. Außerdem soll die Polizei Handys orten und Aufenthaltsverbote an Orten wie Flughäfen aussprechen können.",
+            "images": [
+              "https://images.tagesschau.de/image/aaec9406-755d-4c85-9c1d-004e09b7c0a7/AAABmcREh9I/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "So will Deutschland Drohnen bekämpfen"
+          },
+          {
+            "content": "Bundeskanzler Friedrich Merz will ein allgemeines gesellschaftliches Pflichtjahr einführen, das junge Menschen zum Beispiel in der Armee, bei der Feuerwehr, beim THW oder in sozialen Bereichen arbeiten lässt. Dafür müsste das Grundgesetz geändert werden und eine Zweidrittelmehrheit im Bundestag erreicht werden, was die SPD und die Linke kritisch sehen, während Verteidigungsminister Boris Pistorius und einige CDU-Politiker die Idee unterstützen.",
+            "images": [
+              "https://images.tagesschau.de/image/d25ae36a-fa1b-41a9-9a82-5d65814475da/AAABmbnebbs/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "CDU für gesellschaftliches Pflichtjahr - SPD skeptisch"
+          },
+          {
+            "content": "Die Politiker in Deutschland diskutieren, wie das Land vor gefährlichen Drohnen geschützt werden kann. Bundes- und Landesminister wollen schnell neue Regeln und Geräte einführen, und die Bundeswehr kauft bereits besondere Drohnen, die andere Drohnen stoppen.",
+            "images": [
+              "https://images.tagesschau.de/image/23e0d744-e429-4f60-916e-9b365c0bc3fb/AAABmcNSSsQ/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Drohnen-Technik - wie weit sind deutsche Hersteller?"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

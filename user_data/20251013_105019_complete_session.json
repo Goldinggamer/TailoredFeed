@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251013_104948",
+  "date": "2025-10-13 10:49:48",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "politik"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Politik",
+        "articles": [
+          {
+            "content": "Die Bundesregierung will ein neues Polizeigesetz, das der Bundespolizei erlaubt, gefährliche Drohnen abzuschalten und eigene Drohnen einzusetzen. Außerdem soll ein gemeinsames Drohnenabwehrzentrum mit Polizei, Zoll, BKA und den Ländern gebaut werden und die Bundespolizei bekommt mehr Geräte, Personal und weitere Befugnisse wie Handy‑Standortbestimmung.",
+            "images": [
+              "https://images.tagesschau.de/image/aaec9406-755d-4c85-9c1d-004e09b7c0a7/AAABmcREh9I/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "So will Deutschland Drohnen bekämpfen"
+          },
+          {
+            "content": "Die Politik diskutiert, wie Deutschland sich vor Drohnenangriffen schützen kann. Bundeswehr und Bundespolizei erhalten neue Mittel und Kompetenzen für die Drohnenabwehr, während deutsche Hersteller bereits passende Abwehrdrohnen entwickeln.",
+            "images": [
+              "https://images.tagesschau.de/image/23e0d744-e429-4f60-916e-9b365c0bc3fb/AAABmcNSSsQ/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Drohnen-Technik - wie weit sind deutsche Hersteller?"
+          },
+          {
+            "content": "Die Regierung will der Bundespolizei erlauben, gefährliche Drohnen mit besonderen Geräten abzuschießen. Gleichzeitig soll die Krankenhausreform mehr Ausnahmen und längere Übergangszeiten zulassen, damit die Versorgung im Land besser funktioniert.",
+            "images": [
+              "https://images.tagesschau.de/image/e5565b62-7327-4380-b851-c50c003470e6/AAABmcNt1HE/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Änderungen bei Polizeigesetz und Krankenhausreform"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

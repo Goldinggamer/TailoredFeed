@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251011_161937",
+  "date": "2025-10-11 16:19:37",
+  "user_info": {
+    "complexity_level": "detailliert",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "wissenswertes"
+  ],
+  "format": "ausfuehrlich",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Wissenswertes",
+        "articles": [
+          {
+            "content": "US-Präsident Donald Trump warnte, dass die Einnahme von Paracetamol (Tylenol) in der Schwangerschaft Autismus beim Kind auslösen könne, obwohl diese Behauptung bislang nicht eindeutig belegt sei. Eine aktuelle Metastudie, die 46 Einzelstudien ausgewertet hat, fand in 27 Studien Hinweise auf einen möglichen Zusammenhang, während sieben Studien keinen Zusammenhang zeigten und vier sogar eine schützende Wirkung suggerierten. Die bislang größte prospektive Untersuchung schloss fast 2,5 Millionen schwedische Kinder ein und ergab nach Adjustierung für mütterliche Gesundheitsfaktoren lediglich einen marginalen Unterschied von 1,42 % gegenüber 1,33 % Autismus‑Diagnosen bei nicht exponierten Kindern. Vergleichende Analysen von Geschwisterpaaren, bei denen nur eines paracetamolexponiert war, lieferten keinen Hinweis auf einen kausalen Zusammenhang. Experten betonen, dass Störfaktoren wie die zugrundeliegende Gesundheitslage der Schwangeren die Ergebnisse verzerren können und dass aktuelle Daten keine eindeutige Ursache‑Wirkungs‑Beziehung bestätigen. Die Weltgesundheitsorganisation (WHO) und die Europäische Arzneimittelagentur (EMA) haben die Behauptungen zurückgewiesen und empfehlen die Einnahme von Paracetamol in Schwangerschaft bei Bedarf in der niedrigsten wirksamen Dosis und kürzest möglicher Dauer. Wissenschaftliche Stellungnahmen weisen zudem darauf hin, dass unbehandelte hohes Fieber in der frühen Schwangerschaft nachweislich schwerwiegende Komplikationen verursachen kann, weshalb ein generelles Verbot des Schmerzmittels als gefährlich eingestuft wird.",
+            "images": [
+              "https://images.tagesschau.de/image/59a24d41-d3f9-4972-9d20-e0755931201c/AAABmXd-86Q/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Was die Forschung zu Trumps Behauptungen sagt"
+          },
+          {
+            "content": "Der Leibarzt des US‑Präsidenten, Dr. Sean Barbabella, hat nach einer routinemäßigen Untersuchung im Militärkrankenhaus Walter‑Reed in Washington die Gesundheit von Donald Trump als exzellent eingestuft. Der 79‑jährige Präsident soll demnach das Herz‑ und Gefäßsystem eines 65‑jährigen Menschen besitzen und in allen wesentlichen Laborparametern, einschließlich Stoffwechsel, Blut‑ und Lungenwerte, unauffällige Befunde zeigen. Auch neurologisch wurden keinerlei Auffälligkeiten festgestellt, und ein kognitiver Test soll ein „perfektes Ergebnis“ ergeben haben. Zusätzlich erhielt Trump im Vorfeld geplanter Auslandsreisen mehrere Impfungen, darunter eine Auffrischung gegen Coronaviren. Neben den positiven Befunden wurde im Bericht eine chronische Veneninsuffizienz sowie gelegentliche Blutergüsse an den Händen, die auf häufiges Händeschütteln und die Einnahme von blutverdünnenden Medikamenten zurückgeführt werden, erwähnt. Die Ergebnisse wurden am 11. Oktober 2025 vom Deutschlandfunk veröffentlicht und stehen im Kontext der üblichen öffentlichen Gesundheitsberichte amerikanischer Präsidenten.",
+            "images": [
+              "https://images.tagesschau.de/image/1b9ebccc-9524-4ea6-99fe-18a601afe6ab/AAABmdJaRgw/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Leibarzt bescheinigt Trump exzellente Gesundheit"
+          },
+          {
+            "content": "Die European Society of Cardiology (ESC) hat Impfungen gegen Atemwegsinfekte als vierte Säule der kardiovaskulären Prävention definiert. Damit werden Impfungen gleichwertig zu etablierten Risikofaktoren wie Bluthochdruck, erhöhten Blutfettwerten und Diabetes behandelt. Studien, darunter eine Metaanalyse, zeigen, dass eine Influenzaimpfung das Risiko für schwere kardiovaskuläre Ereignisse um etwa 25 % reduziert. Infektionen mit SARS‑CoV‑2, Influenza, RSV oder Pneumokokken können sowohl direkt Herzmuskelzellen schädigen als auch Entzündungsprozesse in bereits geschädigten Gefäßen auslösen, was das Auftreten von Herzinfarkten oder Schlaganfällen begünstigt. Trotz klarer Empfehlungen der STIKO liegt die Grippeimpfquote bei Personen über 60 Jahren in Deutschland nach wie vor unter 50 %. Kardiologen sollen künftig verstärkt über den herzschützenden Nutzen von Impfungen aufklären und Impfungen direkt in der kardiologischen Praxis anbieten.",
+            "images": [
+              "https://images.tagesschau.de/image/41fd5938-226e-475a-9605-fdc0abef0e0e/AAABmYY6Q_s/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Impfungen schützen auch das Herz"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

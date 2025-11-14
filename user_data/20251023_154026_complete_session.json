@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251023_153956",
+  "date": "2025-10-23 15:39:56",
+  "user_info": {
+    "complexity_level": "detailliert",
+    "language": "English"
+  },
+  "categories": [
+    "wissenschaft"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Wissen und Forschung",
+        "articles": [
+          {
+            "content": "A study led by the ETH Zurich and published in Science Advances demonstrates that deep sighs lower the surface tension of pulmonary surfactant, making the lung tissue more compliant and easing respiration. The researchers attribute this effect to the multilayered structure of the surfactant, which is restored by occasional deep breaths and could inform future artificial surfactant designs.",
+            "images": [
+              "https://images.tagesschau.de/image/c6e6359c-9429-45c9-ba4c-032a7b6704ef/AAABmfd_1yo/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Why sighing deeply is good for you."
+          },
+          {
+            "content": "Researchers led by behavioral ecologist Nathalie Stroeymeyt (University of Bristol) have demonstrated that colonies of the black garden ant (Lasius niger) actively remodel their nest architecture when exposed to a pathogenic fungus, a phenomenon they term “architectural immunity.” The ants increase inter‑entrance distances, enlarge overall nest volume, elongate tunnel networks, and relocate brood and food chambers away from high‑traffic zones, thereby lowering ant density and contact rates; computer simulations based on 3D scans confirm that these structural adjustments markedly reduce pathogen transmission compared with unaltered nests.",
+            "images": [
+              "https://images.tagesschau.de/image/711a9f25-8242-4272-a2ea-0253b0e394fd/AAABmgGo_G0/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Ants build nests during epidemics."
+          },
+          {
+            "content": "Sociologists such as Nina Perkowski of the University of Hamburg argue that the political use of the term “cityscape” operates as a coded reference to the visible presence of non‑German or non‑white individuals, thereby constructing a collective sense of unease and legitimising exclusionary measures. A study by the German Institute for Economic Research (DIW) corroborates this dynamic, showing that fear of crime has risen since 2014 despite declining crime rates, a gap the institute attributes primarily to media coverage of migration and terrorism, which reinforces a longstanding narrative that frames migration as a security threat.",
+            "images": [
+              "https://images.tagesschau.de/image/a6df35ac-cb81-4da9-94d3-e7dfd5366652/AAABme07Fug/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Merz's problem with the \"cityscape.\""
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

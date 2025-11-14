@@ -1,0 +1,37 @@
+{
+  "timestamp": "20251021_152518",
+  "date": "2025-10-21 15:25:18",
+  "user_info": {
+    "complexity_level": "standard",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "muenchen"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "München aktuell",
+        "articles": [
+          {
+            "content": "Professor Mario Haim von der Ludwig‑Maximilians‑Universität München warnt, dass KI‑Zusammenfassungen in Suchmaschinen undurchsichtig sind und fordert mehr Transparenz, um die Glaubwürdigkeit von Informationen zu sichern. Er sieht im Digital Services Act eine Chance, Forschern besseren Zugang zu Plattformen wie Google und ChatGPT zu ermöglichen.",
+            "images": [
+              "https://images.tagesschau.de/image/83baa1e5-38ac-49a0-9fe7-df7e8eed028a/AAABlddIn2s/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Wie KI die Internetsuche verändert "
+          },
+          {
+            "content": "Der FC Bayern München gewann am Samstag mit 2 : 1 gegen Borussia Dortmund und bleibt damit Tabellenführer. Harry Kane (22. Minute) und Michael Olise (79.) trafen für die Bayern, während Julian Brandt den späten Anschlusstreffer für den BVB erzielte. Bayern hält damit einen Vorsprung von fünf Punkten auf RB Leipzig.",
+            "images": [
+              "https://images.sportschau.de/image/cfb1d4e8-0c20-488c-9de7-43bdee4ab7cc/AAABmfjym5M/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "FC Bayern schubst und grätscht den BVB aus dem Weg"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

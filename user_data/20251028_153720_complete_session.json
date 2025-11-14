@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251028_153646",
+  "date": "2025-10-28 15:36:46",
+  "user_info": {
+    "complexity_level": "standard",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "gesundheit"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Gesundheit und Medizin",
+        "articles": [
+          {
+            "content": "Eine Studie der Stanford‑Universität hat gezeigt, dass Frühgeborene, die nachts Aufnahmen der Stimme ihrer Mutter hören, eine besser entwickelte Sprachregion im Gehirn aufweisen, was ihre späteren Sprachfähigkeiten fördern kann. Parallel dazu belegt Forschung des Universitätsklinikums Essen, dass Musiktherapie die weiße Substanz im Gehirn von Frühchen stärkt, Stress reduziert und die Bindung zu den Eltern verbessert.",
+            "images": [
+              "https://images.tagesschau.de/image/a8e9fa8f-8989-4a37-99ba-02e770791a53/AAABmgIiJO0/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Stimme der Mutter fördert Sprachentwicklung   "
+          },
+          {
+            "content": "Kinderdemenz ist selten, aber über 250 genetische Erkrankungen zerstören bereits im Kindesalter Nervenzellen und führen zu einem schrittweisen Verlust von Alltagsfähigkeiten; erste Anzeichen sollten durch einen Computertomographie‑Scan abgeklärt werden, weil eine frühe Diagnose die Behandlungschancen erhöht. Bei einigen Formen, etwa der x‑chromosomalen Adrenoleukodystrophie (X‑ALD) oder einer Folsäure‑Transportdefizienz, gibt es bereits Therapien wie Knochenmarktransplantation bzw. direkte Folsäure‑Zufuhr, während für die meisten Fälle noch Forschung an Gentherapie und Medikamenten‑Umwidmung läuft.",
+            "images": [
+              "https://images.tagesschau.de/image/dcb96e86-51ab-4174-9af4-7b6aa551bd8b/AAABleM1BOg/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Wenn Kinder körperlich und geistig abbauen"
+          },
+          {
+            "content": "Die geplante Krankenhausreform sieht für die spezialisierte Schmerzmedizin keine eigene Leistungsgruppe vor, sodass Schmerzzentren wie das Mainz‑Zentrum ihre Fälle nicht mehr abrechnen können und Gefahr laufen zu schließen. Das betrifft rund 20 Millionen chronisch Schmerzkranke in Deutschland, für die bereits jetzt lange Wartezeiten und fehlende Kapazitäten bestehen, und könnte laut der Deutschen Schmerzgesellschaft zu höheren Krankheitsausfällen und Kosten von bis zu 50 Milliarden Euro pro Jahr führen.",
+            "images": [
+              "https://images.tagesschau.de/image/fd1b1acd-9a43-44af-b60c-825bdc21bcd3/AAABmguTOIE/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Versorgungsengpässe für Schmerzkranke drohen"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

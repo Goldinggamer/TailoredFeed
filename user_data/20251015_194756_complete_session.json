@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251015_194720",
+  "date": "2025-10-15 19:47:20",
+  "user_info": {
+    "complexity_level": "detailliert",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "politik"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Politik",
+        "articles": [
+          {
+            "content": "Die Bundesregierung plant nach den jüngsten Drohnensichtungen am Münchner Flughafen, die Bundespolizei mit erweiterten Befugnissen zur Drohnenabwehr auszustatten; Bundesministerpräsident Boris Rhein (CDU) fordert „Härte und High‑Tech“, Markus Söder (CSU) spricht von „abschießen statt abwarten“, und die Bundeswehr hat bereits Abfang‑ und Netzdrohnen von Tytan Technologies sowie Argus zur Sicherung kritischer Infrastruktur bestellt.",
+            "images": [
+              "https://images.tagesschau.de/image/23e0d744-e429-4f60-916e-9b365c0bc3fb/AAABmcNSSsQ/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Drohnen-Technik - wie weit sind deutsche Hersteller?"
+          },
+          {
+            "content": "Die Bundesregierung plant im Rahmen eines überarbeiteten Bundespolizeigesetzes, das noch Bundestag und Bundesrat bedarf, der Bundespolizei erweiterte Befugnisse zur Drohnenabwehr zu geben, einschließlich des Einsatzes und Abschusses von unbemannten Luftfahrzeugen sowie der Nutzung von mobilen Sensoren bei Demonstrationen, wofür jährlich 90 Millionen Euro und 341 zusätzliche Stellen bereitgestellt werden sollen. Gleichzeitig soll ein gemeinsames Drohnenabwehrzentrum von Bundespolizei, Zoll, BKA und Länderbehörden eingerichtet und die Befugnisse zur Handyortung, Datenabfrage und Ausstellung von Aufenthaltsverboten ausgeweitet werden.",
+            "images": [
+              "https://images.tagesschau.de/image/aaec9406-755d-4c85-9c1d-004e09b7c0a7/AAABmcREh9I/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "So will Deutschland Drohnen bekämpfen"
+          },
+          {
+            "content": "Das Bundeskabinett hat im Rahmen einer Änderung des Bundespolizeigesetzes die Befugnisse der Bundespolizei zur Drohnenabwehr erweitert, sodass die Behörde künftig Drohnen mit technischen Mitteln wie Jamming oder, wenn nötig, durch Abschuss neutralisieren darf, erklärte Innenminister Alexander Dobrindt. Gleichzeitig hat die Bundesregierung die umstrittene Krankenhausreform flexibilisiert, indem sie Ausnahmen, Kooperationsmöglichkeiten und längere Übergangsfristen einführt, um Versorgungslücken, insbesondere im ländlichen Raum, zu vermeiden.",
+            "images": [
+              "https://images.tagesschau.de/image/e5565b62-7327-4380-b851-c50c003470e6/AAABmcNt1HE/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Änderungen bei Polizeigesetz und Krankenhausreform"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

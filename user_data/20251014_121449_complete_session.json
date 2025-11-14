@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251014_121413",
+  "date": "2025-10-14 12:14:13",
+  "user_info": {
+    "complexity_level": "standard",
+    "language": "English"
+  },
+  "categories": [
+    "wissenschaft"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Wissen und Forschung",
+        "articles": [
+          {
+            "content": "The 2025 Nobel laureates in economics—historian Joel Mokyr and growth theorists Philippe Aghion and Peter Howitt—showed that sustainable economic growth depends on a scientific understanding of new technologies, an open society that embraces ideas, and the process of “creative destruction” that reallocates resources from outdated to innovative firms. Their research, highlighted by the ARD finance desk, estimates that technological innovation accounts for about two‑thirds to three‑quarters of growth and argues that Europe must maintain these mechanisms, especially as AI reshapes productivity.",
+            "images": [
+              "https://images.tagesschau.de/image/9feeec36-035c-454c-b2b4-c2e6dc57b838/AAABmd2dYFU/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "How innovations contribute to sustainable growth."
+          },
+          {
+            "content": "Recent research shows that average rent for student rooms in Germany has risen to about €505 per month, a 21 % increase since 2020, and that 33 000 students are waiting for a dormitory place nationwide, with only roughly 10 % of demand covered by student housing. Experts from IW Köln and the German Student Union warn that rising rents and a slowdown in new construction create a “new form of social selection” and call for streamlined building procedures and stronger rent controls to secure affordable housing for students.",
+            "images": [
+              "https://images.tagesschau.de/image/a4700ccb-52a1-4089-8a28-e7d075bd2bb1/AAABlX_ZU2Y/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "The battle for the shared apartment room."
+          },
+          {
+            "content": "The European Society of Cardiology now lists vaccinations against respiratory infections—such as flu, COVID‑19, RSV and pneumococcus—as a “fourth pillar” of cardiovascular prevention alongside blood‑pressure, cholesterol and diabetes control. Studies show that flu vaccination reduces severe cardiovascular events by about 25 % and the ESC recommends annual flu and pneumococcal shots for people over 60, yet vaccination rates in Germany remain below 45 % in this group.",
+            "images": [
+              "https://images.tagesschau.de/image/41fd5938-226e-475a-9605-fdc0abef0e0e/AAABmYY6Q_s/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Vaccinations also protect the heart."
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

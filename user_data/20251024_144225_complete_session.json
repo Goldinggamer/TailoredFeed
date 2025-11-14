@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251024_144204",
+  "date": "2025-10-24 14:42:04",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "technologie"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Technologie und Innovation",
+        "articles": [
+          {
+            "content": "Google hat jetzt einen KI‑Chatbot, der Fragen selbst beantwortet, zum Beispiel Trainingspläne erstellt. Studien zeigen, dass dadurch bis zu 50 % weniger Menschen die Nachrichtenwebseiten besuchen, und man fragt sich, ob das die Vielfalt an Meinungen reduziert.",
+            "images": [
+              "https://images.tagesschau.de/image/83baa1e5-38ac-49a0-9fe7-df7e8eed028a/AAABlddIn2s/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Wie KI die Internetsuche verändert "
+          },
+          {
+            "content": "Das KI‑Start‑up Anthropic bekommt von Google fast eine Million spezielle Computerchips, um seine Künstliche‑Intelligenz‑Programme zu verbessern. Die neue Rechenleistung soll ab dem Jahr 2026 bereitstehen.",
+            "images": [
+              "https://images.tagesschau.de/image/7f7bdfcd-57b6-4841-bce5-7cea2a7a36c2/AAABmfJxAV4/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "DAX steht still vor US-Inflationsdaten"
+          },
+          {
+            "content": "Die Wissenschaftler John Clarke, Michel Devoret und John Martinis erhalten den Physik‑Nobelpreis für ihre Experimente, die zeigen, dass Quantenphysik auch in Geräten von Handgröße funktioniert. Der Preis eröffnet neue Möglichkeiten für Technologien wie sichere Kommunikation, sehr schnelle Computer und genaue Sensoren.",
+            "images": [
+              "https://images.tagesschau.de/image/db7090a6-8946-44db-976a-7986122e1462/AAABmb4foWo/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Physik-Nobelpreis geht an drei Quantenforscher"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

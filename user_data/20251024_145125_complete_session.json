@@ -1,0 +1,37 @@
+{
+  "timestamp": "20251024_145055",
+  "date": "2025-10-24 14:50:55",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "muenchen"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "München aktuell",
+        "articles": [
+          {
+            "content": "In München kostet die Miete im dritten Quartal etwa 23 Euro pro Quadratmeter, das ist das höchste Ergebnis in Deutschland. Die Mieten steigen im ganzen Land nur noch leicht, auch in München nur um etwa ein halbes Prozent zum vorherigen Quartal.",
+            "images": [
+              "https://images.tagesschau.de/image/77227c1d-518a-4267-acf7-e601ebca41c4/AAABmMzJh8w/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Angebotsmieten in deutschen Städten steigen langsamer"
+          },
+          {
+            "content": "KI‑Chatbots wie bei Google geben jetzt direkte Antworten statt nur Links. Das führt dazu, dass weniger Menschen Nachrichtenwebseiten besuchen und die Anbieter weniger Geld bekommen. Experten von der LMU München fordern mehr Transparenz und hoffen, dass das neue EU‑Gesetz hilft.",
+            "images": [
+              "https://images.tagesschau.de/image/83baa1e5-38ac-49a0-9fe7-df7e8eed028a/AAABlddIn2s/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Wie KI die Internetsuche verändert "
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

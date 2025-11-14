@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251013_105343",
+  "date": "2025-10-13 10:53:43",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "English"
+  },
+  "categories": [
+    "wissenschaft"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Wissen und Forschung",
+        "articles": [
+          {
+            "content": "Vaccines against flu, COVID‑19 and other breathing infections can also help protect the heart. European heart doctors say vaccines are now a fourth way to keep the heart healthy, alongside controlling blood pressure, cholesterol and diabetes. Studies show people who get the flu shot have about 25 % fewer serious heart problems.",
+            "images": [
+              "https://images.tagesschau.de/image/41fd5938-226e-475a-9605-fdc0abef0e0e/AAABmYY6Q_s/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Vaccinations also protect the heart."
+          },
+          {
+            "content": "Research shows that the average rent for a student room in Germany is now about 505 euros a month, which is 21 percent higher than in 2020. At the same time about 33 000 students are waiting for a place in university dorms, and experts say more housing and faster building rules are needed.",
+            "images": [
+              "https://images.tagesschau.de/image/a4700ccb-52a1-4089-8a28-e7d075bd2bb1/AAABlX_ZU2Y/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "The struggle for the shared apartment room."
+          },
+          {
+            "content": "Scientists have a gene therapy that can stop some children from becoming blind because of a rare eye disease called Retinitis pigmentosa. The treatment costs about 300 000 euros per eye, but if it is given while the eye cells are still alive it can let the children see normally.",
+            "images": [
+              "https://images.tagesschau.de/image/8156ab84-9456-446e-9ae9-a0ce9d7f77e9/AAABmYAwwaI/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "With gene therapies against inherited blindness."
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

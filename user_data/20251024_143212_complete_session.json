@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251024_143136",
+  "date": "2025-10-24 14:31:36",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "politik"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Politik",
+        "articles": [
+          {
+            "content": "Die Politik will neue Regeln für Fußballstadien: Wenn die Polizei ein Verfahren gegen eine Person eröffnet, soll sie automatisch für mindestens drei Monate kein Stadion betreten dürfen, und es soll künftig personalisierte Eintrittskarten geben. Ein übergeordnetes Gremium beim DFB soll dabei helfen, Entscheidungen zu prüfen. Auf dem Innenministertreffen in Bremen Ende Dezember wird über die genauen Maßnahmen entschieden.",
+            "images": [
+              "https://images.sportschau.de/image/38f7a698-635c-4993-b692-778eebe6468a/AAABmhE4dHg/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Streit um Stadionverbote und personalisierte Tickets"
+          },
+          {
+            "content": "Die Union (CDU/CSU) hat beschlossen, nicht mit der AfD zusammenzuarbeiten. Einige Politiker aus Ostdeutschland und der ehemalige CDU‑Generalsekretär Peter Tauber wollen diesen Abstand jedoch lockern, während die Spitzen der Union wie Friedrich Merz und Daniel Günther den Abstand festhalten.",
+            "images": [
+              "https://images.tagesschau.de/image/7ccf71fe-3950-4357-b41a-e1559602725d/AAABlpZ2n_4/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Brandmauer-Debatte in der Union brodelt weiter"
+          },
+          {
+            "content": "Eine Studie der Universität Hohenheim hat ergeben, dass 17 % der Deutschen populistische Ansichten haben; im Osten sind es 28 % und im Westen 15 %. Besonders häufig haben Anhänger der AfD solche Ansichten (84 %), während bei Grünen‑Wählern fast niemand so denkt.",
+            "images": [
+              "https://images.tagesschau.de/image/ea8361f7-e32c-459d-ab06-a10ecec9ebaa/AAABl42jtdo/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "17 Prozent vertreten populistisches Weltbild"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

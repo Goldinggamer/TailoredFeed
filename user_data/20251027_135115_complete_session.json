@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251027_155020",
+  "date": "2025-10-27 15:50:20",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "sport"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Sport Deutschland",
+        "articles": [
+          {
+            "content": "Am Sonntag, dem 2. November, zieht das ZDF im deutschen Fußballmuseum in Dortmund live die Lose für das Achtelfinale des DFB‑Pokals. Die 16 verbliebenen Mannschaften spielen am 2.  und 3. Dezember 2025 um den Einzug ins Viertelfinale.",
+            "images": [
+              "https://images.sportschau.de/image/381c41c6-d7c4-48d9-80ba-c6d7f60355f4/AAABmhwMDLE/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Achtelfinale wird am Sonntag ausgelost"
+          },
+          {
+            "content": "Am Mittwoch trifft der 1. FC Köln in der zweiten Pokalrunde auf den FC Bayern München, das Spiel wird ab 20 Uhr 15 nach der Tagesschau live von der ARD übertragen; Moderator Alex Schlüter und Experte Bastian Schweinsteiger kommentieren, Tom Bartels spricht. Wer die zweite Runde erreicht, bekommt 635 658 Euro, und der Pokalsieger darf in der nächsten Saison in der Europa League mitspielen.",
+            "images": [
+              "https://images.sportschau.de/image/46f9201f-3749-4d40-8232-75799f0a6d71/AAABmho0LnY/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Mit Köln vs. Bayern im Ersten - so läuft die 2. Runde im DFB-Pokal"
+          },
+          {
+            "content": "Bayer Leverkusen hat zu Hause mit 2 zu 0 gegen den SC Freiburg gewonnen. Die Tore erzielten Ernest Poku in der 22. Minute und Edmond Tapsoba in der 52. Minute. Durch den Sieg liegt Leverkusen mit 17 Punkten auf dem vierten Tabellenplatz, während Freiburg auf den elften Platz rutscht.",
+            "images": [
+              "https://images.sportschau.de/image/20224728-94e6-4330-ac49-fb77983903b0/AAABmiExwqc/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Leverkusen rehabilitiert sich gegen Freiburg"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

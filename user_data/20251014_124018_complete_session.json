@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251015_150317",
+  "date": "2025-10-15 15:03:17",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "wissenschaft"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Wissen und Forschung",
+        "articles": [
+          {
+            "content": "Impfungen gegen Grippe, COVID‑19, RSV und Pneumokokken können das Herz schützen und das Risiko für Herzinfarkt und Schlaganfall senken. Die European Society of Cardiology nennt Impfungen die vierte Säule der Herz‑Vorbeugung, obwohl in Deutschland nur wenig über 60‑Jährige geimpft werden.",
+            "images": [
+              "https://images.tagesschau.de/image/41fd5938-226e-475a-9605-fdc0abef0e0e/AAABmYY6Q_s/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Impfungen schützen auch das Herz"
+          },
+          {
+            "content": "Die Nobelpreisträger für Wirtschaftswissenschaften erklärten, dass nachhaltiges Wachstum entsteht, wenn Gesellschaften neue Ideen zulassen und alte Dinge durch bessere Erfindungen ersetzen, wie es bei der Dampfkraft im 18. Jahrhundert geschah. Sie betonten, dass Wissenschaft, die erklärt warum etwas funktioniert, und ein offenes Umfeld für Veränderungen besonders wichtig sind, um Fortschritt, zum Beispiel durch Künstliche Intelligenz, zu ermöglichen.",
+            "images": [
+              "https://images.tagesschau.de/image/9feeec36-035c-454c-b2b4-c2e6dc57b838/AAABmd2dYFU/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Wie Innovationen zu nachhaltigem Wachstum beitragen"
+          },
+          {
+            "content": "Studien zeigen, dass die Mieten für Studierende seit 2020 um etwa 21 % gestiegen sind und im Wintersemester im Durchschnitt 505 Euro pro Monat kosten. Forschende vom IW Köln berichten, dass die Preise in vielen Hochschulstädten weiter nach oben gehen und dass zu wenig neue Wohnungen gebaut werden. Sie fordern einfachere Genehmigungen und mehr Neubau, um die Wohnungsnot zu verringern.",
+            "images": [
+              "https://images.tagesschau.de/image/a4700ccb-52a1-4089-8a28-e7d075bd2bb1/AAABlX_ZU2Y/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Der Kampf um das WG-Zimmer"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251027_133502",
+  "date": "2025-10-27 13:35:02",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "Français"
+  },
+  "categories": [
+    "gesundheit"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Gesundheit und Medizin",
+        "articles": [
+          {
+            "content": "Une étude américaine montre que les bébés nés trop tôt qui entendent souvent la voix de leur mère développent mieux la partie du cerveau qui sert à parler. La thérapie musicale aide aussi le cerveau des prématurés et réduit le stress des bébés et de leurs parents.",
+            "images": [
+              "https://images.tagesschau.de/image/a8e9fa8f-8989-4a37-99ba-02e770791a53/AAABmgIiJO0/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "La voix de la mère favorise le développement du langage."
+          },
+          {
+            "content": "La nouvelle réforme des hôpitaux en Allemagne risque de fermer des centres spécialisés dans le traitement de la douleur, comme le centre de Mainz, parce qu’ils ne pourront plus être payés correctement. Cela mettrait en danger les soins pour plus de 20 millions de personnes qui souffrent de douleurs chroniques et pourrait allonger les listes d’attente. Les médecins demandent des changements pour protéger ces services.",
+            "images": [
+              "https://images.tagesschau.de/image/fd1b1acd-9a43-44af-b60c-825bdc21bcd3/AAABmguTOIE/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Des pénuries de soins pour les patients souffrant de douleurs menacent."
+          },
+          {
+            "content": "Des enfants peuvent avoir des maladies très rares qui abîment progressivement leur cerveau, parfois dès la petite enfance. Certaines, comme la X‑ALD, peuvent être arrêtées tôt avec une greffe de moelle osseuse, et d’autres s’améliorent quand on donne directement de la vitamine B9 dans le liquide du cerveau. Les médecins essaient aussi de réutiliser des médicaments déjà connus, comme le Viagra, pour aider ces enfants, mais il manque beaucoup d’argent pour la recherche.",
+            "images": [
+              "https://images.tagesschau.de/image/dcb96e86-51ab-4174-9af4-7b6aa551bd8b/AAABleM1BOg/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Quand les enfants déclinent physiquement et mentalement."
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

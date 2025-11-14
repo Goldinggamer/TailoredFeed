@@ -1,0 +1,37 @@
+{
+  "timestamp": "20251028_113337",
+  "date": "2025-10-28 11:33:37",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "English"
+  },
+  "categories": [
+    "sport"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Sport Deutschland",
+        "articles": [
+          {
+            "content": "The European Parliament voted (552‑to‑52) to protect the European sport model and to stop big foreign money and games played outside Europe. The decision could help German leagues such as the Bundesliga by keeping matches at home and sharing money more fairly.",
+            "images": [
+              "https://images.sportschau.de/image/e94bd599-61b9-4a4c-8f72-133be28d8767/AAABmXtkmik/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "The European Parliament votes in favor of strengthening the European sports model."
+          },
+          {
+            "content": "Eintracht Frankfurt will face Borussia Dortmund in the German Cup on Tuesday, with striker Jonathan Burkardt praised for his efficient scoring and chances to play for the national team. Dortmund’s forward Maximilian Beier has also shown good speed and recent goal contributions.",
+            "images": [
+              "https://images.sportschau.de/image/5358779c-998a-4af0-bb49-5ec4991b9e27/AAABmiWMuHY/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Forward in focus - Burkardt calls on Beier."
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

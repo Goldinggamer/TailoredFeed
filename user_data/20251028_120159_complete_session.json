@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251028_120128",
+  "date": "2025-10-28 12:01:28",
+  "user_info": {
+    "complexity_level": "standard",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "wissenswertes"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Wissenswertes",
+        "articles": [
+          {
+            "content": "Kriminologen betonen, dass Kriminalität nicht gleichmäßig verteilt ist: Sie konzentriert sich vor allem auf junge Männer, häufig aus problematischen Wohngebieten und teilweise mit Migrationshintergrund, wobei Faktoren wie Gewalt‑legitimierende Männlichkeitsnormen und geringes Vertrauen in Institutionen eine Rolle spielen. Gleichzeitig sinkt die Gesamtkriminalität und die Angst der Bevölkerung vor Gewalt, während die gemeldeten Gewalttaten steigen, weil Betroffene heute sensibler auf Übergriffe reagieren und diese eher anzeigen.",
+            "images": [
+              "https://images.tagesschau.de/image/a9f1df09-3bbe-4bf8-9313-d112de75ecc9/AAABmg0en_w/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "\"Kriminalität ist nicht gleichförmig verteilt\""
+          },
+          {
+            "content": "Forscher der Universitäten Edinburgh und Lübeck haben mit der Genschere CRISPR‑Cas das für die klassische Schweinepest notwendige Zell‑Protein der Schweine leicht verändert. Die editieren Schweine wurden mit dem Virus infiziert, entwickelten jedoch kein Fieber und keine Infektionsspuren, während unveränderte Kontrolltiere erkrankten. Trotz des Erfolgs dürfen solche gentechnisch veränderten Schweine in der EU nicht gezüchtet oder ihr Fleisch vermarktet werden.",
+            "images": [
+              "https://images.tagesschau.de/image/4868e01f-3105-4994-8026-2bb8cba7decb/AAABmgxqn1A/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Mit der \"Genschere\" gegen die Schweinepest?"
+          },
+          {
+            "content": "Eine Studie der Europäischen Rundfunkunion hat gezeigt, dass die großen KI‑Chatbots wie ChatGPT, Claude, Gemini und Microsoft Copilot in 15‑40 % ihrer Antworten falsche Informationen erfinden und dabei sogar nicht existente Quellen nennen. Die Systeme basieren nur auf statistischen Mustern und prüfen Fakten nicht, weshalb Nutzer wichtige Angaben immer gegen zuverlässige Medien prüfen sollten. Medienkompetenz an Schulen und klare Nutzerregeln werden von der Studie empfohlen.",
+            "images": [
+              "https://images.tagesschau.de/image/ad31e432-ca0d-41a6-bd0e-668546607dc7/AAABmb2DjEk/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "KI erfindet jede dritte Antwort"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

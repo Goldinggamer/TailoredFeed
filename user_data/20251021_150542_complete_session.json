@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251021_150525",
+  "date": "2025-10-21 15:05:25",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "English"
+  },
+  "categories": [
+    "politik"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Politik",
+        "articles": [
+          {
+            "content": "The CDU/CSU party is debating whether to keep its strict rule against working with the far‑right AfD. While some eastern CDU members want a softer approach, the party leaders, including Friedrich Merz, say the rule will stay unchanged.",
+            "images": [
+              "https://images.tagesschau.de/image/7ccf71fe-3950-4357-b41a-e1559602725d/AAABlpZ2n_4/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "The debate over the immigration limit within the conservative bloc continues to simmer."
+          },
+          {
+            "content": "Negotiations between the governing parties on changing the military service have broken down, and a planned press conference was cancelled. Members of the SPD party opposed a proposed lottery that would pick people for service if there are not enough volunteers. Because of this, it is still unclear whether the new law will be presented to parliament.",
+            "images": [
+              "https://images.tagesschau.de/image/5696e229-9473-4398-bcf5-45244efe034b/AAABmajeFus/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Agreement on military service apparently failed at least for now."
+          },
+          {
+            "content": "The German government wants to add about 80,000 soldiers and plans that young men born from 2008 must give a readiness statement and could be called up if there are not enough volunteers. Some politicians suggest using a lottery to decide who must serve, but legal experts say this may clash with the constitution’s rule of fairness. The matter could be decided by the constitutional court.",
+            "images": [
+              "https://images.tagesschau.de/image/5e757af0-e953-4d91-a31f-cb128e76be8a/AAABmeda5Aw/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Is a lottery procedure legally permissible?"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

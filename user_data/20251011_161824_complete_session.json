@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251011_161750",
+  "date": "2025-10-11 16:17:50",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "politik"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Politik",
+        "articles": [
+          {
+            "content": "Bundeskanzler Friedrich Merz will ein allgemeines gesellschaftliches Pflichtjahr einführen, zum Beispiel bei der Bundeswehr, der Feuerwehr, dem THW oder im sozialen Bereich. Die SPD und die Linke sagen, dass dafür eine Verfassungsänderung und eine Zweidrittel‑Mehrheit im Bundestag nötig wären, die sie derzeit nicht sehen.",
+            "images": [
+              "https://images.tagesschau.de/image/d25ae36a-fa1b-41a9-9a82-5d65814475da/AAABmbnebbs/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "CDU für gesellschaftliches Pflichtjahr - SPD skeptisch"
+          },
+          {
+            "content": "Die Bundesregierung will das Gesetz für die Bundespolizei ändern, damit die Polizei Drohnen abwehren und eigene Drohnen an Orten wie Flughäfen und Bahnhöfen einsetzen darf. Dazu sollen noch in diesem Jahr eine neue Drohnenabwehreinheit, ein gemeinsames Drohnenabwehrzentrum von Bund und Ländern und 341 neue Mitarbeitende geschaffen werden.",
+            "images": [
+              "https://images.tagesschau.de/image/aaec9406-755d-4c85-9c1d-004e09b7c0a7/AAABmcREh9I/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "So will Deutschland Drohnen bekämpfen"
+          },
+          {
+            "content": "Die Politiker in Deutschland diskutieren, wie das Land vor gefährlichen Drohnen geschützt werden kann. Deshalb sollen die Bundeswehr und die Polizei neue Drohnen kaufen, die andere Drohnen aufhalten, und die Regeln dafür schnell ändern.",
+            "images": [
+              "https://images.tagesschau.de/image/23e0d744-e429-4f60-916e-9b365c0bc3fb/AAABmcNSSsQ/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Drohnen-Technik - wie weit sind deutsche Hersteller?"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251028_160942",
+  "date": "2025-10-28 16:09:42",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "politik"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Politik",
+        "articles": [
+          {
+            "content": "Bundeskanzler Friedrich Merz hat gesagt, dass es in manchen Stadtteilen Probleme gibt, die er mit Menschen ohne festen Aufenthaltsstatus verbindet. Der Unions‑Fraktionschef Jens Spahn meint, der Kanzler spreche die Meinung der Mehrheit der Deutschen. Die Äußerungen haben in der Koalition und bei vielen Bürgern Diskussionen und Demonstrationen ausgelöst.",
+            "images": [
+              "https://images.tagesschau.de/image/e8fe1da3-ff4a-46bf-9461-17b9d81e622e/AAABmiSU4gc/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "\"Der Bundeskanzler spricht aus, was die Mehrheit denkt\""
+          },
+          {
+            "content": "Die Politik will, dass bei jeder gestarteten Untersuchung gegen einen Fan sofort ein dreimonatiges Stadionverbot folgt und dass Eintrittskarten künftig mit Namen versehen werden. Der Deutsche Fußball‑Bund (DFB) und die Deutsche Fußball‑Liga (DFL) diskutieren diese Vorschläge und sagen, dass sie noch nicht beschlossen sind. Ein Treffen der Innenminister in Bremen vom 3. bis 5. Dezember 2025 soll über neue Regeln entscheiden.",
+            "images": [
+              "https://images.sportschau.de/image/38f7a698-635c-4993-b692-778eebe6468a/AAABmhE4dHg/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Streit um Stadionverbote und personalisierte Tickets"
+          },
+          {
+            "content": "Eine Studie der Universität Hohenheim hat ergeben, dass 17 % der Deutschen an Verschwörungsgedanken und die Idee eines einheitlichen Volkswillens glauben, im Osten sind es sogar 28 %. Gleichzeitig ist die Zufriedenheit mit der Demokratie auf Bundesebene seit 2021 um 21 Prozentpunkte gesunken.",
+            "images": [
+              "https://images.tagesschau.de/image/ea8361f7-e32c-459d-ab06-a10ecec9ebaa/AAABl42jtdo/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "17 Prozent vertreten populistisches Weltbild"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

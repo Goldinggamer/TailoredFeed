@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251017_151512",
+  "date": "2025-10-17 15:15:12",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "wissenschaft"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Wissen und Forschung",
+        "articles": [
+          {
+            "content": "Die Nobelpreisträger für Wirtschaftswissenschaften haben gezeigt, dass neue Erfindungen nur dann das Wachstum eines Landes stärken, wenn die Menschen offen für neue Ideen sind und die Wissenschaft erklärt, warum sie funktionieren. Sie betonen, dass alte Unternehmen ersetzt werden müssen, damit Geld und Arbeitskraft für neue Technologien wie Künstliche Intelligenz genutzt werden können.",
+            "images": [
+              "https://images.tagesschau.de/image/9feeec36-035c-454c-b2b4-c2e6dc57b838/AAABmeGm0r0/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Wie Innovationen zu nachhaltigem Wachstum beitragen"
+          },
+          {
+            "content": "Impfungen gegen Erkältungen wie Grippe, COVID‑19 oder RSV können das Herz schützen, weil sie das Risiko für Herzinfarkte und Schlaganfälle senken. Die Europäische Herzgesellschaft empfiehlt Impfungen deshalb als vierte wichtige Maßnahme neben der Behandlung von hohem Blutdruck, hohen Blutfetten und Diabetes.",
+            "images": [
+              "https://images.tagesschau.de/image/41fd5938-226e-475a-9605-fdc0abef0e0e/AAABmYY6Q_s/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Impfungen schützen auch das Herz"
+          },
+          {
+            "content": "Im Jahr 2022 kam etwa jede siebte Patentanmeldung in Deutschland von Menschen, die aus anderen Ländern kommen – das sind 14 % im Vergleich zu nur 5 % im Jahr 2000. Besonders stark wuchs die Zahl der Patente von Erfindern aus Indien, die sich seit 2000 verzwölffacht hat. Der Anteil von Erfinderinnen ist bei zugewanderten Personen fast doppelt so hoch wie bei deutschen Erfindern.",
+            "images": [
+              "https://images.tagesschau.de/image/4e9454fe-7fcd-48b3-b4f3-05de8b344806/AAABmd16aAQ/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Jede siebte Patentanmeldung stammt von Migranten"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

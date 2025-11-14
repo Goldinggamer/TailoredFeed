@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251024_143917",
+  "date": "2025-10-24 14:39:17",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "wissenswertes"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Wissenswertes",
+        "articles": [
+          {
+            "content": "Ab Mitte Januar 2026 verkauft Aldi Süd kein Eigenmarken‑Fleisch mehr, das nur die gesetzlich vorgeschriebenen Mindestbedingungen für die Tiere erfüllt. Auch bei anderen Supermärkten soll das bald gelten, und bis 2030 wollen die großen Ketten ihr ganzes Frischfleisch aus besseren Stufen mit mehr Platz und frischer Luft anbieten.",
+            "images": [
+              "https://images.tagesschau.de/image/3ebb2eed-3ea2-4169-ab69-f4d59b54a933/AAABmgJYqmI/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Auch Aldi Süd streicht Fleisch aus Haltungsform 1"
+          },
+          {
+            "content": "Die Zahl aller Verbrechen in Deutschland geht zurück, aber weil Menschen heute eher Anzeige machen, wird Gewalt öfter gemeldet. Umfragen zeigen, dass die Angst vor Verbrechen in der Bevölkerung kleiner wird. Studien sagen, dass Verbrechen nicht gleichmäßig verteilt sind und besonders junge Männer, auch Menschen, die aus anderen Ländern kommen, häufiger beteiligt sind.",
+            "images": [
+              "https://images.tagesschau.de/image/a9f1df09-3bbe-4bf8-9313-d112de75ecc9/AAABmg0en_w/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "\"Kriminalität ist nicht gleichförmig verteilt\""
+          },
+          {
+            "content": "Forscher aus Edinburgh und Lübeck haben das Erbgut von Schweinen ein klein wenig verändert, sodass das Virus der klassischen Schweinepest die Tiere nicht mehr befallen kann. In Tests wurden die veränderten Schweine mit dem Virus infiziert, aber sie wurden nicht krank, während normale Schweine Fieber bekamen. In der EU dürfen solche veränderten Schweine jedoch nicht gezüchtet oder ihr Fleisch verkauft werden.",
+            "images": [
+              "https://images.tagesschau.de/image/4868e01f-3105-4994-8026-2bb8cba7decb/AAABmgxqn1A/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Mit der \"Genschere\" gegen die Schweinepest?"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

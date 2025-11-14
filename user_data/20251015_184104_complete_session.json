@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251015_184023",
+  "date": "2025-10-15 18:40:23",
+  "user_info": {
+    "complexity_level": "detailliert",
+    "language": "Deutsch"
+  },
+  "categories": [
+    "gesundheit"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Gesundheit und Medizin",
+        "articles": [
+          {
+            "content": "Der deutsche Gesundheitssektor steht unter wachsendem finanziellen Druck, wobei jährlich rund 500 Milliarden Euro ausgegeben werden – ein Drittel davon für Krankenhäuser, gefolgt von Arzneimitteln und ärztlichen Leistungen. Gesundheitsministerin Nina Warken hat die geplante Krankenhausreform angepasst, den Umsetzungszeitraum bis 2030 verlängert, kleinere Kliniken bei Qualitäts‑ und Personalvorgaben entlastet und ein Sparpaket von 1,8 Milliarden Euro für Klinikbudgets sowie 100 Millionen Euro für Verwaltungskosten und den Innovationsfonds vorgesehen, ohne die Krankenkassenbeiträge 2026 zu erhöhen.",
+            "images": [
+              "https://images.tagesschau.de/image/31437e86-b677-437d-b9ff-45a98d564c32/AAABmdz12rU/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Reformen im Wartezimmer"
+          },
+          {
+            "content": "Ein von der Staatsanwaltschaft Mannheim beauftragter Psychiater, Prof. Harald Dreßing vom Zentralinstitut für seelische Gesundheit, diagnostizierte bei dem Amokfahrer Alexander S. eine schwere psychische Störung, die entweder einer Schizophrenie oder einer Borderline‑Persönlichkeitsstörung entspricht, erklärte ihn jedoch nicht für schuldunfähig. In seiner Akte finden sich wiederholte fachärztliche Behandlungen, teils widersprüchliche Diagnosen und eine unregelmäßige Einnahme verschriebener Psychopharmaka. Die Ermittler sehen in seiner komplexen psychosozialen Vorgeschichte, einschließlich mehrfacher Klinikaufenthalte und Stimmungsschwankungen, einen zentralen Ansatzpunkt für das Verständnis der Tat.",
+            "images": [
+              "https://images.tagesschau.de/image/426923e9-c68f-4c13-87ee-ff5373788a5c/AAABmc5vevc/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Getrieben von der Psyche?"
+          },
+          {
+            "content": "Laut einer umfassenden Schülerbefragung 2024 sehen sich 12 % der 8‑ bis 17‑jährigen in Deutschland selbst als psychisch auffällig, weitere 9 % im Grenzbereich, und Kinder‑ und Jugendtherapeut Julian Schmitz schätzt, dass etwa jedes zehnte Kind an einer Angststörung leidet. Während entwicklungsbedingte Ängste, etwa Trennungs‑ oder Dunkelheitsangst, als normal gelten, sind anhaltende, stark ausgeprägte Ängste, sozialer Rückzug sowie somatische Beschwerden wie Kopf‑ oder Bauchschmerzen Warnzeichen für eine pathologische Belastung, wobei ein therapeutischer Fachkontakt empfohlen wird; jedoch können insbesondere in ländlichen Regionen Wartezeiten von bis zu sechs Monaten auftreten, wobei seit 2024 die systemische Therapie zusätzlich als Kassenleistung für Kinder verfügbar ist.",
+            "images": [
+              "https://images.tagesschau.de/image/ef873ac7-e947-44dd-beb3-4c937fe6216b/AAABmcQcgrw/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Wie viel Angst ist bei Kindern \"normal\"?"
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

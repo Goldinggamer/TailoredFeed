@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251023_134006",
+  "date": "2025-10-23 13:40:06",
+  "user_info": {
+    "complexity_level": "einfach",
+    "language": "Français"
+  },
+  "categories": [
+    "gesundheit"
+  ],
+  "format": "kurz",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Gesundheit und Medizin",
+        "articles": [
+          {
+            "content": "Le gouvernement allemand a approuvé un plan d’économies de 2 milliards d’euros pour empêcher une hausse des cotisations d’assurance maladie l’an prochain. Le plan réduit surtout les dépenses des hôpitaux et les frais de gestion des caisses, mais il suscite des critiques de l’opposition et des représentants des patients.",
+            "images": [
+              "https://images.tagesschau.de/image/e96392e2-ce50-444a-9d25-46f7a6ac9078/AAABmegikG8/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Le gouvernement approuve le paquet d'économies pour des contributions stables aux caisses de sécurité sociale."
+          },
+          {
+            "content": "Des chercheurs ont découvert que les bébés nés trop tôt qui écoutent régulièrement la voix de leur mère développent mieux les parties du cerveau liées à la parole. La même étude montre que la musicothérapie aide le cerveau des prématurés et diminue le stress des bébés et des parents. Combiner la voix de la mère et la musique pourrait être encore plus bénéfique.",
+            "images": [
+              "https://images.tagesschau.de/image/a8e9fa8f-8989-4a37-99ba-02e770791a53/AAABmgIiJO0/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "La voix de la mère favorise le développement du langage."
+          },
+          {
+            "content": "La réforme des hôpitaux pourrait obliger la fermeture du centre de la douleur à Mayence, qui aide chaque année des milliers de patients souffrant de douleurs chroniques. Sans ce centre, de nombreux patients risquent d’attendre longtemps pour obtenir un traitement. Les médecins demandent au gouvernement de modifier la loi pour protéger ces services.",
+            "images": [
+              "https://images.tagesschau.de/image/fd1b1acd-9a43-44af-b60c-825bdc21bcd3/AAABmguTOIE/AAABmgWmTCU/16x9-1920.jpg"
+            ],
+            "title": "Des pénuries de fournitures pour les personnes souffrant de douleurs sont menaçantes."
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "timestamp": "20251021_150419",
+  "date": "2025-10-21 15:04:19",
+  "user_info": {
+    "complexity_level": "detailliert",
+    "language": "English"
+  },
+  "categories": [
+    "technologie"
+  ],
+  "format": "ausfuehrlich",
+  "custom_search_term": "",
+  "generated_news": {
+    "data": [
+      {
+        "category": "Technologie und Innovation",
+        "articles": [
+          {
+            "content": "The 2025 Nobel laureates in Economic Sciences highlighted that technological innovations account for roughly two‑thirds to three‑quarters of economic growth, underscoring the sector’s pivotal role in sustainable development. Historian Joel Mokyr demonstrated that mere knowledge of a functional invention is insufficient; a scientific explanation of underlying principles, as achieved during the late‑18th‑century steam‑engine revolution, is essential for a self‑sustaining innovation process. Mokyr also emphasized that societies must remain open to new ideas, noting that medieval power structures often inhibited such openness. Economists Philippe Aghion and Peter Howitt expanded the analysis with a “creative destruction” framework, originally coined by Joseph Schumpeter, whereby obsolete business models are dismantled to reallocate capital and labor toward emerging technologies. In the current era of artificial intelligence, this disruptive dynamic is particularly pronounced, prompting calls to preserve the mechanisms that drive creative destruction. John Hassler, chair of the awarding committee, warned that without these mechanisms economies risk reverting to stagnation, while Sascha Steffen linked continuous corporate innovation and the willingness to discard outdated technologies to Europe’s growth agenda. The findings were reported by tagesschau24 on 13 October 2025 at 17:00.",
+            "images": [
+              "https://images.tagesschau.de/image/9feeec36-035c-454c-b2b4-c2e6dc57b838/AAABmeGm0r0/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "How innovations contribute to sustainable growth."
+          },
+          {
+            "content": "The Frankfurt Book Fair 2025 was officially opened on Tuesday evening with performances by Rosie Sula, the Philippines Madrigal Singers, and DJ Timothy Roth. In his opening address, cultural minister Wolfram Weimer warned that American and Chinese technology giants are training artificial‑intelligence systems on billions of literary works without obtaining authors’ consent or remuneration, describing the practice as “digital colonialism.” He called for the activation of taxation, antitrust regulation, and strengthened copyright protection to counter the “raiding” of cultural content by these firms. Messe director Jürgen Boos emphasized the fair’s role in connecting global participants, a function he deemed especially vital amid current democratic challenges. Frankfurt’s mayor Mike Josef highlighted the city’s vision of an open, democratic metropolis that relies on public venues like the book fair to sustain civic discourse. The organizers anticipate more than 200,000 visitors, including over 1,000 authors and 4,000 publishers, throughout the six‑day event.",
+            "images": [
+              "https://images.tagesschau.de/image/f333c4fd-a706-4ce0-9aa5-1f42a70635ec/AAABmedvHPc/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "The Frankfurt Book Fair 2025 opens."
+          },
+          {
+            "content": "Broadcom's shares surged nearly ten percent after the chipmaker announced a collaboration with OpenAI. The partnership aims to design and produce OpenAI's first proprietary processor dedicated to artificial‑intelligence workloads. By developing its own hardware, OpenAI intends to reduce reliance on Nvidia's high‑performance GPUs, which are currently expensive and limited in supply. Broadcom's stock has multiplied almost sevenfold since the end of 2022, reflecting strong market confidence in its semiconductor business. The deal was disclosed alongside broader market gains, with the Nasdaq 100 rising 2.2 percent and the \"Magnificent 7\" technology stocks posting gains of up to three percent. Analysts noted that the collaboration could accelerate AI hardware innovation and diversify the supply chain for large‑scale language models.",
+            "images": [
+              "https://images.tagesschau.de/image/f979673d-874d-454b-94ce-940fbb9e87f3/AAABktyclqU/AAABmKJiLwU/16x9-1920.jpg"
+            ],
+            "title": "Recovery on Wall Street."
+          }
+        ],
+        "current_index": 0
+      }
+    ]
+  }
+}
