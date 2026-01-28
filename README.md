@@ -1,6 +1,6 @@
 # TailoredFeed
 
-Eine personalisierte Nachrichten-App, die Ollama LLMs verwendet, um News basierend auf Benutzerpräferenzen zu kuratieren und zusammenzufassen.
+Eine personalisierte Nachrichten-App, die LLMs verwendet, um News basierend auf Benutzerpräferenzen zu kuratieren und zusammenzufassen.
 
 ## Voraussetzungen
 
